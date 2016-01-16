@@ -1,5 +1,5 @@
 'use strict';
-var port = process.env.PORT || 5000;
+
 module.exports = {
   secure: {
     ssl: true,
@@ -10,10 +10,10 @@ module.exports = {
   // Binding to 127.0.0.1 is safer in production.
   host: process.env.HOST || '0.0.0.0',
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://pyrance:flight1855@ds047325.mongolab.com:47325/test09021991/mean',
     options: {
-      user: '',
-      pass: ''
+      user: 'pyrance',
+      pass: 'flight1855'
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
