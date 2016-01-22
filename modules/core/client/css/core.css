@@ -1,6 +1,9 @@
 .content {
   margin-top: 50px;
 }
+.navbar {  
+  background-color: #E8E8E8 !important;
+}
 .undecorated-link:hover {
   text-decoration: none;
 }
@@ -44,7 +47,6 @@ a:hover .header-profile-image {
   padding: 5px !important;
 }
 .navbar-inverse {
-  background-color: #E8E8E8 !important;
 }
 
 /* Parallax base styles
