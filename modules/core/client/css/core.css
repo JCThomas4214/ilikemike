@@ -3,7 +3,7 @@
 }
 .navbar {  
   background-color: #E8E8E8 !important;
-  background-image: linear-gradient(to bottom, #E8E8E8 0%, #E8E8E8 100%)
+  background-image: linear-gradient(to bottom, #E8E8E8 0%, #E8E8E8 100%);
   border-color: #E8E8E8;
   border: 0px solid;
 }
