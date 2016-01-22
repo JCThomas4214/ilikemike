@@ -3,6 +3,7 @@
 }
 .navbar {  
   background-color: #E8E8E8 !important;
+  background-image: linear-gradient(to bottom, #E8E8E8 0%, #E8E8E8 100%)
 }
 .undecorated-link:hover {
   text-decoration: none;
@@ -45,8 +46,6 @@ a:hover .header-profile-image {
 .site-logo {
   width: 50px !important;
   padding: 5px !important;
-}
-.navbar-inverse {
 }
 
 /* Parallax base styles
