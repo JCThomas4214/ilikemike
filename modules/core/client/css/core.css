@@ -39,7 +39,13 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
-
+.site-logo {
+  width: 50px !important;
+  padding: 5px !important;
+}
+.navbar-inverse {
+  background-color: #E8E8E8 !important;
+}
 
 /* Parallax base styles
   --------------------------------------------- */
