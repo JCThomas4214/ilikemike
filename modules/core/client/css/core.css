@@ -50,6 +50,10 @@
 .navbar-inverse .navbar-toggle:focus {
   background-color: #fff;
 }
+.navbar-inverse .navbar-collapse, 
+.navbar-inverse .navbar-form {
+  border: 0px solid; 
+}
 
 
 /*Deault without Changes*/
