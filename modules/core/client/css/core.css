@@ -97,7 +97,7 @@ a:hover .header-profile-image {
     position: absolute;
     left: 0px;
     height: 500px; /* fallback for older browsers */
-    height: 100vh;
+    height: 93vh;
     width: 100% !important;
     overflow-x: hidden;
     overflow-y: auto;
