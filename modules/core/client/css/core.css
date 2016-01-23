@@ -8,6 +8,22 @@
   margin-right: 0px !important;
   margin-left: 0px !important;*/
 }
+.undecorated-link:hover {
+  text-decoration: none;
+}
+.logo .repub {
+  width: 50px;
+  height: 50px;
+}
+.site-logo {
+  width: 50px;
+  padding: 5px;
+  margin-left: 15px;
+  margin-top: 2px;
+}
+
+/*Navigation Bootstrap Bar Changes*/
+
 .navbar {  
   background-color: #E8E8E8 !important;
   background-image: linear-gradient(to bottom, #E8E8E8 0%, #E8E8E8 100%);
@@ -24,17 +40,17 @@
   margin-right: 20px !important;
   margin-left: 20px !important;
 }*/
-.undecorated-link:hover {
-  text-decoration: none;
+.navbar-inverse .navbar-toggle {
+  border: 0px solid !important;
 }
-.logo .repub {
-  width: 50px;
-  height: 50px;
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #2001CA;
 }
-.site-logo {
-  width: 50px !important;
-  padding: 5px !important;
+.navbar-inverse .navbar-toggle:hover, 
+.navbar-inverse .navbar-toggle:focus {
+  background-color: #fff;
 }
+
 
 /*Deault without Changes*/
 
