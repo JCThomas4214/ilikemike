@@ -1,6 +1,8 @@
 /*Site changes*/
 .content {
-  margin-top: 50px;
+  position: relative;
+  /*margin-top: 50px;*/
+  background-color: #E8E8E8;
 }
 .container {
   /*padding-right: 0px !important;
@@ -24,15 +26,16 @@
 
 /*Navigation Bootstrap Bar Changes*/
 
-.navbar {  
+.navbar { 
+  top: 400px;
   background-color: #E8E8E8 !important;
   background-image: linear-gradient(to bottom, #E8E8E8 0%, #E8E8E8 100%);
   border-color: #E8E8E8;
   border: 0px solid;
 
-  -moz-box-shadow: 0 0 15px #888;
+  /*-moz-box-shadow: 0 0 15px #888;
   -webkit-box-shadow: 0 0 15px#888;
-  box-shadow: 0 0 15px #888;
+  box-shadow: 0 0 15px #888;*/
 }
 /*.navbar-header {
    padding-right: 20px !important;
@@ -55,6 +58,26 @@
   border: 0px solid; 
 }
 
+/*Heading and Text CSS*/
+.section {
+  /*margin-left: 150px;
+  margin-right: 150px;*/
+}
+
+.section .heading1 {
+  position: relative;
+  top:25px;
+  padding: 10px;
+  margin: 10px;
+  font: 150% / 1.5 Times New Roman;
+}
+.section .text1 {
+  position: relative;
+  top:25px;
+  padding: 5px;
+  margin: 10px;
+  font: 80% / 1.5 Arial;
+}
 
 /*Deault without Changes*/
 
@@ -94,13 +117,14 @@ a:hover .header-profile-image {
   --------------------------------------------- */
 
   .parallax {
-    position: absolute;
-    left: 0px;
+    /*position: absolute;
+    width: 100% !important;
+    left: 0px;*/
     height: 500px; /* fallback for older browsers */
     height: 100vh;
-    width: 100% !important;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: scroll;
+    /*overflow-x: hidden;
+    overflow-y: auto;*/
     -webkit-perspective: 300px;
     perspective: 300px;
   }
@@ -109,15 +133,6 @@ a:hover .header-profile-image {
     position: relative;
     height: 500px; /* fallback for older browsers */
     height: 100vh;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-  }
-
-  .parallax__group2 {
-    position: relative;
-    height: 250px; /* fallback for older browsers */
-    height: 50vh;
-    width: 100% !important;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
@@ -162,7 +177,7 @@ a:hover .header-profile-image {
   }
 
   body {
-    font: 100% / 1.5 Arial;
+    /*font: 100% / 1.5 Arial;*/
   }
 
   * {

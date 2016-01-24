@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-  <base href="/">
+  <base
+   href="/">
   <title>{{title}}</title>
   <meta name="description" content="{{description}}">
   <meta name="fragment" content="!">
@@ -36,13 +37,13 @@
 </head>
 
 <body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-  <section class="content">
-    <section class="container">
+  <!-- <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header> -->
+  <!-- <section class="content">
+    <section class="container"> -->
       {% block content %}{% endblock %}
-    </section>
+    <!-- </section>
   </section>
-
+ -->
   <!--Embedding The User Object-->
   <script type="text/javascript">
     var user = {{ user | json | safe }};

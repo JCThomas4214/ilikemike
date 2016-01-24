@@ -20,6 +20,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
       $scope.isCollapsed = false;
     });
 
-    $scope.republicanLogo = 'modules/core/client/img/brand/Republicanlogo.svg';
+    $scope.republicanLogo = 'modules/core/client/img/brand/Republicanlogo.svg';    
+    $scope.siteHeader = "I Like Mike";
   }
 ]);
