@@ -1,6 +1,6 @@
 /*Site changes*/
+
 .content {
-  position: relative;
   /*margin-top: 50px;*/
   background-color: #E8E8E8;
 }
@@ -26,8 +26,7 @@
 
 /*Navigation Bootstrap Bar Changes*/
 
-.navbar { 
-  top: 400px;
+.navbar {
   background-color: #E8E8E8 !important;
   background-image: linear-gradient(to bottom, #E8E8E8 0%, #E8E8E8 100%);
   border-color: #E8E8E8;
@@ -122,9 +121,8 @@ a:hover .header-profile-image {
     left: 0px;*/
     height: 500px; /* fallback for older browsers */
     height: 100vh;
-    overflow: scroll;
-    /*overflow-x: hidden;
-    overflow-y: auto;*/
+    overflow-x: hidden;
+    overflow-y: auto;
     -webkit-perspective: 300px;
     perspective: 300px;
   }
