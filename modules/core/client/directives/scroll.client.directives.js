@@ -1,27 +1,18 @@
 'use strict';
 
-angular.module('core').directive('myScroller', ['$window', function ($window) {
-  console.log('Scroll directive initialized. ');
-  // return {
-  //   restrict: 'A',
-  //   link: function(scope,element,attrs) {
-  //     angular.element($window).bind('scroll', function () {
-
-  //       scope.$apply(attrs.myScroller);
-        
-  //       console.log('this is happening');
-  //     });
-  //   }
-  // };
-
-  return function(scope, element, attributes) {
-    angular.element($window).bind("scroll", function() {
+angular.module('core').directive('scroll', function($window) {
+  return function(scope, element, attrs) {
+    console.log('outside');
+    angular.element($window).bind('scroll', function() {
+      console.log('inside');
       if (this.pageYOffset >= 100) {
+        scope.boolChangeClass = true;
         console.log('Scrolled below header.');
       } else {
+        scope.boolChangeClass = false;
         console.log('Header is in view.');
       }
       scope.$apply();
     });
   };
-}]);
+});

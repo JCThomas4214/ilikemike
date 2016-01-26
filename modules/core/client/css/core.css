@@ -32,9 +32,9 @@
   border-color: #E8E8E8;
   border: 0px solid;
 
-  /*-moz-box-shadow: 0 0 15px #888;
+  -moz-box-shadow: 0 0 15px #888;
   -webkit-box-shadow: 0 0 15px#888;
-  box-shadow: 0 0 15px #888;*/
+  box-shadow: 0 0 15px #888;
 }
 /*.navbar-header {
    padding-right: 20px !important;
@@ -56,6 +56,19 @@
 .navbar-inverse .navbar-form {
   border: 0px solid; 
 }
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+  color: #FFF !important;
+  box-shadow: inset 0 0 3px 1px #808080;  
+  background-color: #DB0000;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0);;
+}
+.navbar-brand, .navbar-nav > li > a {
+  color: #DB0000 !important;
+}
+
 
 /*Heading and Text CSS*/
 .section {
@@ -184,7 +197,7 @@ a:hover .header-profile-image {
   }
 
   .parallax {
-    font-size: 200%;
+
   }
 
    /* centre the content in the parallax layers */
@@ -276,17 +289,4 @@ a:hover .header-profile-image {
     -moz-box-shadow: 0 0 10px #888;
     -webkit-box-shadow: 0 0 10px#888;
     box-shadow: 0 0 10px #888;
-  }
-
-
-  /* misc
-  --------------------------------------------- */
-  .demo__info {
-    position: absolute;
-    z-index:100;
-    bottom: 1vh;
-    top: auto;
-    font-size:80%;
-    text-align:center;
-    width: 100%;
   }
