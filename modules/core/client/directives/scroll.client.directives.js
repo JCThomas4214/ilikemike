@@ -2,19 +2,22 @@
 
 'use strict';
 
-angular.module('core').directive('scroll', function($window) {
-  return function(scope, element, attrs) {
-    console.log('outside');
-    angular.element($window).bind('scroll', function() {
-      console.log('inside');
-      if (this.pageYOffset >= 100) {
-        scope.boolChangeClass = true;
-        console.log('Scrolled below header.');
-      } else {
-        scope.boolChangeClass = false;
-        console.log('Header is in view.');
-      }
-      scope.$apply();
-    });
+angular.module('core').directive('scrolly', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      var raw = element[0];
+      console.log('loading element');
+
+      element.bind('scroll', function() {
+        console.log('in scoll');
+        console.log(raw.scrollTop + raw.offsetHeight);
+        console.log(raw.scrollHeight);
+
+        if (raw.scrollTop + raw.offsetHeight > raw.scrollHeight) {
+          scope.$apply(attrs.scrolly);
+        }
+      });
+    }
   };
 });
