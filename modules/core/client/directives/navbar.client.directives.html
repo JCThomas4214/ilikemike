@@ -24,19 +24,19 @@
       </li>
     </ul> -->
     <ul class="nav navbar-nav navbar-right">
-      <li>
+      <li ng-class="{min:boolFirstGroup}">
         <!-- <a ui-sref="authentication.signup">Sign Up</a> -->
-        <a href="#" ng-click="gotoElement('goals')">The Goals</a>
+        <a id="goalsTb" href="#" ng-click="gotoElement('goals')" class>The Goals</a>
       </li>
       <li class="divider-vertical"></li>
-      <li>
+      <li ng-class="{min:boolSecondGroup}">
         <!-- <a ui-sref="authentication.signin">Sign In</a> -->
-        <a href="#" ng-click="gotoElement('methods')">The Methods</a>
+        <a id="methodsTb" href="#" ng-click="gotoElement('methods')">The Methods</a>
       </li>
       <li class="divider-vertical"></li>
-      <li>
+      <li ng-class="{min:boolThirdGroup}">
         <!-- <a ui-sref="authentication.signin">Sign In</a> -->
-        <a href="#" ng-click="gotoElement('about')">About Mike</a>
+        <a id="aboutTb" href="#" ng-click="gotoElement('about')">About Mike</a>
       </li>
     </ul>
     <!-- <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
