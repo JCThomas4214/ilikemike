@@ -30,20 +30,14 @@
   background-color: #E8E8E8 !important;
   background-image: linear-gradient(to bottom, #E8E8E8 0%, #E8E8E8 100%);
   border-color: #E8E8E8;
-  border: 0px solid;
+  border: 0px solid !important;
 
   -moz-box-shadow: 0 0 15px #888;
   -webkit-box-shadow: 0 0 15px#888;
   box-shadow: 0 0 15px #888;
 }
-/*.navbar-header {
-   padding-right: 20px !important;
-  padding-left: 20px !important;
-  margin-right: 20px !important;
-  margin-left: 20px !important;
-}*/
 .navbar-inverse .navbar-toggle {
-  border: 0px solid !important;
+  border: 0px solid; 
 }
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #2001CA;
@@ -58,15 +52,24 @@
 }
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-  color: #FFF !important;
-  box-shadow: inset 0 0 3px 1px #808080;  
-  background-color: #DB0000;
+  color: #DB0000 !important;
+  background-color: #E8E8E8;  
+  border-color: #DB0000 !important;
 }
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
   text-shadow: 0 0 0 rgba(0, 0, 0, 0);;
 }
 .navbar-brand, .navbar-nav > li > a {
-  color: #DB0000 !important;
+  font-size: 17px !important;
+  color: #E85353 !important;
+  border-bottom: 3px solid !important;
+  border-color: #E8E8E8 !important;
+}
+.navbar-brand, .navbar-nav > li > a [class=navbar-brand] {  
+  color: #E85353 !important;
+  border-bottom: 0px solid !important;
+  font-size: 19px !important;
+  font-weight: bold !important;
 }
 
 
@@ -228,17 +231,17 @@ a:hover .header-profile-image {
   }
 
   #group2 .parallax__layer--back {
-    background-position: center; 
+    background-position: center center; 
     background-repeat: no-repeat;
     background-size: cover;
     /*background: #DB0000;*/
     left: -10px;
   }
 
-  #group3 {
+  #goals {
     z-index: 4; /* slide over group 2 and 4 */
   }
-  #group3 .parallax__layer--base {
+  #goals .parallax__layer--base {
     background: #E6E6E6;
     -moz-box-shadow: 0 0 10px #888;
     -webkit-box-shadow: 0 0 10px#888;
@@ -249,22 +252,22 @@ a:hover .header-profile-image {
     z-index: 2; /* slide under group 3 and 5 */
     max-height: 70% !important;
   }
-  #group4 .parallax__layer--back {        
+  #group4 .parallax__layer--back {      
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /*height: 150%;
-    top: -175px;*/
+    height: 125%;
+    top: -50px;
     left: -10px;
   }
   /*#group4 .parallax__layer--deep {
     background: rgb(184,223,101);
   }*/
 
-  #group5 {
+  #methods {
     z-index: 3; /* slide over group 4 and 6 */
   }
-  #group5 .parallax__layer--base {
+  #methods .parallax__layer--base {
     background: #E6E6E6;
     -moz-box-shadow: 0 0 10px #888;
     -webkit-box-shadow: 0 0 10px#888;
@@ -279,15 +282,15 @@ a:hover .header-profile-image {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /*height: 150%;
-    top: -175px;*/
+    height: 125%;
+    top: 0px;
     left: -10px;
   }
 
-  #group7 {
+  #about {
     z-index: 3; /* slide over group 7 */
   }
-  #group7 .parallax__layer--base {
+  #about .parallax__layer--base {
     background: #E6E6E6;
     -moz-box-shadow: 0 0 10px #888;
     -webkit-box-shadow: 0 0 10px#888;
