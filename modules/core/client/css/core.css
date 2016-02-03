@@ -244,10 +244,10 @@ a:hover .header-profile-image {
     left: -10px;
   }
 
-  #goals {
+  #mission {
     z-index: 4; /* slide over group 2 and 4 */
   }
-  #goals .parallax__layer--base {
+  #mission .parallax__layer--base {
     background: #E6E6E6;
     -moz-box-shadow: 0 0 10px #888;
     -webkit-box-shadow: 0 0 10px#888;

@@ -7,33 +7,31 @@ angular.module('core').directive('scrolly', function() {
     restrict: 'A',
     link: function(scope, element, attrs) {
       var raw = element[0];
+      var picHeight = element[0].childNodes[3].clientHeight - 1;
+      var secHeight = element[0].childNodes[5].clientHeight - 1;
+      var groupTwoHeight = (2 * picHeight) + secHeight - 1;
+      var groupThreeHeight = groupTwoHeight + picHeight + secHeight - 1;
+
       var offset;
       var myEl;
-      console.log('loading element');
 
       element.bind('scroll', function() {
-        console.log(raw.scrollTop + raw.offsetHeight);
-        console.log(raw.scrollHeight);
+        offset = raw.scrollTop;
 
-        offset = raw.scrollTop + raw.offsetHeight;
-
-        if(offset >= 1148 && offset < 2295) {
-          angular.element( document.querySelector( '#goalsTb' ) ).addClass('active');
-          console.log('inside goals');
+        if(offset >= picHeight && offset < groupTwoHeight) {
+          angular.element( document.querySelector( '#missionTb' ) ).addClass('active');
         } else {
-          angular.element( document.querySelector( '#goalsTb' ) ).removeClass('active');
+          angular.element( document.querySelector( '#missionTb' ) ).removeClass('active');
         }
 
-        if (offset >= 2295 && offset < 3440) {
+        if (offset >= groupTwoHeight && offset < groupThreeHeight) {
           angular.element( document.querySelector( '#methodsTb' ) ).addClass('active');
-          console.log('inside mothods');
         } else {
           angular.element( document.querySelector( '#methodsTb' ) ).removeClass('active');
         }
 
-        if (offset >= 3440) {
+        if (offset >= groupThreeHeight) {
           angular.element( document.querySelector( '#aboutTb' ) ).addClass('active');
-          console.log('inside about');
         } else {
           angular.element( document.querySelector( '#aboutTb' ) ).removeClass('active');
         }
