@@ -130,8 +130,8 @@ a:hover .header-profile-image {
 
   .parallax__group_foot {
     position: relative;
-    top:135%;
-    height: 500px; /* fallback for older browsers */
+    top:140vh;
+    height: 80vh; /* fallback for older browsers */
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
@@ -208,7 +208,7 @@ a:hover .header-profile-image {
   }
 
   #background1 .parallax__layer--deep {
-    height: 160% !important;
+    height: 165vh !important;
     background-position: center center; 
     background-repeat: repeat;
     background-size: cover;
@@ -361,6 +361,7 @@ a:hover .header-profile-image {
 }
 
 .construction {
+  margin-top: 50px;
   text-align: center;
   background-position: center center;
   background-repeat: no-repeat;
@@ -368,5 +369,5 @@ a:hover .header-profile-image {
 }
 
 #construction {
-  width: 80%;
+  width: 70%;
 }
