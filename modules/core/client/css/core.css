@@ -208,7 +208,7 @@ a:hover .header-profile-image {
   }
 
   #background1 .parallax__layer--deep {
-    height: 150% !important;
+    height: 160% !important;
     background-position: center center; 
     background-repeat: repeat;
     background-size: cover;
@@ -292,8 +292,8 @@ a:hover .header-profile-image {
 
 .content_section {
   background-color: transparent;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 65px;
+  padding-right: 65px;
   padding-top: 25px;
   padding-bottom: 25px;
 }
@@ -330,13 +330,13 @@ a:hover .header-profile-image {
   background-color: #E6E6E6;
 }
 .content h2 {
-  font: 400 40px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+  font: 400 5vw/1.3 'Berkshire Swash', Helvetica, sans-serif;
 }
 .content p {
-  font: 400 20px/1.3 'Lora', Helvetica, serif;
+  font: 400 2vw/1.3 'Lora', Helvetica, serif;
 }
 .content h3 {
-  font: 400 40px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+  font: 400 4vw/1.3 'Berkshire Swash', Helvetica, sans-serif;
 }
 
 .headshot {
@@ -357,7 +357,7 @@ a:hover .header-profile-image {
 }
 
 .mission_section .heading {
-  font: 400 60px/0.8 'Great Vibes', Helvetica, sans-serif;
+  font: 400 7vw/0.8 'Great Vibes', Helvetica, sans-serif;
 }
 
 .construction {
