@@ -5,14 +5,10 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
-    $scope.section1_title = 'Title';
-    $scope.section1 = 'This is section one of the website!';
+    $scope.mike_photo = 'modules/core/client/img/photos/mike_headshot.jpg';
 
-    $scope.backgroundOne = '/modules/core/client/img/backgrounds/florida-state-capital.jpg';
-
-    $scope.showMore = function() {
-      console.log('show more triggered');  
-    };
-
+    $scope.mission_title = 'Mike Thomas for Florida Senate District 17';
+    $scope.mission_head = 'Are You In The District?';
+    $scope.mission_text = 'Newly redistricted District 17 lies Between state road 520 and the bottom of Indian River County.';
   }
 ]);

@@ -1,3 +1,34 @@
 <div class="container" ng-controller="HeaderController">
-  <navigation-bar></navigation-bar>
+	<div id="navhead" class="container" ng-controller="ScrollCtrl" style="display:block;"> 
+  <!--Not sure what navbar-toggle is-->
+  <div class="navbar-header" >
+    <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a ui-sref="home" class="navbar-brand">{{siteHeader}}</a>
+    <!-- <img ui-sref="home" class="site-logo" ng-src="{{ republicanLogo }}"></img> -->
+  </div>
+
+  <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
+    <ul class="nav navbar-nav navbar-right">
+      <li ng-class="{min:boolFirstGroup}">
+        <!-- <a ui-sref="authentication.signup">Sign Up</a> -->
+        <!-- <a id="missionTb" href="#" ng-click="gotoElement('mission')" class>The Mission</a> -->
+      </li>
+      <li class="divider-vertical"></li>
+      <li ng-class="{min:boolSecondGroup}">
+        <!-- <a ui-sref="authentication.signin">Sign In</a> -->
+        <!-- <a id="methodsTb" href="#" ng-click="gotoElement('methods')">The Methods</a> -->
+      </li>
+      <li class="divider-vertical"></li>
+      <li ng-class="{min:boolThirdGroup}">
+        <!-- <a ui-sref="authentication.signin">Sign In</a> -->
+        <!-- <a id="aboutTb" href="#" ng-click="gotoElement('about')">About Mike</a> -->
+      </li>
+    </ul>
+  </nav>
+</div>
 </div>

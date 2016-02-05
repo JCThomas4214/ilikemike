@@ -1,5 +1,100 @@
-<section ng-controller="HomeController">
-	<css-parallax></css-parallax>
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+<section id="main" ng-controller="HomeController">	
+  <header id="mainNav" ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+	<div class="parallax" scrolly="showMore()">
+    
+    <div id="background1" class="parallax__group">      
+      	<div class="parallax__layer parallax__layer--base">
+         
+        <div class="header_spacing"></div>
+
+          <div class="content_title_section">
+            <div class="mission_section">
+              <h1 class="heading">{{mission_title}}</h1>           
+            </div>
+          </div>
+
+          <div class="content_section">
+            <div class="mission_content">
+              <span class="content">
+                <img class="headshot" ng-src="{{ mike_photo }}"></img>   
+                <h2>Are you in the <a href="http://www.floridaredistricting.org/documents/2015C/S040S9124_Statewide.pdf">District</a>?</h2>       
+                <p>{{mission_text}}</p>
+                <h3><a href="">Donate</a> to the Mike Thomas Campaign!</h3>
+              </span>                         
+            </div>
+            <div class="donation_container">
+            
+            </div>
+          </div>          
+
+          <div class="content_divider"></div>
+
+          <div class="construction">
+            <img id="construction" src="/modules/core/client/img/backgrounds/under_construction.png"></img>            
+          </div>
+
+          <!-- <div class="content_section">
+            <div class="construction" style="background-image: url('/modules/core/client/img/backgrounds/under-construction.jpg');"></div>
+          </div> -->
+
+        </div>
+
+        <div class="parallax__layer parallax__layer--back"></div>
+
+      	<div class="parallax__layer parallax__layer--deep" style="background-image: url('/modules/core/client/img/backgrounds/american-flag.jpg');"></div>
+    </div>   
+
+    <div id="mission" class="parallax__group_foot">
+      <div class="foot parallax__layer--base">
+
+        
+
+      </div>
+    </div>
+    
+    <!-- <div id="background2" class="parallax__group">
+      <div class="parallax__layer parallax__layer--base"></div>
+      <div class="parallax__layer parallax__layer--back" style="background-image: url('/modules/core/client/img/backgrounds/florida-state-senate.jpg');"></div>
+    </div>
+
+    <div id="methods" class="parallax__group">
+      <div class="parallax__layer parallax__layer--fore">
+      </div>
+      <div class="parallax__layer parallax__layer--base">
+        
+        <div class="content_section_off">
+          <div class="methods_section">
+            <h1 class="heading_off">{{methods_title}}</h1>
+            <p class="content_off">{{methods_text}}</p>            
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="background3" class="parallax__group">
+      <div class="parallax__layer parallax__layer--base"></div>
+      <div class="parallax__layer parallax__layer--back" style="background-image: url('/modules/core/client/img/backgrounds/Florida.jpg');"></div>
+    </div>
+
+    <div id="about" class="parallax__group">
+      <div class="parallax__layer parallax__layer--base">
+        
+        <div class="content_section">
+          <div class="about_section">
+            <h1 class="heading">{{about_title}}</h1>
+            <p class="content">{{about_text}}</p>            
+          </div>
+        </div>
+
+      </div>
+    </div> -->
+  </div> 
 </section>
 
 

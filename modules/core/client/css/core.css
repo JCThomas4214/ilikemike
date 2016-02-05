@@ -1,14 +1,9 @@
 /*Site changes*/
 
 .content {
-  margin-top: 50px;
-  background-color: #E8E8E8;
+  background-color: #F9F9F9;
 }
 .container {
-  /*padding-right: 0px !important;
-  padding-left: 0px !important;
-  margin-right: 0px !important;
-  margin-left: 0px !important;*/
 }
 .undecorated-link:hover {
   text-decoration: none;
@@ -27,9 +22,9 @@
 /*Navigation Bootstrap Bar Changes*/
 
 .navbar {
-  background-color: #E8E8E8 !important;
-  background-image: linear-gradient(to bottom, #E8E8E8 0%, #E8E8E8 100%);
-  border-color: #E8E8E8;
+  background-color: #F9F9F9 !important;
+  background-image: linear-gradient(to bottom, #F9F9F9 0%, #F9F9F9 100%);
+  border-color: #F9F9F9;
   border: 0px solid !important;
 
   -moz-box-shadow: 0 0 15px #888;
@@ -40,7 +35,7 @@
   border: 0px solid; 
 }
 .navbar-inverse .navbar-toggle .icon-bar {
-  background-color: #2001CA;
+  background-color: #DB0000;
 }
 .navbar-inverse .navbar-toggle:hover, 
 .navbar-inverse .navbar-toggle:focus {
@@ -53,7 +48,7 @@
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
   color: #DB0000 !important;
-  background-color: #E8E8E8;  
+  background-color: #F9F9F9;  
   /*border-color: #DB0000 !important;*/
 }
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
@@ -63,7 +58,7 @@
   font-size: 17px !important;
   color: #E85353 !important;
   border-bottom: 3px solid !important;
-  border-color: #E8E8E8 !important;
+  border-color: #F9F9F9 !important;
 }
 .navbar-brand, .navbar-nav > li > a [class=navbar-brand] {  
   color: #E85353 !important;
@@ -74,30 +69,8 @@
 
 .navbar-brand, .navbar-nav > li > .active {
   color: #DB0000 !important;
-  background-color: #E8E8E8;  
+  background-color: #F9F9F9;  
   border-color: #DB0000 !important;
-}
-
-
-/*Heading and Text CSS*/
-.section {
-  /*margin-left: 150px;
-  margin-right: 150px;*/
-}
-
-.section .heading1 {
-  position: relative;
-  top:25px;
-  padding: 10px;
-  margin: 10px;
-  font: 150% / 1.5 Times New Roman;
-}
-.section .text1 {
-  position: relative;
-  top:25px;
-  padding: 5px;
-  margin: 10px;
-  font: 80% / 1.5 Arial;
 }
 
 /*Deault without Changes*/
@@ -138,9 +111,7 @@ a:hover .header-profile-image {
   --------------------------------------------- */
 
   .parallax {
-    /*position: absolute;
-    width: 100% !important;
-    left: 0px;*/
+    margin-top: 50px;
     height: 500px; /* fallback for older browsers */
     height: 100vh;
     overflow-x: hidden;
@@ -157,7 +128,23 @@ a:hover .header-profile-image {
     transform-style: preserve-3d;
   }
 
+  .parallax__group_foot {
+    position: relative;
+    top:135%;
+    height: 500px; /* fallback for older browsers */
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
   .parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .foot {
     position: absolute;
     top: 0;
     left: 0;
@@ -205,42 +192,26 @@ a:hover .header-profile-image {
     padding:0;
   }
 
-   /* centre the content in the parallax layers */
-  .title {
-    text-align: center;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-
-  #backgroundOne {
-
-  }
-
 
 
   /* style the groups
   --------------------------------------------- */
 
-  #group1 {
-    z-index: 5; /* slide over group 2 */
-  }
-  #group1 .parallax__layer--base {
-    background: #E6E6E6;
-  }
-
-  #group2 {
+  #background1 {
     z-index: 3; /* slide under groups 1 and 3 */
-    max-height: 70% !important;
   }
-
-  #group2 .parallax__layer--base {  
-  }
-
-  #group2 .parallax__layer--back {
+  #background1 .parallax__layer--back {
     background-position: center center; 
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat: repeat;
     /*background: #DB0000;*/
+    left: -10px;
+  }
+
+  #background1 .parallax__layer--deep {
+    height: 150% !important;
+    background-position: center center; 
+    background-repeat: repeat;
+    background-size: cover;
     left: -10px;
   }
 
@@ -248,17 +219,17 @@ a:hover .header-profile-image {
     z-index: 4; /* slide over group 2 and 4 */
   }
   #mission .parallax__layer--base {
-    background: #E6E6E6;
+    background: #F9F9F9;
     -moz-box-shadow: 0 0 10px #888;
     -webkit-box-shadow: 0 0 10px#888;
     box-shadow: 0 0 10px #888;
   }
 
-  #group4 {
+  #background2 {
     z-index: 2; /* slide under group 3 and 5 */
     max-height: 70% !important;
   }
-  #group4 .parallax__layer--back {      
+  #background2 .parallax__layer--back {      
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -280,11 +251,11 @@ a:hover .header-profile-image {
     box-shadow: 0 0 10px #888;
   }
 
-  #group6 {
+  #background3 {
     z-index: 2; /* slide under group 5 and 7 */   
     max-height: 70% !important;
   }
-  #group6 .parallax__layer--back {       
+  #background3 .parallax__layer--back {       
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -302,3 +273,100 @@ a:hover .header-profile-image {
     -webkit-box-shadow: 0 0 10px#888;
     box-shadow: 0 0 10px #888;
   }
+
+  /*Heading and Text CSS*/
+.header_spacing {
+  height: 100px;
+}
+.content_divider {
+  height: 60px;
+}
+
+.content_title_section {
+  background-color: transparent;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.content_section {
+  background-color: transparent;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.mission_section, .methods_section, .about_section {
+  text-align: center;
+  border-radius: 5px;
+  background-color: #E6E6E6;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  -moz-box-shadow: 0 0 20px #888;
+  -webkit-box-shadow: 0 0 20px#888;
+  box-shadow: 0 0 20px #888;
+}
+
+.mission_content {
+  overflow: auto;
+  border-radius: 5px;
+  background-color: #E6E6E6;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  -moz-box-shadow: 0 0 20px #888;
+  -webkit-box-shadow: 0 0 20px#888;
+  box-shadow: 0 0 20px #888;
+}
+
+.content {  
+  background-color: #E6E6E6;
+}
+.content h2 {
+  font: 400 40px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+}
+.content p {
+  font: 400 20px/1.3 'Lora', Helvetica, serif;
+}
+.content h3 {
+  font: 400 40px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+}
+
+.headshot {
+  float: left;
+  margin-right: 25px;
+  border-radius: 5px;
+  width: 25% !important;
+
+  -moz-box-shadow: 0 0 10px #888;
+  -webkit-box-shadow: 0 0 10px#888;
+  box-shadow: 0 0 10px #888;
+}
+
+.navbar-brand {
+  font: 400 40px/1.0 'Just Another Hand', Helvetica, sans-serif;
+  font-size: 30px !important;
+  padding-top: 12px;
+}
+
+.mission_section .heading {
+  font: 400 60px/0.8 'Great Vibes', Helvetica, sans-serif;
+}
+
+.construction {
+  text-align: center;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#construction {
+  width: 80%;
+}
