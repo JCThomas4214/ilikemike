@@ -124,6 +124,7 @@ a:hover .header-profile-image {
     position: relative;
     height: 500px; /* fallback for older browsers */
     height: 100vh;
+    min-height: 350px;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
@@ -132,6 +133,7 @@ a:hover .header-profile-image {
     position: relative;
     top:140vh;
     height: 80vh; /* fallback for older browsers */
+    min-height: 200px;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
