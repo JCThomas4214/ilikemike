@@ -356,6 +356,7 @@ a:hover .header-profile-image {
 .headshot {
   float: left;
   margin: 2vw;
+  margin-right: 3vw;
   border-radius: 5px;
   width: 25% !important;
   min-width: 50px;
