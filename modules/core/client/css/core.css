@@ -113,7 +113,7 @@ a:hover .header-profile-image {
   .parallax {
     margin-top: 50px;
     height: 500px; /* fallback for older browsers */
-    height: 100vh;
+    height: 93vh;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-perspective: 300px;
@@ -123,23 +123,24 @@ a:hover .header-profile-image {
   .parallax__group {
     position: relative;
     height: 500px; /* fallback for older browsers */
-    height: 100vh;
-    min-height: 350px;
+    height: 70vw;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
 
   .parallax__group_foot {
     position: relative;
-    top:140vh;
-    height: 80vh; /* fallback for older browsers */
-    min-height: 200px;
+    top:20vw;
+    height: 70vh; /* fallback for older browsers */
+    min-height: 250px;
+    padding-bottom: 20vh;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
 
   .parallax__layer {
     position: absolute;
+    margin-bottom: -200px;
     top: 0;
     left: 0;
     right: 0;
@@ -148,7 +149,8 @@ a:hover .header-profile-image {
 
   .foot {
     position: absolute;
-    top: 0;
+    margin-bottom: -140px;
+    top: 30vh;
     left: 0;
     right: 0;
     bottom: 0;
@@ -202,15 +204,20 @@ a:hover .header-profile-image {
   #background1 {
     z-index: 3; /* slide under groups 1 and 3 */
   }
+  #background1 .parallax__layer--base {
+    height:160vh;
+  }
   #background1 .parallax__layer--back {
+    /*top:14vh ;*/
+    height: 80vw;
+    min-height: 600px;
     background-position: center center; 
     background-repeat: repeat;
-    /*background: #DB0000;*/
+    background-size: cover;
     left: -10px;
   }
 
   #background1 .parallax__layer--deep {
-    height: 165vh !important;
     background-position: center center; 
     background-repeat: repeat;
     background-size: cover;
@@ -218,6 +225,7 @@ a:hover .header-profile-image {
   }
 
   #mission {
+    top: 28vh;
     z-index: 4; /* slide over group 2 and 4 */
   }
   #mission .parallax__layer--base {
@@ -286,16 +294,16 @@ a:hover .header-profile-image {
 
 .content_title_section {
   background-color: transparent;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 12vw;
+  padding-right: 12vw;
   padding-top: 25px;
   padding-bottom: 25px;
 }
 
 .content_section {
   background-color: transparent;
-  padding-left: 65px;
-  padding-right: 65px;
+  padding-left: 8vw;
+  padding-right: 8vw;
   padding-top: 25px;
   padding-bottom: 25px;
 }
@@ -304,10 +312,10 @@ a:hover .header-profile-image {
   text-align: center;
   border-radius: 5px;
   background-color: #E6E6E6;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
 
   -moz-box-shadow: 0 0 20px #888;
   -webkit-box-shadow: 0 0 20px#888;
@@ -318,10 +326,10 @@ a:hover .header-profile-image {
   overflow: auto;
   border-radius: 5px;
   background-color: #E6E6E6;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
 
   -moz-box-shadow: 0 0 20px #888;
   -webkit-box-shadow: 0 0 20px#888;
@@ -333,19 +341,24 @@ a:hover .header-profile-image {
 }
 .content h2 {
   font: 400 5vw/1.3 'Berkshire Swash', Helvetica, sans-serif;
+  margin-top: 1vw !important;
+  margin-bottom: 1vw !important;
 }
 .content p {
   font: 400 2vw/1.3 'Lora', Helvetica, serif;
 }
 .content h3 {
   font: 400 4vw/1.3 'Berkshire Swash', Helvetica, sans-serif;
+  margin-top: 1vw !important;
+  margin-bottom: 1vw !important;
 }
 
 .headshot {
   float: left;
-  margin-right: 25px;
+  margin: 2vw;
   border-radius: 5px;
   width: 25% !important;
+  min-width: 50px;
 
   -moz-box-shadow: 0 0 10px #888;
   -webkit-box-shadow: 0 0 10px#888;
@@ -363,7 +376,7 @@ a:hover .header-profile-image {
 }
 
 .construction {
-  margin-top: 50px;
+  margin-top: 5vh;
   text-align: center;
   background-position: center center;
   background-repeat: no-repeat;

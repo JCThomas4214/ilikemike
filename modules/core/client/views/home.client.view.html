@@ -3,12 +3,13 @@
 <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+
 <section id="main" ng-controller="HomeController">	
   <header id="mainNav" ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
 	<div class="parallax" scrolly="showMore()">
     
     <div id="background1" class="parallax__group">      
-      	<div class="parallax__layer parallax__layer--base">
+      <div class="parallax__layer parallax__layer--base">
          
         <div class="header_spacing"></div>
 
@@ -23,8 +24,7 @@
               <span class="content">
                 <img class="headshot" ng-src="{{ mike_photo }}"></img>   
                 <h2>Are you in the <a href="http://www.floridaredistricting.org/documents/2015C/S040S9124_Statewide.pdf">District</a>?</h2>       
-                <p>{{mission_text}}</p>
-                <h3><a href="">Donate</a> to the Mike Thomas Campaign!</h3>
+                <h3><a href="http://www.mikethomasforsenate.com">Donate</a> to the Mike Thomas Campaign!</h3>
               </span>                         
             </div>
             <div class="donation_container">
@@ -35,9 +35,9 @@
           <div class="content_divider"></div>
         </div>
 
-        <div class="parallax__layer parallax__layer--back"></div>
+        <div class="parallax__layer parallax__layer--back" style="background-image: url('/modules/core/client/img/backgrounds/american-flag.jpg');"></div>
 
-      	<div class="parallax__layer parallax__layer--deep" style="background-image: url('/modules/core/client/img/backgrounds/american-flag.jpg');"></div>
+      	<!-- <div class="parallax__layer parallax__layer--deep"></div> -->
     </div>   
 
     <div id="mission" class="parallax__group_foot">

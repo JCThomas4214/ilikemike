@@ -9,6 +9,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
     $scope.mission_title = 'Mike Thomas for Florida Senate District 17';
     $scope.mission_head = 'Are You In The District?';
-    $scope.mission_text = 'Newly redistricted District 17 lies Between state road 520 and the bottom of Indian River County.';
+
   }
 ]);
