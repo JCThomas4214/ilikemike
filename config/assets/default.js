@@ -5,7 +5,10 @@ module.exports = {
     lib: {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css'
+        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+        'http://fonts.googleapis.com/css?family=Berkshire+Swash',
+        'http://fonts.googleapis.com/css?family=Great+Vibes',
+        'http://fonts.googleapis.com/css?family=Just+Another+Hand'
       ],
       js: [
         'public/lib/angular/angular.js',
