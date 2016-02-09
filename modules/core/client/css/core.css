@@ -229,7 +229,7 @@ a:hover .header-profile-image {
     z-index: 4; /* slide over group 2 and 4 */
   }
   #mission .parallax__layer--base {
-    background: #F9F9F9;
+    background-color: #C30F0F;
     -moz-box-shadow: 0 0 10px #888;
     -webkit-box-shadow: 0 0 10px#888;
     box-shadow: 0 0 10px #888;
@@ -313,7 +313,7 @@ a:hover .header-profile-image {
 
 .mission_section {
   text-align: center;
-  /*border-radius: 5px;*/
+  border-radius: 5px;
   background-color: #E6E6E6;
   /*padding-left: 2vw;
   padding-right: 2vw;
@@ -411,11 +411,13 @@ a:hover .header-profile-image {
   padding-top: 12px;
 }
 
+
+
 .mission_section .heading1 {
   padding-top: 2vw;
   padding-bottom: 1vw;
   margin: 0px !important;
-  background-color: red;
+  background-color: #C30F0F;
   font: 400 6vw/0.8 'Great Vibes', Helvetica, sans-serif;
   color: white;  
   text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
@@ -432,13 +434,15 @@ a:hover .header-profile-image {
   padding-top: 2vw;
   padding-bottom: 1vw;
   margin: 0px !important;
-  background-color: blue;
+  background-color: #0000A5;
   font: 400 5vw/0.8 'Great Vibes', Helvetica, sans-serif;
   color: white;
   text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
 }
 
 .construction {
+
+  background-color: red;
   margin-top: 5vh;
   text-align: center;
   background-position: center center;
