@@ -286,7 +286,7 @@ a:hover .header-profile-image {
 
   /*Heading and Text CSS*/
 .header_spacing {
-  height: 100px;
+  height: 5vw;
 }
 .content_divider {
   height: 60px;
