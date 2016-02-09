@@ -1,8 +1,6 @@
 <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 
 <section id="main" ng-controller="HomeController">	
   <header id="mainNav" ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
@@ -13,38 +11,42 @@
          
         <div class="header_spacing"></div>
 
-          <div class="content_title_section">
-            <div class="mission_section">
-              <h1 class="heading">{{mission_title}}</h1>           
-            </div>
-          </div>
-
-          <div class="content_section">
-            <div class="mission_content">
-              <span class="content">
-                <img class="headshot" ng-src="{{ mike_photo }}"></img>   
-                <h2>Are you in the <a href="https://www.flsenate.gov/usercontent/session/redistricting/map_and_stats_11x17v5_2012-CA-2842.pdf">District</a>?</h2>       
-                <h3><a href="http://www.mikethomasforsenate.com">Donate</a> to the Mike Thomas Campaign!</h3>
-              </span>                         
-            </div>
-            <div class="donation_container">
-            
-            </div>
-          </div>          
-
-          <div class="content_divider"></div>
+        <div class="content_title_section">
+           <div class="mission_section">
+             <h1 class="heading1">{{name}}</h1>  
+             <h3 class="heading2">{{name_con}}</h1>  
+             <h1 class="heading3">{{name_con2}}</h1>           
+           </div>
         </div>
 
-        <div class="parallax__layer parallax__layer--back" style="background-image: url('/modules/core/client/img/backgrounds/american-flag.jpg');"></div>
+        <div class="content_divider1"></div>
 
-      	<!-- <div class="parallax__layer parallax__layer--deep"></div> -->
+        <div class="content_section">
+          <div class="mission_photo">
+            <img class="headshot" ng-src="{{ mike_photo }}"></img>                        
+          </div>
+          <div class="donation_container">
+            <h2>"People not Politics."</h2>
+            <h3><a href="">Donate to the Campaign</a></h3>
+            <!-- <ul>
+              <li>Donate to the Campaign.</li>
+            </ul> -->
+          </div>
+        </div>          
+
+        <div class="content_divider"></div>
+      </div>
+
+      <div class="parallax__layer parallax__layer--back" style="background-image: url('/modules/core/client/img/backgrounds/american-flag.jpg');"></div>
+
+      <!-- <div class="parallax__layer parallax__layer--deep"></div> -->
     </div>   
 
     <div id="mission" class="parallax__group_foot">
       <div class="foot parallax__layer--base">
 
         <div class="construction">
-            <img id="construction" src="/modules/core/client/img/backgrounds/under_construction.png"></img>            
+            <!-- <img id="construction" src="/modules/core/client/img/backgrounds/under_construction.png"></img>             -->
         </div>        
 
       </div>
