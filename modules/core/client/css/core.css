@@ -1,4 +1,7 @@
-/*Site changes*/
+html,
+body {
+  height: 100%;
+}
 
 .content {
   background-color: #F9F9F9;
@@ -7,70 +10,6 @@
 }
 .undecorated-link:hover {
   text-decoration: none;
-}
-.logo .repub {
-  width: 50px;
-  height: 50px;
-}
-.site-logo {
-  width: 50px;
-  padding: 5px;
-  margin-left: 15px;
-  margin-top: 2px;
-}
-
-/*Navigation Bootstrap Bar Changes*/
-
-.navbar {
-  background-color: #F9F9F9 !important;
-  background-image: linear-gradient(to bottom, #F9F9F9 0%, #F9F9F9 100%);
-  border-color: #F9F9F9;
-  border: 0px solid !important;
-
-  -moz-box-shadow: 0 0 15px #888;
-  -webkit-box-shadow: 0 0 15px#888;
-  box-shadow: 0 0 15px #888;
-}
-.navbar-inverse .navbar-toggle {
-  border: 0px solid; 
-}
-.navbar-inverse .navbar-toggle .icon-bar {
-  background-color: #DB0000;
-}
-.navbar-inverse .navbar-toggle:hover, 
-.navbar-inverse .navbar-toggle:focus {
-  background-color: transparent;
-}
-.navbar-inverse .navbar-collapse, 
-.navbar-inverse .navbar-form {
-  border: 0px solid; 
-}
-
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-  color: #DB0000 !important;
-  background-color: #F9F9F9;  
-  /*border-color: #DB0000 !important;*/
-}
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
-  text-shadow: 0 0 0 rgba(0, 0, 0, 0);
-}
-.navbar-brand, .navbar-nav > li > a {
-  font-size: 17px !important;
-  color: #E85353 !important;
-  border-bottom: 3px solid !important;
-  border-color: #F9F9F9 !important;
-}
-.navbar-brand, .navbar-nav > li > a [class=navbar-brand] {  
-  color: #E85353 !important;
-  border-bottom: 0px solid !important;
-  font-size: 19px !important;
-  font-weight: bold !important;
-}
-
-.navbar-brand, .navbar-nav > li > .active {
-  color: #DB0000 !important;
-  background-color: #F9F9F9;  
-  border-color: #DB0000 !important;
 }
 
 /*Deault without Changes*/
@@ -107,184 +46,7 @@ a:hover .header-profile-image {
   display: inline;
 }
 
-/* Parallax base styles
-  --------------------------------------------- */
-
-  .parallax {
-    margin-top: 50px;
-    height: 500px; /* fallback for older browsers */
-    height: 93vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-perspective: 300px;
-    perspective: 300px;
-  }
-
-  .parallax__group {
-    position: relative;
-    height: 500px; /* fallback for older browsers */
-    height: 70vw;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-  }
-
-  .parallax__group_foot {
-    position: relative;
-    top:20vw;
-    height: 70vh; /* fallback for older browsers */
-    min-height: 250px;
-    padding-bottom: 20vh;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-  }
-
-  .parallax__layer {
-    position: absolute;
-    margin-bottom: -200px;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
-  .foot {
-    position: absolute;
-    margin-bottom: -140px;
-    top: 30vh;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
-  .parallax__layer--fore {
-    -webkit-transform: translateZ(90px) scale(.7);
-    transform: translateZ(90px) scale(.7);
-    z-index: 1;
-  }
-
-  .parallax__layer--base {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    z-index: 4;
-  }
-
-  .parallax__layer--back {
-    -webkit-transform: translateZ(-300px) scale(2);
-    transform: translateZ(-300px) scale(2);
-    z-index: 3;
-  }
-
-  .parallax__layer--deep {
-    -webkit-transform: translateZ(-600px) scale(3);
-    transform: translateZ(-600px) scale(3);
-    z-index: 2;
-  }
-
-  /* demo styles
-  --------------------------------------------- */
-
-  body, html {
-    overflow: hidden;
-  }
-
-  body {
-    /*font: 100% / 1.5 Arial;*/
-  }
-
-  * {
-    margin:0;
-    padding:0;
-  }
-
-
-
-  /* style the groups
-  --------------------------------------------- */
-
-  #background1 {
-    z-index: 3; /* slide under groups 1 and 3 */
-  }
-  #background1 .parallax__layer--base {
-    height:160vh;
-  }
-  #background1 .parallax__layer--back {
-    /*top:14vh ;*/
-    height: 80vw;
-    min-height: 600px;
-    background-position: center center; 
-    background-repeat: repeat;
-    background-size: cover;
-    left: -10px;
-  }
-
-  #background1 .parallax__layer--deep {
-    background-position: center center; 
-    background-repeat: repeat;
-    background-size: cover;
-    left: -10px;
-  }
-
-  #mission {
-    top: 28vh;
-    z-index: 4; /* slide over group 2 and 4 */
-  }
-  #mission .parallax__layer--base {
-    background-color: #C30F0F;
-    -moz-box-shadow: 0 0 10px #888;
-    -webkit-box-shadow: 0 0 10px#888;
-    box-shadow: 0 0 10px #888;
-  }
-
-  #background2 {
-    z-index: 2; /* slide under group 3 and 5 */
-    max-height: 70% !important;
-  }
-  #background2 .parallax__layer--back {      
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 125%;
-    top: -50px;
-    left: -10px;
-  }
-  /*#group4 .parallax__layer--deep {
-    background: rgb(184,223,101);
-  }*/
-
-  #methods {
-    z-index: 3; /* slide over group 4 and 6 */
-  }
-  #methods .parallax__layer--base {
-    background: #E6E6E6;
-    -moz-box-shadow: 0 0 10px #888;
-    -webkit-box-shadow: 0 0 10px#888;
-    box-shadow: 0 0 10px #888;
-  }
-
-  #background3 {
-    z-index: 2; /* slide under group 5 and 7 */   
-    max-height: 70% !important;
-  }
-  #background3 .parallax__layer--back {       
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 125%;
-    top: 0px;
-    left: -10px;
-  }
-
-  #about {
-    z-index: 3; /* slide over group 7 */
-  }
-  #about .parallax__layer--base {
-    background: #E6E6E6;
-    -moz-box-shadow: 0 0 10px #888;
-    -webkit-box-shadow: 0 0 10px#888;
-    box-shadow: 0 0 10px #888;
-  }
-
-  /*Heading and Text CSS*/
+/*Heading and Text CSS*/
 .header_spacing {
   height: 5vw;
 }
@@ -362,7 +124,6 @@ a:hover .header-profile-image {
   box-shadow: 0 0 10px #888;
 }
 
-
 .mission_photo {
   float:right;
   border-radius: 5px;
@@ -371,7 +132,6 @@ a:hover .header-profile-image {
   padding: 1vw;
   width: 25vw;
   height: auto;
-  max-width: 300px; 
 }
 
 .donation_container {
@@ -405,14 +165,6 @@ a:hover .header-profile-image {
   text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
 }
 
-.navbar-brand {
-  font: 400 40px/1.0 'Just Another Hand', Helvetica, sans-serif;
-  font-size: 30px !important;
-  padding-top: 12px;
-}
-
-
-
 .mission_section .heading1 {
   padding-top: 2vw;
   padding-bottom: 1vw;
@@ -441,7 +193,6 @@ a:hover .header-profile-image {
 }
 
 .construction {
-
   background-color: red;
   margin-top: 5vh;
   text-align: center;
@@ -453,3 +204,181 @@ a:hover .header-profile-image {
 #construction {
   width: 70%;
 }
+
+
+/*responsive mobile*/
+@media screen and (max-width: 775px) {
+
+  /*Heading and Text CSS*/
+  .header_spacing {
+    height: 0vw;
+  }
+  .content_divider {
+    height: 0px;
+  }
+
+  .content_title_section {
+    background-color: transparent;
+    padding-left: 0vw;
+    padding-right: 0vw;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .content_divider1 {
+    height: 0vw;
+  }
+
+  .mission_section {
+    text-align: center;
+    border-radius: 5px;
+    background-color: #E6E6E6;
+    /*padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;*/
+
+    -moz-box-shadow: 0 0 20px #888;
+    -webkit-box-shadow: 0 0 20px#888;
+    box-shadow: 0 0 20px #888;
+  }
+  .methods_section, .about_section {
+    text-align: center;
+    border-radius: 5px;
+    background-color: #E6E6E6;
+    /*padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;*/
+
+    -moz-box-shadow: 0 0 20px #888;
+    -webkit-box-shadow: 0 0 20px#888;
+    box-shadow: 0 0 20px #888;
+  }
+
+  .content_section {
+    background-color: transparent;
+    height:500px;
+    padding-left: 0vw;
+    padding-right: 0vw;
+  }
+  .mission_content {
+    overflow: auto;
+    border-radius: 5px;
+    background-color: #E6E6E6;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+
+    -moz-box-shadow: 0 0 20px #888;
+    -webkit-box-shadow: 0 0 20px#888;
+    box-shadow: 0 0 20px #888;
+  }
+
+  .headshot {    
+    display: block;
+    margin: 0 auto;
+    width: 200px !important;
+    border-radius: 5px;
+
+    -moz-box-shadow: 0 0 10px #888;
+    -webkit-box-shadow: 0 0 10px#888;
+    box-shadow: 0 0 10px #888;
+  }
+
+  .mission_photo {
+    float:none;
+
+    border-radius: 0px;
+    background-color: transparent;
+
+    padding-top: 4%;
+    padding-bottom: 4%;
+    width: 100%;
+    height: auto;
+  }
+
+  .donation_container {
+    width: 100%;
+    width: 100vw;
+    height: auto;
+    float:none;
+    display: block;
+    margin: 0 auto;
+
+    border-radius: 0px;
+    background-color: #C30F0F;
+    padding: 1vw;
+
+    -moz-box-shadow: 0 0 0px #888;
+    -webkit-box-shadow: 0 0 0px#888;
+    box-shadow: 0 0 0px #888;
+  }
+  .donation_container h2 {
+    text-align: center;
+    margin-top: 10px !important;
+    margin_bottom: 10px !important;
+
+    font: 400 30px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+    color: white;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  }
+  .donation_container h3 {
+    text-align: center;
+    margin-top: 8px !important;
+    margin_bottom: 8px !important;
+
+    font: 400 20px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+    color: #2b2b2b;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  }
+  .donation_container h3 a {
+    color: #1200FF;
+  }
+
+  .mission_section .heading1 {
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+    margin: 0px !important;
+    background-color: #C30F0F;
+    font: 400 50px/0.8 'Great Vibes', Helvetica, sans-serif;
+    color: white;  
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  }
+  .mission_section .heading2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    margin: 0px !important;
+    background-color: white;
+    font: 400 35px/0.8 'Great Vibes', Helvetica, sans-serif;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  }
+  .mission_section .heading3 {
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+    margin: 0px !important;
+    background-color: #0000A5;
+    font: 400 40px/0.8 'Great Vibes', Helvetica, sans-serif;
+    color: white;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  }
+
+  .construction {
+
+    background-color: red;
+    margin-top: 5vh;
+    text-align: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #construction {
+    width: 70%;
+  }
+}
+
