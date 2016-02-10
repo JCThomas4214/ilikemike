@@ -201,7 +201,7 @@
   }
 }
 
-@media screen and (max-aspect-ratio: 4/3) and (min-height: 900px){
+@media screen and (max-aspect-ratio: 4/3) and (min-height: 850px){
   .parallax {
     margin-top: 50px;
     height: 500px; /* fallback for older browsers */
