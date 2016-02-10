@@ -22,8 +22,7 @@
   .parallax__group_foot {
     position: relative;
     top:20vw;
-    height: 70vh; /* fallback for older browsers */
-    min-height: 250px;
+    height: 400px; /* fallback for older browsers */
     padding-bottom: 20vh;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
@@ -116,7 +115,7 @@
   }
 
   #mission {
-    top: 28vh;
+    top: 170px;
     z-index: 4; /* slide over group 2 and 4 */
   }
   #mission .parallax__layer--base {
@@ -174,3 +173,54 @@
     -webkit-box-shadow: 0 0 10px#888;
     box-shadow: 0 0 10px #888;
   }
+
+  /*responsive mobile*/
+@media screen and (max-width: 775px) {
+    .foot {
+        position: absolute;
+        margin-bottom: -350px;
+        top: 250px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+   }
+
+  .parallax__group_foot {
+      position: relative;
+      height: 250px; /* fallback for older browsers */
+      padding-bottom: 20vh;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+  }
+
+  #mission .parallax__layer--base {
+    background-color: #0000A5;
+    -moz-box-shadow: 0 0 0px #888;
+    -webkit-box-shadow: 0 0 0px#888;
+    box-shadow: 0 0 0px #888;
+  }
+}
+
+@media screen and (max-aspect-ratio: 4/3) and (min-height: 900px){
+  .parallax {
+    margin-top: 50px;
+    height: 500px; /* fallback for older browsers */
+    height: 95vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+  }
+
+  .foot {
+        margin-bottom: -700px;
+   }
+
+  .parallax__group_foot {
+      position: relative;
+      height: 250px; /* fallback for older browsers */
+      padding-bottom: 20vh;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+  }
+}

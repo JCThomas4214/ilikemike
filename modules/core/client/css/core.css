@@ -369,7 +369,7 @@ a:hover .header-profile-image {
   
   .content_sec {
     background-color: white;
-    height: 50%;
+    height: 250px;
   }
 
   .construction {
@@ -384,6 +384,13 @@ a:hover .header-profile-image {
 
   #construction {
     width: 70%;
+  }
+}
+
+@media screen and (max-aspect-ratio: 4/3) {
+   .content_sec {
+    background-color: white;
+    height: 400px;
   }
 }
 
