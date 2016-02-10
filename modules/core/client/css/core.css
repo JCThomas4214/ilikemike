@@ -238,9 +238,9 @@ a:hover .header-profile-image {
     padding-top: 1vw;
     padding-bottom: 1vw;*/
 
-    -moz-box-shadow: 0 0 20px #888;
-    -webkit-box-shadow: 0 0 20px#888;
-    box-shadow: 0 0 20px #888;
+    -moz-box-shadow: 0 0 0px #888;
+    -webkit-box-shadow: 0 0 0px#888;
+    box-shadow: 0 0 0px #888;
   }
   .methods_section, .about_section {
     text-align: center;
@@ -258,7 +258,7 @@ a:hover .header-profile-image {
 
   .content_section {
     background-color: transparent;
-    height:500px;
+    height:auto;
     padding-left: 0vw;
     padding-right: 0vw;
   }
@@ -365,6 +365,11 @@ a:hover .header-profile-image {
     font: 400 40px/0.8 'Great Vibes', Helvetica, sans-serif;
     color: white;
     text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  }
+  
+  .content_sec {
+    background-color: white;
+    height: 50%;
   }
 
   .construction {
