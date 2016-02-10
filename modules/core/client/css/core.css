@@ -374,10 +374,12 @@ a:hover .header-profile-image {
     text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
   }
   
+  
+
   .content_sec {
     background-color: white;
     margin-top: -20px;
-    height: 100px;
+    height: 400px;
   }
 
   .construction {
@@ -395,10 +397,9 @@ a:hover .header-profile-image {
   }
 }
 
-@media screen and (max-aspect-ratio: 4/3) and (min-height: 850px) {
+@media screen and (max-width: 450px) {
    .content_sec {
-    background-color: white;
-    height: 400px;
+    height: 100px;
   }
 }
 
