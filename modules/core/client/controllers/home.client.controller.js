@@ -12,5 +12,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.name_con2 = 'Florida Senate';
     $scope.mission_head = 'Are You In The District?';
 
+    $scope.about_sec = 'Meet Mike Thomas';
   }
 ]);

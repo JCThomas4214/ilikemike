@@ -1,6 +1,8 @@
 'use strict';
 
 var validator = require('validator');
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport();
 
 /**
  * Render the main application page
@@ -57,4 +59,22 @@ exports.renderNotFound = function (req, res) {
       res.send('Path not found');
     }
   });
+};
+
+/**
+ * Send and Email when contact form is submitted
+ */
+exports.sendMail = function (req, res) {
+
+  var data = req.body;
+
+  transporter.sendMail({
+    from: data.contact_email,
+    to: 'jason.lewisg@gmail.com',
+    subject: 'New subscriber',
+    text: data.contact_name
+  });
+
+  res.json(data);
+
 };

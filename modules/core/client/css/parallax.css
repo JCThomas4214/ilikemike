@@ -14,7 +14,7 @@
   .parallax__group {
     position: relative;
     height: 500px; /* fallback for older browsers */
-    height: 70vw;
+    height: 152vw;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
@@ -99,11 +99,11 @@
   }
   #background1 .parallax__layer--back {
     /*top:14vh ;*/
-    height: 80vw;
+    height: 134vw;
     min-height: 600px;
     background-position: center center; 
     background-repeat: repeat;
-    background-size: cover;
+    background-size: 100% auto;
     left: -10px;
   }
 
@@ -120,9 +120,9 @@
   }
   #mission .parallax__layer--base {
     background-color: #C30F0F;
-    -moz-box-shadow: 0 0 10px #888;
+    /*-moz-box-shadow: 0 0 10px #888;
     -webkit-box-shadow: 0 0 10px#888;
-    box-shadow: 0 0 10px #888;
+    box-shadow: 0 0 10px #888;*/
   }
 
   #background2 {
@@ -146,9 +146,9 @@
   }
   #methods .parallax__layer--base {
     background: #E6E6E6;
-    -moz-box-shadow: 0 0 10px #888;
+    /*-moz-box-shadow: 0 0 10px #888;
     -webkit-box-shadow: 0 0 10px#888;
-    box-shadow: 0 0 10px #888;
+    box-shadow: 0 0 10px #888;*/
   }
 
   #background3 {

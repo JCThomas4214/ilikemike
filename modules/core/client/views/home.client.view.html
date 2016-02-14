@@ -1,5 +1,9 @@
 
+
+
 <section id="main" ng-controller="HomeController">	
+  
+
   <header id="mainNav" ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
 	<div class="parallax" scrolly="showMore()">
     
@@ -16,21 +20,94 @@
            </div>
         </div>
 
-        <div class="content_divider1"></div>
-
         <div class="content_section">
-          <div class="mission_photo">
+          <div data-ng-controller="ContactFormController as cf" class="mail_form">
+            <h3>"I Like Mike"</h3>
+            <p>Subscribe to Mike's News Letter</p>
+            <form name="contactForm" data-ng-submit="cf.sendMail()" role="form">
+              <div class="form-group">
+                <input type="name" data-ng-model="cf.contact_name" class="form-control" id="name" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <input type="email" data-ng-model="cf.contact_email" class="form-control" id="email" placeholder="Email Address">
+              </div>
+              <button type="submit" class="btn btn-default">Subscribe</button>
+            </form>
+          </div>
+
+          <div class="mission_photo" >
             <img class="headshot" ng-src="{{ mike_photo }}"></img>                        
           </div>
-          <div class="donation_container">
-            <h2>"People not Politics."</h2>
-            <h3><a href="">Donate to the Campaign</a></h3>
+
+        </div>
+
+        <div class="title_sec">
+          <div class="title_container">
+            <h1 class="heading1"></h1>
+            <h1 class="heading2">{{about_sec}}</h1>
+            <h1 class="heading3"></h1>
+            <!-- <h3><a href="">Donate to the Campaign</a></h3> -->
           </div>
-        </div>          
+        </div>     
 
-        <div class="content_divider"></div>
+        <div class="content_section_about"> 
+          <!-- <div class="fb-page" data-href="https://www.facebook.com/MikeThomasForSenate/?fref=ts" data-height="400" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/MikeThomasForSenate/?fref=ts"><a href="https://www.facebook.com/MikeThomasForSenate/?fref=ts">Mike Thomas For Florida Senate</a></blockquote></div></div> -->
 
-        <div class="content_sec">
+          <div class="video_container">
+            <h3>DGF GOODWILL AMBASSADOR</h3>
+            <iframe src="//www.youtube.com/embed/lntnA8pNyb0?wmode=transparent&autoplay=0&theme=dark&controls=1&autohide=0&loop=0&showinfo=0&rel=0&playlist=false&enablejsapi=0">
+            </iframe>
+          </div>
+
+              <!-- <ul>
+                <li>BORN: August 25, 1957 - Plymouth, Wisconsin</li>
+                <li>US NAVY CORPSMAN
+                  <ul>
+                    <li>1975-1979 (Active Duty)</li>
+                    <li>1979-1983 (Reservist)</li>
+                  </ul>
+                </li>
+                <li>UNIVERSITY of FLORIDA - 1984 Graduate (With Honors)
+                  <ul>
+                    <li>Physician Assistant Program</li>
+                  </ul>
+                </li>
+                <li>Joined Medical Practice in Melbourne, Fl - 1986</li>
+                <li>BREVARD REPUBLICAN PARTY
+                  <ul>
+                    <li>Precinct Committeeman 2005 - 2008</li>
+                    <li>State Committeeman 2008 - Present</li>
+                  </ul>
+                </li>
+              </ul> -->
+
+          <div class="outter_container">
+            <div class="mt_born">
+              <h1>BORN: August 25, 1957 - Plymouth, Wisconsin</h1>
+            </div>
+            <div class="mt_service">
+              <h1>US NAVY CORPSMAN</h1>
+              <p>1975-1979 (Active Duty)</p>
+              <p>1979-1983 (Reservist)</p>
+            </div>
+            <div class="mt_graduate">
+              <h1>UNIVERSITY of FLORIDA</h1>
+              <p>1984 Graduate (With Honors)</p>
+              <p>Physician Assistant Program</p>
+            </div>
+            <div class="mt_medical">
+              <h1>Joined Medical Practice in Melbourne, Fl - 1986</h1>
+            </div>
+            <div class="mt_republican">
+              <h1>BREVARD REPUBLICAN PARTY</h1>
+              <p>Precinct Committeeman 2005 - 2008</p>
+              <p>State Committeeman 2008 - Present</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="content_section_social">
           
         </div>
       </div>
@@ -43,9 +120,23 @@
     <div id="mission" class="parallax__group_foot">
       <div class="foot parallax__layer--base">
 
-        <div class="construction">
-            <!-- <img id="construction" src="/modules/core/client/img/backgrounds/under_construction.png"></img>             -->
-        </div>        
+        <div class="footer_top">
+          <div class="media_icons">
+            <a class="media_link" href="https://www.facebook.com/MikeThomasForSenate/">
+              <img src="modules/core/client/img/icons/128-facebook.png"></img>
+            </a>
+            <a class="media_link" href="https://www.linkedin.com/in/mike-thomas-5105681b?authType=NAME_SEARCH&authToken=SUUm&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A70060764%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1455415061273%2Ctas%3Amike%20">
+              <img src="modules/core/client/img/icons/128-linkedin.png"></img>
+            </a>
+          </div>
+          <a href="mailto:mikeforflasenate@gmail.com?Subject=Hello%20Mike%20Thomas" target="_top">
+            <h1>MIKEFORFLASENATE@GMAIL.COM</h1>
+          </a>
+          
+        </div> 
+        <div class="footer_bottom">
+          <p>&#9734; Paid by Mike Thomas, Republican, for State Senate &#9734;</p>
+        </div>       
 
       </div>
     </div>
