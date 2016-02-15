@@ -16,6 +16,14 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.quote_one = '"People not Politics"';
     $scope.platform_sec = 'Mike\'s Mission';
 
+    $scope.exec_committee = '11th Year sitting on Brevard Republican Executive Committee';
+    $scope.state_committeman = '8th Year elected as Brevard Republican State Committeeman';
+    $scope.cofounder = 'Co-Founder and President of Space Coast Clinicians, Inc.';
+    $scope.fapa = 'Menber and past Board of Director of the FAPA';
+    $scope.aapa = 'Member of the AAPA';
+    $scope.mentors_club = 'Member of the Republican Mentors Club';
+    $scope.rwc = 'Associate Member of the Brevard Federated Republican Women\'s Club';
+
     $scope.education = 'EDUCATION';
     $scope.education_text = 'As a parent of three children I wholeheartedly support quality education at all levels. It is incumbent upon local school boards to be inovative in finding ways to enhance the education experience for our children. I pledge not to hobble them with more regulations and red tape that might limit their precious resources. I am supportive of local, instead of centralized, school and education management. The intrusion of "Big Government" with mandated curricula serves to allow misuse of education as a method to indoctrinate our children. An example of this occurred in Brevard County when "approved" texts had to be replaced two years ago when it was demonstrated that the content was skewed to favor certain philosophies.';
   

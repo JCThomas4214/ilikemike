@@ -8,10 +8,15 @@ angular.module('core').directive('scrolly', function() {
     link: function(scope, element, attrs) {
       var raw = element[0];
 
-      var picHeight = element[0].childNodes[1].clientHeight - 1;
-      var secHeight = element[0].childNodes[3].clientHeight - 1;
-      var groupTwoHeight = (2 * picHeight) + secHeight - 1;
-      var groupThreeHeight = groupTwoHeight + picHeight + secHeight - 1;
+      var mainTitleHeight = element[0].childNodes[1].childNodes[1].childNodes[1].clientHeight - 1;
+      console.log(element[0].childNodes[1].childNodes[1].childNodes[1].clientHeight);
+      var secOneHeight = element[0].childNodes[1].childNodes[1].childNodes[3].clientHeight - 1;
+      console.log(element[0].childNodes[1].childNodes[1].childNodes[3].clientHeight);
+      var secondaryTitleHeight = element[0].childNodes[1].childNodes[1].childNodes[5].clientHeight - 1;
+      var secTwoHeight = element[0].childNodes[1].childNodes[1].childNodes[7].clientHeight - 1;
+
+      var firstHeight = mainTitleHeight + secOneHeight + 100;
+      var secondHeight = secondaryTitleHeight + secTwoHeight;
 
       var offset;
       var myEl;
@@ -20,23 +25,23 @@ angular.module('core').directive('scrolly', function() {
       element.bind('scroll', function() {
         offset = raw.scrollTop;
 
-        if(offset >= picHeight && offset < groupTwoHeight) {
+        if(offset >= firstHeight && offset < secondHeight) {
           angular.element(document.querySelector('#missionTb')).addClass('active');
         } else {
           angular.element(document.querySelector('#missionTb')).removeClass('active');
         }
 
-        if (offset >= groupTwoHeight && offset < groupThreeHeight) {
+        if (offset >= secondHeight) {
           angular.element(document.querySelector('#methodsTb')).addClass('active');
         } else {
           angular.element(document.querySelector('#methodsTb')).removeClass('active');
         }
 
-        if (offset >= groupThreeHeight) {
-          angular.element(document.querySelector('#aboutTb')).addClass('active');
-        } else {
-          angular.element(document.querySelector('#aboutTb')).removeClass('active');
-        }
+        // if (offset >= groupThreeHeight) {
+        //   angular.element(document.querySelector('#aboutTb')).addClass('active');
+        // } else {
+        //   angular.element(document.querySelector('#aboutTb')).removeClass('active');
+        // }
 
         if (raw.scrollTop + raw.offsetHeight > raw.scrollHeight) {
           scope.$apply(attrs.scrolly);
