@@ -315,7 +315,7 @@ a:hover .header-profile-image {
   padding: 3% 2%;
   text-align: center;
   height: auto;
-  background-image: url('/modules/core/client/img/backgrounds/plymouth.jpg');
+  background-image: url('/modules/core/client/img/backgrounds/plymouth_bg.jpg');
   background-size: cover; 
   background-position: 0 -50px;
   border-top-right-radius: 10px;  
