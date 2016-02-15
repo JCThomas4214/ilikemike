@@ -8,15 +8,12 @@ angular.module('core').directive('scrolly', function() {
     link: function(scope, element, attrs) {
       var raw = element[0];
 
-      var mainTitleHeight = element[0].childNodes[1].childNodes[1].childNodes[1].clientHeight - 1;
+      var section_one = element[0].childNodes[1].childNodes[1].childNodes[1].clientHeight - 1;
       console.log(element[0].childNodes[1].childNodes[1].childNodes[1].clientHeight);
-      var secOneHeight = element[0].childNodes[1].childNodes[1].childNodes[3].clientHeight - 1;
+      var section_two = element[0].childNodes[1].childNodes[1].childNodes[3].clientHeight - 1;
       console.log(element[0].childNodes[1].childNodes[1].childNodes[3].clientHeight);
-      var secondaryTitleHeight = element[0].childNodes[1].childNodes[1].childNodes[5].clientHeight - 1;
-      var secTwoHeight = element[0].childNodes[1].childNodes[1].childNodes[7].clientHeight - 1;
 
-      var firstHeight = mainTitleHeight + secOneHeight + 100;
-      var secondHeight = secondaryTitleHeight + secTwoHeight;
+      var full_section_two = section_one + section_two;
 
       var offset;
       var myEl;
@@ -25,13 +22,13 @@ angular.module('core').directive('scrolly', function() {
       element.bind('scroll', function() {
         offset = raw.scrollTop;
 
-        if(offset >= firstHeight && offset < secondHeight) {
+        if(offset >= section_one && offset < full_section_two) {
           angular.element(document.querySelector('#missionTb')).addClass('active');
         } else {
           angular.element(document.querySelector('#missionTb')).removeClass('active');
         }
 
-        if (offset >= secondHeight) {
+        if (offset >= full_section_two) {
           angular.element(document.querySelector('#methodsTb')).addClass('active');
         } else {
           angular.element(document.querySelector('#methodsTb')).removeClass('active');

@@ -57,10 +57,7 @@ a:hover .header-profile-image {
 
 .content_title_section {
   background-color: transparent;
-  padding-left: 10%;
-  padding-right: 10%;
-  margin-bottom: 3%;
-  margin-top: 5%;
+  padding: 5% 10% 3% 10%;
 }
 
 .content_section {
@@ -72,9 +69,7 @@ a:hover .header-profile-image {
 
 .title_sec {
   background-color: transparent;
-  padding-left: 10%;
-  padding-right: 10%;
-  margin: 3% 0;
+  padding: 3% 10% 3% 10%;
 }
 .title_container {
   width: 100%;
