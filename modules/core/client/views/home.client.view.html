@@ -4,7 +4,7 @@
   <header id="mainNav" ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
 	<div class="parallax" scrolly="showMore()">
     
-    <div id="background1" class="parallax__group">      
+    <div id="background1" class="background1 parallax__group">      
       <div class="parallax__layer parallax__layer--base">
          
         <div class="header_spacing"></div>
@@ -19,17 +19,21 @@
 
         <div class="content_section">
           <div data-ng-controller="ContactFormController as cf" class="mail_form">
-            <h3>"I Like Mike"</h3>
-            <p>Subscribe to Mike's News Letter</p>
-            <form name="contactForm" data-ng-submit="cf.sendMail()" role="form">
-              <div class="form-group">
-                <input type="name" data-ng-model="cf.contact_name" class="form-control" id="name" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <input type="email" data-ng-model="cf.contact_email" class="form-control" id="email" placeholder="Email Address">
-              </div>
-              <button type="submit" class="btn btn-default">Subscribe</button>
-            </form>
+            <div class="form_header">
+              <h3>"I Like Mike"</h3>
+            </div>            
+            <div class="form_main">
+              <p>Subscribe to Mike's News Letter</p>
+              <form name="contactForm" data-ng-submit="cf.sendMail()" role="form">
+                <div class="form-group">
+                  <input type="name" data-ng-model="cf.contact_name" class="form-control" id="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                  <input type="email" data-ng-model="cf.contact_email" class="form-control" id="email" placeholder="Email Address">
+                </div>
+                <button type="submit" class="btn btn-default">Subscribe</button>
+              </form>
+            </div>
           </div>
 
           <div class="mission_photo" >
@@ -38,7 +42,7 @@
 
         </div>
 
-        <div class="title_sec">
+        <div id="meet_mike" class="title_sec">
           <div class="title_container">
             <h1 class="heading1"></h1>
             <h1 class="heading2">{{about_sec}}</h1>
@@ -50,33 +54,20 @@
         <div class="content_section_about"> 
           <!-- <div class="fb-page" data-href="https://www.facebook.com/MikeThomasForSenate/?fref=ts" data-height="400" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/MikeThomasForSenate/?fref=ts"><a href="https://www.facebook.com/MikeThomasForSenate/?fref=ts">Mike Thomas For Florida Senate</a></blockquote></div></div> -->
 
-          <div class="video_container">
-            <h3>DGF GOODWILL AMBASSADOR</h3>
-            <iframe src="//www.youtube.com/embed/lntnA8pNyb0?wmode=transparent&autoplay=0&theme=dark&controls=1&autohide=0&loop=0&showinfo=0&rel=0&playlist=false&enablejsapi=0">
-            </iframe>
+          <div class="col_left">
+            <div class="quote_container">
+              <h1>{{quote_one}}</h1>
+            </div>
+            <div class="video_container">
+              <div class="vid_header">
+                <h3>DGF Goodwill Ambassador</h3>
+              </div>
+              <div class="vid_main">
+                <iframe src="//www.youtube.com/embed/lntnA8pNyb0?wmode=transparent&autoplay=0&theme=dark&controls=1&autohide=0&loop=0&showinfo=0&rel=0&playlist=false&enablejsapi=0">
+                </iframe>
+              </div>
+            </div>
           </div>
-
-              <!-- <ul>
-                <li>BORN: August 25, 1957 - Plymouth, Wisconsin</li>
-                <li>US NAVY CORPSMAN
-                  <ul>
-                    <li>1975-1979 (Active Duty)</li>
-                    <li>1979-1983 (Reservist)</li>
-                  </ul>
-                </li>
-                <li>UNIVERSITY of FLORIDA - 1984 Graduate (With Honors)
-                  <ul>
-                    <li>Physician Assistant Program</li>
-                  </ul>
-                </li>
-                <li>Joined Medical Practice in Melbourne, Fl - 1986</li>
-                <li>BREVARD REPUBLICAN PARTY
-                  <ul>
-                    <li>Precinct Committeeman 2005 - 2008</li>
-                    <li>State Committeeman 2008 - Present</li>
-                  </ul>
-                </li>
-              </ul> -->
 
           <div class="outter_container">
             <div class="mt_born">
@@ -106,14 +97,41 @@
 
         </div>
 
-        <div class="content_section_social">
-          
+        <div id="mike_platform" class="title_sec">
+          <div class="title_container">
+            <h1 class="heading1"></h1>
+            <h1 class="heading2">{{platform_sec}}</h1>
+            <h1 class="heading3"></h1>
+            <!-- <h3><a href="">Donate to the Campaign</a></h3> -->
+          </div>
+        </div> 
+
+        <div class="platform_container">
+          <div class="educaiton platform_topic">
+            <h1>{{ education }}</h1>
+            <p>{{ education_text }}</p>
+          </div>
+          <div class="amendment platform_topic">
+            <h1>{{ amendment }}</h1>
+            <p>{{ amendment_text }}</p>
+          </div>
+          <div class="healthcare platform_topic">
+            <h1>{{ healthcare }}</h1>
+            <p>{{ healthcare_text }}</p>
+          </div>
+          <div class="environment platform_topic">
+            <h1>{{ environment }}</h1>
+            <p>{{ environment_text }}</p>
+          </div>
+          <div class="business platform_topic">
+            <h1>{{ business }}</h1>
+            <p>{{ business_text }}</p>
+          </div>
         </div>
       </div>
 
-      <div class="parallax__layer parallax__layer--back" style="background-color: #000069"></div>
+      <div class="parallax__layer parallax__layer--back"></div>
 
-      <!-- <div class="parallax__layer parallax__layer--deep"></div> -->
     </div>   
 
     <div id="mission" class="parallax__group_foot">

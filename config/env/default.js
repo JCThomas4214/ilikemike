@@ -7,7 +7,7 @@ module.exports = {
     keywords: 'florida, state senator, senator, district 17, vote, republican, politician',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
   },
-  port: process.env.PORT || 5000,
+  port: process.env.PORT || 3000,
   host: process.env.HOST || '0.0.0.0',
   templateEngine: 'swig',
   // Session Cookie settings

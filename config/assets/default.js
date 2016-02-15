@@ -8,7 +8,10 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         '//fonts.googleapis.com/css?family=Berkshire+Swash',
         '//fonts.googleapis.com/css?family=Great+Vibes',
-        '//fonts.googleapis.com/css?family=Just+Another+Hand'
+        '//fonts.googleapis.com/css?family=Just+Another+Hand',
+        '//fonts.googleapis.com/css?family=Oleo+Script',
+        '//fonts.googleapis.com/css?family=Lobster+Two',
+        '//fonts.googleapis.com/css?family=Merienda+One'
       ],
       js: [
         'public/lib/angular/angular.js',

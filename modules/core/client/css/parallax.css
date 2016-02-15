@@ -14,7 +14,10 @@
   .parallax__group {
     position: relative;
     height: 500px; /* fallback for older browsers */
-    height: 152vw;
+    height: 220vw;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;    
+    -moz-transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
@@ -24,6 +27,9 @@
     top:20vw;
     height: 400px; /* fallback for older browsers */
     padding-bottom: 20vh;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d; 
+    -moz-transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
@@ -47,24 +53,36 @@
   }
 
   .parallax__layer--fore {
+    -o-transform: translateZ(90px) scale(.7);
+    -ms-transform: translateZ(90px) scale(.7);
+    -moz-transform: translateZ(90px) scale(.7);
     -webkit-transform: translateZ(90px) scale(.7);
     transform: translateZ(90px) scale(.7);
     z-index: 1;
   }
 
   .parallax__layer--base {
+    -o-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -moz-transform: translateZ(0);
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     z-index: 4;
   }
 
   .parallax__layer--back {
+    -o-transform: translateZ(-300px) scale(2);
+    -ms-transform: translateZ(-300px) scale(2);
+    -moz-transform: translateZ(-300px) scale(2);
     -webkit-transform: translateZ(-300px) scale(2);
     transform: translateZ(-300px) scale(2);
     z-index: 3;
   }
 
   .parallax__layer--deep {
+    -o-transform: translateZ(-600px) scale(3);
+    -ms-transform: translateZ(-600px) scale(3);
+    -moz-transform: translateZ(-600px) scale(3);
     -webkit-transform: translateZ(-600px) scale(3);
     transform: translateZ(-600px) scale(3);
     z-index: 2;
@@ -91,23 +109,26 @@
   /* style the groups
   --------------------------------------------- */
 
-  #background1 {
+  .background1 {
     z-index: 3; /* slide under groups 1 and 3 */
   }
-  #background1 .parallax__layer--base {
+  .background1 .parallax__layer--base {
     height:160vh;
   }
-  #background1 .parallax__layer--back {
+  .background1 .parallax__layer--back {
     /*top:14vh ;*/
-    height: 134vw;
+    height: 180vw;
     min-height: 600px;
     background-position: center center; 
     background-repeat: repeat;
     background-size: 100% auto;
     left: -10px;
+
+    background-color: #000069;
+    /*background-image: url('/modules/core/client/img/backgrounds/american-flag.jpg');*/
   }
 
-  #background1 .parallax__layer--deep {
+  .background1 .parallax__layer--deep {
     background-position: center center; 
     background-repeat: repeat;
     background-size: cover;
@@ -160,7 +181,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 125%;
-    top: 0px;
+    top: 0;
     left: -10px;
   }
 
@@ -204,9 +225,9 @@
 
   #mission .parallax__layer--base {
     background-color: #0000A5;
-    -moz-box-shadow: 0 0 0px #888;
-    -webkit-box-shadow: 0 0 0px#888;
-    box-shadow: 0 0 0px #888;
+    -moz-box-shadow: 0 0 0 #888;
+    -webkit-box-shadow: 0 0 0 #888;
+    box-shadow: 0 0 0 #888;
   }
 }
 

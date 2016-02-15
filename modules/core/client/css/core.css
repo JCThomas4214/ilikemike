@@ -4,11 +4,11 @@ body {
   background-color: #000069;
 }
 
-.content {
+/*.content {
   background-color: #F9F9F9;
 }
 .container {
-}
+}*/
 .undecorated-link:hover {
   text-decoration: none;
 }
@@ -57,8 +57,8 @@ a:hover .header-profile-image {
 
 .content_title_section {
   background-color: transparent;
-  padding-left: 18%;
-  padding-right: 18%;
+  padding-left: 10%;
+  padding-right: 10%;
   margin-bottom: 3%;
 }
 
@@ -71,8 +71,8 @@ a:hover .header-profile-image {
 
 .title_sec {
   background-color: transparent;
-  padding-left: 18%;
-  padding-right: 18%;
+  padding-left: 10%;
+  padding-right: 10%;
   margin: 3% 0;
 }
 .title_container {
@@ -88,7 +88,7 @@ a:hover .header-profile-image {
 }
 .title_container .heading1 {
   height: 10px;
-  margin: 0px !important;
+  margin: 0 !important;
   background-color: #C30F0F;
 
   border-top-left-radius: 15px;
@@ -99,15 +99,14 @@ a:hover .header-profile-image {
   margin-top: 1vw !important;
   margin_bottom: 1vw !important; 
 
-  font-family: "Times New Roman", Times, serif;
+  font: 400 4vw/1.3 'Oleo Script', Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 3vw;
   color: #C30F0F;
-  text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
 }
 .title_container .heading3 {
   height: 10px;
-  margin: 0px !important;
+  margin: 0 !important;
   background-color: #0000A5;
 
   border-bottom-left-radius: 15px;
@@ -121,7 +120,6 @@ a:hover .header-profile-image {
   padding-right: 15px;
   padding-left: 15px;
   display: inline-block;
-  background-color: #C30F0F;
   border-radius: 10px;
 
   /*-moz-box-shadow: 0 0 20px #212121;
@@ -131,29 +129,45 @@ a:hover .header-profile-image {
 .mail_form h3 {
   text-align: left;
   margin-top: 1vw !important;
-  margin_bottom: 1vw !important; 
 
-  font-family: "Times New Roman", Times, serif;
+  margin: 0 !important;
+  color: #0000A5 !important;
+  padding: 10px;
+  border-bottom-left-radius: 10px; 
+
+  font: 400 4vw/1.3 'Oleo Script', Helvetica, sans-serif; 
   font-weight: bold;
   font-size: 4vw;
   color: white;
-  text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
 }
 .mail_form p {
   text-align: left;
-  margin-top: 1vw !important;
+  margin-top: 0;
 
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   font-size: 2vw;
-  color: #0000A5;
-  text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  color: white;
+  text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
+}
+.form_header {
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 2%;
+}
+.form_main {
+  background-color: #C30F0F; 
+  padding: 10px 15px 15px 15px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .form-control:focus {
-  -moz-box-shadow: 0 0 5px white;
-  -webkit-box-shadow: 0 0 5px white;
-  box-shadow: 0 0 5px white;
+  -moz-box-shadow: 0 0 15px #fff;
+  -webkit-box-shadow: 0 0 15px #fff;
+  box-shadow: 0 0 15px #fff;
 
   border: 0;
 }
@@ -175,11 +189,11 @@ a:hover .header-profile-image {
 .mission_section .heading1 {
   padding-top: 2vw;
   padding-bottom: 1vw;
-  margin: 0px !important;
+  margin: 0 !important;
   background-color: #C30F0F;
   font: 400 6vw/0.8 'Great Vibes', Helvetica, sans-serif;
   color: white;  
-  text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
 
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -187,19 +201,19 @@ a:hover .header-profile-image {
 .mission_section .heading2 {
   padding-top: 1vw;
   padding-bottom: 1vw;
-  margin: 0px !important;
+  margin: 0 !important;
   background-color: white;
   font: 400 3vw/0.8 'Great Vibes', Helvetica, sans-serif;
-  text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
 }
 .mission_section .heading3 {
   padding-top: 2vw;
   padding-bottom: 1vw;
-  margin: 0px !important;
+  margin: 0 !important;
   background-color: #0000A5;
   font: 400 5vw/0.8 'Great Vibes', Helvetica, sans-serif;
   color: white;
-  text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
 
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -207,21 +221,32 @@ a:hover .header-profile-image {
 
 .content_section_about {
   background-color: transparent;
-  height:1000px;
+  height:auto;
   padding-left: 20%;
   padding-right: 20%;
 }
-.video_container {
+.col_left { 
+  width: 45%;
+  display:inline-block;
+  vertical-align: top;
+}
+.quote_container {
   text-align: center;
-  margin: 0 auto;
+  padding: 5px;
   background-color: #C30F0F;
-  width: 90%;
-  height: auto;
-  padding-bottom: 15px;
-  padding-right: 15px;
-  padding-left: 15px;
-
   border-radius: 10px;
+}
+.quote_container h1 {
+  margin: 0;
+  padding: 2% 0;
+  color: white;
+  font: 400 3vw/1.3 'Oleo Script', Helvetica, sans-serif;
+  color: white;
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+}
+.video_container {
+  margin-top: 15px;
+  text-align: center;
 
   /*-moz-box-shadow: 0 0 10px #888;
   -webkit-box-shadow: 0 0 10px #888;
@@ -231,21 +256,35 @@ a:hover .header-profile-image {
   margin: 0;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
-  font-size: 2vw;
-  color: white;
-  text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  font: 400 2vw/1.3 'Oleo Script', Helvetica, sans-serif;
+  color: #0000A5;
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
 }
 .video_container iframe {
   width: 100%;
   height: 410px;
-  height: 29vw;
+  height: 13vw;
   max-height: 460px;
   border: 0;
 }
-.outter_container {
-  margin-top: 35px;
+.vid_header {
+  padding: 5px;
+  background-color: white;
+  border-top-right-radius: 10px !important;  
+  border-top-left-radius: 10px !important;
+
+  margin-bottom: 2%;
+}
+.vid_main {
+  background-color: #C30F0F;
+  padding: 10px;
+
+  border-bottom-right-radius: 10px !important;  
+  border-bottom-left-radius: 10px !important;
+}
+.outter_container {  
+  display:inline-block;
+  margin-left: 1%;
   width: auto;
   height: auto;
   border-radius: 15px;
@@ -260,10 +299,8 @@ a:hover .header-profile-image {
   color: white;
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
-  font-size: 3vw;
-  text-shadow: 1px 1px 2px rgba(0,0,0,1);
-
-  
+  font-size: 2vw;
+  text-shadow: 2px 1px 2px #000, 4px 3px 2px rgba(0,0,0,0.65);
 }
 .outter_container p {
   margin: 0;
@@ -271,24 +308,22 @@ a:hover .header-profile-image {
   color: white;
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
-  font-size: 2vw;
-  text-shadow: 1px 1px 2px rgba(0,0,0,1);  
+  font-size: 1vw;
+  text-shadow: 2px 1px 2px #000, 4px 3px 2px rgba(0,0,0,0.65);
 }
 .outter_container .mt_born {
-  padding: 3% 0;
+  padding: 3% 2%;
   text-align: center;
   height: auto;
-  background-image: url('//3.bp.blogspot.com/-bM_26oN1dlk/U-1OwL9yDcI/AAAAAAAANmc/kpPp5sRjgMk/s1600/IMG_7543.JPG');
+  background-image: url('/modules/core/client/img/backgrounds/plymouth.jpg');
   background-size: cover; 
   background-position: 0 -50px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
-.outter_container .mt_born {
-  padding-bottom: 2%;
+  border-top-right-radius: 10px;  
+  border-top-left-radius: 10px;
 }
 .outter_container .mt_service {
-  padding: 3% 0;
+  margin-top: 3%;
+  padding: 3% 2%;
   text-align: center;
   height: auto;
   background-image: url('/modules/core/client/img/backgrounds/navy.jpg');
@@ -296,7 +331,8 @@ a:hover .header-profile-image {
   background-position: center;
 }
 .outter_container .mt_graduate {  
-  padding: 3% 0;
+  margin-top: 3%;
+  padding: 3% 1%;
   text-align: center;
   height: auto;
   background-image: url('/modules/core/client/img/backgrounds/gator.jpg');
@@ -304,7 +340,8 @@ a:hover .header-profile-image {
   background-position: 0 -90px;
 }
 .outter_container .mt_medical {
-  padding: 3% 0;
+  margin-top: 3%;
+  padding: 3% 1%;
   text-align: center;
   height: auto;
   background-image: url('/modules/core/client/img/backgrounds/indian_river.jpg');
@@ -312,39 +349,16 @@ a:hover .header-profile-image {
   background-position: center;
 }
 .outter_container .mt_republican {
-  padding: 3% 0;
+  margin-top: 3%;
+  padding: 3% 1%;
   text-align: center;
   height: auto;
   background-image: url('/modules/core/client/img/backgrounds/republican_bg.jpg');
   background-size: cover; 
   background-position: center;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 10px;  
+  border-bottom-left-radius: 10px;
 }
-
-
-
-/*.content_section_about .about_mt {
-
-  padding: 10px 0;
-  border: 8px solid white;
-  height:auto;
-  width: auto;
-  background-color: #C30F0F;
-  border-radius: 10px;
-
-}
-ul > li {
-  margin: 0 40px;
-  color: white;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
-  font-size: 20px;
-  font-size: 2vw;
-
-  text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
-}*/
-
 
 
 .methods_section, .about_section {
@@ -365,10 +379,11 @@ ul > li {
   overflow: auto;
   border-radius: 5px;
   background-color: #E6E6E6;
-  padding-left: 4vw;
+  /*padding-left: 4vw;
   padding-right: 4vw;
   padding-top: 2vw;
-  padding-bottom: 2vw;
+  padding-bottom: 2vw;*/
+  padding: 2vw 4vw 2vw 4vw;
 
  /* -moz-box-shadow: 0 0 20px #888;
   -webkit-box-shadow: 0 0 20px#888;
@@ -398,6 +413,37 @@ ul > li {
   border-radius: 10px;
 }
 
+.platform_container {
+  text-align: center;
+  height:auto;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 15px;
+  background-color: #C30F0F;
+  border-radius: 10px;
+}
+.platform_container h1 {
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 2vw;
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+}
+.platform_container p {
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 1vw;
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+}
+.platform_container .platform_topic {
+  border-bottom: 3px solid white;
+  padding-bottom: 10px;
+}
+.platform_container .business {
+  border-bottom: 0;
+}
+
 .fb-page {
   float:right;
   margin-top: 15px;
@@ -414,6 +460,9 @@ ul > li {
   padding: 20px;
   background-color: #0000A5;
   text-align: center;
+}
+.footer_top .media_icons {
+  margin: 20px;
 }
 .footer_top img {
   padding: 10px;
@@ -432,7 +481,7 @@ ul > li {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   font-size: 2vw;
-  text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
 }
 
 .footer_bottom {
@@ -448,7 +497,7 @@ ul > li {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   font-size: 1vw;
-  text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
 }
 
 
@@ -457,22 +506,19 @@ ul > li {
 
   /*Heading and Text CSS*/
   .header_spacing {
-    height: 0vw;
+    height: 0;
   }
   .content_divider {
-    height: 0px;
+    height: 0;
   }
 
   .content_title_section {
     background-color: transparent;
-    padding-left: 0vw;
-    padding-right: 0vw;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding: 0;
   }
 
   .content_divider1 {
-    height: 0vw;
+    height: 0;
   }
 
   .mission_section {
@@ -484,9 +530,9 @@ ul > li {
     padding-top: 1vw;
     padding-bottom: 1vw;*/
 
-    /*-moz-box-shadow: 0 0 0px #888;
-    -webkit-box-shadow: 0 0 0px#888;
-    box-shadow: 0 0 0px #888;*/
+    /*-moz-box-shadow: 0 0 0 #888;
+    -webkit-box-shadow: 0 0 0#888;
+    box-shadow: 0 0 0 #888;*/
   }
   .methods_section, .about_section {
     text-align: center;
@@ -505,17 +551,18 @@ ul > li {
   .content_section {
     background-color: transparent;
     height:auto;
-    padding-left: 0vw;
-    padding-right: 0vw;
+    padding-left: 0;
+    padding-right: 0;
   }
   .mission_content {
     overflow: auto;
     border-radius: 5px;
     background-color: #E6E6E6;
-    padding-left: 4vw;
+    /*padding-left: 4vw;
     padding-right: 4vw;
     padding-top: 2vw;
-    padding-bottom: 2vw;
+    padding-bottom: 2vw;*/
+    padding: 2vw 4vw 2vw 4vw;
 
     /*-moz-box-shadow: 0 0 20px #888;
     -webkit-box-shadow: 0 0 20px#888;
@@ -536,7 +583,7 @@ ul > li {
   .mission_photo {
     float:none;
 
-    border-radius: 0px;
+    border-radius: 0;
     background-color: transparent;
 
     padding-top: 4%;
@@ -553,13 +600,13 @@ ul > li {
     display: block;
     margin: 0 auto;
 
-    border-radius: 0px;
+    border-radius: 0;
     background-color: #C30F0F;
     padding: 0;
 
-    /*-moz-box-shadow: 0 0 0px #888;
-    -webkit-box-shadow: 0 0 0px#888;
-    box-shadow: 0 0 0px #888;*/
+    /*-moz-box-shadow: 0 0 0 #888;
+    -webkit-box-shadow: 0 0 0#888;
+    box-shadow: 0 0 0 #888;*/
   }
   .donation_container h2 {
     text-align: center;
@@ -568,7 +615,7 @@ ul > li {
 
     font: 400 35px/1.3 'Berkshire Swash', Helvetica, sans-serif;
     color: white;
-    text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
 
     padding-top: 25px;
     padding-bottom: 25px;
@@ -580,7 +627,7 @@ ul > li {
 
     font: 400 25px/1.3 'Berkshire Swash', Helvetica, sans-serif;
     color: #2b2b2b;
-    text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
 
     background-color: white;
     padding-top: 25px;
@@ -594,30 +641,30 @@ ul > li {
     padding-top: 20px;
     padding-bottom: 10px;
 
-    margin: 0px !important;
+    margin: 0 !important;
     background-color: #C30F0F;
     font: 400 50px/0.8 'Great Vibes', Helvetica, sans-serif;
     color: white;  
-    text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
   }
   .mission_section .heading2 {
     padding-top: 10px;
     padding-bottom: 10px;
 
-    margin: 0px !important;
+    margin: 0 !important;
     background-color: white;
     font: 400 35px/0.8 'Great Vibes', Helvetica, sans-serif;
-    text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
   }
   .mission_section .heading3 {
     padding-top: 20px;
     padding-bottom: 10px;
 
-    margin: 0px !important;
+    margin: 0 !important;
     background-color: #0000A5;
     font: 400 40px/0.8 'Great Vibes', Helvetica, sans-serif;
     color: white;
-    text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
   }
   
   
@@ -626,20 +673,6 @@ ul > li {
     background-color: white;
     margin-top: -20px;
     height: 400px;
-  }
-
-  .construction {
-
-    background-color: red;
-    margin-top: 5vh;
-    text-align: center;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  #construction {
-    width: 70%;
   }
 }
 
