@@ -38,6 +38,7 @@
   color: #E85353 !important;
   border-bottom: 3px solid !important;
   border-color: #F9F9F9 !important;
+  cursor: pointer !important;
 }
 .navbar-brand, .navbar-nav > li > a [class=navbar-brand] {  
   color: #E85353 !important;
