@@ -5,6 +5,37 @@
   text-align: center;
 }
 
+.slide-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.slide-list > li {
+  display: inline;
+}
+.slide-list > li:hover {
+  cursor: pointer;
+}
+.slide-list > li > img {
+  transition: 0.5s all;
+  width: 200px;
+  height: 250px;
+  width: 13vw;
+  height: 16vw;
+  object-fit: cover;
+  margin: 0 4px 8px 4px;
+  border-radius: 10px;
+  -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+  box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+}
+.slide-list > li > img:hover {
+  opacity: 0.9;
+  -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0);
+  -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0);
+  box-shadow: 6px 4px 10px rgba(0,0,0,0);
+}
+  
 .section_footer{
   margin: 0 -12%;
 }
