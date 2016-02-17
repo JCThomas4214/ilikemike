@@ -9,19 +9,9 @@
   margin: 0 -12%;
 }
 
-.container {
-}
-.content {
-}
-
 html, body {
   background-color: #000479;
   overflow-x:hidden; 
-}
-
-.main_sec {
-  height: auto;
-  /*overflow-y: scroll;*/
 }
 
 .undecorated-link:hover {
@@ -188,6 +178,23 @@ a:hover .header-profile-image {
   box-shadow: 0 0 15px #fff;
 
   border: 0;
+}
+.my_button {
+    transition: 0.5s all;
+    color: white;
+    padding: 6px;
+    background-color: #0000A5;
+    border: 0;
+    border-radius: 4px;
+    -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.55);
+    box-shadow: 4px 2px 8px rgba(0,0,0,0.55);
+    font: 400 18px/1.3 'Oleo Script', Helvetica, sans-serif;
+}
+.my_button:hover {
+    -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0);
+    -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0);
+    box-shadow: 4px 2px 8px rgba(0,0,0,0);
 }
 
 .mission_section {
@@ -536,6 +543,7 @@ a:hover .header-profile-image {
   text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
 }
 .register_to_vote p {
+  transition: 0.5s all;
   cursor: pointer;
   color:white;
   margin: 1% 0 0 0; 
@@ -578,6 +586,7 @@ a:hover .header-profile-image {
   margin: 20px;
 }
 .footer_top img {
+  transition: 0.5s all;
   padding: 10px;
   width: 100px;
 }
