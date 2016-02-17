@@ -1,5 +1,5 @@
 <section class="main_sec" ng-controller="HomeController">
-    <header id="mainNav" ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+    <!-- <header id="mainNav" ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header> -->
 
     <div id="section_one" class="section_one">
         <div class="content_title_section">
@@ -42,12 +42,10 @@
               <h1 class="heading1"></h1>
               <h1 class="heading2">{{about_sec}}</h1>
               <h1 class="heading3"></h1>
-              <!-- <h3><a href="">Donate to the Campaign</a></h3> -->
             </div>
           </div>     
 
           <div class="content_section_about"> 
-            <!-- <div class="fb-page" data-href="https://www.facebook.com/MikeThomasForSenate/?fref=ts" data-height="400" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/MikeThomasForSenate/?fref=ts"><a href="https://www.facebook.com/MikeThomasForSenate/?fref=ts">Mike Thomas For Florida Senate</a></blockquote></div></div> -->
 
             <div class="col_left">
               <div class="quote_container">
@@ -161,7 +159,6 @@
               <h1 class="heading1"></h1>
               <h1 class="heading2">{{platform_sec}}</h1>
               <h1 class="heading3"></h1>
-              <!-- <h3><a href="">Donate to the Campaign</a></h3> -->
             </div>
           </div> 
 
@@ -205,6 +202,36 @@
           </div>
         </div>
 
+        <div class="section_four">
+          <div id="mike_social" class="title_sec">
+            <div class="title_container">
+              <h1 class="heading1"></h1>
+              <h1 class="heading2">{{mike_social}}</h1>
+              <h1 class="heading3"></h1>
+            </div>
+          </div> 
+
+          <div class="social_container">
+
+            <div class="col_left">
+              <div class="register_to_vote">
+                <h1>Register to Vote</h1>
+                <a href="http://www.votebrevard.com/Voter-Information/Register-to-Vote">
+                  <p>For Brevard County Voters</p>
+                </a>
+                <a href="http://www.voteindianriver.com/VOTERS/Update-Your-Information">
+                  <p class="bottom">For Indian River County Voters</p>
+                </a>
+              </div>
+            </div>
+
+            <div class="col_right">
+              <div class="fb-page" data-href="https://www.facebook.com/MikeThomasForSenate/?fref=ts" data-tabs="timeline" data-width="500" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/MikeThomasForSenate/?fref=ts"><a href="https://www.facebook.com/MikeThomasForSenate/?fref=ts">Mike Thomas For Florida Senate</a></blockquote></div></div>
+            </div>
+
+          </div>
+        </div>
+
         <div class="section_footer">
             <div class="footer_top">
               <div class="media_icons">
@@ -225,8 +252,10 @@
                 </a>
               </div>
               <a href="mailto:mikeforflasenate@gmail.com?Subject=Hello%20Mike%20Thomas" target="_top">
-                <h1>{{mike_email}}</h1>
+                <h1>{{mike_email}}</h1>                
               </a>
+              <p>Phone: {{mike_phone}}</p>
+              <p>Fax: {{mike_fax}}</p>
               
             </div> 
             <div class="footer_bottom">
@@ -234,6 +263,6 @@
             </div>
         </div>
 
-
+        
         
 </section>

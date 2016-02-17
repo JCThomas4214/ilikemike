@@ -8,6 +8,8 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.mike_photo = 'modules/core/client/img/photos/mike_headshot2.jpg';
 
     $scope.mike_email = 'MikeForFlaSenate@gmail.com';
+    $scope.mike_phone = '(321) 258-4448';
+    $scope.mike_fax = '1 (321) 248-0488';
     $scope.mike_decree = 'Paid by Mike Thomas, Republican, for State Senate';
 
     $scope.name = 'Mike Thomas';
@@ -59,5 +61,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
     $scope.business = 'Business';
     $scope.business_text = 'A good business environment and a vibrant economy are the lifeblood of our community. High unemployment rates not only reduce our living standards but they increase crime in our neighborhoods. I especially pledge to support the success and growth of our small businesses who, too frequently, find theirselves strangled by volumes of regulatory red tape.';
+  
+    $scope.mike_social = 'Stay Connected';
   }
 ]);

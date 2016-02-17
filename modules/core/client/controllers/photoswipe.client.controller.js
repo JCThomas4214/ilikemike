@@ -5,7 +5,9 @@ angular.module('core').controller('photoCtrl',
     var vm = this;
 
     vm.opts = {
-      index: 0
+      index: 0,
+      showAnimationDuration: 333,
+      hideAnimationDuration: 333
     };
 
     vm.slides = [{
