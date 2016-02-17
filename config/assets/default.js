@@ -6,6 +6,8 @@ module.exports = {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+        'public/lib/photoswipe/dist/photoswipe.css',
+        'public/lib/photoswipe/dist/default-skin/default-skin.css',
         '//fonts.googleapis.com/css?family=Berkshire+Swash',
         '//fonts.googleapis.com/css?family=Great+Vibes',
         '//fonts.googleapis.com/css?family=Just+Another+Hand',
@@ -23,8 +25,9 @@ module.exports = {
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
-        'public/lib/jquery/dist/jquery.min.js',
-        'public/lib/parallax.js-1.4.2/parallax.min.js'
+        'public/lib/photoswipe/dist/photoswipe.js',
+        'public/lib/photoswipe/dist/photoswipe-ui-default.min.js',
+        'public/lib/ng-photoswipe/angular-photoswipe.min.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },
