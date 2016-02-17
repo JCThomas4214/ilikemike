@@ -555,11 +555,12 @@ a:hover .header-profile-image {
   border-bottom-right-radius: 10px; 
 }
 .fb-page {
-
-
   -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
   -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
   box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+}
+.twitter_acc {
+  margin-top: 3%;
 }
 
 .footer_top {
