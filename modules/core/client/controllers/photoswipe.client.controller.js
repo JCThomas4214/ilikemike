@@ -11,8 +11,23 @@ angular.module('core').controller('photoCtrl',
     };
 
     vm.slides = [{
-      src: 'modules/core/client/img/photos/Mike1.jpg',
+      src: 'modules/core/client/img/photos/mike1.jpg',
       w: 700, h: 500
+    },{
+      src: 'modules/core/client/img/photos/mike2.jpg',
+      w: 400, h: 500
+    },{
+      src: 'modules/core/client/img/photos/mike3.jpg',
+      w: 700, h: 500
+    },{
+      src: 'modules/core/client/img/photos/mike4.jpg',
+      w: 700, h: 500
+    },{
+      src: 'modules/core/client/img/photos/mike5.jpg',
+      w: 400, h: 500
+    },{
+      src: 'modules/core/client/img/photos/mike6.jpg',
+      w: 400, h: 500
     }];
 
     vm.showGallery = function (i) {

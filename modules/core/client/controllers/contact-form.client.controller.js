@@ -1,37 +1,49 @@
 'use strict';
 
-angular.module('core').controller('ContactFormController', ['$scope', '$http','$animate',
-  function($scope, $http, $animate) {
-  	
-  	// $scope.toastPosition {
-  	// 	bottom: true;
-  	// 	top: false;
-  	// 	right: true;
-  	// 	left: false;
-  	// };
-  	// $scope.getToastPosition = function () {
-  	// 	return Object.keys($scope.toastPosition)
-  	// 	  .filter(function (pos) {
-  	// 	  	return $scope.toastPosition[pos];
-  	// 	  })
-  	// 	  .join(' ');
-  	// };
+angular
+  .module('core')
+  .config(['ngToastProvider', function(ngToast) {
+    ngToast.configure({
+      animation: 'fade',
+      verticalPosition: 'bottom',
+      horizontalPosition: 'left',
+      maxNumber: 1
+    });
+  }]);
+
+angular.module('core').controller('ContactFormController', ['$scope', '$http','$animate', 'ngToast',
+  function($scope, $http, $animate, ngToast) {
 
     this.sendMail = function () {
-  		
-      var data = ({
-        contact_name : this.contact_name,
-        contact_email : this.contact_email
-      });
 
-      $http.post('/contact-form', data).
-        success(function(data, status, headers, config) {
-
-        }).
-        error(function(data, status, headers, config) {
-
+      if (this.contact_name && this.contact_email) {
+      
+        var data = ({
+          contact_name : this.contact_name,
+          contact_email : this.contact_email
         });
-    };
 
+        $http.post('/contact-form-to-mike', data).
+          success(function(data, status, headers, config) {
+            ngToast.create({
+              content: '<p class="toast_box">Thank you, <b>' + this.contact_name + '</b>, for joining!</p>'
+            });
+          }).
+          error(function(data, status, headers, config) {
+
+          });
+
+        $http.post('/contact-form-to-sub', data).
+          success(function(data, status, headers, config) {
+
+          }).
+          error(function(data, status, headers, config) {
+
+          });
+
+        this.contact_name = ''; 
+        this.contact_email = '';
+      }    
+    };
   }
 ]);

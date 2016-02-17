@@ -13,5 +13,6 @@ module.exports = function (app) {
   // Define application route
   app.route('/*').get(core.renderIndex);
 
-  app.route('/contact-form').post(core.sendMail);
+  app.route('/contact-form-to-mike').post(core.recieveMail);
+  app.route('/contact-form-to-sub').post(core.sendMail);
 };

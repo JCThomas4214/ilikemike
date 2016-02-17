@@ -62,9 +62,9 @@ exports.renderNotFound = function (req, res) {
 };
 
 /**
- * Send and Email when contact form is submitted
+ * Send and Email to Mike when contact form is submitted
  */
-exports.sendMail = function (req, res) {
+exports.recieveMail = function (req, res) {
 
   var data = req.body;
 
@@ -73,6 +73,24 @@ exports.sendMail = function (req, res) {
     to: 'jason.lewisg@gmail.com',
     subject: 'New subscriber',
     text: data.contact_name
+  });
+
+  res.json(data);
+
+};
+
+/**
+ * Send and Email to Sub when contact form is submitted
+ */
+exports.sendMail = function (req, res) {
+
+  var data = req.body;
+
+  transporter.sendMail({
+    from: 'jason.lewisg@gmail.com',
+    to: data.contact_email,
+    subject: 'Mike Thomas for Florida Senate 2016',
+    text: 'Thank you so much, ' + data.contact_name + ' for subscribing to the Mike Thomas Campaign news Letter!'
   });
 
   res.json(data);

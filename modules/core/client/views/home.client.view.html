@@ -19,10 +19,10 @@
                 <p>{{mike_sub}}</p>
                 <form name="contactForm" data-ng-submit="cf.sendMail()" role="form">
                   <div class="form-group">
-                    <input type="name" data-ng-model="cf.contact_name" class="form-control" id="name" placeholder="Name">
+                    <input type="name" data-ng-model="cf.contact_name" class="form-control" id="name" placeholder="Name" autocomplete="off">
                   </div>
                   <div class="form-group">
-                    <input type="email" data-ng-model="cf.contact_email" class="form-control" id="email" placeholder="Email Address">
+                    <input type="email" data-ng-model="cf.contact_email" class="form-control" id="email" placeholder="Email Address" autocomplete="off">
                   </div>
                   <button type="submit" class="my_button">Subscribe</button>
                 </form>
@@ -140,13 +140,23 @@
                     cursor: pointer;
                 }
                 .slide-list > li > img {
-                    width: 25%;
-                    height: auto;
-                    margin-bottom: 4px;
+                    transition: 0.5s all;
+                    width: 200px;
+                    height: 250px;
+                    width: 13vw;
+                    height: 16vw;
+                    object-fit: cover;
+                    margin: 0 4px 8px 4px;
                     border-radius: 10px;
                     -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
                     -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
                     box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+                }
+                .slide-list > li > img:hover {
+                    opacity: 0.9;
+                    -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0);
+                    -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0);
+                    box-shadow: 6px 4px 10px rgba(0,0,0,0);
                 }
             </style>
 
