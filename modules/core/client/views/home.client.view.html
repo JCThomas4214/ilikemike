@@ -1,22 +1,16 @@
-<section id="main" ng-controller="HomeController">	
-  
+<section class="main_sec" ng-controller="HomeController">
+    <header id="mainNav" ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
 
-  <header id="mainNav" ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-	<div class="parallax" scrolly="showMore()">
-    
-    <div id="background1" class="background1 parallax__group">      
-      <div class="parallax__layer parallax__layer--base">
-
-      <div class="section_one">
-          <div class="content_title_section">
-             <div class="mission_section">
+    <div id="section_one" class="section_one">
+        <div class="content_title_section">
+            <div class="mission_section">
                <h1 class="heading1">{{name}}</h1>  
                <h3 class="heading2">{{name_con}}</h3>  
                <h1 class="heading3">{{name_con2}}</h1>           
-             </div>
-          </div>
+            </div>
+         </div>
 
-          <div class="content_section">
+        <div class="content_section">
             <div data-ng-controller="ContactFormController as cf" class="mail_form">
               <div class="form_header">
                 <h3>{{mike_slogen}}</h3>
@@ -42,7 +36,7 @@
           </div>
         </div>
 
-        <div class="section_two">
+        <div id="section_two" class="section_two">
           <div id="meet_mike" class="title_sec">
             <div class="title_container">
               <h1 class="heading1"></h1>
@@ -125,9 +119,43 @@
 
             </div>
           </div>
+
+          <div class="photo_container" ng-controller="photoCtrl as vm">
+
+            <ul class="slide-list">
+               <li ng-repeat="s in vm.slides track by $index" ng-click="vm.showGallery($index)">
+                   <img ng-src="{{ s.src }}" alt="slide number {{ $index }}" />
+               </li>
+            </ul>
+            <div ng-photoswipe slides="vm.slides" open="vm.open" on-close="vm.closeGallery()" options="vm.opts"></div>
+
+            <style>
+                .slide-list {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                }
+                .slide-list > li {
+                    display: inline;
+                }
+                .slide-list > li:hover {
+                    cursor: pointer;
+                }
+                .slide-list > li > img {
+                    width: 25%;
+                    height: auto;
+                    margin-bottom: 4px;
+                    border-radius: 10px;
+                    -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+                    -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+                    box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+                }
+            </style>
+
+          </div>
         </div>
 
-        <div class="section_three">
+        <div id="section_three" class="section_three">
           <div id="mike_platform" class="title_sec">
             <div class="title_container">
               <h1 class="heading1"></h1>
@@ -176,45 +204,36 @@
 
           </div>
         </div>
-      </div>
 
-      <div class="parallax__layer parallax__layer--back"></div>
+        <div class="section_footer">
+            <div class="footer_top">
+              <div class="media_icons">
+                <a class="media_link" href="https://www.facebook.com/MikeThomasForSenate/">
+                  <img src="modules/core/client/img/icons/128-facebook.png"></img>
+                </a>
+                <a class="media_link" href="">
+                  <img src="modules/core/client/img/icons/128-twitter.png"></img>
+                </a>
+                <a class="media_link" href="">
+                  <img src="modules/core/client/img/icons/128-instagram.png"></img>
+                </a>
+                <a class="media_link" href="https://www.linkedin.com/in/mike-thomas-5105681b?authType=NAME_SEARCH&authToken=SUUm&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A70060764%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1455415061273%2Ctas%3Amike%20">
+                  <img src="modules/core/client/img/icons/128-linkedin.png"></img>
+                </a>
+                <a class="media_link" href="">
+                  <img src="modules/core/client/img/icons/128-youtube-2.png"></img>
+                </a>
+              </div>
+              <a href="mailto:mikeforflasenate@gmail.com?Subject=Hello%20Mike%20Thomas" target="_top">
+                <h1>{{mike_email}}</h1>
+              </a>
+              
+            </div> 
+            <div class="footer_bottom">
+              <p>&#9734; {{mike_decree}} &#9734;</p>
+            </div>
+        </div>
 
-    </div>   
 
-    <div id="mission" class="parallax__group_foot">
-      <div class="foot parallax__layer--base">
-
-        <div class="footer_top">
-          <div class="media_icons">
-            <a class="media_link" href="https://www.facebook.com/MikeThomasForSenate/">
-              <img src="modules/core/client/img/icons/128-facebook.png"></img>
-            </a>
-            <a class="media_link" href="">
-              <img src="modules/core/client/img/icons/128-twitter.png"></img>
-            </a>
-            <a class="media_link" href="">
-              <img src="modules/core/client/img/icons/128-instagram.png"></img>
-            </a>
-            <a class="media_link" href="https://www.linkedin.com/in/mike-thomas-5105681b?authType=NAME_SEARCH&authToken=SUUm&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A70060764%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1455415061273%2Ctas%3Amike%20">
-              <img src="modules/core/client/img/icons/128-linkedin.png"></img>
-            </a>
-            <a class="media_link" href="">
-              <img src="modules/core/client/img/icons/128-youtube-2.png"></img>
-            </a>
-          </div>
-          <a href="mailto:mikeforflasenate@gmail.com?Subject=Hello%20Mike%20Thomas" target="_top">
-            <h1>{{mike_email}}</h1>
-          </a>
-          
-        </div> 
-        <div class="footer_bottom">
-          <p>&#9734; {{mike_decree}} &#9734;</p>
-        </div>       
-
-      </div>
-    </div>
-  </div> 
+        
 </section>
-
-

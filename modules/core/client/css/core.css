@@ -1,14 +1,29 @@
-html,
-body {
-  height: 100%;
-  background-color: #000069;
+
+.photo_container {
+  height: auto;
+  padding: 3% 14% 0 14%;
+  text-align: center;
 }
 
-/*.content {
-  background-color: #F9F9F9;
+.section_footer{
+  margin: 0 -12%;
 }
+
 .container {
-}*/
+}
+.content {
+}
+
+html, body {
+  background-color: #000479;
+  overflow-x:hidden; 
+}
+
+.main_sec {
+  height: auto;
+  /*overflow-y: scroll;*/
+}
+
 .undecorated-link:hover {
   text-decoration: none;
 }
@@ -57,14 +72,15 @@ a:hover .header-profile-image {
 
 .content_title_section {
   background-color: transparent;
-  padding: 5% 10% 3% 10%;
+  padding: 7% 10% 3% 10%;
 }
 
 .content_section {
+  text-align: center;
   background-color: transparent;
   height:auto;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 18%;
+  padding-right: 18%;
 }
 
 .title_sec {
@@ -110,6 +126,7 @@ a:hover .header-profile-image {
 }
 
 .mail_form {
+  text-align: left;
   width: 60%;
   height: auto;
   display: inline-block;
@@ -241,7 +258,7 @@ a:hover .header-profile-image {
 
 .mission_photo {
   display: inline-block;    
-  margin: 0 0 0 4%;
+  margin: 0 0 0 3%;
   vertical-align: top;
   background-color: transparent;
   /*background-size: cover;
@@ -254,13 +271,14 @@ a:hover .header-profile-image {
 }
 
 .content_section_about {
+  text-align: center;
   background-color: transparent;
   height:auto;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 14%;
+  padding-right: 14%;
 }
 .col_left { 
-  width: 51%;
+  width: 50%;
   display:inline-block;
   vertical-align: top;
 }
@@ -301,7 +319,7 @@ a:hover .header-profile-image {
 .video_container iframe {
   width: 100%;
   height: 410px;
-  height: 16vw;
+  height: 15vw;
   max-height: 460px;
   border: 0;
 }
@@ -347,7 +365,7 @@ a:hover .header-profile-image {
 
 .outter_container {  
   display:inline-block;
-  margin-left: 8px;
+  margin-left: 2%;
   width: auto;
   height: auto;
   border-radius: 15px;
@@ -427,8 +445,6 @@ a:hover .header-profile-image {
   background-image: url('/modules/core/client/img/backgrounds/republican_bg.jpg');
   background-size: cover; 
   background-position: center;
-  border-bottom-right-radius: 10px;  
-  border-bottom-left-radius: 10px;
 }
 
 
@@ -448,8 +464,8 @@ a:hover .header-profile-image {
 .platform_container {
   text-align: center;
   height:auto;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 14%;
+  margin-right: 14%;
   border-radius: 10px;
 }
 .platform_container .platform_header {
