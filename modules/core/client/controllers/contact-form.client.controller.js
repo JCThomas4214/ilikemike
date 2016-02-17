@@ -17,6 +17,10 @@ angular.module('core').controller('ContactFormController', ['$scope', '$http','$
     this.sendMail = function () {
 
       if (this.contact_name && this.contact_email) {
+
+        ngToast.create({
+          content: '<p class="toast_box">Thank you, <b>' + this.contact_name + '</b>, for joining!</p>'
+        });
       
         var data = ({
           contact_name : this.contact_name,
@@ -25,9 +29,7 @@ angular.module('core').controller('ContactFormController', ['$scope', '$http','$
 
         $http.post('/contact-form-to-mike', data).
           success(function(data, status, headers, config) {
-            ngToast.create({
-              content: '<p class="toast_box">Thank you, <b>' + this.contact_name + '</b>, for joining!</p>'
-            });
+            
           }).
           error(function(data, status, headers, config) {
 
