@@ -562,6 +562,11 @@ a:hover .header-profile-image {
 .twitter_acc {
   margin-top: 3%;
 }
+.twitter_acc iframe {  
+  -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+  box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+}
 
 .footer_top {
   height: 75%;
