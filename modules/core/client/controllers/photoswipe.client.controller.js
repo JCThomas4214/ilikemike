@@ -5,22 +5,11 @@ angular.module('core').controller('photoCtrl',
     var vm = this;
 
     vm.opts = {
-      index: 0,
-      showAnimationDuration: 333,
-      hideAnimationDuration: 333
+      index: 0
     };
 
     vm.slides = [{
       src: 'modules/core/client/img/photos/mike1.jpg',
-      w: 700, h: 500
-    },{
-      src: 'modules/core/client/img/photos/mike2.jpg',
-      w: 400, h: 500
-    },{
-      src: 'modules/core/client/img/photos/mike3.jpg',
-      w: 700, h: 500
-    },{
-      src: 'modules/core/client/img/photos/mike4.jpg',
       w: 700, h: 500
     },{
       src: 'modules/core/client/img/photos/mike5.jpg',
@@ -28,6 +17,9 @@ angular.module('core').controller('photoCtrl',
     },{
       src: 'modules/core/client/img/photos/mike6.jpg',
       w: 400, h: 500
+    },{
+      src: 'modules/core/client/img/photos/mike3.jpg',
+      w: 700, h: 500
     }];
 
     vm.showGallery = function (i) {
