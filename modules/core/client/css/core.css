@@ -16,7 +16,7 @@
   -transform: rotate(0);
 }
 .donation_button2 {
-  width: 16%;
+  width: 16% !important;
 }
 .donation_button2:hover {  
   opacity: 1 !important;
