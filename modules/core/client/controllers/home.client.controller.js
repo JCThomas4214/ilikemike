@@ -5,6 +5,8 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
+    $scope.donation_button = 'modules/core/client/img/icons/donation2.png';
+
     $scope.mike_photo = 'modules/core/client/img/photos/mike_headshot2.jpg';
 
     $scope.mike_email = 'MikeForFlaSenate@gmail.com';
@@ -62,6 +64,8 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.business = 'Business';
     $scope.business_text = 'A good business environment and a vibrant economy are the lifeblood of our community. High unemployment rates not only reduce our living standards but they increase crime in our neighborhoods. I especially pledge to support the success and growth of our small businesses who, too frequently, find theirselves strangled by volumes of regulatory red tape.';
   
+    $scope.mike_endors = 'Mike\'s Endorsements';
+
     $scope.mike_social = 'Stay Connected';
   }
 ]);

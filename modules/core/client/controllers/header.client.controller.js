@@ -22,5 +22,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
 
     $scope.republicanLogo = 'modules/core/client/img/brand/Republicanlogo.svg';    
     $scope.siteHeader = 'Mike for Florida Senate';
+
+    
   }
 ]);

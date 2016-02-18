@@ -1,4 +1,31 @@
 
+.donation_button {
+    position: absolute;
+    transition: 0.5s all;
+    float: right;
+    top: 8%;
+    left: 14%;
+    width: 15%;
+    -ms-transform: rotate(-15deg);
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+}
+.donation_button:hover {
+  -ms-transform: rotate(0);
+  -webkit-transform: rotate(0);
+  -transform: rotate(0);
+}
+.donation_button2 {
+  width: 16%;
+}
+.donation_button2:hover {  
+  opacity: 1 !important;
+
+  -ms-transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  -transform: rotate(15deg);
+}
+
 .photo_container {
   height: auto;
   padding: 3% 14% 0 14%;
@@ -158,6 +185,7 @@ a:hover .header-profile-image {
   box-shadow: 0 0 20px #212121;*/
 }
 .mail_form h3 {
+  display: inline-block;
   text-align: left;
   margin-top: 1vw !important;
 
@@ -403,6 +431,8 @@ a:hover .header-profile-image {
 }
 .more_info p {
   color: white;
+
+  font-family: 'Noto Serif', serif;
   font-weight: bold;
   font-size: 1vw;
   text-shadow: 4px 2px 2px rgba(0,0,0,0.45);
@@ -432,6 +462,7 @@ a:hover .header-profile-image {
   margin: 0;
   padding: 1% 0 1% 0;
   color: white;
+  font-family: 'Noto Serif', serif;
   font-weight: bold;
   font-size: 1vw;
   text-shadow: 4px 2px 2px rgba(0,0,0,0.45);
@@ -544,12 +575,65 @@ a:hover .header-profile-image {
 .platform_container .platform_topic p {
   color: white;
   margin: 0;
-  font-family: "Arial", Helvetica, sans-serif;
+  font-size: 15px;
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
   text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
 }
 
 .section_four {
   height: auto;
+}
+.endors_container {
+  margin: 0 14% 0 14%;
+}
+.endors_container .endors_left {
+  width: 100%;
+}
+.endors_container .endorsement {
+  text-align: center;
+  margin: 0 0 3% 0;
+
+  border-radius: 10px;
+}
+.endors_container .endorsement h1 {
+
+  padding: 15px ;
+  background-color: white;
+  width: auto;
+  color: #0000A5;
+  margin: 0 0 1% 0;
+  /*font-weight: bold;*/
+
+  font: 400 30px/1.3 'Oleo Script', Helvetica, sans-serif;
+  text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px; 
+
+  -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+  box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+}
+.endors_container .endorsement p {
+
+  padding: 10px ;
+  background-color: #C30F0F;
+  text-align: center;
+  color:white;
+  margin: 0;
+  font-family: 'Courgette', cursive; 
+  font-size: 30px;
+  text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px; 
+
+  -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+  box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+}
+
+.section_five {
+  height:auto;
 }
 .social_container {
   text-align: center;

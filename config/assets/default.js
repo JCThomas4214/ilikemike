@@ -14,7 +14,13 @@ module.exports = {
         '//fonts.googleapis.com/css?family=Just+Another+Hand',
         '//fonts.googleapis.com/css?family=Oleo+Script',
         '//fonts.googleapis.com/css?family=Lobster+Two',
-        '//fonts.googleapis.com/css?family=Merienda+One'
+        '//fonts.googleapis.com/css?family=Merienda+One',
+        '//fonts.googleapis.com/css?family=Noto+Serif|Merriweather',
+        '//fonts.googleapis.com/css?family=Architects+Daughter',
+        '//fonts.googleapis.com/css?family=Pacifico',
+        '//fonts.googleapis.com/css?family=Courgette',
+        '//fonts.googleapis.com/css?family=Courgette|Berkshire+Swash|Judson'
+
       ],
       js: [
         'public/lib/angular/angular.js',
