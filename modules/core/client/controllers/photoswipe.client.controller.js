@@ -23,9 +23,9 @@ angular.module('core').controller('photoCtrl',
     }];
 
     vm.showGallery = function (i) {
-      if(angular.isDefined(i)) {
-        vm.opts.index = i;
-      }
+      // if(angular.isDefined(i)) {
+      //   vm.opts.index = i;
+      // }
       vm.open = true;
     };
 

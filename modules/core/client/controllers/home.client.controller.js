@@ -44,7 +44,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.exec_committee = '11th Year sitting on Brevard Republican Executive Committee';
     $scope.state_committeman = '8th Year elected as Brevard Republican State Committeeman';
     $scope.cofounder = 'Co-Founder and President of Space Coast Clinicians, Inc.';
-    $scope.fapa = 'Menber and past Board of Director of the FAPA';
+    $scope.fapa = 'Member and past Board of Director of the FAPA';
     $scope.aapa = 'Member of the AAPA';
     $scope.mentors_club = 'Member of the Republican Mentors Club';
     $scope.rwc = 'Associate Member of the Brevard Federated Republican Women\'s Club';
