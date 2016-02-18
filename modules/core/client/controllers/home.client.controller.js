@@ -5,7 +5,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
-    $scope.donation_button = 'modules/core/client/img/icons/donation2.png';
+    $scope.donation_button = 'modules/core/client/img/icons/donation.png';
 
     $scope.mike_photo = 'modules/core/client/img/photos/mike_headshot2.jpg';
 
