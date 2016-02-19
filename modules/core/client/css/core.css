@@ -752,6 +752,10 @@ a:hover .header-profile-image {
   .content_title_section {
     padding: 10% 10% 3% 10%;
   }
+
+  .section_footer {
+    margin: 0 -20%;
+  }
 }
 
 
