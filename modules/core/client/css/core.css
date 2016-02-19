@@ -1093,8 +1093,11 @@ a:hover .header-profile-image {
   width: 150px !important;
 }
 
+.footer_bottom {
+  padding: 10px 8%;
+}
 .footer_bottom p {
-  font-size: 13px;
+  font-size: 10px;
 }
 
 @media screen and (max-width: 450px) {
