@@ -55,7 +55,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.amendment = '2nd Amendment';
     $scope.amendment_text = 'I completely support 2nd Amendment rights. As a home owner and gun owner I will resist any attempts to abridge my right to hunt, protect my family and fight for my country if the need arises. I am also opposed to gun registries. The "Bad Guys" certainly will not be registering their guns and registries will serve only to violate the privacy of law abiding citizens. I do, however, support screening individuals for mental illness and criminal histories in order to prevent inappropriate use of firearms in our state.';
 
-    $scope.healthcare = 'Healthcare';
+    $scope.healthcare = 'Health Care';
     $scope.healthcare_text = 'After over thirty years in medical practice I have seen the healthcare needs of people and also witnessed the attempts by the Government to address those needs - most recently in an over reaching and ham handed style. I support getting "Big Government" out of the health care arena and rewriting "Obamacare" to provide a true market based insurance system.  The role of government should be to provide a level playing field environment in which insurers can compete for our business. The artificial "turf" protections that are in place now only serve to stiffle healthy competition. The increased competition will bring down rates for medical care just as it does for other goods and services such as gasoline, food and transportation. ';
 
     $scope.environment = 'Environment';
