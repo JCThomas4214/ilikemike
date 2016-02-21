@@ -20,6 +20,15 @@ angular.module('core').controller('photoCtrl',
     },{
       src: 'modules/core/client/img/photos/Mike & Troya - Lincoln Dinner 3 2010.jpg',
       w: 640, h: 500
+    },{
+      src: 'modules/core/client/img/photos/Mike w Author.jpg',
+      w: 640, h: 500
+    },{
+      src: 'modules/core/client/img/photos/Malabar Walk In.jpg',
+      w: 640, h: 500
+    },{
+      src: 'modules/core/client/img/photos/Mike NAVY.jpg',
+      w: 380, h: 500
     }];
 
     vm.showGallery = function (i) {
