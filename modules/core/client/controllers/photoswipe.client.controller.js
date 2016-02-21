@@ -9,17 +9,17 @@ angular.module('core').controller('photoCtrl',
     };
 
     vm.slides = [{
-      src: 'modules/core/client/img/photos/mike1.jpg',
-      w: 700, h: 500
+      src: 'modules/core/client/img/photos/Mike and Troya 2 2016a.jpg',
+      w: 510, h: 500
     },{
-      src: 'modules/core/client/img/photos/mike5.jpg',
-      w: 400, h: 500
+      src: 'modules/core/client/img/photos/489th, NC, Lincoln Day, Thomas Reunion - 3 2010 567.jpg',
+      w: 650, h: 500
     },{
-      src: 'modules/core/client/img/photos/mike6.jpg',
-      w: 400, h: 500
+      src: 'modules/core/client/img/photos/Dog Whisperer 8 16 15 - crop.png',
+      w: 300, h: 500
     },{
-      src: 'modules/core/client/img/photos/mike3.jpg',
-      w: 700, h: 500
+      src: 'modules/core/client/img/photos/Mike & Troya - Lincoln Dinner 3 2010.jpg',
+      w: 640, h: 500
     }];
 
     vm.showGallery = function (i) {

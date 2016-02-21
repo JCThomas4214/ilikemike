@@ -40,7 +40,7 @@
           <div id="meet_mike" class="title_sec">
             <div class="title_container">
               <h1 class="heading1"></h1>
-              <h1 class="heading2">{{about_sec}}</h1>
+              <h1 class="heading2">{{ mike_about }}</h1>
               <h1 class="heading3"></h1>
             </div>
           </div>     
@@ -62,14 +62,8 @@
                   </iframe>
                 </div>
 
-                <div class="more_info">
-                  <p>{{ exec_committee }}</p>
-                  <p>{{ state_committeman }}</p>
-                  <p>{{ cofounder }}</p>
-                  <p>{{ fapa }}</p>
-                  <p>{{ aapa }}</p>
-                  <p>{{ mentors_club }}</p>
-                  <p>{{ rwc }}</p>
+                <div class="more_info" >
+                  <p ng-repeat="info in infos">{{ info.text }}</p>
                 </div>
 
               </div>
@@ -135,54 +129,32 @@
             <div ng-photoswipe slides="vm.slides" open="vm.open" on-close="vm.closeGallery()" options="vm.opts"></div>
 
           </div>
+
+          <div class="fav_quotes">
+            <h1>{{ mike_quotes }}</h1>
+            <div class="quote" ng-repeat="quote in quotes" ng-class="{'last': $last}">
+             <h3>{{ quote.text }}</h3>
+             <p>{{ quote.author }}</p>
+            </div>
+          </div>
         </div>
 
         <div id="platform_section" class="section_three">
           <div id="mike_platform" class="title_sec">
             <div class="title_container">
               <h1 class="heading1"></h1>
-              <h1 class="heading2">{{platform_sec}}</h1>
+              <h1 class="heading2">{{ mike_platform }}</h1>
               <h1 class="heading3"></h1>
             </div>
           </div> 
 
-          <div class="platform_container">
-
-            <div class="amendment platform_header">
-              <h1>{{ amendment }}</h1>
+          <div class="platform_container" ng-repeat="platform in platforms">
+            <div class="platform_header">
+              <h1>{{ platform.header }}</h1>
             </div>
-            <div class="amendment platform_topic">
-              <p>{{ amendment_text }}</p>
+            <div class="platform_topic">
+              <p>{{ platform.text }}</p>
             </div>
-
-            <div class="educaiton platform_header">
-              <h1>{{ education }}</h1>
-            </div>
-            <div class="education platform_topic">
-              <p>{{ education_text }}</p>
-            </div>
-
-            <div class="healthcare platform_header">
-              <h1>{{ healthcare }}</h1>
-            </div>
-            <div class="healthcare platform_topic">
-              <p>{{ healthcare_text }}</p>
-            </div>
-
-            <div class="environment platform_header">
-              <h1>{{ environment }}</h1>
-            </div>
-            <div class="environment platform_topic">
-              <p>{{ environment_text }}</p>
-            </div>
-
-            <div class="business platform_header">
-              <h1>{{ business }}</h1>
-            </div>
-            <div class="business platform_topic">
-              <p>{{ business_text }}</p>
-            </div>
-
           </div>
         </div>
 
@@ -197,11 +169,22 @@
 
           <div class="endors_container">
             <div class="endors_left">
-              <div class="endorsement">
-                <h1>George Rego, President of Florida Accademy Physician Assistants</h1>
-                <p>"The FAPA PAC proudly supports Mike Thomas for State Senate. We need Mike up in Tallahassee, he will serve all Floridians admirably."</p>
+              <div class="endorsement" ng-repeat="endorsement in endorsements">
+                <h1>{{ endorsement.person }}</h1>
+                <p>{{ endorsement.text }}</p>
               </div>
             </div>
+          </div>
+
+          <div class="photo_container" ng-controller="photoCtrlEndors as vm">
+
+            <ul class="slide-list">
+               <li ng-repeat="s in vm.slides track by $index" ng-click="vm.showGallery($index)">
+                   <img ng-src="{{ s.src }}" alt="slide number {{ $index }}" />
+               </li>
+            </ul>
+            <div ng-photoswipe slides="vm.slides" open="vm.open" on-close="vm.closeGallery()" options="vm.opts"></div>
+
           </div>
         </div>
 

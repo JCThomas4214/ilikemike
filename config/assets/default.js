@@ -9,17 +9,10 @@ module.exports = {
         'public/lib/photoswipe/dist/photoswipe.css',
         'public/lib/photoswipe/dist/default-skin/default-skin.css',
         'public/lib/ngToast/dist/ngToast.min.css',
-        '//fonts.googleapis.com/css?family=Berkshire+Swash',
         '//fonts.googleapis.com/css?family=Great+Vibes',
-        '//fonts.googleapis.com/css?family=Just+Another+Hand',
         '//fonts.googleapis.com/css?family=Oleo+Script',
-        '//fonts.googleapis.com/css?family=Lobster+Two',
-        '//fonts.googleapis.com/css?family=Merienda+One',
-        '//fonts.googleapis.com/css?family=Noto+Serif|Merriweather',
-        '//fonts.googleapis.com/css?family=Architects+Daughter',
-        '//fonts.googleapis.com/css?family=Pacifico',
-        '//fonts.googleapis.com/css?family=Courgette',
-        '//fonts.googleapis.com/css?family=Courgette|Berkshire+Swash|Judson'
+        '//fonts.googleapis.com/css?family=Noto+Serif',
+        '//fonts.googleapis.com/css?family=Courgette'
 
       ],
       js: [
