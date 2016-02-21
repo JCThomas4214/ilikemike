@@ -12,7 +12,7 @@ angular.module('core').controller('photoCtrl',
       src: 'modules/core/client/img/photos/Mike and Troya 2 2016a.jpg',
       w: 510, h: 500
     },{
-      src: 'modules/core/client/img/photos/thomas_fam.jpg',
+      src: 'modules/core/client/img/photos/thomas_fam.JPG',
       w: 650, h: 500
     },{
       src: 'modules/core/client/img/photos/Dog Whisperer 8 16 15 - crop.png',
