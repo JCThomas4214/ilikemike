@@ -69,54 +69,17 @@
               </div>
             </div>
 
-            <div class="outter_container">
-
-              <div class="header mt_born">
-                <h1>{{born_header}}</h1>
+            <div class="col_right">
+              <div class="outter_container" ng-repeat="timeline in timelines">
+                <div class="header" ng-style="{'background-image':'url({{ timeline.image }})', 'background-size':'cover', 'background-position':'{{ timeline.position }}'}">
+                  <h1>{{timeline.header}}</h1>
+                </div>
+                <div class="subtopic">
+                  <p ng-repeat="topic in timeline.topics">{{topic.text}}</p>
+                </div>
               </div>
-              <div class="subtopic mt_born_tx">
-                <p>{{born_topic}}</p>
-              </div>
-
-              <div class="header mt_church">
-                <h1>{{church_header}}</h1>
-              </div>
-              <div class="subtopic mt_church_tx">
-                <p>{{church_topic}}</p>
-              </div>
-
-              <div class="header mt_service">
-                <h1>{{service_header}}</h1>
-              </div>            
-              <div class="subtopic mt_service_tx">
-                <p>{{service_topic_one}}</p>
-                <p>{{service_topic_two}}</p>
-              </div>
-
-              <div class="header mt_graduate">
-                <h1>University of Florida</h1>
-              </div>
-              <div class="subtopic mt_granduate_tx">
-                <p>{{graduate_topic_one}}</p>
-                <p>{{graduate_topic_two}}</p>
-              </div>
-
-              <div class="header mt_medical">
-                <h1>{{medical_header}}</h1>
-              </div>
-              <div class="subtopic mt_medical_tx">
-                <p>{{medical_topic}}</p>
-              </div>
-
-              <div class="header mt_republican">
-                <h1>{{republican_header}}</h1>
-              </div>
-              <div class="subtopic mt_republican_tx">
-                <p>{{republican_topic_one}}</p>
-                <p>{{republican_topic_two}}</p>
-              </div>
-
             </div>
+            
           </div>
 
           <div class="photo_container" ng-controller="photoCtrl as vm">

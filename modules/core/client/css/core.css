@@ -437,9 +437,15 @@ a:hover .header-profile-image {
   text-shadow: 4px 2px 2px rgba(0,0,0,0.45);
 }
 
+.col_right {
+  width:45%;
+  display: inline-block;
+  margin-left: 1%;
+}
 .outter_container {  
   display:inline-block;
-  margin-left: 2%;
+  width: 100% !important;
+  /*margin-left: 2%;*/
   width: auto;
   height: auto;
   border-radius: 15px;
@@ -488,46 +494,6 @@ a:hover .header-profile-image {
   -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
   -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
   box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
-}
-.outter_container .mt_born {
-  height: auto;
-  background-image: url('/modules/core/client/img/backgrounds/plymouth_bg.jpg');
-  background-size: cover; 
-  background-position: 0 -30px;
-  border-top-right-radius: 10px;  
-  border-top-left-radius: 10px;
-}
-.outter_container .mt_church {
-  height: auto;
-  background-image: url('/modules/core/client/img/backgrounds/Laurentianum.jpg');
-  background-size: cover; 
-  background-position: 0 -40px;
-  border-top-right-radius: 10px;  
-  border-top-left-radius: 10px;
-}
-.outter_container .mt_service {
-  height: auto;
-  background-image: url('/modules/core/client/img/backgrounds/navy.jpg');
-  background-size: cover; 
-  background-position: 0 -100px;
-}
-.outter_container .mt_graduate {  
-  height: auto;
-  background-image: url('/modules/core/client/img/backgrounds/gator.jpg');
-  background-size: cover; 
-  background-position: 0 -40px;
-}
-.outter_container .mt_medical {
-  height: auto;
-  background-image: url('/modules/core/client/img/backgrounds/indian_river.jpg');
-  background-size: cover; 
-  background-position: center;
-}
-.outter_container .mt_republican {
-  height: auto;
-  background-image: url('/modules/core/client/img/backgrounds/republican_bg.jpg');
-  background-size: cover; 
-  background-position: center;
 }
 
 .fav_quotes {
@@ -1116,15 +1082,20 @@ a:hover .header-profile-image {
   .more_info p {
     font-size: 15px;
   }
+
+  .col_right {
+    width: 100% !important;
+  }
   .outter_container {
     display: block;
     margin: 0;
   }
   .outter_container h1 {
-    font: 400 25px/1.3 'Oleo Script', Helvetica, sans-serif;
+    font: 400 35px/1.3 'Oleo Script', Helvetica, sans-serif;
+    padding: 2% 5%;
   }
   .outter_container p {
-    font-size: 15px;
+    font-size: 20px;
   }
 
   .fav_quotes {

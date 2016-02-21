@@ -26,7 +26,7 @@ module.exports = {
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'public/lib/photoswipe/dist/photoswipe.js',
-        'public/lib/photoswipe/dist/photoswipe-ui-default.js',
+        'public/lib/photoswipe/dist/photoswipe-ui-default.min.js',
         'public/lib/ng-photoswipe/angular-photoswipe.min.js',
         'public/lib/angular-sanitize/angular-sanitize.min.js',
         'public/lib/ngToast/dist/ngToast.min.js'

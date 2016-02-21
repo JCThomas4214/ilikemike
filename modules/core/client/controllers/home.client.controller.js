@@ -26,21 +26,39 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
     $scope.vid_header = '2015 DGF Goodwill Ambassador';
 
-    $scope.born_header = 'Born August 25, 1957';
-    $scope.born_topic = 'in Plymouth, Wisconsin';
-    $scope.church_header = 'Attended St. Lawrance Seminary';
-    $scope.church_topic = 'in Mount Calvary, Wisconsin';
-    $scope.service_header = 'United States NAVY Corpsman';
-    $scope.service_topic_one = '1975-1979 (Active Duty)';
-    $scope.service_topic_two = '1979-1983 (Reservist)';
-    $scope.graduate_header = 'University of Florida';
-    $scope.graduate_topic_one = '1984 Graduate (With Honors)';
-    $scope.graduate_topic_two = 'Physician Assistant Program';
-    $scope.medical_header = 'Joined Medical Practice in 1986';
-    $scope.medical_topic = 'in Melbourne, Florida';
-    $scope.republican_header = 'Brevard Republican Party';
-    $scope.republican_topic_one = 'Precinct Committeeman 2005 - 2008';
-    $scope.republican_topic_two = 'State Committeeman 2008 - Present';
+    $scope.timelines = [
+      {
+        header: 'Born August 25, 1957',
+        image: '/modules/core/client/img/backgrounds/plymouth_bg.jpg',
+        position: '0 -30px',
+        topics: [{text: 'in Plymouth, Wisconsin'}]
+      },{
+        header: 'Attended St. Lawrance Seminary',
+        image: '/modules/core/client/img/backgrounds/Laurentianum.jpg',
+        position: '0 -40px',
+        topics: [{text: 'in Mount Calvary, Wisconsin'}]
+      },{
+        header: 'United States NAVY Corpsman',
+        image: '/modules/core/client/img/backgrounds/navy.jpg',
+        position: '0 -90px',
+        topics: [{text: '1975-1979 (Active Duty)'},{text: '1979-1983 (Reservist)'}]
+      },{
+        header: 'University of Florida',
+        image: '/modules/core/client/img/backgrounds/gator.jpg',
+        position: '0 -40px',
+        topics: [{text: '1984 Graduate (With Honors)'},{text: 'Physician Assistant Program'}]
+      },{
+        header: 'Joined Medical Practice in 1986',
+        image: '/modules/core/client/img/backgrounds/indian_river.jpg',
+        position: 'center',
+        topics: [{text: 'in Melbourne, Florida'}]
+      },{
+        header: 'Brevard Republican Party',
+        image: '/modules/core/client/img/backgrounds/republican_bg.jpg',
+        position: 'center',
+        topics: [{text: 'Precinct Committeeman 2005 - 2008'},{text: 'State Committeeman 2008 - Present'}]
+      }
+    ];
 
     $scope.infos = [
       {
@@ -112,5 +130,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.volunteer_header = 'Sign Up to Volunteer';
 
     $scope.mike_social = 'Stay Connected';
+
+    $scope.random = function() {
+        return 0.5 - Math.random();
+    };
   }
 ]);
