@@ -15,4 +15,8 @@ module.exports = function (app) {
 
   app.route('/contact-form-to-mike').post(core.recieveMail);
   app.route('/contact-form-to-sub').post(core.sendMail);
+
+  app.route('/volunteer-form-to-mike').post(core.volunteer_recieveMail);
+  app.route('/volunteer-form-to-sub').post(core.volunteer_sendMail);
+
 };

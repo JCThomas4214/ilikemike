@@ -84,6 +84,13 @@
                 <p>{{born_topic}}</p>
               </div>
 
+              <div class="header mt_church">
+                <h1>{{church_header}}</h1>
+              </div>
+              <div class="subtopic mt_church_tx">
+                <p>{{church_topic}}</p>
+              </div>
+
               <div class="header mt_service">
                 <h1>{{service_header}}</h1>
               </div>            
@@ -198,7 +205,35 @@
           </div>
         </div>
 
-        <div id="social_section" class="section_five">
+        <div id="volunteer_section" class="section_five">
+          <div id="mike_volunteer" class="title_sec">
+            <div class="title_container">
+              <h1 class="heading1"></h1>
+              <h1 class="heading2">{{mike_volunteer}}</h1>
+              <h1 class="heading3"></h1>
+            </div>
+          </div>
+
+          <div class="volunteer_container" data-ng-controller="VolunteerFormController as vf">
+            <h1>{{volunteer_header}}</h1>
+            <div class="register_to_volunteer">              
+                <form name="volunteerForm" data-ng-submit="vf.sendMail()" role="form">
+                  <div class="form-group">
+                    <input type="name" data-ng-model="vf.contact_name" class="form-control" id="name" placeholder="Name" autocomplete="off">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" data-ng-model="vf.contact_email" class="form-control" id="email" placeholder="Email Address" autocomplete="off">
+                  </div>
+                  <div class="form-group">
+                    <input type="tel" data-ng-model="vf.contact_phone" class="form-control" id="phone" placeholder="Phone Number" autocomplete="off">
+                  </div>
+                  <button type="submit" class="my_button">Sign Up</button>
+                </form>
+            </div>
+          </div>
+        </div> 
+
+        <div id="social_section" class="section_six">
           <div id="mike_social" class="title_sec">
             <div class="title_container">
               <h1 class="heading1"></h1>
