@@ -33,7 +33,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         position: '0 -30px',
         topics: [{text: 'in Plymouth, Wisconsin'}]
       },{
-        header: 'Attended St. Lawrance Seminary',
+        header: 'Attended St. Lawrence Seminary',
         image: '/modules/core/client/img/backgrounds/Laurentianum.jpg',
         position: '0 -40px',
         topics: [{text: 'in Mount Calvary, Wisconsin'}]
@@ -123,6 +123,12 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       {
         person: 'George Rego, President of Florida Accademy Physician Assistants',
         text: '"The FAPA PAC proudly supports Mike Thomas for State Senate. We need Mike up in Tallahassee, he will serve all Floridians admirably."'
+      },{
+        person: 'Rich Marino, Co-Founder of Space Coast Clinicians',
+        text: '"I\'ve known Mike for over 30 years. He is honest and reliable. I heartily endorse Mike for Florida Senate. He will Serve us all well."'
+      },{
+        person: 'Joice Brady, Nurse Practitioner',
+        text: '"Honesty, Integrety, Compassion, and amazing Ethics are descriptors of the Mike Thomas I have known professionally for almost 20 years."'
       }
     ];
 
