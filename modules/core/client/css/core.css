@@ -66,6 +66,9 @@
 
 _:-ms-lang(x), .my-gallery img {
   /*for IE and Edge*/
+  height: auto;
+  max-height: none;
+  object-fit: auto;
 }
 
 /*.deckgrid[deckgrid]::before {
