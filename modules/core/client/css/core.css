@@ -49,6 +49,7 @@
   height: 250px;
   width: 13vw;
   height: 16vw;
+  background-size: cover;
   object-fit: cover;
   margin: 0 4px 8px 4px;
   border-radius: 10px;
