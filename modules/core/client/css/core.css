@@ -37,6 +37,7 @@
   height: auto;
 }
 .my-gallery img {
+  transition: 0.5s all;
   display: inline-block;
   width: 100%;
   height: auto;
@@ -45,6 +46,9 @@
   -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
   -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
   box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+}
+.my-gallery img:hover {
+  opacity: 0.8;
 }
 .my-gallery figure {
   display: inline-block;
