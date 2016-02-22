@@ -82,14 +82,19 @@
             
           </div>
 
-          <div class="photo_container" ng-controller="photoCtrl as vm">
+            
+          <div class="photo_container" ng-controller="photoCtrl">
 
-            <ul class="slide-list">
-               <li ng-repeat="s in vm.slides track by $index" ng-click="vm.showGallery($index)">
-                   <img ng-src="{{ s.src }}" alt="slide number {{ $index }}" />
-               </li>
-            </ul>
-            <div ng-photoswipe slides="vm.slides" open="vm.open" on-close="vm.closeGallery()" options="vm.opts"></div>
+            <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+              <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" ng-repeat="slide in slides1">
+                <a ng-href="{{slide.src}}" itemprop="contentUrl" data-size="{{slide.w}}x{{slide.h}}">
+                    <img ng-src="{{slide.src}}" itemprop="thumbnail" alt="Image description" />
+                </a>
+                <figcaption itemprop="caption description">{{slide.caption}}</figcaption>                                                    
+              </figure>
+            </div>
+
+            <photoswipewidget></photoswipewidget>            
 
           </div>
 
@@ -100,7 +105,10 @@
              <p>{{ quote.author }}</p>
             </div>
           </div>
+
         </div>
+
+          
 
         <div id="platform_section" class="section_three">
           <div id="mike_platform" class="title_sec">
@@ -139,16 +147,21 @@
             </div>
           </div>
 
-          <div class="photo_container" ng-controller="photoCtrlEndors as vm">
+          <div class="photo_container" ng-controller="photoCtrl">
 
-            <ul class="slide-list">
-               <li ng-repeat="s in vm.slides track by $index" ng-click="vm.showGallery($index)">
-                   <img ng-src="{{ s.src }}" alt="slide number {{ $index }}" />
-               </li>
-            </ul>
-            <div ng-photoswipe slides="vm.slides" open="vm.open" on-close="vm.closeGallery()" options="vm.opts"></div>
+            <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+              <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" ng-repeat="slide in slides2">
+                <a ng-href="{{slide.src}}" itemprop="contentUrl" data-size="{{slide.w}}x{{slide.h}}">
+                    <img ng-src="{{slide.src}}" itemprop="thumbnail" alt="Image description" />
+                </a>
+                <figcaption itemprop="caption description">{{slide.caption}}</figcaption>                                                    
+              </figure>
+            </div>
+
+            <photoswipewidget></photoswipewidget>        
 
           </div>
+
         </div>
 
         <div id="volunteer_section" class="section_five">
@@ -245,7 +258,5 @@
               <p>Built and designed by Jason Thomas</p>
             </div>
         </div>
-
-        
         
 </section>

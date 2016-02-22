@@ -32,41 +32,31 @@
   text-align: center;
 }
 
-.slide-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.my-gallery {
+  width: 100%;
+  height: auto;
 }
-.slide-list > li {
-  display: inline;
-}
-.slide-list > li:hover {
-  cursor: pointer;
-}
-.slide-list > li > img {
-  transition: 0.5s all;
-  width: 200px;
-  height: 250px;
-  width: 13vw;
-  height: 16vw;
-  background-size: cover;
-  object-fit: cover;
-  margin: 0 4px 8px 4px;
+.my-gallery img {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+
   border-radius: 10px;
   -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
   -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
   box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
 }
-.slide-list > li > img:hover {
-  opacity: 0.9;
-  -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0);
-  -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0);
-  box-shadow: 6px 4px 10px rgba(0,0,0,0);
+.my-gallery figure {
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  width: 25%;
+}
+.my-gallery figcaption {
+  display: none;
 }
 
-_:-ms-lang(x), .slide-list > li > img {
-  width: 180px;
-  height:auto;
+_:-ms-lang(x), .my-gallery img {
+  /*for IE and Edge*/
 }
   
 .section_footer{
@@ -1492,11 +1482,15 @@ a:hover .header-profile-image {
     padding: 2% 5%;
   }
 
-  .slide-list > li > img {
-    width: 120px;
-    height: 160px;
-    width: 35vw;
-    height: 45vw;
+  .photo_container {
+    padding: 0;
+    margin: 0 -10% 0 -10%;
+  }
+  .my-gallery figure {
+    width: 40%;
+  }
+  .my-gallery img {
+    width: 100%;
   }
 
   .section_three {
