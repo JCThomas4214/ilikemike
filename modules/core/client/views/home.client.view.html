@@ -85,7 +85,7 @@
             
           <div class="photo_container" ng-controller="photoCtrl">
 
-            <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+            <div id="container" class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
               <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" ng-repeat="slide in slides1">
                 <a ng-href="{{slide.src}}" itemprop="contentUrl" data-size="{{slide.w}}x{{slide.h}}">
                     <img ng-src="{{slide.src}}" itemprop="thumbnail" alt="Image description" />
@@ -158,6 +158,8 @@
               </figure>
             </div>
 
+            <freewallwidget></freewallwidget>
+        
             <photoswipewidget></photoswipewidget>        
 
           </div>

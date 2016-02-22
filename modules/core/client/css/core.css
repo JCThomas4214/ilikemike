@@ -1112,11 +1112,14 @@ a:hover .header-profile-image {
     padding: 2% 8%;
   }
 
-  .slide-list > li > img {
-    width: 120px;
-    height: 160px;
-    width: 35vw;
-    height: 45vw;
+  .photo_container {
+    padding: 0;
+  }
+  .my-gallery figure {
+    width: 26%;
+  }
+  .my-gallery img {
+    width: 100%;
   }
 
   .section_three {
@@ -1491,7 +1494,7 @@ a:hover .header-profile-image {
     margin: 0 -10% 0 -10%;
   }
   .my-gallery figure {
-    width: 40%;
+    width: 35%;
   }
   .my-gallery img {
     width: 100%;

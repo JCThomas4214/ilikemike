@@ -10,11 +10,11 @@ angular.module('core').controller('photoCtrl', [ '$scope',
     },{
       src: 'modules/core/client/img/photos/thomas_fam.JPG',
       w: 640, h: 480,
-      caption: 'Mike\'s immediate family'
+      caption: 'Mike\'s parents and siblings'
     },{
-      src: 'modules/core/client/img/photos/Dog Whisperer 8 16 15 - crop.png',
-      w: 506, h: 854,
-      caption: 'Mike the dog whisperer'
+      src: 'modules/core/client/img/photos/Mike NAVY.jpg',
+      w: 466, h: 640,
+      caption: 'Mike when he was enlisted into the NAVY in 1975'
     },{
       src: 'modules/core/client/img/photos/Mike & Troya - Lincoln Dinner 3 2010.jpg',
       w: 1824, h: 1368,
@@ -22,15 +22,15 @@ angular.module('core').controller('photoCtrl', [ '$scope',
     },{
       src: 'modules/core/client/img/photos/Mike w Author.jpg',
       w: 1296, h: 968,
-      caption: 'Mike with author Carl...'
+      caption: 'Mike with K. Carl Smith; author and political activist'
     },{
       src: 'modules/core/client/img/photos/Malabar Walk In.jpg',
       w: 1296, h: 968,
       caption: 'Mike is a shareholder and Manager for the Malabar Medical Walk-in Clinic'
     },{
-      src: 'modules/core/client/img/photos/Mike NAVY.jpg',
-      w: 466, h: 640,
-      caption: 'Mike when he was enlisted into the NAVY in 1975'
+      src: 'modules/core/client/img/photos/Dog Whisperer 8 16 15 - crop.png',
+      w: 506, h: 854,
+      caption: 'Mike the dog whisperer'
     }];
 
     $scope.slides2 = [{
