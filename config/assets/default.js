@@ -29,8 +29,8 @@ module.exports = {
         'public/lib/photoswipe/dist/photoswipe.min.js',
         'public/lib/photoswipe/dist/photoswipe-ui-default.min.js',
         'public/lib/angular-sanitize/angular-sanitize.min.js',
-        'public/lib/ngToast/dist/ngToast.min.js',
-        'public/lib/angular-deckgrid/angular-deckgrid.js'
+        'public/lib/ngToast/dist/ngToast.min.js'
+        // 'public/lib/angular-deckgrid/angular-deckgrid.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

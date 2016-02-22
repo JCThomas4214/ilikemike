@@ -38,12 +38,12 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 640, h: 478
     },{
       src: 'modules/core/client/img/photos/mike5.jpg',
-      w: 1536, h: 2048
+      w: 1394, h: 1158
     },{
       src: 'modules/core/client/img/photos/mike6.jpg',
-      w: 1536, h: 2048
+      w: 1536, h: 1488
     },{
       src: 'modules/core/client/img/photos/mike3.jpg',
-      w: 2048, h: 1529
+      w: 1485, h: 1203
     }];
   }]);
