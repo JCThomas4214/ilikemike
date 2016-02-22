@@ -82,13 +82,13 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
     $scope.quotes = [
       {
-        text: '"It will be of little avail to the people that the laws are made by men of their own choice if the laws he so voluminous that they connot be read, or so incoherent that they cannot be understood."',
+        text: '"It will be of little avail to the people that the laws are made by men of their own choice if the laws be so voluminous that they connot be read, or so incoherent that they cannot be understood."',
         author: '- James Madison'
       },{
         text: '"A tax cut means higher family income and higher business profits and balanced federal budget. ... As national income grows, the federal government will ultimately end up with more revenues. Prosperity is the real way to balance our budget. By lowering tax rates, by increasing jobs and income, we can expand tax revenues and finally bring our budget into balance."',
         author: '- John F. Kennedy'
       },{
-        text: '"The greatest danger to American freedom is a governement the ignores the Constitution."',
+        text: '"The greatest danger to American freedom is a government that ignores the Constitution."',
         author: '- Thomas Jefferson'
       },{
         text: '"The means of defense against foreign danger historically have become the instruments of tyranny at home."',
@@ -128,7 +128,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         text: '"I\'ve known Mike for over 30 years. He is honest and reliable. I heartily endorse Mike for Florida Senate. He will serve us all well."'
       },{
         person: 'Joyce O\'Hara Brady, Nurse Practitioner',
-        text: '"Honesty, Integrety, Compassion, and amazing Ethics are descriptors of the Mike Thomas I have known professionally for almost 20 years."'
+        text: '"Honesty, Integrity, Compassion, and amazing Ethics are descriptors of the Mike Thomas I have known professionally for almost 20 years."'
       }
     ];
 
