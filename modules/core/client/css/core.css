@@ -38,7 +38,7 @@
 }
 .my-gallery img {
   transition: 0.5s all;
-  display: inline-block;
+  /*display: inline-block;*/
   width: 100%;
   height: auto;
 
@@ -51,9 +51,9 @@
   opacity: 0.8;
 }
 .my-gallery figure {
-  display: inline-block;
+  /*display: inline-block;*/
   margin: 0 5px 5px 0;
-  width: 25%;
+  /*width: 40%;*/
 }
 .my-gallery figcaption {
   display: none;
@@ -61,6 +61,33 @@
 
 _:-ms-lang(x), .my-gallery img {
   /*for IE and Edge*/
+}
+
+.deckgrid[deckgrid]::before {
+    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
+    content: '4 .column.column-1-4';
+    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
+    visibility: hidden;
+}
+
+.deckgrid .column {
+    /*float: left;*/
+    display: inline-block;
+    vertical-align: top;
+}
+
+.deckgrid .column-1-2 {
+    width: 50%;
+}
+.deckgrid .column-1-3 {
+    width: 33%;
+}
+.deckgrid .column-1-4 {
+    width: 25%;
+}
+
+.deckgrid img {
+  width: 100%;
 }
   
 .section_footer{
@@ -1116,10 +1143,17 @@ a:hover .header-profile-image {
     padding: 0;
   }
   .my-gallery figure {
-    width: 26%;
+    /*width: 26%;*/
   }
   .my-gallery img {
     width: 100%;
+  }
+
+  .deckgrid {    
+    padding: 0 8%;
+  }
+  .deckgrid[deckgrid]::before {
+    content: '3 .column.column-1-3';
   }
 
   .section_three {
@@ -1494,10 +1528,16 @@ a:hover .header-profile-image {
     margin: 0 -10% 0 -10%;
   }
   .my-gallery figure {
-    width: 35%;
+    /*width: 35%;*/
   }
   .my-gallery img {
     width: 100%;
+  }
+  .deckgrid {
+    padding: 0 15%;
+  }
+  .deckgrid[deckgrid]::before {
+        content: '2 .column.column-1-2';
   }
 
   .section_three {

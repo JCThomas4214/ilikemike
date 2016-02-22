@@ -83,7 +83,7 @@
           </div>
 
             
-          <div class="photo_container" ng-controller="photoCtrl">
+          <!-- <div class="photo_container" ng-controller="photoCtrl">
 
             <div id="container" class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
               <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" ng-repeat="slide in slides1">
@@ -95,6 +95,29 @@
             </div>
 
             <photoswipewidget></photoswipewidget>            
+
+          </div> -->
+
+          <div class="photo_container" ng-controller="photoCtrl">
+            
+            <div deckgrid class="deckgrid" source="slides1">
+              <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+
+                <div class="a-card">
+                  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" >
+                    <a ng-href="{{card.src}}" itemprop="contentUrl" data-size="{{card.w}}x{{card.h}}">
+                        <img ng-src="{{card.src}}" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">{{card.caption}}</figcaption>                                                    
+                  </figure>
+                </div>
+
+              </div>
+            </div>
+
+            <freewallwidget></freewallwidget>
+
+            <photoswipewidget></photoswipewidget>        
 
           </div>
 
@@ -148,18 +171,24 @@
           </div>
 
           <div class="photo_container" ng-controller="photoCtrl">
+            
+            <div deckgrid class="deckgrid" source="slides2">
+              <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
 
-            <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-              <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" ng-repeat="slide in slides2">
-                <a ng-href="{{slide.src}}" itemprop="contentUrl" data-size="{{slide.w}}x{{slide.h}}">
-                    <img ng-src="{{slide.src}}" itemprop="thumbnail" alt="Image description" />
-                </a>
-                <figcaption itemprop="caption description">{{slide.caption}}</figcaption>                                                    
-              </figure>
+                <div class="a-card">
+                  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" >
+                    <a ng-href="{{card.src}}" itemprop="contentUrl" data-size="{{card.w}}x{{card.h}}">
+                        <img ng-src="{{card.src}}" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">{{card.caption}}</figcaption>                                                    
+                  </figure>
+                </div>
+
+              </div>
             </div>
 
             <freewallwidget></freewallwidget>
-        
+
             <photoswipewidget></photoswipewidget>        
 
           </div>
