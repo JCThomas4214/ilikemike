@@ -63,6 +63,11 @@
   -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0);
   box-shadow: 6px 4px 10px rgba(0,0,0,0);
 }
+
+_:-ms-lang(x), .slide-list > li > img {
+  width: 180px;
+  height:auto;
+}
   
 .section_footer{
   margin: 0 -12%;
