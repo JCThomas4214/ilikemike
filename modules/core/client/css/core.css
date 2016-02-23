@@ -6,11 +6,13 @@
     top: 8%;
     left: 14%;
     width: 15%;
+    -moz-transform: rotate(-15deg);
     -ms-transform: rotate(-15deg);
     -webkit-transform: rotate(-15deg);
     transform: rotate(-15deg);
 }
-.donation_button:hover {
+.donation_button:hover {  
+  -moz-transform: rotate(0);
   -ms-transform: rotate(0);
   -webkit-transform: rotate(0);
   -transform: rotate(0);
