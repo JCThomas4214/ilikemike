@@ -4,7 +4,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
   function ($scope) {
 
     $scope.slides1 = [{
-      src: 'modules/core/client/img/photos/Mike and Troya 2 2016a.jpg',
+      src: 'modules/core/client/img/photos/mike_troya.jpg',
       w: 1277, h: 1242,
       caption: 'Mike and Troya Thomas'
     },{
@@ -16,13 +16,29 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 466, h: 640,
       caption: 'Mike when he was enlisted into the NAVY in 1975'
     },{
-      src: 'modules/core/client/img/photos/Mike & Troya - Lincoln Dinner 3 2010.jpg',
-      w: 1824, h: 1368,
-      caption: 'Mr. and Mrs. Thomas at the BREC Lincoln Day Dinner'
+      src: 'modules/core/client/img/photos/mike_troya2.jpg',
+      w: 1224, h: 1145,
+      caption: 'Mr. and Mrs. Thomas the Governor\'s mansion'
     },{
       src: 'modules/core/client/img/photos/Mike w Author.jpg',
       w: 1296, h: 968,
       caption: 'Mike with K. Carl Smith; author and political activist'
+    },{
+      src: 'modules/core/client/img/photos/mike_boys.jpg',
+      w: 1704, h: 1278,
+      caption: 'Mike and the boys'
+    },{
+      src: 'modules/core/client/img/photos/mike_plane.jpg',
+      w: 1024, h: 768,
+      caption: 'Mike ready to fly'
+    },{
+      src: 'modules/core/client/img/photos/mike_shuttle.jpg',
+      w: 1642, h: 1232,
+      caption: 'Mike at the suttle pad'
+    },{
+      src: 'modules/core/client/img/photos/mike_489th.jpg',
+      w: 1706, h: 1280,
+      caption: 'Mike at the 489th Squadron reunion (Hand is raised)'
     },{
       src: 'modules/core/client/img/photos/Malabar Walk In.jpg',
       w: 1296, h: 968,
