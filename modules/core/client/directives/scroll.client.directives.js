@@ -19,7 +19,7 @@ angular.module('core').directive('scrolly', function ($window) {
 
     var offset;
     angular.element($window).bind('scroll', function() {
-      section_one = element[0].childNodes[6].childNodes[1].childNodes[2].childNodes[0].childNodes[1].clientHeight;
+      section_one = element[0].childNodes[6].childNodes[1].childNodes[2].childNodes[0].childNodes[1].clientHeight - 20;
       section_two = element[0].childNodes[6].childNodes[1].childNodes[2].childNodes[0].childNodes[3].clientHeight;
       section_three = element[0].childNodes[6].childNodes[1].childNodes[2].childNodes[0].childNodes[5].clientHeight;
       section_four = element[0].childNodes[6].childNodes[1].childNodes[2].childNodes[0].childNodes[7].clientHeight;      
