@@ -29,32 +29,32 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.timelines = [
       {
         header: 'Born August 25, 1957',
-        image: '/modules/core/client/img/backgrounds/plymouth_bg.jpg',
-        position: '0 -30px',
+        image: '/modules/core/client/img/backgrounds/small_ver/plymouth_bg.jpg',
+        position: 'center',
         topics: [{ text: 'in Plymouth, Wisconsin' }]
       },{
         header: 'Attended St. Lawrence Seminary',
-        image: '/modules/core/client/img/backgrounds/Laurentianum.jpg',
-        position: '0 -40px',
+        image: '/modules/core/client/img/backgrounds/small_ver/Laurentianum.jpg',
+        position: 'center',
         topics: [{ text: 'in Mount Calvary, Wisconsin' }]
       },{
         header: 'United States NAVY Corpsman',
-        image: '/modules/core/client/img/backgrounds/navy.jpg',
-        position: '0 -90px',
+        image: '/modules/core/client/img/backgrounds/small_ver/navy.jpg',
+        position: 'center',
         topics: [{ text: '1975-1979 (Active Duty)' },{ text: '1979-1983 (Reservist)' }]
       },{
         header: 'University of Florida',
-        image: '/modules/core/client/img/backgrounds/gator.jpg',
-        position: '0 -40px',
+        image: '/modules/core/client/img/backgrounds/small_ver/gator.jpg',
+        position: 'center',
         topics: [{ text: '1984 Graduate (With Honors)' },{ text: 'Physician Assistant Program' }]
       },{
         header: 'Joined Medical Practice in 1986',
-        image: '/modules/core/client/img/backgrounds/indian_river.jpg',
+        image: '/modules/core/client/img/backgrounds/small_ver/indian_river.jpg',
         position: 'center',
         topics: [{ text: 'in Melbourne, Florida' }]
       },{
         header: 'Brevard Republican Party',
-        image: '/modules/core/client/img/backgrounds/republican_bg.jpg',
+        image: '/modules/core/client/img/backgrounds/small_ver/republican_bg.jpg',
         position: 'center',
         topics: [{ text: 'Precinct Committeeman 2005 - 2008' },{ text: 'State Committeeman 2008 - Present' }]
       }
