@@ -61,6 +61,14 @@
   width: 26%;
 }
 .my-gallery figcaption {
+  padding: 5px;
+  text-align: center;
+  color:white;
+  font-family: 'Noto Serif', serif;
+  font-size: 13px;
+  /*font-size: 1vw;*/
+  font-weight: bold;
+  text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
   display: none;
 }
 
@@ -1153,6 +1161,9 @@ a:hover .header-profile-image {
   }
   .my-gallery img {
     height: 200px;
+  }
+  .my-gallery img:hover {
+  opacity: 1;
   }
 
 /*  .deckgrid {    
