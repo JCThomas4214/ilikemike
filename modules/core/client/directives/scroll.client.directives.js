@@ -30,7 +30,7 @@ angular.module('core').directive('scrolly', function ($window) {
       full_section_four = full_section_three + section_four;
       full_section_five = full_section_four + section_five;
 
-      offset = raw.scrollTop;
+      offset = $window.pageYOffset;
 
       if(offset >= section_one && offset < full_section_two) {
         angular.element(document.querySelector('#meetTb')).addClass('active');
