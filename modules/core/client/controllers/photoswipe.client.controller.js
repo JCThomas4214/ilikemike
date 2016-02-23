@@ -18,7 +18,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
     },{
       src: 'modules/core/client/img/photos/mike_troya2.JPG',
       w: 1224, h: 1145,
-      caption: 'Mr. and Mrs. Thomas the Governor\'s mansion'
+      caption: 'Mr. and Mrs. Thomas at the Governor\'s mansion'
     },{
       src: 'modules/core/client/img/photos/Mike w Author.jpg',
       w: 1296, h: 968,
@@ -34,7 +34,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
     },{
       src: 'modules/core/client/img/photos/mike_shuttle.JPG',
       w: 1642, h: 1232,
-      caption: 'Mike at the suttle pad'
+      caption: 'Mike at the shuttle pad'
     },{
       src: 'modules/core/client/img/photos/mike_489th.JPG',
       w: 1706, h: 1280,
@@ -42,7 +42,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
     },{
       src: 'modules/core/client/img/photos/Malabar Walk In.jpg',
       w: 1296, h: 968,
-      caption: 'Mike is a shareholder and Manager for the Malabar Medical Walk-in Clinic'
+      caption: 'Mike is a small business owner'
     },{
       src: 'modules/core/client/img/photos/Dog Whisperer 8 16 15 - crop.png',
       w: 506, h: 854,

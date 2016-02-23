@@ -755,6 +755,29 @@ a:hover .header-profile-image {
   width: 48%;
 }
 
+.district_map {
+  margin: 0 0 4% 0;
+}
+.district_map a {
+  transition: 0.5s all;
+  color: #0000A5;
+}
+.district_map a:hover {
+  color: white;
+}
+.district_map h1 {
+  margin: 0;
+  padding: 4px;
+  border-radius: 10px;
+  color: white;
+
+  background-color: #C30F0F;
+
+  font: 400 4vw/1.3 'Oleo Script', Helvetica, sans-serif;
+  font-weight: bold;
+  text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
+}
+
 .register_to_vote {
 }
 .register_to_vote h1 {
@@ -1212,6 +1235,11 @@ a:hover .header-profile-image {
   .volunteer_container h1 {
     font: 400 25px/1.3 'Oleo Script', Helvetica, sans-serif;
   }
+
+  .district_map h1 {
+    font: 400 40px/1.3 'Oleo Script', Helvetica, sans-serif;
+  }
+
   .register_to_volunteer {
     padding: 10px 8%;
   }
