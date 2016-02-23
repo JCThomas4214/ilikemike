@@ -9,8 +9,8 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 1277, h: 1242,
       caption: 'Mike and Troya Thomas'
     },{
-      src: 'modules/core/client/img/photos/thomas_fam.JPG',
-      msrc: 'modules/core/client/img/photos/small_ver/thomas_fam.JPG',
+      src: 'modules/core/client/img/photos/thomas_fam.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/thomas_fam.jpg',
       w: 640, h: 480,
       caption: 'Mike\'s parents and siblings'
     },{
@@ -29,8 +29,8 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 1296, h: 968,
       caption: 'Mike with K. Carl Smith; author and political activist'
     },{
-      src: 'modules/core/client/img/photos/mike_boys.JPG',
-      msrc: 'modules/core/client/img/photos/small_ver/mike_boys.JPG',
+      src: 'modules/core/client/img/photos/mike_boys.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_boys.jpg',
       w: 1704, h: 1278,
       caption: 'Mike and the boys'
     },{
