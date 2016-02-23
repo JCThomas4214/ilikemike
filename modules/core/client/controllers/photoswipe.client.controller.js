@@ -16,7 +16,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 466, h: 640,
       caption: 'Mike when he was enlisted into the NAVY in 1975'
     },{
-      src: 'modules/core/client/img/photos/mike_troya2.jpg',
+      src: 'modules/core/client/img/photos/mike_troya2.JPG',
       w: 1224, h: 1145,
       caption: 'Mr. and Mrs. Thomas the Governor\'s mansion'
     },{
@@ -24,7 +24,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 1296, h: 968,
       caption: 'Mike with K. Carl Smith; author and political activist'
     },{
-      src: 'modules/core/client/img/photos/mike_boys.jpg',
+      src: 'modules/core/client/img/photos/mike_boys.JPG',
       w: 1704, h: 1278,
       caption: 'Mike and the boys'
     },{
@@ -32,11 +32,11 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 1024, h: 768,
       caption: 'Mike ready to fly'
     },{
-      src: 'modules/core/client/img/photos/mike_shuttle.jpg',
+      src: 'modules/core/client/img/photos/mike_shuttle.JPG',
       w: 1642, h: 1232,
       caption: 'Mike at the suttle pad'
     },{
-      src: 'modules/core/client/img/photos/mike_489th.jpg',
+      src: 'modules/core/client/img/photos/mike_489th.JPG',
       w: 1706, h: 1280,
       caption: 'Mike at the 489th Squadron reunion (Hand is raised)'
     },{
