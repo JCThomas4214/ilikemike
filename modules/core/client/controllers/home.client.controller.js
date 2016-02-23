@@ -16,7 +16,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
     $scope.name = 'Mike Thomas';
     $scope.name_con = 'for';
-    $scope.name_con2 = 'Florida Senate District 16';
+    $scope.name_con2 = 'Florida Senate District 17';
 
     $scope.mike_slogen = '"I Like Mike"';
     $scope.mike_sub = 'Subscribe to Mike\'s News Letter';
