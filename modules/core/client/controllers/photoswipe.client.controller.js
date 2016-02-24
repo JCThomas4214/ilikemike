@@ -67,6 +67,11 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       src: 'modules/core/client/img/photos/mike1.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike1.jpg',
       w: 640, h: 478
+    },{
+      src: 'modules/core/client/img/photos/With Aging Matters President and CEO Cindy Flachmeier.jpg',
+      msrc: 'modules/core/client/img/photos/With Aging Matters President and CEO Cindy Flachmeier.jpg',
+      w: 743, h: 559,
+      caption: 'Mike with Cindy Flachmeier, President/CEO of Aging Matters (Meals on Wheels)'
     }];
 
     $scope.slides2 = [{
@@ -81,10 +86,5 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       src: 'modules/core/client/img/photos/mike3.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike3.jpg',
       w: 1485, h: 1203
-    },{
-      src: 'modules/core/client/img/photos/With Aging Matters President and CEO Cindy Flachmeier.jpg',
-      msrc: 'modules/core/client/img/photos/With Aging Matters President and CEO Cindy Flachmeier.jpg',
-      w: 743, h: 559,
-      caption: 'Mike with Cindy Flachmeier, President/CEO of Aging Matters (Meals on Wheels)'
     }];
   }]);
