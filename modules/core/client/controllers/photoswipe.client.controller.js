@@ -22,7 +22,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       src: 'modules/core/client/img/photos/mike_boys.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike_boys.jpg',
       w: 1704, h: 1278,
-      caption: 'Mike and his boys'
+      caption: 'Mike and his boys - Jason and Michael'
     },{
       src: 'modules/core/client/img/photos/Mike w Author.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/Mike w Author.jpg',
