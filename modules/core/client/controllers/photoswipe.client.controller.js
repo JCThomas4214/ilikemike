@@ -37,7 +37,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       src: 'modules/core/client/img/photos/mike_plane.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike_plane.jpg',
       w: 1024, h: 768,
-      caption: 'Mike ready to fly'
+      caption: 'Mike ready to fly in his Piper PA-32 Cherokee Six'
     },{
       src: 'modules/core/client/img/photos/mike_shuttle.JPG',
       msrc: 'modules/core/client/img/photos/small_ver/mike_shuttle.JPG',
