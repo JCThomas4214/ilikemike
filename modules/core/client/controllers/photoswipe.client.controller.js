@@ -58,13 +58,13 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       msrc: 'modules/core/client/img/photos/small_ver/dog_whisperer.png',
       w: 506, h: 854,
       caption: 'Mike the dog whisperer'
-    }];
-
-    $scope.slides2 = [{
+    },{
       src: 'modules/core/client/img/photos/mike1.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike1.jpg',
       w: 640, h: 478
-    },{
+    }];
+
+    $scope.slides2 = [{
       src: 'modules/core/client/img/photos/mike5.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike5.jpg',
       w: 1394, h: 1158
