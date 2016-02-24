@@ -59,6 +59,10 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 506, h: 854,
       caption: 'Mike the dog whisperer'
     },{
+      src: 'modules/core/client/img/photos/mike_troya3.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_troya3.jpg',
+      w: 1824, h: 1368
+    },{
       src: 'modules/core/client/img/photos/mike1.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike1.jpg',
       w: 640, h: 478
