@@ -104,12 +104,14 @@ exports.recieveMail = function (req, res) {
 exports.sendMail = function (req, res) {
 
   var data = req.body;
+  var str = '<br><br>Dear ' + data.contact_name + ', <br><br>Thank you so much for subscribing to the Mike Thomas Campaign news Letter! <br><br> Sincerely, <br><br>Mike Thomas<br><br><br>';
 
   transporter.sendMail({
     from: '"Mike Thomas for Senate" <mikeforflasenate@gmail.com>',
     to: data.contact_email,
     subject: 'Mike Thomas for Florida Senate 2016',
-    text: 'Thank you so much, ' + data.contact_name + ', for subscribing to the Mike Thomas Campaign news Letter!'
+    text: str,
+    html: '<div><h1><b>Mike Thomas Campaign News Letter</b></h1></div><div><p>' + str + '</p></div><div> <h3><a href="https://www.facebook.com/MikeThomasForSenate/">Facebook</a> | <a href="https://www.linkedin.com/in/mike-thomas-5105681b?authType=NAME_SEARCH&authToken=SUUm&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A70060764%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1455415061273%2Ctas%3Amike%20">LinkedIn</a></h3> <h2><a href="http://www.mikethomasforsenate.com">MikeThomasForSenate.com</a></h2> </div>'
   });
 
   res.json(data);
@@ -140,12 +142,14 @@ exports.volunteer_recieveMail = function (req, res) {
 exports.volunteer_sendMail = function (req, res) {
 
   var data = req.body;
+  var str = '<br><br><br>Thank you so much, ' + data.contact_name + ', for signing up to volunteer for the Mike Thomas Campaign! <br>We will periodically email you when volunteer positions open.<br><br>Sincerely,<br><br>Mike Thomas<br><br><br>';
 
   transporter.sendMail({
     from: '"Mike Thomas for Senate" <mikeforflasenate@gmail.com>',
     to: data.contact_email,
     subject: 'Mike Thomas Campaign Volunteers',
-    text: 'Thank you so much, ' + data.contact_name + ', for signing up to volunteer for the Mike Thomas Campaign! \nWe will periodically email you when volunteer positions open.'
+    text: str,
+    html: '<div><h1><b>Mike Thomas Campaign Volunteers</b></h1></div><div><p>' + str + '</p></div><div> <h3><a href="https://www.facebook.com/MikeThomasForSenate/">Facebook</a> | <a href="https://www.linkedin.com/in/mike-thomas-5105681b?authType=NAME_SEARCH&authToken=SUUm&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A70060764%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1455415061273%2Ctas%3Amike%20">LinkedIn</a></h3> <h2><a href="http://www.mikethomasforsenate.com">MikeThomasForSenate.com</a></h2> </div>'
   });
 
   res.json(data);

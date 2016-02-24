@@ -11,7 +11,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
     },{
       src: 'modules/core/client/img/photos/thomas_fam.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/thomas_fam.jpg',
-      w: 640, h: 480,
+      w: 640, h: 376,
       caption: 'Mike\'s parents and siblings'
     },{
       src: 'modules/core/client/img/photos/Mike NAVY.jpg',
@@ -19,20 +19,20 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 466, h: 640,
       caption: 'Mike when he was enlisted into the NAVY in 1975'
     },{
-      src: 'modules/core/client/img/photos/mike_troya2.JPG',
-      msrc: 'modules/core/client/img/photos/small_ver/mike_troya2.JPG',
-      w: 1224, h: 1145,
-      caption: 'Mr. and Mrs. Thomas at the Governor\'s mansion'
+      src: 'modules/core/client/img/photos/mike_boys.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_boys.jpg',
+      w: 1704, h: 1278,
+      caption: 'Mike and his boys'
     },{
       src: 'modules/core/client/img/photos/Mike w Author.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/Mike w Author.jpg',
       w: 1296, h: 968,
       caption: 'Mike with K. Carl Smith; author and political activist'
     },{
-      src: 'modules/core/client/img/photos/mike_boys.jpg',
-      msrc: 'modules/core/client/img/photos/small_ver/mike_boys.jpg',
-      w: 1704, h: 1278,
-      caption: 'Mike and the boys'
+      src: 'modules/core/client/img/photos/mike_troya2.JPG',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_troya2.JPG',
+      w: 1224, h: 1145,
+      caption: 'Mr. and Mrs. Thomas at the Governor\'s mansion'
     },{
       src: 'modules/core/client/img/photos/mike_plane.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike_plane.jpg',

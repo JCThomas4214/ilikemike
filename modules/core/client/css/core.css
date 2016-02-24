@@ -23,6 +23,7 @@
 .donation_button2:hover {  
   opacity: 1 !important;
 
+  -moz-transform: rotate(15deg);
   -ms-transform: rotate(15deg);
   -webkit-transform: rotate(15deg);
   -transform: rotate(15deg);
