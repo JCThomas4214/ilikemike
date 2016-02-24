@@ -61,7 +61,8 @@ angular.module('core').controller('photoCtrl', [ '$scope',
     },{
       src: 'modules/core/client/img/photos/mike_troya3.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike_troya3.jpg',
-      w: 1824, h: 1368
+      w: 1824, h: 1368,
+      caption: 'Mr. and Mrs. Thomas at the BREC Lincoln Day Dinner'
     },{
       src: 'modules/core/client/img/photos/mike1.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike1.jpg',
@@ -80,5 +81,10 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       src: 'modules/core/client/img/photos/mike3.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike3.jpg',
       w: 1485, h: 1203
+    },{
+      src: 'modules/core/client/img/photos/With Aging Matters President and CEO Cindy Flachmeier.jpg',
+      msrc: 'modules/core/client/img/photos/With Aging Matters President and CEO Cindy Flachmeier.jpg',
+      w: 743, h: 559,
+      caption: 'Mike with Cindy Flachmeier, President/CEO of Aging Matters (Meals on Wheels)'
     }];
   }]);
