@@ -1,3 +1,6 @@
+.col-md-12 {
+  color: white;
+}
 @media (min-width: 992px) {
   .nav-users {
     position: fixed;

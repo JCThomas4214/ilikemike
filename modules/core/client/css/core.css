@@ -1,12 +1,12 @@
-/*.content {
-  margin-top: 2%;
-}*/
+.content {
+  margin-top: 80px;
+}
 .donation_button {
     position: absolute;
     transition: 0.5s all;
     float: right;
     top: 8%;
-    left: 14%;
+    left: 13%;
     width: 15%;
 
     -o-transform: rotate(-15deg);
@@ -88,31 +88,6 @@ _:-ms-lang(x), .my-gallery img {
   max-height: none;
   object-fit: auto;
 }
-
-/*.deckgrid[deckgrid]::before {
-    content: '4 .column.column-1-4';
-    font-size: 0;
-    visibility: hidden;
-}
-
-.deckgrid .column {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.deckgrid .column-1-2 {
-    width: 50%;
-}
-.deckgrid .column-1-3 {
-    width: 33%;
-}
-.deckgrid .column-1-4 {
-    width: 25%;
-}
-
-.deckgrid img {
-  width: 100%;
-}*/
   
 .section_footer{
   margin: 0 -12%;
@@ -171,7 +146,7 @@ a:hover .header-profile-image {
 
 .content_title_section {
   background-color: transparent;
-  padding: 7% 10% 3% 10%;
+  padding: 0 10% 3% 10%;
 }
 
 .content_section {
@@ -888,7 +863,7 @@ a:hover .header-profile-image {
 
 @media screen and (max-width: 1000px) {
   .content_title_section {
-    padding: 10% 10% 3% 10%;
+    padding: 0 10% 3% 10%;
   }
 
   .section_footer {
@@ -899,6 +874,10 @@ a:hover .header-profile-image {
 
 /*responsive mobile*/
 @media screen and (max-width: 775px) {
+  .content {
+    margin-top: 49px;
+  }
+
   /*Heading and Text CSS*/
   .navbar-nav > li > a {
     font: 400 18px/1.3 'Oleo Script', Helvetica, sans-serif;
@@ -912,7 +891,7 @@ a:hover .header-profile-image {
   }
 
   .content_title_section {
-    margin: 50px -10% 15px -10%;
+    margin: 0 -10% 15px -10%;
     background-color: transparent;
     padding: 0;
   }
@@ -1318,7 +1297,7 @@ a:hover .header-profile-image {
   }
 
   .content_title_section {
-    margin: 50px -10% 15px -10%;
+    margin: 0 -10% 15px -10%;
     background-color: transparent;
     padding: 0;
   }

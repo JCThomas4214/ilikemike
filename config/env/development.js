@@ -4,9 +4,9 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://pyrance:flight1855@ds047325.mongolab.com:47325/test09021991/mean-dev',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://Pyrance:flight1855@ds015928.mongolab.com:15928/ilikemike_dev/mean-dev',
     options: {
-      user: 'pyrance',
+      user: 'Pyrance',
       pass: 'flight1855'
     },
     // uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean-dev',
