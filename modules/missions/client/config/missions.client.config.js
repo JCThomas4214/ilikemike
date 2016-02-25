@@ -13,7 +13,8 @@ angular.module('missions').run(['Menus',
 
     Menus.addSubMenuItem('topbar', 'missions', {
       title: 'List Missions',
-      state: 'missions.list'
+      state: 'missions.list',
+      roles: ['admin']
     });
 
     Menus.addSubMenuItem('topbar', 'missions', {

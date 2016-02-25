@@ -39,6 +39,11 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 1024, h: 768,
       caption: 'Mike ready to fly in his Piper PA-32 Cherokee Six'
     },{
+      src: 'modules/core/client/img/photos/mike_sandy_jordan.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_sandy_jordan.jpg',
+      w: 540, h: 960,
+      caption: 'Mike with his daughter and grandson, Sandy and Jordan'
+    },{
       src: 'modules/core/client/img/photos/mike_shuttle.JPG',
       msrc: 'modules/core/client/img/photos/small_ver/mike_shuttle.JPG',
       w: 1642, h: 1232,
@@ -72,6 +77,11 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       msrc: 'modules/core/client/img/photos/With Aging Matters President and CEO Cindy Flachmeier.jpg',
       w: 743, h: 559,
       caption: 'Mike with Cindy Flachmeier, President/CEO of Aging Matters (Meals on Wheels)'
+    },{
+      src: 'modules/core/client/img/photos/doctor\'s good will foundation board.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/doctor\'s good will foundation board.jpg',
+      w: 960, h: 720,
+      caption: 'Doctor\'s Goodwill foundation board members'
     }];
 
     $scope.slides2 = [{
