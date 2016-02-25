@@ -4,7 +4,7 @@
 angular.module('core').directive('scrolly', function ($window) {
   return function(scope, element, attrs) {
     var raw = element[0];
-    console.log(element);
+    // console.log(element);
 
     var section_one;
     var section_two;

@@ -1,4 +1,6 @@
-
+/*.content {
+  margin-top: 2%;
+}*/
 .donation_button {
     position: absolute;
     transition: 0.5s all;
@@ -6,16 +8,19 @@
     top: 8%;
     left: 14%;
     width: 15%;
+
+    -o-transform: rotate(-15deg);
     -moz-transform: rotate(-15deg);
     -ms-transform: rotate(-15deg);
     -webkit-transform: rotate(-15deg);
     transform: rotate(-15deg);
 }
 .donation_button:hover {  
+  -o-transform: rotate(0);
   -moz-transform: rotate(0);
   -ms-transform: rotate(0);
   -webkit-transform: rotate(0);
-  -transform: rotate(0);
+  transform: rotate(0);
 }
 .donation_button2 {
   width: 16% !important;
@@ -23,10 +28,11 @@
 .donation_button2:hover {  
   opacity: 1 !important;
 
+  -o-transform: rotate(15deg);
   -moz-transform: rotate(15deg);
   -ms-transform: rotate(15deg);
   -webkit-transform: rotate(15deg);
-  -transform: rotate(15deg);
+  transform: rotate(15deg);
 }
 
 .photo_container {
@@ -50,6 +56,7 @@
   max-height: 150px;
 
   border-radius: 10px;
+
   -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
   -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
   box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
@@ -240,7 +247,6 @@ a:hover .header-profile-image {
 
   font: 400 4vw/1.3 'Oleo Script', Helvetica, sans-serif; 
   font-weight: bold;
-  color: white;
   text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
 }
 .mail_form p {
@@ -292,7 +298,6 @@ a:hover .header-profile-image {
     -webkit-box-shadow: 2px 1px 4px rgba(0,0,0,0.45);
     box-shadow: 2px 1px 4px rgba(0,0,0,0.45);
     font: 400 20px/1.3 'Oleo Script', Helvetica, sans-serif;
-    outline:none;
 }
 .my_button:hover {
     color: #0000A5;
@@ -300,6 +305,9 @@ a:hover .header-profile-image {
     -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.75);
     -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.75);
     box-shadow: 6px 4px 10px rgba(0,0,0,0.75);
+}
+.my_button:focus {
+  outline-width: 0;
 }
 .toast_box {
   margin: 0;  
@@ -413,7 +421,6 @@ a:hover .header-profile-image {
   padding: 2% 0;
   color: white;
   font: 400 3vw/1.3 'Oleo Script', Helvetica, sans-serif;
-  color: white;
   text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
 }
 .video_container {
@@ -781,8 +788,8 @@ a:hover .header-profile-image {
   text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
 }
 
-.register_to_vote {
-}
+/*.register_to_vote {
+}*/
 .register_to_vote h1 {
   margin: 0;
   color: #0000A5;
@@ -975,6 +982,8 @@ a:hover .header-profile-image {
     left:auto;
     width: 100px;
 
+    -o-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
     -ms-transform: rotate(15deg);
     -webkit-transform: rotate(15deg);
     transform: rotate(15deg);
@@ -1122,9 +1131,9 @@ a:hover .header-profile-image {
   .col_left {
     width: 100%;
   }
-  .quote_container {
+/*  .quote_container {
 
-  }
+  }*/
   .quote_container h1 {
     font: 400 28px/1.3 'Oleo Script', Helvetica, sans-serif;
   }
@@ -1182,9 +1191,9 @@ a:hover .header-profile-image {
   .photo_container {
     padding: 0;
   }
-  .my-gallery figure {
+/*  .my-gallery figure {
 
-  }
+  }*/
   .my-gallery img {
     height: 200px;
   }
@@ -1379,6 +1388,8 @@ a:hover .header-profile-image {
     left:auto;
     width: 100px;
 
+    -o-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
     -ms-transform: rotate(15deg);
     -webkit-transform: rotate(15deg);
     transform: rotate(15deg);
@@ -1525,9 +1536,9 @@ a:hover .header-profile-image {
   .col_left {
     width: 100%;
   }
-  .quote_container {
+/*  .quote_container {
 
-  }
+  }*/
   .quote_container h1 {
     font: 400 28px/1.3 'Oleo Script', Helvetica, sans-serif;
   }

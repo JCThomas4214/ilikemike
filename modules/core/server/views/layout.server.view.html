@@ -56,15 +56,9 @@
   {% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
 
   {% if livereload %}
-  <!--Livereload script rendered -->
-  <script type="text/javascript" src="{{host}}:35729/livereload.js"></script>
+  <!-- Livereload script rendered {{host}} -->
+  <script type="text/javascript" src="//localhost:35729/livereload.js"></script>
   {% endif %}
-
-  <!-- <script src="public/lib/jquery/dist/jquery.js"></script> -->
-  <script>
-    // var wall = new Freewall("#container");
-    // wall.fitWidth();
-  </script>
 
 </body>
 </html>
