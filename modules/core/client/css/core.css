@@ -376,7 +376,7 @@ a:hover .header-profile-image {
   padding-left: 14%;
   padding-right: 14%;
 }
-.col_left { 
+.content_section_about .col_left { 
   width: 48%;
   display:inline-block;
   vertical-align: top;
@@ -463,7 +463,7 @@ a:hover .header-profile-image {
   text-shadow: 4px 2px 2px rgba(0,0,0,0.45);
 }
 
-.col_right {
+.content_section_about .col_right {
   width:45%;
   display: inline-block;
   margin-left: 1%;
@@ -732,6 +732,7 @@ a:hover .header-profile-image {
 
 .social_container .col_left {
   display: inline-block;
+  vertical-align: top;
   width: 48%;
 }
 .social_container .col_right {
@@ -1107,7 +1108,7 @@ a:hover .header-profile-image {
   .content_section_about {
     padding: 0;
   }
-  .col_left {
+  .content_section_about .col_left {
     width: 100%;
   }
 /*  .quote_container {
@@ -1512,7 +1513,7 @@ a:hover .header-profile-image {
   .content_section_about {
     padding: 0;
   }
-  .col_left {
+ .content_section_about .col_left {
     width: 100%;
   }
 /*  .quote_container {

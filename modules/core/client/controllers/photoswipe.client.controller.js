@@ -4,6 +4,10 @@ angular.module('core').controller('photoCtrl', [ '$scope',
   function ($scope) {
 
     $scope.slides1 = [{
+      src: 'modules/core/client/img/photos/mike_pa_crop.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_pa_crop.jpg',
+      w: 986, h: 1360
+    },{
       src: 'modules/core/client/img/photos/mike_troya.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike_troya.jpg',
       w: 1277, h: 1242,
@@ -43,11 +47,6 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       msrc: 'modules/core/client/img/photos/small_ver/mike_sandy_jordan.jpg',
       w: 540, h: 960,
       caption: 'Mike with his daughter and grandson, Sandy and Jordan'
-    },{
-      src: 'modules/core/client/img/photos/mike_shuttle.JPG',
-      msrc: 'modules/core/client/img/photos/small_ver/mike_shuttle.JPG',
-      w: 1642, h: 1232,
-      caption: 'Mike at the shuttle pad'
     },{
       src: 'modules/core/client/img/photos/mike_489th.JPG',
       msrc: 'modules/core/client/img/photos/small_ver/mike_489th.JPG',
