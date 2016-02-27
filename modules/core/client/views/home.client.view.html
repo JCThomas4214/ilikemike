@@ -1,6 +1,6 @@
-<section class="main_sec" ng-controller="HomeController" itemscope itemtype="http://schema.org/Person">
+<section class="main_sec" ng-controller="HomeController">
 
-    <div id="section_one" class="section_one">
+    <div id="section_one" class="section_one" itemscope itemtype="http://schema.org/Person">
         <div class="content_title_section">
             <div class="mission_section">
                <h1 class="heading1" itemprop="givenName">{{name}}</h1>  
@@ -250,7 +250,7 @@
           </div>
         </div>
 
-        <div class="section_footer">
+        <div class="section_footer" itemscope itemtype="http://schema.org/Person">
             <div class="footer_top">
               <div class="media_icons">
                 <a class="media_link" href="https://www.facebook.com/MikeThomasForSenate/">
