@@ -1,11 +1,11 @@
-<section class="main_sec" ng-controller="HomeController">
+<section class="main_sec" ng-controller="HomeController" itemscope itemtype="http//www.mikethomasforsenate.com/Person">
 
     <div id="section_one" class="section_one">
         <div class="content_title_section">
             <div class="mission_section">
-               <h1 class="heading1">{{name}}</h1>  
+               <h1 class="heading1" itemprop="givenName">{{name}}</h1>  
                <h3 class="heading2">{{name_con}}</h3>  
-               <h1 class="heading3">{{name_con2}}</h1>           
+               <h1 class="heading3" itemprop="description">{{name_con2}}</h1>           
             </div>
          </div>
 
@@ -30,7 +30,7 @@
             </div>
 
             <div class="mission_photo" >
-              <img class="headshot" ng-src="{{ mike_photo }}"></img>                        
+              <img class="headshot" itemprop="image" ng-src="{{ mike_photo }}"></img>                        
             </div>
 
           </div>
@@ -270,7 +270,7 @@
                 </a> -->
               </div>
               <a href="mailto:mikeforflasenate@gmail.com?Subject=Hello%20Mike%20Thomas" target="_top">
-                <h1>{{mike_email}}</h1>                
+                <h1 itemprop="email">{{mike_email}}</h1>                
               </a>
               <p>Phone: {{mike_phone}}</p>
               <p>Fax: {{mike_fax}}</p>
