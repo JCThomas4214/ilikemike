@@ -132,8 +132,48 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       }
     ];
 
-    $scope.mike_volunteer = 'Volunteer';
-    $scope.volunteer_header = 'Sign Up to Volunteer';
+    $scope.mike_volunteer = 'Get Involved';
+    $scope.host_party_header = 'Host A Party';
+    $scope.party_list = [
+      {
+        info: 'It\'s easy to have a few friends over for a chat with Mike about issues that are important to you.'
+      },{
+        info: 'Simply contact us to arrange a date and then bring a few (or more) people.'
+      },{
+        info: 'These events are great for fundraising and getting volunteers.'
+      }
+    ];
+
+    $scope.volunteer_info_header = 'Volunteer';
+    $scope.volunteer_list = [
+      {
+        info: 'There are many ways to volunteer.',
+        list: [
+          {
+            note: 'Sign waving'
+          },{
+            note: 'Addressing envelopes'
+          },{
+            note: 'Getting petitions signed'
+          },{
+            note: 'Walking your neighborhood with information cards'
+          },{
+            note: 'Placing yard signs'
+          }
+        ]
+      }
+    ];
+
+    $scope.donate_info_header = 'Donate';
+    $scope.donate_list = [
+      {
+        info: 'Funding is the life blood of any successful campaign. Please consider donating to the cause.'
+      },{
+        info: 'For your convenience, please find a donation button below that allows you to pay via PayPal.'
+      }
+    ];
+
+    $scope.volunteer_header = 'Sign Up for the Volunteer Newsletter';
 
     $scope.mike_social = 'Stay Connected';
 

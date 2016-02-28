@@ -162,27 +162,6 @@
 
           </div>
 
-          <!-- <div class="photo_container" ng-controller="photoCtrl">
-            
-            <div deckgrid class="deckgrid" source="slides2">
-              <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-
-                  <figure class="a-card" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" >
-                    <a ng-href="{{card.src}}" itemprop="contentUrl" data-size="{{card.w}}x{{card.h}}">
-                        <img ng-src="{{card.src}}" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                    <figcaption itemprop="caption description">{{card.caption}}</figcaption>                                                    
-                  </figure>
-
-              </div>
-            </div>
-
-            <freewallwidget></freewallwidget>
-
-            <photoswipewidget></photoswipewidget>        
-
-          </div> -->
-
         </div>
 
         <div id="volunteer_section" class="section_five">
@@ -191,6 +170,39 @@
               <h1 class="heading1"></h1>
               <h1 class="heading2">{{mike_volunteer}}</h1>
               <h1 class="heading3"></h1>
+            </div>
+          </div>
+
+          <div class="volunteer_info">
+            <div class="col_left">
+              <div class="col_info">
+                <h1>{{host_party_header}}</h1>
+                <div class="info_container">
+                  <p ng-repeat="party_info in party_list">{{party_info.info}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col_middle">
+              <div class="col_info">
+                <h1>{{volunteer_info_header}}</h1>
+                <div class="info_container" ng-repeat="volunteer_info in volunteer_list">
+                  <p>{{volunteer_info.info}}</p>
+                  <ul>
+                    <li ng-repeat="volunteer_bullet in volunteer_info.list">{{volunteer_bullet.note}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col_right">
+              <div class="col_info">
+                <h1>{{donate_info_header}}</h1>
+                <div class="info_container">
+                  <p ng-repeat="donate_info in donate_list">{{donate_info.info}}</p>
+                  <div class="donate_image">
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY"><img ng-src="{{donation_button}}"></a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -205,7 +217,7 @@
                     <input type="email" data-ng-model="vf.contact_email" class="form-control" id="email" placeholder="Email Address" autocomplete="off">
                   </div>
                   <div class="form-group">
-                    <input type="tel" data-ng-model="vf.contact_phone" class="form-control" id="phone" placeholder="Phone Number" autocomplete="off">
+                    <input type="tel" data-ng-model="vf.contact_phone" class="form-control" id="phone" placeholder="Phone Number (Optional)" autocomplete="off">
                   </div>
                   <button type="submit" class="my_button">Sign Up</button>
                 </form>

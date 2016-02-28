@@ -16,7 +16,7 @@ angular.module('core').controller('VolunteerFormController', ['$scope', '$http',
 
     this.sendMail = function () {
 
-      if (this.contact_name && this.contact_email && this.contact_phone) {
+      if (this.contact_name && this.contact_email) {
 
         ngToast.create({
           content: '<p class="toast_box">Thank you, <b>' + this.contact_name + '</b>, for your support!</p>'
