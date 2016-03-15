@@ -169,9 +169,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       {
         info: 'Funding is the life blood of any successful campaign. Please consider donating to the cause.'
       },{
-        info: 'For your convenience, please find a donation button, like below, that allows you to pay via PayPal.'
-      },{
         info: 'Make checks payable to \'Mike Thomas Campaign 1855 Whispering Oaks Circle, Melbourne FL 32934\''
+      },{
+        info: 'For your convenience, please find a donation button, like below, that allows you to pay via PayPal.'
       }
     ];
 

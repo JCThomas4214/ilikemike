@@ -198,11 +198,18 @@
                 <h1>{{donate_info_header}}</h1>
                 <div class="info_container">
                   <p ng-repeat="donate_info in donate_list">{{donate_info.info}}</p>
-                  <div class="donate_image">
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY"><img ng-src="{{donation_button}}"></a>
-                  </div>
+                  
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div class="donation_exp">
+            <div class="donation_balloon">
+              <img src="/modules/core/client/img/backgrounds/donation_balloon.png" style="visibility: hidden;" />
+            </div>
+            <div class="donate_image">
+              <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY"><img ng-src="{{donation_button}}"></a>
             </div>
           </div>
 
@@ -237,8 +244,9 @@
           <div class="social_container">
 
             <div class="col_left">
-              <div class="district_map">
-                <h1>Are you in the <a href="https://www.flsenate.gov/usercontent/session/redistricting/map_and_stats_11x17v5_2012-CA-2842.pdf">District</a>?</h1>
+              <div class="district_map" href="https://www.flsenate.gov/usercontent/session/redistricting/map_and_stats_11x17v5_2012-CA-2842.pdf">
+                <!-- <h1><a href="https://www.flsenate.gov/usercontent/session/redistricting/map_and_stats_11x17v5_2012-CA-2842.pdf">Are you in the District?</a></h1> -->
+                <a href="https://www.flsenate.gov/usercontent/session/redistricting/map_and_stats_11x17v5_2012-CA-2842.pdf"><button class="district_button">Are you in the District? Click to find out.</button></a>
               </div>
               <div class="register_to_vote">
                 <h1>Register to Vote</h1>
@@ -287,7 +295,8 @@
               <p>Phone: {{mike_phone}}</p>
               <p>Fax: {{mike_fax}}</p>
               <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY"><img class="donation_button2" src="{{donation_button}}"></a>
-              
+              <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY"><img class="donation_button3" src="{{donation_button}}"></a>
+                
             </div> 
             <div class="footer_bottom">
               <p>&#9734; {{mike_decree}} &#9734;</p>
