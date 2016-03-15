@@ -1484,9 +1484,9 @@ a:hover .header-profile-image {
     right: 5%;
   }
   .donation_button2 {
-    width: 30% !important;
-    top: 4%;
-    left: 14%; 
+    width: 26% !important;
+    top: 5%;
+    left: 16%; 
   }
   .donation_button3 {
     display:none;
@@ -1529,7 +1529,7 @@ a:hover .header-profile-image {
 
   .footer_top .media_icons {
     text-align: right;
-    margin-right: 35px;
+    margin-right: 15%;
   }
 }
 
