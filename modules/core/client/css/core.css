@@ -791,6 +791,7 @@ a:hover .header-profile-image {
   background-position: right;
   width: 35%;
   margin-top: 3%;
+  margin-right: -2%;
 }
 .donation_exp .donation_balloon p {
   text-align: left;
