@@ -3,9 +3,8 @@
 
 angular.module('core').directive('scrolly', function ($window) {
   return function(scope, element, attrs) {
-    var raw = element[0];
-    // console.log(element);
 
+    var tmp;
     var section_one;
     var section_two;
     var section_three;
@@ -18,19 +17,24 @@ angular.module('core').directive('scrolly', function ($window) {
     var full_section_five;
 
     var offset;
-    angular.element($window).bind('scroll', function() {
-      section_one = element[0].childNodes[6].childNodes[1].childNodes[2].childNodes[0].childNodes[1].clientHeight - 20;
-      section_two = element[0].childNodes[6].childNodes[1].childNodes[2].childNodes[0].childNodes[3].clientHeight;
-      section_three = element[0].childNodes[6].childNodes[1].childNodes[2].childNodes[0].childNodes[5].clientHeight;
-      section_four = element[0].childNodes[6].childNodes[1].childNodes[2].childNodes[0].childNodes[7].clientHeight;      
-      section_five = element[0].childNodes[6].childNodes[1].childNodes[2].childNodes[0].childNodes[9].clientHeight;
+    angular.element(document.getElementById('content')).bind('scroll', function() {
 
-      full_section_two = section_one + section_two;
-      full_section_three = full_section_two + section_three;
-      full_section_four = full_section_three + section_four;
-      full_section_five = full_section_four + section_five;
+      tmp = angular.element(document.getElementById('section_one')).prop('clientHeight');
 
-      offset = $window.pageYOffset;
+      if (!section_one || tmp !== section_one) {   
+        section_one = angular.element(document.getElementById('section_one')).prop('clientHeight');     
+        section_two = angular.element(document.getElementById('about_section')).prop('clientHeight');
+        section_three = angular.element(document.getElementById('platform_section')).prop('clientHeight');
+        section_four = angular.element(document.getElementById('endors_section')).prop('clientHeight');
+        section_five = angular.element(document.getElementById('volunteer_section')).prop('clientHeight');
+
+        full_section_two = section_one + section_two;
+        full_section_three = full_section_two + section_three;
+        full_section_four = full_section_three + section_four;
+        full_section_five = full_section_four + section_five;
+      }
+
+      offset = angular.element(document.getElementById('content')).scrollTop();
 
       if(offset >= section_one && offset < full_section_two) {
         angular.element(document.querySelector('#meetTb')).addClass('active');

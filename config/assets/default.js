@@ -9,6 +9,8 @@ module.exports = {
         'public/lib/photoswipe/dist/photoswipe.css',
         'public/lib/photoswipe/dist/default-skin/default-skin.css',
         'public/lib/ngToast/dist/ngToast.min.css',
+        'public/lib/ng-dialog/css/ngDialog.css',        
+        'public/lib/ng-dialog/css/ngDialog-theme-default.css',
         '//fonts.googleapis.com/css?family=Great+Vibes',
         '//fonts.googleapis.com/css?family=Oleo+Script',
         '//fonts.googleapis.com/css?family=Noto+Serif',
@@ -16,7 +18,7 @@ module.exports = {
 
       ],
       js: [
-        // 'public/lib/jquery/dist/jquery.js',
+        'public/lib/jquery/dist/jquery.js',
         'public/lib/angular/angular.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-animate/angular-animate.js',
@@ -29,8 +31,8 @@ module.exports = {
         'public/lib/photoswipe/dist/photoswipe.min.js',
         'public/lib/photoswipe/dist/photoswipe-ui-default.min.js',
         'public/lib/angular-sanitize/angular-sanitize.min.js',
-        'public/lib/ngToast/dist/ngToast.min.js'
-        // 'public/lib/angular-deckgrid/angular-deckgrid.js'
+        'public/lib/ngToast/dist/ngToast.min.js',
+        'public/lib/ng-dialog/js/ngDialog.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

@@ -1,9 +1,19 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication',
-  function ($scope, Authentication) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'ngDialog',
+  function ($scope, Authentication, ngDialog) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
+
+    $scope.clickdialog = function() {
+      ngDialog.open({ 
+        template: '<div class="dialog_menu"><h1>This is the test</h1><p>Wow this is cool</p></div>', 
+        className: 'ngdialog-theme-default',
+        plain:true,
+        closeByDocument:false
+      });
+    };
+
 
     $scope.donation_button = 'modules/core/client/img/icons/donation.png';
 
@@ -178,6 +188,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.volunteer_header = 'Sign Up for the Volunteer Newsletter';
 
     $scope.mike_social = 'Stay Connected';
-
+    
   }
 ]);
