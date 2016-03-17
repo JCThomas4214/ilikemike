@@ -1,7 +1,6 @@
 html, body {
   background-color: #000479;
   height: 100%;
-  position: relative;
   overflow-x: hidden; 
 }
 .content {
@@ -10,10 +9,11 @@ html, body {
   overflow-y: scroll !important; 
   overflow-x: hidden !important; 
 }
-/*.container {
+.container {
 }
 .main_sec {
-}*/
+  height: 100%;
+}
 
 html.ngdialog-open,
 body.ngdialog-open {
@@ -49,10 +49,10 @@ body.ngdialog-open {
   transform: rotate(0);
 }
 .donation_button2 {
-  width: 16% !important;
+  width: 15% !important;
   position: absolute;
   float: right;
-  top: 10%;
+  top: 9%;
   right: 18%;
 }
 .donation_button2:hover {  
@@ -65,10 +65,10 @@ body.ngdialog-open {
   transform: rotate(15deg);
 }
 .donation_button3 {
-  width: 16% !important;
+  width: 15% !important;
   position: absolute;
   float: right;
-  top: 10%;
+  top: 9%;
   left: 18%;
 }
 .donation_button3:hover {  
@@ -136,7 +136,7 @@ _:-ms-lang(x), .my-gallery img {
 }
   
 .section_footer{
-  margin: 0 -12%;
+  margin: 0 -25%;
 }
 
 .undecorated-link:hover {
@@ -1026,9 +1026,10 @@ a:hover .header-profile-image {
 /*responsive mobile*/
 @media screen and (max-width: 775px) {
   html,body{
-    height: 100%;
+    height: auto;
   }
   .content {
+    height:auto;
     padding-top: 0; 
     margin-top: 49px;
   }
@@ -1480,6 +1481,9 @@ a:hover .header-profile-image {
 }
 
 @media screen and (max-width: 450px) {
+  .content {
+    height: 100%;
+  }
   .mission_section .heading1 {
     padding: 6% 8% 3% 8%;
     font: 400 55px/0.8 'Great Vibes', Helvetica, sans-serif;
