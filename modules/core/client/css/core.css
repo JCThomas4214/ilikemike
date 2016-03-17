@@ -1,18 +1,16 @@
 html, body {
   background-color: #000479;
   height: 100%;
-  overflow-x: hidden; 
 }
 .content {
-  padding-top: 80px;
   height: 100%;
-  overflow-y: auto; 
+  padding-top: 80px;
+  overflow-y: auto !important; 
   overflow-x: hidden;
 }
 .container {
 }
 .main_sec {
-  height: 100%;
 }
 
 html.ngdialog-open,
@@ -1025,8 +1023,6 @@ a:hover .header-profile-image {
 
 /*responsive mobile*/
 @media screen and (max-width: 775px) {
-  html,body {
-  }
   .content {
     padding-top: 49px; 
   }
@@ -1478,9 +1474,6 @@ a:hover .header-profile-image {
 }
 
 @media screen and (max-width: 450px) {
-  .content {
-    height: 100%;
-  }
   .mission_section .heading1 {
     padding: 6% 8% 3% 8%;
     font: 400 55px/0.8 'Great Vibes', Helvetica, sans-serif;
