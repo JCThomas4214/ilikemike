@@ -6,8 +6,8 @@ html, body {
 .content {
   padding-top: 80px;
   height: 100%;
-  overflow-y: scroll !important; 
-  overflow-x: hidden !important; 
+  overflow-y: auto; 
+  overflow-x: hidden;
 }
 .container {
 }
@@ -1025,7 +1025,10 @@ a:hover .header-profile-image {
 
 /*responsive mobile*/
 @media screen and (max-width: 775px) {
+  html,body {
+  }
   .content {
+    height: 100%;
     padding-top: 49px; 
   }
 
