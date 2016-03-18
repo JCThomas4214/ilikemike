@@ -23,6 +23,11 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 466, h: 640,
       caption: 'Mike when he was enlisted into the NAVY in 1975'
     },{
+      src: 'modules/core/client/img/photos/mike_baby.JPG',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_baby.JPG',
+      w: 1280, h: 961,
+      caption: 'Mike is a family man'
+    },{
       src: 'modules/core/client/img/photos/mike_boys.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike_boys.jpg',
       w: 1704, h: 1278,
