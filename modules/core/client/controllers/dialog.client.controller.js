@@ -10,7 +10,7 @@ angular.module('core').controller('DialogCtrl', ['$scope', 'ngDialog', function(
     ngDialog.open({
       template: 'This is a test',
       plain: true,
-      className: 'ngdialog-theme-default',
+      className: 'petition_review',
       closeByDocument:false
     });
   };

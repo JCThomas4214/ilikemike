@@ -8,7 +8,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.clickdialog = function() {
       ngDialog.open({ 
         template: '/modules/core/client/views/dialogFormat.html', 
-        className: 'ngdialog-theme-default',
+        className: 'welcome_dialog',
         closeByDocument:false
       });
     };
