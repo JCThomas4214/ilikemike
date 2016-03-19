@@ -8,8 +8,7 @@ angular.module('core').controller('DialogCtrl', ['$scope', 'ngDialog', function(
   $scope.openPatitionReview = function() {
     ngDialog.close('closed');
     ngDialog.open({
-      template: 'This is a test',
-      plain: true,
+      template: '/modules/core/client/views/dialogPetitionFormat.html',
       className: 'petition_review',
       closeByDocument:false
     });

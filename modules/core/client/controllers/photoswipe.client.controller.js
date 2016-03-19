@@ -23,23 +23,24 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 466, h: 640,
       caption: 'Mike when he was enlisted into the NAVY in 1975'
     },{
-      src: 'modules/core/client/img/photos/mike_baby.JPG',
-      msrc: 'modules/core/client/img/photos/small_ver/mike_baby.JPG',
-      w: 1280, h: 961,
-      caption: 'The newest menber of the Thomas family'
-    },{
       src: 'modules/core/client/img/photos/mike_boys.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike_boys.jpg',
-      w: 1704, h: 1278,
+      w: 1704, 
+      h: 1278,
       caption: 'Mike and his boys - Jason and Michael'
+    },{
+      src: 'modules/core/client/img/photos/mike_baby.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_baby.jpg',
+      w: 1280, h: 961,
+      caption: 'The newest menber of the Thomas family'
     },{
       src: 'modules/core/client/img/photos/Mike w Author.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/Mike w Author.jpg',
       w: 1296, h: 968,
       caption: 'Mike with K. Carl Smith; author and political activist'
     },{
-      src: 'modules/core/client/img/photos/mike_troya2.JPG',
-      msrc: 'modules/core/client/img/photos/small_ver/mike_troya2.JPG',
+      src: 'modules/core/client/img/photos/mike_troya2.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_troya2.jpg',
       w: 1224, h: 1145,
       caption: 'Mr. and Mrs. Thomas at the Governor\'s mansion'
     },{
@@ -53,8 +54,8 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 540, h: 960,
       caption: 'Mike with his daughter and grandson, Sandy and Jordan'
     },{
-      src: 'modules/core/client/img/photos/mike_489th.JPG',
-      msrc: 'modules/core/client/img/photos/small_ver/mike_489th.JPG',
+      src: 'modules/core/client/img/photos/mike_489th.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_489th.jpg',
       w: 1706, h: 1280,
       caption: 'Mike at the 489th Squadron reunion (Hand is raised)'
     },{

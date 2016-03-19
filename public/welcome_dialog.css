@@ -70,7 +70,6 @@
 .ngdialog.welcome_dialog .ngdialog-content {
   -webkit-animation: ngdialog-flyin .5s;
   animation: ngdialog-flyin .5s;
-  background: #f0f0f0;
   border-radius: 5px;
   color: #444;
   font-family: 'Helvetica',sans-serif;
