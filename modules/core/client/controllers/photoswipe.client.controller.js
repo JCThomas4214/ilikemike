@@ -26,7 +26,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       src: 'modules/core/client/img/photos/mike_baby.JPG',
       msrc: 'modules/core/client/img/photos/small_ver/mike_baby.JPG',
       w: 1280, h: 961,
-      caption: 'Mike is a family man'
+      caption: 'The newest menber of the Thomas family'
     },{
       src: 'modules/core/client/img/photos/mike_boys.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike_boys.jpg',
