@@ -90,8 +90,8 @@ html, body {
   object-fit: cover;
 
   height: 200px;
-  height: 11vw;
-  max-height: 150px;
+  height: 14vw;
+  max-height: 200px;
 
   border-radius: 10px;
 
@@ -1521,6 +1521,9 @@ a:hover .header-profile-image {
 
   .photo_container {
     padding: 0;
+  }
+  .my-gallery img {
+    max-height: 150px;
   }
   .my-gallery figure {
     width: 26%;
