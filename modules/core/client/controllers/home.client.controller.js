@@ -142,7 +142,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     ];
 
     $scope.mike_volunteer = 'Get Involved';
-    $scope.host_party_header = 'Host A Party';
+    $scope.host_party_header = 'Host Party';
     $scope.party_list = [
       {
         info: 'It\'s easy to have a few friends over for a chat with Mike about issues that are important to you.'

@@ -77,7 +77,7 @@
 .ngdialog.petition_review .ngdialog-content {
   -webkit-animation: ngdialog-flipin-horizontal .5s;
   animation: ngdialog-flipin-horizontal .5s;
-  background: #f0f0f0;
+  background: transparent;
   border-radius: 5px;
   color: #444;
   font-family: 'Helvetica',sans-serif;
