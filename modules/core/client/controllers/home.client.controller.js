@@ -13,14 +13,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       });
     };
 
-    var getInvolvedSize = function() {
-      var right = angular.element(document.getElementById('volunteer_column_right')).height();
-      console.log(right);
-      angular.element(document.getElementById('volunteer_column_left')).height(right);
-      angular.element(document.getElementById('volunteer_column_middle')).height(right);
-    };
-
-
     $scope.donation_button = 'modules/core/client/img/icons/donation.png';
 
     $scope.mike_photo = 'modules/core/client/img/photos/mike_headshot2.jpg';
