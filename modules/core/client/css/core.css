@@ -85,7 +85,6 @@ html, body {
 }
 .my-gallery img {
   transition: 0.5s all;
-  /*display: inline-block;*/
   width: 100%;
   object-fit: cover;
 
@@ -742,7 +741,7 @@ a:hover .header-profile-image {
 .volunteer_info .col_middle .col_info .info_container,
 .volunteer_info .col_right .col_info .info_container {
   text-align: left;
-  height: 19vw;
+  height: auto;
   background-color: #C30F0F;
   padding: 5px;
   border-bottom-right-radius: 10px;
@@ -1536,6 +1535,11 @@ a:hover .header-profile-image {
   }
 
 
+  .volunteer_info .col_left .col_info .info_container,
+  .volunteer_info .col_middle .col_info .info_container,
+  .volunteer_info .col_right .col_info .info_container {
+    height: auto;
+  }
   .volunteer_info .col_left .col_info p,
   .volunteer_info .col_middle .col_info p,
   .volunteer_info .col_right .col_info p {

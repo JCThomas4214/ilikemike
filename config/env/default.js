@@ -3,8 +3,8 @@
 module.exports = {
   app: {
     title: 'Vote Mike',
-    description: 'For State Senator District 17',
-    keywords: 'florida, state senator, senator, district 17, vote, republican, politician',
+    description: 'Welcome to the Mike Thomas Campaign! I am running for Florida State Senate district 17. Email: MikeForFlaSenate@gmail.com',
+    keywords: 'florida, state senator, senator, district 17, vote, republican, politician, mike thomas, senate',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
   },
   port: process.env.PORT || 3000,

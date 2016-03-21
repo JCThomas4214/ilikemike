@@ -173,11 +173,11 @@
             </div>
           </div>
 
-          <div class="volunteer_info">
+          <div class="volunteer_info" setsize>
             <div class="col_left">
               <div class="col_info">
                 <h1>{{host_party_header}}</h1>
-                <div class="info_container">
+                <div class="info_container" id="volunteer_column_left">
                   <p ng-repeat="party_info in party_list">{{party_info.info}}</p>
                 </div>
               </div>
@@ -185,7 +185,7 @@
             <div class="col_middle">
               <div class="col_info">
                 <h1>{{volunteer_info_header}}</h1>
-                <div class="info_container" ng-repeat="volunteer_info in volunteer_list">
+                <div class="info_container" ng-repeat="volunteer_info in volunteer_list" id="volunteer_column_middle">
                   <p>{{volunteer_info.info}}</p>
                   <ul>
                     <li ng-repeat="volunteer_bullet in volunteer_info.list">{{volunteer_bullet.note}}</li>
@@ -196,7 +196,7 @@
             <div class="col_right">
               <div class="col_info">
                 <h1>{{donate_info_header}}</h1>
-                <div class="info_container">
+                <div class="info_container" id="volunteer_column_right">
                   <p ng-repeat="donate_info in donate_list">{{donate_info.info}}</p>
                   
                 </div>
