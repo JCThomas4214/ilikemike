@@ -37,7 +37,7 @@ module.exports = {
     }
   },
   app: {
-    title: defaultEnvConfig.app.title + ' - District 17'
+    title: defaultEnvConfig.app.title
   },
   facebook: {
     clientID: process.env.FACEBOOK_ID || 'APP_ID',

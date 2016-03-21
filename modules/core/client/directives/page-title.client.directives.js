@@ -25,7 +25,7 @@
       }
 
       function getTitle(currentState) {
-        var applicationCoreTitle = 'Vote Mike - District 17';
+        var applicationCoreTitle = 'Mike Thomas for Florida Senate - District 17';
         var workingState = currentState;
         if (currentState.data) {
           workingState = (typeof workingState.locals !== 'undefined') ? workingState.locals.globals : workingState;
