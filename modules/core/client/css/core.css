@@ -41,7 +41,7 @@ html, body {
   transform: rotate(0);
 }
 .donation_button2 {
-  width: 15% !important;
+  width: 12% !important;
   position: absolute;
   float: right;
   top: 9%;
@@ -57,7 +57,7 @@ html, body {
   transform: rotate(15deg);
 }
 .donation_button3 {
-  width: 15% !important;
+  width: 12% !important;
   position: absolute;
   float: right;
   top: 9%;
