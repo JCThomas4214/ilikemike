@@ -279,6 +279,10 @@
   -webkit-box-shadow: 10px 8px 10px rgba(0,0,0,0.5), 0 0 20px #C30F0F;
   box-shadow: 10px 8px 10px rgba(0,0,0,0.5), 0 0 20px #C30F0F;
 }
+.dialog_menu .dialog_content a {
+  color: white;
+  outline-width: 0;
+}
 .dialog_menu .col_left_button {
   margin-right: 0.5%;
   border-bottom-left-radius: 10px;

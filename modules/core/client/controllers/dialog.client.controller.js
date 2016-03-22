@@ -19,4 +19,6 @@ angular.module('core').controller('DialogCtrl', ['$scope', 'ngDialog', function(
 
   $scope.test = 'This is a test from the controller';
 
+  $scope.donate = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY";
+
 }]);
