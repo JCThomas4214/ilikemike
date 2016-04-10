@@ -6,11 +6,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.authentication = Authentication;
 
     $scope.clickdialog = function() {
-      ngDialog.open({ 
-        template: '/modules/core/client/views/dialogFormat.html', 
-        className: 'welcome_dialog',
-        closeByDocument:false
-      });
+      
     };
 
     $scope.donation_button = 'modules/core/client/img/icons/donation.png';
@@ -187,6 +183,12 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.volunteer_header = 'Sign Up for the Volunteer Newsletter';
 
     $scope.mike_social = 'Stay Connected';
+
+    ngDialog.open({ 
+        template: '/modules/core/client/views/dialogFormat.html', 
+        className: 'welcome_dialog',
+        closeByDocument:false
+      });
     
   }
 ]);

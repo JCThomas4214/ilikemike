@@ -1,24 +1,20 @@
 'use strict';
 
-angular.module('core').controller('DialogCtrl', ['$scope', 'ngDialog', function($scope, ngDialog) {
+angular.module('core').controller('DialogCtrl', ['$scope', '$window', 'ngDialog', function($scope, $window, ngDialog) {
 
   $scope.closeDialog = function() {
     ngDialog.close('closed');
   };
   $scope.openPatitionReview = function() {
-    ngDialog.close('closed');
-    ngDialog.open({
-      template: '/modules/core/client/views/dialogPetitionFormat.html',
-      className: 'petition_review',
-      closeByDocument:false
-    });
+    $window.open('modules/core/client/img/petition.pdf', '_blank');
   };
 
   $scope.title = 'Welcome to the Mike Thomas Campaign!';
   $scope.title2 = 'We would love your support';
 
-  $scope.test = 'This is a test from the controller';
+  $scope.donation_pop = 'Donate to the Campaign!';
+  $scope.petition_pop = 'Sign a Petition for Mike!';
 
-  $scope.donate = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY";
+  $scope.donate = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY';
 
 }]);

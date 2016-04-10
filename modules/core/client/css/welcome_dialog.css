@@ -71,7 +71,6 @@
   -webkit-animation: ngdialog-flyin .5s;
   animation: ngdialog-flyin .5s;
   border-radius: 5px;
-  color: #444;
   font-family: 'Helvetica',sans-serif;
   font-size: 1.1em;
   line-height: 1.5em;
@@ -80,7 +79,7 @@
   padding: 1em;
   position: relative;
   background-color: transparent;
-  width: 70%;
+  width: 55%;
 }
 
 .ngdialog.welcome_dialog .ngdialog-close {
@@ -313,4 +312,11 @@
     -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.75);
     -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.75);
     box-shadow: 6px 4px 10px rgba(0,0,0,0.75);
+}
+
+.dialog_menu .button_container p {
+  padding: 15px;
+  font: 400 4vw/0.8 'Great Vibes', Helvetica, sans-serif;
+  text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
+  font-weight: bold;
 }
