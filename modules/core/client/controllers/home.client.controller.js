@@ -185,10 +185,10 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.mike_social = 'Stay Connected';
 
     ngDialog.open({ 
-        template: '/modules/core/client/views/dialogFormat.html', 
-        className: 'welcome_dialog',
-        closeByDocument:false
-      });
+      template: '/modules/core/client/views/dialogFormat.html', 
+      className: 'welcome_dialog',
+      closeByDocument:false
+    });
     
   }
 ]);
