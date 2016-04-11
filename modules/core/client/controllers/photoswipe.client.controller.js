@@ -62,7 +62,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       src: 'modules/core/client/img/photos/Malabar Walk In.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/Malabar Walk In.jpg',
       w: 1296, h: 968,
-      caption: 'Mike is a small business owner'
+      caption: 'Mike is a business partner'
     },{
       src: 'modules/core/client/img/photos/dog_whisperer.png',
       msrc: 'modules/core/client/img/photos/small_ver/dog_whisperer.png',
