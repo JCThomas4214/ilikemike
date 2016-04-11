@@ -6,7 +6,7 @@ angular.module('core').controller('DialogCtrl', ['$scope', '$window', 'ngDialog'
     ngDialog.close('closed');
   };
   $scope.openPatitionReview = function() {
-    $window.open('modules/core/client/img/petition.pdf', '_blank');
+    $window.open('modules/core/client/img/Candidate_Petition.pdf', '_blank');
   };
 
   $scope.title = 'Welcome to the Mike Thomas Campaign!';
