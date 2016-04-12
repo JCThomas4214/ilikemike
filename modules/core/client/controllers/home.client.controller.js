@@ -10,7 +10,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     };
 
     $scope.donation_button = 'modules/core/client/img/icons/donation.png';
-    $scope.donate = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY";
+    $scope.donate = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY';
 
     $scope.mike_photo = 'modules/core/client/img/photos/mike_headshot2.jpg';
 
@@ -188,7 +188,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       template: '/modules/core/client/views/dialogFormat.html', 
       className: 'welcome_dialog',
       closeByDocument:false
-    });
-    
+    });    
   }
 ]);

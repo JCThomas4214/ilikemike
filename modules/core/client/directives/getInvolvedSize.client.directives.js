@@ -12,7 +12,7 @@ angular.module('core').directive('setsize', ['$window', '$timeout', function($wi
         angular.element(document.getElementById('volunteer_column_middle')).height(right);
       };
       if($window.innerWidth > 775) {
-        console.log('greater than 775 width');
+        // console.log('greater than 775 width');
         $timeout(run, 500);
       }
       //use timeout to wait to execute directive after DOM load

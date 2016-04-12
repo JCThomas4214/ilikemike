@@ -17,4 +17,6 @@ angular.module('core').controller('DialogCtrl', ['$scope', '$window', 'ngDialog'
 
   $scope.donate = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY';
 
+  angular.element(document.getElementById('test_go')).css('color', 'none');
+
 }]);
