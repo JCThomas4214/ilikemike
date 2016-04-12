@@ -8,6 +8,9 @@ angular.module('core').directive('photowidget', ['$timeout', function($timeout) 
       slides: '='
     },
     link: function(scope, element, attrs) {
+      $timeout(function() {
+
+      });
     }  
   };
 }]);
