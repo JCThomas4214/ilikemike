@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('core').directive('photoswipewidget', function() { 
+angular.module('core').directive('photoswipewidget', ['$timeout', function($timeout) { 
   return { 
     restrict: 'E',
     templateUrl: 'modules/core/client/directives/photoswipe.html',
@@ -13,4 +13,4 @@ angular.module('core').directive('photoswipewidget', function() {
       run();
     }  
   };
-});
+}]);
