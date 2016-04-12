@@ -87,6 +87,31 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       msrc: 'modules/core/client/img/photos/small_ver/doctor\'s good will foundation board.jpg',
       w: 960, h: 720,
       caption: 'Doctor\'s Goodwill foundation board members'
+    },{
+      src: 'modules/core/client/img/photos/mike_fund_1.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_fund_1.jpg',
+      w: 1349, h: 970,
+      caption: 'Campaign Kickoff Celebration'
+    },{
+      src: 'modules/core/client/img/photos/mike_fund_2.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_fund_2.jpg',
+      w: 1402, h: 941,
+      caption: 'Campaign Kickoff Celebration'
+    },{
+      src: 'modules/core/client/img/photos/mike_fund_3.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_fund_3.jpg',
+      w: 1386, h: 912,
+      caption: 'Campaign Kickoff Celebration'
+    },{
+      src: 'modules/core/client/img/photos/mike_fund_4.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_fund_4.jpg',
+      w: 1596, h: 900,
+      caption: 'Campaign Kickoff Celebration'
+    },{
+      src: 'modules/core/client/img/photos/mike_fund_5.jpg',
+      msrc: 'modules/core/client/img/photos/small_ver/mike_fund_5.jpg',
+      w: 1437, h: 1037,
+      caption: 'Campaign Kickoff Celebration'
     }];
 
     $scope.slides2 = [{
