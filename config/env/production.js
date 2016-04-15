@@ -8,7 +8,7 @@ module.exports = {
   },
   port: process.env.PORT || 8443,
   // Binding to 127.0.0.1 is safer in production.
-  host: process.env.HOST || '127.0.0.1',
+  host: process.env.HOST || '0.0.0.0',
   db: {
     uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://Pyrance:flight1855@ds011331.mlab.com:11331/ilikemike_prod/mean',
     options: {
