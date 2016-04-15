@@ -29,13 +29,16 @@
             <a class="my_signup" ui-sref="authentication.signup">Sign Up</a>       
           </div>
         </div>
-        <alert type="danger" ng-show="error" class="text-center text-danger">
-          <span ng-bind="error"></span>
-        </alert>
+
       </fieldset>
     </form>
   </div>
+
+    <alert type="danger" ng-show="error" class="text-center text-danger">
+      <span ng-bind="error"></span>
+    </alert>
     <div class="text-center forgot-password">
       <a ui-sref="password.forgot">Forgot your password?</a>
     </div>
+    
 </div>

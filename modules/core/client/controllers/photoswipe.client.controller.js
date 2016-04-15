@@ -127,4 +127,10 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       msrc: 'modules/core/client/img/photos/small_ver/mike3.jpg',
       w: 1485, h: 1203
     }];
+
+    // $scope.environment_pic = [{
+    //   src: '',
+    //   msrc: '',
+    //   w: 0000, h: 0000
+    // }];
   }]);

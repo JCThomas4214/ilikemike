@@ -1,0 +1,23 @@
+<section class="page_information" ng-controller="MissionsController" ng-init="find()">
+    <div class="page-header">
+        <h1>Missions</h1>
+    </div>
+    <!-- this is the new search input field -->
+    <div class="form-group">
+        <input type="text" ng-model="search" typeahead="mission as mission.header for mission in missions | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="missionSearch($item)" placeholder="Search Missions...">
+    </div>
+    <!-- end -->
+    <div class="list-group">
+        <a data-ng-repeat="mission in missions | limitTo: offset - missions.length | limitTo: pageSize" data-ng-href="/#!/missions/{{mission._id}}" class="list-group-item">
+            <h4 class="list-group-item-heading" data-ng-bind="mission.header"></h4>
+            <span data-ng-bind="mission.body"></span></br>
+            <span ng-style="{ display : !mission.hidden ? 'inlne' : 'none' }" data-ng-bind="mission.position"></span>
+        </a>
+    </div>
+    <!-- this is the paging control -->
+    <pagination total-items="missions.length" ng-model="currentPage" ng-change="pageChanged()" max-size="pageSize" ng-show="missions.length > pageSize"></pagination>
+    <!-- end -->
+    <div class="alert alert-warning text-center" data-ng-hide="!missions.$resolved || missions.length">
+        No mission yet, why don't you <a href="/#!/missions/create">create one</a>?
+    </div>
+</section>

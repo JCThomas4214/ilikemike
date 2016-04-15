@@ -1,0 +1,15 @@
+<section class="page_information" data-ng-controller="MissionsController" data-ng-init="findOne()">
+  <div class="page-header">
+		<h1 data-ng-bind="mission.header"></h1>
+		<p data-ng-bind="mission.body"></p>
+		<p ng-style="{ display : !mission.hidden ? 'inlne' : 'none' }" data-ng-bind="mission.position"></p>
+  </div>
+  <div class="pull-right">
+		<a class="btn btn-primary" href="/#!/missions/{{mission._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+<section class="page_information" data-ng-controller="MissionsController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Edit Mission</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="header">Header</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="mission.header" id="header" class="form-control" placeholder="Header" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="body">Body</label>
+                    <div class="controls">
+                        <textarea name="body" data-ng-model="mission.body" id="body" class="form-control" cols="30" rows="10" placeholder="Body" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="position">Position</label>
+                    <div class="controls">
+                        <textarea name="position" data-ng-model="mission.position" id="position" class="form-control" cols="30" rows="10" placeholder="Position" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+					<input type="checkbox" name="hidden" data-ng-model="mission.hidden" id="position" value="hidden"> Hide position button<br>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>

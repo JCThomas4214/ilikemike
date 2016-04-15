@@ -12,6 +12,8 @@ angular.module('core').controller('DialogCtrl', ['$scope', '$window', 'ngDialog'
   $scope.title = 'Welcome to the Mike Thomas Campaign!';
   $scope.title2 = 'We would love your support';
 
+  $scope.photoDialogTitle = 'Photo Gallery';
+
   $scope.donation_pop = 'Donate to the Campaign!';
   $scope.petition_pop = 'Sign a Petition for Mike!';
 

@@ -1,0 +1,328 @@
+@-webkit-keyframes ngdialog-flipin-horizontal {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes ngdialog-flipin-horizontal {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotateY(-90deg);
+    -ms-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+}
+
+@-webkit-keyframes ngdialog-flipout-horizontal {
+  0% {
+    opacity: 1;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+  }
+}
+
+@keyframes ngdialog-flipout-horizontal {
+  0% {
+    opacity: 1;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+  }
+}
+.ngdialog {
+  z-index: 20;
+}
+.ngdialog-overlay {
+  height: 258%;
+}
+
+.ngdialog.photo_dialog {
+  /*padding-bottom: 160px;*/
+  /*padding-top: 160px;*/
+  -webkit-perspective: 1300px;
+  -ms-perspective: 1300px;
+  perspective: 1300px;
+  -webkit-perspective-origin: 50% 150px;
+  -ms-perspective-origin: 50% 150px;
+  perspective-origin: 50% 150px;
+}
+
+.ngdialog.photo_dialog.ngdialog-closing .ngdialog-content {
+  -webkit-animation: ngdialog-flipout-horizontal .5s;
+  animation: ngdialog-flipout-horizontal .5s;
+}
+
+.ngdialog.photo_dialog .ngdialog-content {
+  top: 15px;
+  -webkit-animation: ngdialog-flipin-horizontal .5s;
+  animation: ngdialog-flipin-horizontal .5s;
+  background: transparent;
+  border-radius: 5px;
+  color: #444;
+  font-family: 'Helvetica',sans-serif;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 1em;
+  position: relative;
+  width: 60%;
+}
+
+.ngdialog.photo_dialog .ngdialog-close {
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.ngdialog.photo_dialog .ngdialog-close:before {
+  content: '\00D7';
+  font-weight: 400;
+  height: 30px;
+  position: absolute;
+  right: 3px;
+  text-align: center;
+  width: 30px;
+
+  transition: 0.5s all;
+  background: #0000A5;
+  border-radius: 30px;
+  color: #FFF;
+  font-size: 30px;
+  top: 9px;
+  line-height: 30px;
+
+  -moz-box-shadow: 2px 1px 4px rgba(0,0,0,0.45);
+  -webkit-box-shadow: 2px 1px 4px rgba(0,0,0,0.45);
+  box-shadow: 2px 1px 4px rgba(0,0,0,0.45);
+}
+
+.ngdialog.photo_dialog .ngdialog-close:hover:before,
+.ngdialog.photo_dialog .ngdialog-close:active:before {
+  color: #0000A5;
+  background-color: white;
+
+  -moz-box-shadow: 10px 8px 10px rgba(0,0,0,0.5), 0 0 20px #0000A5;
+  -webkit-box-shadow: 10px 8px 10px rgba(0,0,0,0.5), 0 0 20px #0000A5;
+  box-shadow: 10px 8px 10px rgba(0,0,0,0.5), 0 0 20px #0000A5;
+}
+
+.ngdialog.photo_dialog .ngdialog-message {
+  margin-bottom: .5em;
+}
+
+.ngdialog.photo_dialog .ngdialog-input {
+  margin-bottom: 1em;
+}
+
+.ngdialog.photo_dialog .ngdialog-input textarea,
+.ngdialog.photo_dialog .ngdialog-input input[type="text"],
+.ngdialog.photo_dialog .ngdialog-input input[type="password"],
+.ngdialog.photo_dialog .ngdialog-input input[type="email"],
+.ngdialog.photo_dialog .ngdialog-input input[type="url"] {
+  background: #fff;
+  border: 0;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0 0 .25em;
+  min-height: 2.5em;
+  padding: .25em .67em;
+  width: 100%;
+}
+
+.ngdialog.photo_dialog .ngdialog-input textarea:focus,
+.ngdialog.photo_dialog .ngdialog-input input[type="text"]:focus,
+.ngdialog.photo_dialog .ngdialog-input input[type="password"]:focus,
+.ngdialog.photo_dialog .ngdialog-input input[type="email"]:focus,
+.ngdialog.photo_dialog .ngdialog-input input[type="url"]:focus {
+  box-shadow: inset 0 0 0 2px #8dbdf1;
+  outline: none;
+}
+
+.ngdialog.photo_dialog .ngdialog-buttons {
+  *zoom: 1;
+}
+
+.ngdialog.photo_dialog .ngdialog-buttons:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.ngdialog.photo_dialog .ngdialog-button {
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  float: right;
+  font-family: inherit;
+  font-size: .8em;
+  letter-spacing: .1em;
+  line-height: 1em;
+  margin: 0 0 0 .5em;
+  padding: .75em 2em;
+  text-transform: uppercase;
+}
+
+.ngdialog.photo_dialog .ngdialog-button:focus {
+  -webkit-animation: ngdialog-pulse 1.1s infinite;
+  animation: ngdialog-pulse 1.1s infinite;
+  outline: none;
+}
+
+.photo_dialog .my_dialog_button {
+    transition: 0.5s all;
+    color: white !important;
+    outline-width: 0;
+    padding: 6px;
+    background-color: #0000A5 !important;
+    border: 0;
+    border-radius: 4px;
+    -moz-box-shadow: 2px 1px 4px rgba(0,0,0,0.45);
+    -webkit-box-shadow: 2px 1px 4px rgba(0,0,0,0.45);
+    box-shadow: 2px 1px 4px rgba(0,0,0,0.45);
+    font: 400 20px/1.3 'Oleo Script', Helvetica, sans-serif;
+}
+.photo_dialog .my_dialog_button:hover {
+    color: #0000A5 !important;
+    background-color: white !important;
+    -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.75);
+    box-shadow: 6px 4px 10px rgba(0,0,0,0.75);
+}
+
+.photo_dialog .dialog_menu_title {
+  border: 0 solid white;
+  padding: 1%;
+  width: 100%;
+  margin: 1% auto;
+  background-color: white;
+  font-weight: bold;
+  color: #C30F0F;
+  text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
+
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+
+  -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.55);
+  -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.55);
+  box-shadow: 6px 4px 10px rgba(0,0,0,0.55);
+}
+.photo_dialog .dialog_menu_title h1 {
+  font: 400 4vw/1.3 'Oleo Script', Helvetica, sans-serif;
+  margin: 0.5% auto;
+}
+
+.photo_content {
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 100%;
+  margin: 1% 0;
+}
+.photo_content .my-gallery {
+  /*overflow: auto;*/
+  width: 100%;
+  /*height: 400px;*/
+}
+.photo_content .my-gallery img {
+  transition: 0.5s all;
+  width: 100%;
+  object-fit: cover;
+
+  height: 200px;
+  height: 14vw;
+  max-height: 200px;
+
+  border-radius: 10px;
+
+  -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+  box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
+}
+/*.photo_content .my-gallery img:hover {
+  opacity: 0.8;
+}*/
+.photo_content .my-gallery figure {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 5px 5px 0;
+  width: 24%;
+}
+.photo_content .my-gallery figcaption {
+  padding: 5px;
+  text-align: center;
+  color:white;
+  font-family: 'Noto Serif', serif;
+  font-size: 13px;
+  /*font-size: 1vw;*/
+  font-weight: bold;
+  text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
+  display: none;
+}
+
+@media screen and (max-width: 775px) {
+  .ngdialog.photo_dialog .ngdialog-content {
+    top: 100px;
+    width: 90%;
+  }
+
+  .photo_content .my-gallery figure {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px 5px 0;
+    width: 22%;
+  }
+  .photo_content .my-gallery img {
+    height: 160px;
+    height: 25vw;
+    max-height: 160px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .photo_content .my-gallery figure {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px 5px 0;
+    width: 30%;
+  }
+  .photo_content .my-gallery img {
+    height: 180px;
+    height: 28vw;
+    max-height: 180px;
+  }
+  .photo_dialog .dialog_menu_title h1 {
+    font: 400 30px/1.3 'Oleo Script', Helvetica, sans-serif;
+  }
+}

@@ -10,7 +10,7 @@ module.exports = {
   // Binding to 127.0.0.1 is safer in production.
   host: process.env.HOST || '0.0.0.0',
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://Pyrance:flight1855@ds015928.mongolab.com:15928/ilikemike_dev/mean',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://Pyrance:flight1855@ds011331.mlab.com:11331/ilikemike_prod/mean',
     options: {
       user: 'Pyrance',
       pass: 'flight1855'

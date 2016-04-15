@@ -1,4 +1,4 @@
-<section class="main_sec" ng-controller="HomeController">
+<section class="main_sec" ng-controller="HomeController" data-ng-init="find()" welcomedialog>
 
     <div id="section_one" class="section_one" itemscope itemtype="http://schema.org/Person">
         <div class="content_title_section">
@@ -30,7 +30,7 @@
             </div>
 
             <div class="mission_photo" >
-              <img class="headshot" itemprop="image" ng-src="{{ mike_photo }}" ng-click="clickdialog()"></img>                        
+              <img class="headshot" itemprop="image" ng-src="{{ mike_photo }}"></img>                        
             </div>
 
           </div>
@@ -66,6 +66,10 @@
                   <p ng-repeat="info in infos">{{ info.text }}</p>
                 </div>
 
+                <div class="gallery_dialog">
+                  <button class="my_dialog_button" ng-click="mmPhotoDialog()">Click to Visit the Photo Gallery</button>
+                </div>
+
               </div>
             </div>
 
@@ -82,11 +86,6 @@
             
           </div>
 
-            
-          <div class="photo_container" ng-controller="photoCtrl">
-            <photowidget slides="slides1"></photowidget>
-            <photoswipewidget></photoswipewidget>
-          </div>
 
           <div class="fav_quotes">
             <h1>{{ mike_quotes }}</h1>
@@ -96,9 +95,7 @@
             </div>
           </div>
 
-        </div>
-
-          
+        </div>          
 
         <div id="platform_section" class="section_three">
           <div id="mike_platform" class="title_sec">
@@ -109,17 +106,19 @@
             </div>
           </div> 
 
-          <div class="platform_container" ng-repeat="platform in platforms">
+          <div class="platform_container" ng-repeat="mission in missions">
             <div class="platform_header">
-              <h1>{{ platform.header }}</h1>
+              <h1>{{ mission.header }}</h1>
+              <button class="my_dialog_button" ng-click="solutionDialog('Mike\'s ' + mission.header + ' Position', mission.position)" ng-style="{ display : !mission.hidden ? 'inline' : 'none' }">Mike's Position</button>
             </div>
             <div class="platform_topic">
-              <p>{{ platform.text }}</p>
+              <p><photodisplaywidget slides="text.image" ng-style="{ display : text.image ? 'inline' : 'none' }" ng-class="{image_left : $even, image_right : $odd}"></photodisplaywidget><photoswipewidget></photoswipewidget>{{ mission.body }}</p>
             </div>
+
           </div>
         </div>
 
-        <div id="endors_section" class=section_four>
+        <div id="endors_section" class="section_four">
           <div id="mike_endors" class="title_sec">
             <div class="title_container">
               <h1 class="heading1"></h1>
@@ -137,10 +136,10 @@
             </div>
           </div>
 
-          <div class="photo_container" ng-controller="photoCtrl">
-            <photowidget slides="slides2"></photowidget>
+<!--           <div class="photo_container" ng-controller="photoCtrl">
+            <photodisplaywidget slides="slides2"></photodisplaywidget>
             <photoswipewidget></photoswipewidget>
-          </div>
+          </div> -->
 
         </div>
 
@@ -239,7 +238,7 @@
               </div>
 
               <div class="twitter_acc">
-                <!-- <twitterwidget></twitterwidget>                 -->
+                <!-- <twitterwidget></twitterwidget> -->
               </div>
             </div>
 
