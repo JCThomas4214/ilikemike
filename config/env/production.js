@@ -26,7 +26,8 @@ module.exports = {
   log: {
     // logging with Morgan - https://github.com/expressjs/morgan
     // Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
-    format: process.env.LOG_FORMAT || 'combined',
+    // format: process.env.LOG_FORMAT || 'combined',
+    format: 'dev',
     options: {
       // Stream defaults to process.stdout
       // Uncomment/comment to toggle the logging to a log on the file system
@@ -83,6 +84,7 @@ module.exports = {
       }
     }
   },
+  livereload: true,
   seedDB: {
     seed: process.env.MONGO_SEED === 'true' ? true : false,
     options: {
