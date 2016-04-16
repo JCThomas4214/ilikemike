@@ -3,15 +3,16 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),    
+var mongoose = require('mongoose'),
   errorHandler = require('../../../core/server/controllers/errors.server.controller'),
   Missions = mongoose.model('Missions'),
   _ = require('lodash');
 
+
 /**
  * Create a mission
  */
-exports.create = function (req, res) {
+exports.create = function(req, res) {
   var missions = new Missions(req.body);
 
   missions.save(function(err) {
@@ -24,11 +25,10 @@ exports.create = function (req, res) {
     }
   });
 };
-
 /**
  * Show the current mission
  */
-exports.read = function (req, res) {
+exports.read = function(req, res) {
   Missions.findById(req.params.missionsId).exec(function(err, missions) {
     if (err) {
       return res.status(400).send({
@@ -48,7 +48,7 @@ exports.read = function (req, res) {
 /**
  * Update a mission
  */
-exports.update = function (req, res) {
+exports.update = function(req, res) {
   var missions = req.missions;
 
   missions = _.extend(missions, req.body);
@@ -67,7 +67,7 @@ exports.update = function (req, res) {
 /**
  * Delete a mission
  */
-exports.delete = function (req, res) {
+exports.delete = function(req, res) {
   var missions = req.missions;
 
   missions.remove(function(err) {
@@ -84,7 +84,7 @@ exports.delete = function (req, res) {
 /**
  * List of missions
  */
-exports.list = function (req, res) {
+exports.list = function(req, res) {
   Missions.find().exec(function(err, missions) {
     if (err) {
       return res.status(400).send({
@@ -117,4 +117,3 @@ exports.missionsByID = function(req, res, next, id) {
     next();
   });
 };
-

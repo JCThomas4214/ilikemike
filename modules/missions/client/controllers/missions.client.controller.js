@@ -2,18 +2,36 @@
 
 angular.module('missions').controller('MissionsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Missions',
   function($scope, $stateParams, $location, Authentication, Missions) {
-  	
+
+    $scope.mission_body = [{
+      paragraph: '',
+      image: ''
+    }];
+
+    // Add another paragraph during creation
+    $scope.addParagraph = function() {
+      $scope.mission_body.push({
+        paragraph: '',
+        image: ''
+      });
+    };
+    $scope.removeParagraph = function() {
+      if ($scope.mission_body.length > 1)
+        $scope.mission_body.pop();
+    };
+
     // Page changed handler
     $scope.pageChanged = function() {
       $scope.offset = ($scope.currentPage - 1) * $scope.pageSize;
     };
 
-  	// Create new Mission
+    // Create new Mission
     $scope.create = function() {
+
       // Create new Mission object
       var mission = new Missions({
         header: this.header,
-        body: this.body,
+        body: $scope.mission_body,
         position: this.position,
         hidden: this.hidden
       });
@@ -35,8 +53,8 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
         mission.$remove();
 
         for (var i in $scope.missions) {
-          if ($scope.missions [i] === mission) {
-            $scope.missions.splice(i,1);
+          if ($scope.missions[i] === mission) {
+            $scope.missions.splice(i, 1);
           }
         }
       } else {

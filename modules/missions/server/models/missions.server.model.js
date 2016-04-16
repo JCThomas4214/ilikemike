@@ -19,10 +19,15 @@ var MissionsSchema = new Schema({
     type: String,
     required: 'Mission header must be filled'
   },
-  body: {
-    type: String,
-    required: 'Mission body must be filled'
-  },
+  body: [{
+    paragraph: {
+      type: String,
+      required: 'Mission body must be filled'
+    },
+    image: {
+      type: String
+    }
+  }],
   position: {
     type: String,
     default: ''

@@ -5,6 +5,7 @@
  */
 var _ = require('lodash');
 
+
 /**
  * Extend user's controller
  */

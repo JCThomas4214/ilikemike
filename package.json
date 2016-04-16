@@ -39,6 +39,8 @@
     "forever": "~0.14.2",
     "generate-password": "^1.1.1",
     "glob": "^5.0.13",
+    "google-auth-library": "^0.9.7",
+    "googleapis": "^5.0.0",
     "grunt": "0.4.5",
     "grunt-cli": "~0.1.13",
     "grunt-concurrent": "^2.2.1",

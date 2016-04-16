@@ -9,6 +9,11 @@ var path = require('path'),
   passport = require('passport'),
   User = mongoose.model('User');
 
+var config = require(path.resolve('./config/config'));
+var _ = require('lodash');
+var google = require('googleapis');
+var googleAuth = require('google-auth-library');
+
 // URLs for which user can't be redirected on signin
 var noReturnUrls = [
   '/authentication/signin',
@@ -254,4 +259,48 @@ exports.requiresLogin = function(req, res, next) {
   }
 
   next();
+};
+
+
+exports.requiresOAuth2Token = function (req, res, next) {
+  var OAuth2 = google.auth.OAuth2;
+  var client = new OAuth2(config.google.clientID, config.google.clientSecret, config.google.callbackURL);
+  client.setCredentials({
+    access_token: req.user.providerData.accessToken,
+    refresh_token: req.user.providerData.refreshToken
+  });
+  if (req.user.providerData.tokenExpires < Math.floor((Date.now() / 1000)) - 120) {
+    console.log('Token needs to be refreshed');
+    client.refreshAccessToken(function (err, tokens) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        var query = { _id: req.user._id };
+        var update = {
+          providerData:
+              _.extend(req.user.providerData, {
+                accessToken: tokens.access_token,
+                tokenExpires: Math.floor(tokens.expiry_date / 1000)
+              }
+          )
+        };
+        var opts = {};
+        User.update(query, update, opts, function (err, num) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(num + ' record(s) updated');
+            req.user.client = client;
+            next();
+          }
+        });
+      }
+    });
+  } else {
+    console.log('Current token still valid');
+    req.user.client = client;
+    next();
+  }
 };
