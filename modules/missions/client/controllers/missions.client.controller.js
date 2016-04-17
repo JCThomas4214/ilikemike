@@ -91,6 +91,10 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
     // Find a list of Missions
     $scope.find = function () {
       $scope.missions = Missions.query();
+
+      $scope.missions.$promise.then(function(data) {
+        console.log($scope.missions);
+      });
     };
 
     // Find existing Mission
