@@ -61,7 +61,7 @@
   z-index: 20;
 }
 .ngdialog-overlay {
-  height: 258%;
+  height: 300%;
 }
 
 .ngdialog.solution_dialog {
@@ -282,6 +282,9 @@
   .solution_dialog .dialog_content p {
     font-size: 20px;
   }
+  .solution_dialog .dialog_content blockquote {
+    font-size: 20px;
+  }
 }
 @media screen and (max-width: 450px) {
   .ngdialog.solution_dialog .ngdialog-content {
@@ -293,5 +296,9 @@
   }
   .solution_dialog .dialog_content p {
     font-size: 12px;
+  }
+  .solution_dialog .dialog_content blockquote {
+    font-size: 12px;
+  line-height: 1.5em;
   }
 }
