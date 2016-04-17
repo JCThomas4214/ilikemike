@@ -8,7 +8,8 @@
     </div>
     <!-- end -->
     <div class="list-group">
-        <a data-ng-repeat="mission in missions | limitTo: offset - missions.length | limitTo: pageSize" data-ng-href="/#!/missions/{{mission._id}}" class="list-group-item">
+        <a ng-repeat="mission in missions" data-ng-href="/#!/missions/{{mission._id}}" class="list-group-item">
+         <!-- | limitTo: offset - missions.length | limitTo: pageSize -->
             <h4 class="list-group-item-heading" data-ng-bind="mission.header"></h4>
             <p ng-repeat="para in mission.body" ng-bind-html="para.paragraph"></p>
             <!-- <p ng-repeat="para in mission.position" ng-style="{ display : !mission.hidden ? 'inlne' : 'none' }"><span ng-bind-html="para.paragraph" style="white-space: pre-line;"></span></p> -->
