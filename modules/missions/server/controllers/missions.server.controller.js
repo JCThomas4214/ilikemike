@@ -113,7 +113,7 @@ exports.missionsByID = function(req, res, next, id) {
         message: 'Mission not found'
       });
     }
-    console.log(missions);
+    console.log(missions.body);
     req.missions = missions;
     next();
   });

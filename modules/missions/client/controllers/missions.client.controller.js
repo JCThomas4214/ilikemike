@@ -3,6 +3,7 @@
 angular.module('missions').controller('MissionsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Missions',
   function ($scope, $stateParams, $location, Authentication, Missions) {
 
+
     var parsePara = function (body) {
       var final = [];
 
@@ -21,24 +22,6 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
       }
       return final;
     };
-
-    // $scope.mission_body = [{
-    //   paragraph: ''
-    // }];
-    // $scope.position_body = [{
-    //   paragraph: ''
-    // }];
-
-    // // Add another paragraph during creation
-    // $scope.addParagraph = function (item) {
-    //   item.push({
-    //     paragraph: ''
-    //   });
-    // };
-    // $scope.removeParagraph = function (item) {
-    //   if (item.length > 1)
-    //     item.pop();
-    // };
 
 
     // Page changed handler
@@ -87,6 +70,8 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
 
     // Update Existing Mission
     $scope.update = function () {
+      angular.copy(parsePara($scope.body_str), $scope.mission.body);
+      angular.copy(parsePara($scope.position_str), $scope.mission.position);
       var mission = $scope.mission;
 
       mission.$update(function () {
@@ -103,30 +88,30 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
 
     // Find existing Mission
     $scope.findOne = function () {
+      $scope.body_str = '';
+      $scope.position_str = '';
+
       $scope.mission = Missions.get({
         missionsId: $stateParams.missionsId
+      });
+
+      $scope.mission.$promise.then(function (data) {
+        $scope.mission = data;
+        console.log('this is promised data');
+        console.log(data);
+
+        for (var i = 0; i < $scope.mission.body.length; i++) {
+          $scope.body_str = $scope.body_str + $scope.mission.body[i].paragraph + '\n\n';
+        }
+        for (var o = 0; o < $scope.mission.position.length; o++) {
+          $scope.position_str = $scope.position_str + $scope.mission.position[o].paragraph + '\n\n';
+        }
       });
     };
 
     // Search for a mission
     $scope.missionSearch = function (mission) {
       $location.path('missions/' + mission._id);
-    };
-
-    var unparsePara = function (textArray) {
-      var paraCount = 0;
-
-      var body_paragraph = JSON.parse(textArray);
-      // angular.forEach(textArray, function(value,key) {
-
-      // });
-      // console.log(textArray);
-
-      // $scope.body_str = '';
-      // for (var i = 0; i < textArray.body; i++) {
-      //   $scope.body_str = $scope.body_str + textArray.body[i].paragraph + '\n\n';
-      //   paraCount++;
-      // }
     };
 
 

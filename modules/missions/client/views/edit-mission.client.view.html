@@ -1,4 +1,5 @@
 <section class="page_information" data-ng-controller="MissionsController" data-ng-init="findOne()">
+	<missions elem="mission" bodytxt="body_str" positiontxt="position_str"></missions>
     <div class="page-header">
         <h1>Edit Mission</h1>
     </div>
@@ -14,13 +15,13 @@
                 <div class="form-group">
                     <label class="control-label" for="body">Body</label>
                     <div class="controls">
-                        <textarea name="body" data-ng-model="mission.body" id="body" class="form-control" cols="30" rows="10" placeholder="Body" required></textarea>
+                        <textarea name="body" data-ng-model="body_str" id="body" class="form-control" cols="30" rows="10" placeholder="Body" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="position">Position</label>
                     <div class="controls">
-                        <textarea name="position" data-ng-model="mission.position" id="position" class="form-control" cols="30" rows="10" placeholder="Position" required></textarea>
+                        <textarea name="position" data-ng-model="position_str" id="position" class="form-control" cols="30" rows="10" placeholder="Position" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">
