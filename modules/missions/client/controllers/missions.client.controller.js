@@ -3,22 +3,29 @@
 angular.module('missions').controller('MissionsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Missions',
   function ($scope, $stateParams, $location, Authentication, Missions) {
 
+    //For create and edit
+    $scope.body_str = '';
+    $scope.position_str = '';
 
+    //Parse the string for sending
     var parsePara = function (body) {
       var final = [];
 
-      var tmp = body.split('\n');
+      if (body) {
+        var tmp = body.split('\n');
 
-      for (var i = 0; i < tmp.length; i++) {
-        if (angular.equals(tmp[i], '')) {
-          tmp.splice(i, 1);
+        for (var i = 0; i < tmp.length; i++) {
+          if (angular.equals(tmp[i], '')) {
+            tmp.splice(i, 1);
+          }
         }
-      }
 
-      for (var o = 0; o < tmp.length; o++) {
-        final.push({
-          paragraph: tmp[o]
-        });
+        for (var o = 0; o < tmp.length; o++) {
+          final.push({
+            paragraph: tmp[o]
+          });
+        }
+        return final;
       }
       return final;
     };
@@ -88,9 +95,6 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
 
     // Find existing Mission
     $scope.findOne = function () {
-      $scope.body_str = '';
-      $scope.position_str = '';
-
       $scope.mission = Missions.get({
         missionsId: $stateParams.missionsId
       });
