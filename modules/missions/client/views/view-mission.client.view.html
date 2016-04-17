@@ -1,8 +1,8 @@
 <section class="page_information" data-ng-controller="MissionsController" data-ng-init="findOne()">
   <div class="page-header">
 		<h1 data-ng-bind="mission.header"></h1>
-		<p ng-repeat="para in mission.body" data-ng-bind="para.paragraph"></p>
-		<p ng-style="{ display : !mission.hidden ? 'inlne' : 'none' }" data-ng-bind="mission.position"></p>
+		<p ng-repeat="para in mission.body">{{ para.paragraph }}</p>
+		<p ng-repeat="para in mission.position" ng-style="{ display : !mission.hidden ? 'inlne' : 'none' }"><span ng-bind-html="para.paragraph" style="white-space: pre-line;"></span></p>
   </div>
   <div class="pull-right">
 		<a class="btn btn-primary" href="/#!/missions/{{mission._id}}/edit">

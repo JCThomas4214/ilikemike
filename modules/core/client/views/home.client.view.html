@@ -112,7 +112,7 @@
               <button class="my_dialog_button" ng-click="solutionDialog('Mike\'s ' + mission.header + ' Position', mission.position)" ng-style="{ display : !mission.hidden ? 'inline' : 'none' }">Mike's Position</button>
             </div>
             <div class="platform_topic">
-              <p ng-repeat="para in mission.body"><photodisplaywidget slides="para.image" ng-style="{ display : para.image ? 'inline' : 'none' }" ng-class="{image_left : $even, image_right : $odd}"></photodisplaywidget><photoswipewidget></photoswipewidget>{{ para.paragraph }}</p>
+              <p ng-repeat="para in mission.body"><photodisplaywidget slides="para.image" ng-style="{ display : !para.hidden_img ? 'inline' : 'none' }" ng-class="{image_left : $even, image_right : $odd}"></photodisplaywidget><photoswipewidget></photoswipewidget><span style="padding-left:2em">{{ para.paragraph }}</span></p>
             </div>
 
           </div>

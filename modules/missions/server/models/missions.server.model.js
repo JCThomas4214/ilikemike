@@ -24,14 +24,64 @@ var MissionsSchema = new Schema({
       type: String,
       required: 'Mission body must be filled'
     },
-    image: {
-      type: String
-    }
+    hidden_img: {
+      type: Boolean,
+      default: true
+    },
+    image: [{
+      src: {
+        type: String,
+        default: ''
+      },
+      msrc: {
+        type: String,
+        default: ''
+      },
+      w: {
+        type: Number,
+        default: 0
+      },
+      h: {
+        type: Number,
+        default: 0
+      },
+      caption: {
+        type: String,
+        default: ''
+      }
+    }]
   }],
-  position: {
-    type: String,
-    default: ''
-  },
+  position: [{
+    paragraph: {
+      type: String
+    },
+    hidden_img: {
+      type: Boolean,
+      default: true
+    },
+    image: [{
+      src: {
+        type: String,
+        default: ''
+      },
+      msrc: {
+        type: String,
+        default: ''
+      },
+      w: {
+        type: Number,
+        default: 0
+      },
+      h: {
+        type: Number,
+        default: 0
+      },
+      caption: {
+        type: String,
+        default: ''
+      }
+    }]
+  }],
   hidden: {
     type: Boolean,
     default: false

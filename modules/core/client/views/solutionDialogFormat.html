@@ -3,6 +3,6 @@
 		<h1>{{ header }}</h1>
 		</div>
 	<div class="dialog_content">
-		<p>{{ responce }}</p>
+		<p ng-repeat="para in response"><photodisplaywidget slides="para.image" ng-style="{ display : !para.hidden_img ? 'inline' : 'none' }" ng-class="{image_left : $even, image_right : $odd}"></photodisplaywidget><photoswipewidget></photoswipewidget><span ng-bind-html="para.paragraph" style="padding-left:2em"></span></p>
 	</div>
 </div>

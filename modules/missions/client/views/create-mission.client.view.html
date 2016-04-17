@@ -11,14 +11,12 @@
                         <input type="text" data-ng-model="header" id="header" class="form-control" placeholder="Header" required>
                     </div>
                 </div>
-                <div ng-repeat="para in mission_body" class="form-group">
+                <div class="form-group">
                     <label class="control-label" for="paragraph">Paragraph</label>
                     <div class="controls">
-                        <textarea name="paragraph" data-ng-model="para.paragraph" id="paragraph" class="form-control" cols="30" rows="10" placeholder="Paragraph"></textarea>
+                        <textarea name="paragraph" data-ng-model="body" id="paragraph" class="form-control" cols="30" rows="10" placeholder="Paragraph"></textarea>
                     </div>
                 </div>
-                <div ng-click="addParagraph()">add another paragraph</div>
-                <div ng-click="removeParagraph()">remove last paragraph</div>
                 <div class="form-group">
                     <label class="control-label" for="position">Position</label>
                     <div class="controls">

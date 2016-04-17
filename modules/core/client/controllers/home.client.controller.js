@@ -24,7 +24,16 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         controller: ['$scope',
           function ($scope) {
             $scope.header = header;
-            $scope.responce = answerArr;
+            $scope.response = [];
+            angular.copy(answerArr, $scope.response);
+
+
+            // for (var i = 0; i < answerArr.length; i++) {
+            //   $scope.response.push({
+            //     text: answerArr[i].paragraph
+            //   });
+            // }
+
           }
         ]
       });
