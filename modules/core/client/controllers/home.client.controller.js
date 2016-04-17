@@ -39,14 +39,14 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       });
     };
 
-    $scope.facebook_icon = '//dl.dropboxusercontent.com/s/ov3hq3ddza61m92/128-facebook.png';
-    $scope.linkedin_icon = '//dl.dropboxusercontent.com/s/sfzwj8v0bq3zp9l/128-linkedin.png';
+    $scope.facebook_icon = 'modules/core/client/img/icons/128-facebook.png';
+    $scope.linkedin_icon = 'modules/core/client/img/icons/128-linkedin.png';
 
-    $scope.donation_button = '//dl.dropboxusercontent.com/s/77lp6rngwfkcjuw/donation.png';
-    $scope.donation_balloon = '//dl.dropboxusercontent.com/s/45od89wx9xuqifz/donation_balloon.png';
+    $scope.donation_button = 'modules/core/client/img/icons/donation.png';
+    $scope.donation_balloon = 'modules/core/client/img/backgrounds/donation_balloon.png';
     $scope.donate = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EDGY24BBSNVHY';
 
-    $scope.mike_photo = '//dl.dropboxusercontent.com/s/ckw4reezzxjgxss/mike_headshot2.jpg';
+    $scope.mike_photo = 'modules/core/client/img/photos/mike_headshot2.jpg';
 
     $scope.mike_email = 'MikeForFlaSenate@gmail.com';
     $scope.mike_phone = '(321) 258-4448';
@@ -67,25 +67,21 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
     $scope.timelines = [{
       header: 'Born August 25, 1957',
-      // image: '/modules/core/client/img/backgrounds/small_ver/plymouth_bg.jpg',
-      image: '//dl.dropboxusercontent.com/s/pspx4x5htla503m/plymouth_bg.jpg',
+      image: '/modules/core/client/img/backgrounds/small_ver/plymouth_bg.jpg',
       position: 'center',
       topics: [{
         text: 'in Plymouth, Wisconsin'
       }]
     }, {
       header: 'Attended St. Lawrence Seminary',
-      // image: '/modules/core/client/img/backgrounds/small_ver/Laurentianum.jpg',
-      image: '//dl.dropboxusercontent.com/s/2hucxhrwh390pjb/Laurentianum.jpg',
+      image: '/modules/core/client/img/backgrounds/small_ver/Laurentianum.jpg',
       position: 'center',
       topics: [{
         text: 'in Mount Calvary, Wisconsin'
       }]
     }, {
       header: 'United States NAVY Corpsman',
-      // image: '/modules/core/client/img/backgrounds/small_ver/navy.jpg',
-      image: '//dl.dropboxusercontent.com/s/hlee5o4l1zvv4r4/navy.jpg',
-      position: 'center',
+      image: '/modules/core/client/img/backgrounds/small_ver/navy.jpg',
       topics: [{
         text: '1975-1979 (Active Duty)'
       }, {
@@ -93,8 +89,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       }]
     }, {
       header: 'University of Florida',
-      // image: '/modules/core/client/img/backgrounds/small_ver/gator.jpg',
-      image: '//dl.dropboxusercontent.com/s/e511x8d6sdrkiyp/gator.jpg',
+      image: '/modules/core/client/img/backgrounds/small_ver/gator.jpg',
       position: 'center',
       topics: [{
         text: '1984 Graduate (With Honors)'
@@ -103,17 +98,14 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       }]
     }, {
       header: 'Joined Medical Practice in 1986',
-      // image: '/modules/core/client/img/backgrounds/small_ver/indian_river.jpg',
-      image: '//dl.dropboxusercontent.com/s/k6udjvdjiq2lb0t/indian_river.jpg',
+      image: '/modules/core/client/img/backgrounds/small_ver/indian_river.jpg',
       position: 'center',
       topics: [{
         text: 'in Melbourne, Florida'
       }]
     }, {
       header: 'Brevard Republican Party',
-      // image: '/modules/core/client/img/backgrounds/small_ver/republican_bg.jpg',
-      image: '//dl.dropboxusercontent.com/s/nzoalo8cceedzhs/republican_bg.jpg',
-      position: 'center',
+      image: '/modules/core/client/img/backgrounds/small_ver/republican_bg.jpg',
       topics: [{
         text: 'Precinct Committeeman 2005 - 2008'
       }, {
