@@ -7,45 +7,6 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
     $scope.body_str = '';
     $scope.position_str = '';
 
-    //increment order for record
-    $scope.incOrder = function (mission) {
-      if (mission.order < $scope.missions.length) {
-        var currID = mission._id;
-        mission.order = mission.order + 1;
-        var currOrder = mission.order;
-
-        for (var i = 0; i < $scope.missions.length; i++) {
-          if ($scope.missions[i].order == currOrder && $scope.missions[i]._id != currID) {
-            $scope.missions[i].order = $scope.missions[i].order - 1;
-            // Update both missions
-            updateOrder($scope.missions[i]);
-            updateOrder(mission);
-            return;
-          }
-        }
-      }
-      console.log('missions is currently at the end');
-    };
-    //decrement order for record
-    $scope.decOrder = function (mission) {
-      if (mission.order > 1) {
-        var currID = mission._id;
-        mission.order = mission.order - 1;
-        var currOrder = mission.order;
-
-        for (var i = 0; i < $scope.missions.length; i++) {
-          if ($scope.missions[i].order == currOrder && $scope.missions[i]._id != currID) {
-            $scope.missions[i].order = $scope.missions[i].order + 1;
-            // Update both missions
-            updateOrder($scope.missions[i]);
-            updateOrder(mission);
-            return;
-          }
-        }
-      }
-      console.log('missions is currently at the beginning');
-    }
-
     //Parse the string for sending
     var parsePara = function (body) {
       var final = [];
@@ -164,6 +125,46 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
     // Search for a mission
     $scope.missionSearch = function (mission) {
       $location.path('missions/' + mission._id);
+    };
+
+    //increment order for record
+    $scope.incOrder = function (mission) {
+      if (mission.order < $scope.missions.length) {
+        var currID = mission._id;
+        mission.order = mission.order + 1;
+        var currOrder = mission.order;
+
+        for (var i = 0; i < $scope.missions.length; i++) {
+          if ($scope.missions[i].order === currOrder && $scope.missions[i]._id !== currID) {
+            $scope.missions[i].order = $scope.missions[i].order - 1;
+            // Update both missions
+            updateOrder($scope.missions[i]);
+            updateOrder(mission);
+            return;
+          }
+        }
+      }
+      console.log('missions is currently at the end');
+    };
+
+    //decrement order for record
+    $scope.decOrder = function (mission) {
+      if (mission.order > 1) {
+        var currID = mission._id;
+        mission.order = mission.order - 1;
+        var currOrder = mission.order;
+
+        for (var i = 0; i < $scope.missions.length; i++) {
+          if ($scope.missions[i].order === currOrder && $scope.missions[i]._id !== currID) {
+            $scope.missions[i].order = $scope.missions[i].order + 1;
+            // Update both missions
+            updateOrder($scope.missions[i]);
+            updateOrder(mission);
+            return;
+          }
+        }
+      }
+      console.log('missions is currently at the beginning');
     };
 
 

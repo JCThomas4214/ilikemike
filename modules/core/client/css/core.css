@@ -400,7 +400,7 @@ a:hover .header-profile-image {
 }
 
 .content_section_about {
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   text-align: center;
   background-color: transparent;
   height:auto;
@@ -548,59 +548,6 @@ a:hover .header-profile-image {
   box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
 }
 
-.fav_quotes {
-  margin: 0 14% 0 14%;
-}
-.fav_quotes h1 {
-  text-align: center;
-  margin: 0 0 1% 0;
-  padding: 10px;
-  background-color: white;
-  color: #0000A5;
-
-
-  font: 400 3vw/1.3 'Oleo Script', Helvetica, sans-serif;
-  text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
-
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-
-  -moz-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
-  -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
-  box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
-}
-.fav_quotes h3 {
-  margin: 0 0 2% 0;
-
-  font-family: 'Courgette', cursive; 
-  font-size: 25px;
-  text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
-}
-.fav_quotes p {
-  margin: 0;
-
-  font-family: 'Noto Serif', serif;
-  font-weight: bold;
-  font-size: 20px;
-
-  text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
-}
-.fav_quotes .quote {
-  margin: 0 0 1% 0;
-  padding: 15px;
-  text-align: left;
-  background-color: #C30F0F;
-  color: white;
-
-  -moz-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
-  -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
-  box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
-}
-.fav_quotes .last {
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
 .methods_section, .about_section {
   text-align: center;
   background-color: #E6E6E6;
@@ -736,12 +683,15 @@ a:hover .header-profile-image {
   box-shadow: 8px 8px 10px rgba(0,0,0,0.75);
 }
 
-
+.gallery_dialog {
+  text-align: center;
+}
 .gallery_dialog .my_dialog_button {
   transition: 0.5s all;
   color: white !important;
   outline-width: 0;
-  width: 100%;
+  margin-bottom: 1%;
+  width: 60%;
   padding: 10px;
   background-color: #C30F0F !important;
   border: 0;
@@ -1418,8 +1368,9 @@ a:hover .header-profile-image {
     margin-bottom: 3%;
   }
   .gallery_dialog .my_dialog_button {
+    width: 100%;
     font: 400 50px/1.3 'Oleo Script', Helvetica, sans-serif;
-    padding: 25px 15px;
+    padding: 25px;
   }
 
   .fav_quotes {
@@ -1686,6 +1637,7 @@ a:hover .header-profile-image {
     margin-bottom: 6%;
   }
   .gallery_dialog .my_dialog_button {
+    margin-bottom: 2%;
     font: 400 40px/1.3 'Oleo Script', Helvetica, sans-serif;
     padding: 10px 20px;
   }

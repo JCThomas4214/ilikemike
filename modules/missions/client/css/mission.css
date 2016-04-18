@@ -11,8 +11,6 @@
 
 .page_information .list-group .my_button_group {
 	position: relative;
-	display: inline-block;
-
 	width: 4%;
 	float: right;
 	right:-6%;
