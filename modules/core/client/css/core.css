@@ -486,8 +486,9 @@ a:hover .header-profile-image {
   padding-left: 30px;
 }
 .more_info li {
+  line-height: 1.7em;
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
   color: white;
 
   font-family: 'Noto Serif', serif;
@@ -1659,6 +1660,7 @@ a:hover .header-profile-image {
   }
   .more_info li {
     font-size: 15px;
+    margin-bottom: 10px;
   }
 /*  .my-gallery img {
     max-height: 150px;
