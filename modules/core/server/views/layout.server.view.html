@@ -41,11 +41,11 @@
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 </head>
 
-<body class="ng-cloak" id="demNuts" scrolly>
+<body class="ng-cloak" id="awesome_body" scrolly>
   <toast></toast>
   <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
   <section id="content" class="content">
-    <section class="container">
+    <section id="awesome_container" class="container">
       {% block content %}{% endblock %}
     </section>
   </section>

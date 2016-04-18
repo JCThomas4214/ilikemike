@@ -7,7 +7,7 @@ angular.module('core').service('anchorSmoothScroll', function() {
   
   this.scrollTo = function(eID) {
 
-    var el = angular.element(document.getElementById('content'));
+    var el = angular.element(document.getElementById('awesome_body'));
     var o = angular.element(document.getElementById(eID)).prop('offsetTop');
 
     el.animate({ scrollTop: o }, 'slow');
