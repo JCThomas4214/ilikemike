@@ -482,7 +482,12 @@ a:hover .header-profile-image {
   -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
   box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
 }
-.more_info p {
+.more_info ul {
+  padding-left: 30px;
+}
+.more_info li {
+  text-align: left;
+  margin-bottom: 10px;
   color: white;
 
   font-family: 'Noto Serif', serif;
@@ -1387,8 +1392,11 @@ a:hover .header-profile-image {
     padding: 10px 6%;
     margin-bottom: 18px;
   }
-  .more_info p {
-    font-size: 15px;
+  .more_info ul {
+    padding-left: 45px;
+  }
+  .more_info li {
+    font-size: 20px;
   }
 
   .col_right {
@@ -1688,6 +1696,17 @@ a:hover .header-profile-image {
 
   .photo_container {
     padding: 0;
+  }
+
+  .more_info {
+    padding: 10px 6%;
+    margin-bottom: 18px;
+  }
+  .more_info ul {
+    padding-left: 25px;
+  }
+  .more_info li {
+    font-size: 15px;
   }
 /*  .my-gallery img {
     max-height: 150px;
