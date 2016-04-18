@@ -17,7 +17,7 @@ angular.module('core').directive('scrolly', function ($window) {
     var full_section_five;
 
     var offset;
-    angular.element(document.getElementById('content')).bind('scroll', function() {
+    angular.element($window).bind('scroll', function() {
 
       tmp = angular.element(document.getElementById('section_one')).prop('clientHeight');
 
@@ -34,7 +34,7 @@ angular.module('core').directive('scrolly', function ($window) {
         full_section_five = full_section_four + section_five;
       }
 
-      offset = angular.element(document.getElementById('content')).scrollTop();
+      offset = angular.element($window).scrollTop();
 
       if(offset >= section_one && offset < full_section_two) {
         angular.element(document.querySelector('#meetTb')).addClass('active');
