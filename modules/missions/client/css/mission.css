@@ -1,7 +1,31 @@
 .page_information, .page_information h1, .page_information p, .page_information label {
-	color: white;
+	color: white; 
+}
+.mission-list {
+	margin-right: 7%;
 }
 
 .page_information .list-group p {
 	color: #616161;
+}
+
+.page_information .list-group .my_button_group {
+	position: relative;
+	display: inline-block;
+
+	width: 4%;
+	float: right;
+	right:-6%;
+	top: 1%;
+}
+.page_information .list-group .my_button {
+	cursor: pointer;
+	text-align: center;
+	background-color: #C30F0F;
+	margin-bottom: 10%;
+}
+.page_information .list-group .my_button p {
+	font-size: 10px;
+	color: white;
+	margin: 0;
 }

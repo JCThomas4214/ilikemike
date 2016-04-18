@@ -106,7 +106,7 @@
             </div>
           </div> 
 
-          <div class="platform_container" ng-repeat="mission in missions">
+          <div class="platform_container" ng-repeat="mission in missions | orderBy: 'order'">
             <div class="platform_header">
               <h1>{{ mission.header }}</h1>
               <button class="my_dialog_button" ng-click="solutionDialog('Mike\'s ' + mission.header + ' Position', mission.position)" ng-style="{ display : !mission.hidden ? 'inline' : 'none' }">Mike's Position</button>

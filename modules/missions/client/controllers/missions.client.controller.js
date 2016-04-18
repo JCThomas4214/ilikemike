@@ -7,6 +7,45 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
     $scope.body_str = '';
     $scope.position_str = '';
 
+    //increment order for record
+    $scope.incOrder = function (mission) {
+      if (mission.order < $scope.missions.length) {
+        var currID = mission._id;
+        mission.order = mission.order + 1;
+        var currOrder = mission.order;
+
+        for (var i = 0; i < $scope.missions.length; i++) {
+          if ($scope.missions[i].order == currOrder && $scope.missions[i]._id != currID) {
+            $scope.missions[i].order = $scope.missions[i].order - 1;
+            // Update both missions
+            updateOrder($scope.missions[i]);
+            updateOrder(mission);
+            return;
+          }
+        }
+      }
+      console.log('missions is currently at the end');
+    };
+    //decrement order for record
+    $scope.decOrder = function (mission) {
+      if (mission.order > 1) {
+        var currID = mission._id;
+        mission.order = mission.order - 1;
+        var currOrder = mission.order;
+
+        for (var i = 0; i < $scope.missions.length; i++) {
+          if ($scope.missions[i].order == currOrder && $scope.missions[i]._id != currID) {
+            $scope.missions[i].order = $scope.missions[i].order + 1;
+            // Update both missions
+            updateOrder($scope.missions[i]);
+            updateOrder(mission);
+            return;
+          }
+        }
+      }
+      console.log('missions is currently at the beginning');
+    }
+
     //Parse the string for sending
     var parsePara = function (body) {
       var final = [];
@@ -44,7 +83,8 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
         header: this.header,
         body: parsePara(this.body),
         position: parsePara(this.position),
-        hidden: this.hidden
+        hidden: this.hidden,
+        order: $scope.missions.length + 1
       });
 
       // Redirect after save
@@ -87,12 +127,18 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
         $scope.error = errorResponse.data.message;
       });
     };
+    // Update Mission Order
+    var updateOrder = function (record) {
+      var mission = record;
+
+      mission.$update();
+    };
 
     // Find a list of Missions
     $scope.find = function () {
       $scope.missions = Missions.query();
 
-      $scope.missions.$promise.then(function(data) {
+      $scope.missions.$promise.then(function (data) {
         console.log($scope.missions);
       });
     };
@@ -105,8 +151,6 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
 
       $scope.mission.$promise.then(function (data) {
         $scope.mission = data;
-        console.log('this is promised data');
-        console.log(data);
 
         for (var i = 0; i < $scope.mission.body.length; i++) {
           $scope.body_str = $scope.body_str + $scope.mission.body[i].paragraph + '\n\n';

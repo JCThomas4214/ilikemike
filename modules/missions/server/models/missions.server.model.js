@@ -85,6 +85,10 @@ var MissionsSchema = new Schema({
   hidden: {
     type: Boolean,
     default: false
+  },
+  order: {
+    type: Number,
+    required: 'Mission must have a order'
   }
 });
 

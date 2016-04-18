@@ -7,13 +7,19 @@
         <input type="text" ng-model="search" typeahead="mission as mission.header for mission in missions | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="missionSearch($item)" placeholder="Search Missions...">
     </div>
     <!-- end -->
-    <div class="list-group">
-        <a ng-repeat="mission in missions" data-ng-href="/#!/missions/{{mission._id}}" class="list-group-item">
-         <!-- | limitTo: offset - missions.length | limitTo: pageSize -->
-            <h4 class="list-group-item-heading" data-ng-bind="mission.header"></h4>
-            <p ng-repeat="para in mission.body" ng-bind-html="para.paragraph"></p>
-            <!-- <p ng-repeat="para in mission.position" ng-style="{ display : !mission.hidden ? 'inlne' : 'none' }"><span ng-bind-html="para.paragraph" style="white-space: pre-line;"></span></p> -->
-        </a>
+    <div class="list-group mission-list">
+    	<div class="mission-list-group" ng-repeat="mission in missions | orderBy: 'order'">
+    		<div class="my_button_group">
+	        	<div class="my_button" ng-click="decOrder(mission)"><p>&#9650;</p></div>
+	        	<div class="my_button" ng-click="incOrder(mission)"><p>&#9660;</p></div>
+	       	</div>
+	        <a data-ng-href="/#!/missions/{{mission._id}}" class="list-group-item">
+	         <!-- | limitTo: offset - missions.length | limitTo: pageSize -->
+	            <h4 class="list-group-item-heading" data-ng-bind="mission.header"></h4>
+	            <p ng-repeat="para in mission.body" ng-bind-html="para.paragraph"></p>
+	            <!-- <p ng-repeat="para in mission.position" ng-style="{ display : !mission.hidden ? 'inlne' : 'none' }"><span ng-bind-html="para.paragraph" style="white-space: pre-line;"></span></p> -->
+	        </a>
+        </div>
     </div>
     <!-- this is the paging control -->
     <pagination total-items="missions.length" ng-model="currentPage" ng-change="pageChanged()" max-size="pageSize" ng-show="missions.length > pageSize"></pagination>
