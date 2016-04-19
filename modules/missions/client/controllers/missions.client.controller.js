@@ -1,11 +1,48 @@
 'use strict';
 
-angular.module('missions').controller('MissionsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Missions',
-  function ($scope, $stateParams, $location, Authentication, Missions) {
+angular.module('missions').controller('MissionsController', ['$scope', '$timeout', '$window', '$stateParams', '$location', 'Authentication', 'Missions', 'DeletePhoto', 'FileUploader', 'ngDialog',
+  function ($scope, $timeout, $window, $stateParams, $location, Authentication, Missions, DeletePhoto, FileUploader, ngDialog) {
 
+    var dialog;
+    // var imageURL = '';
+    var mission = [];
+    var mission_index = 0;
+    var body_index = 0;
+    var width = 0;
+    var height = 0;
+    var caption = '';
     //For create and edit
     $scope.body_str = '';
     $scope.position_str = '';
+
+    $scope.mission = [];
+    $scope.mission_index = 0;
+    $scope.paragraph = {
+      select: null
+    };
+
+    //go to page
+    $scope.goTo = function (loc) {
+      $location.path(loc);
+    };
+
+    $scope.openPhotoPicker = function (missionIndex, _mission) {
+      $scope.mission = _mission;
+      $scope.mission_index = missionIndex;
+
+      angular.copy(_mission, mission);
+      mission_index = missionIndex;
+
+      var dialog = ngDialog.open({
+        template: '/modules/missions/client/views/pickerDialogFormat.html',
+        className: 'picker_dialog',
+        scope: $scope
+      });
+
+      dialog.closePromise.then(function (data) {
+        $scope.cancelUpload();
+      });
+    };
 
     //Parse the string for sending
     var parsePara = function (body) {
@@ -98,10 +135,6 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
     // Find a list of Missions
     $scope.find = function () {
       $scope.missions = Missions.query();
-
-      $scope.missions.$promise.then(function (data) {
-        console.log($scope.missions);
-      });
     };
 
     // Find existing Mission
@@ -167,6 +200,112 @@ angular.module('missions').controller('MissionsController', ['$scope', '$statePa
       console.log('missions is currently at the beginning');
     };
 
+
+
+
+    // Photo Upload Process
+    // Create file uploader instance
+    $scope.uploader = new FileUploader({
+      alias: 'newMissionPicture'
+    });
+
+    // Set file uploader image filter
+    $scope.uploader.filters.push({
+      name: 'imageFilter',
+      fn: function (item, options) {
+        var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+        return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+      }
+    });
+
+    // Called before the user selected a new picture file
+    $scope.uploader.onBeforeUploadItem = function (item) {
+      item.url = 'missions/' + mission._id + '/bodies/' + body_index + '/width/' + width + '/height/' + height + '/caption/' + caption;
+    };
+
+    // Called after the user selected a new picture file
+    $scope.uploader.onAfterAddingFile = function (fileItem) {
+      if ($window.FileReader) {
+        var fileReader = new FileReader();
+        fileReader.readAsDataURL(fileItem._file);
+
+        fileReader.onload = function (fileReaderEvent) {
+          $timeout(function () {
+            var img = new Image();
+            img.src = fileReaderEvent.target.result;
+            // imageURL = fileReaderEvent.target.result;
+            width = img.width;
+            height = img.height;
+          }, 0);
+        };
+      }
+    };
+
+    // Called after the user has successfully uploaded a new picture
+    $scope.uploader.onSuccessItem = function (fileItem, response, status, headers) {
+      // Show success message
+      // $scope.success = true;
+
+      // Populate user object
+      var tmp_mission = response;
+
+      for (var i = 0; i < $scope.missions.length; i++) {
+        if ($scope.missions[i]._id === tmp_mission._id) {
+          $scope.missions[i].body[body_index] = tmp_mission.body[body_index];
+          break;
+        }
+      }
+      // Clear upload buttons
+      $scope.cancelUpload();
+
+      ngDialog.closeAll();
+    };
+
+    // Called after the user has failed to uploaded a new picture
+    $scope.uploader.onErrorItem = function (fileItem, response, status, headers) {
+      // Clear upload buttons
+      $scope.cancelUpload();
+
+      // Show error message
+      $scope.error = response.message;
+    };
+
+    // Change user profile picture
+    $scope.uploadParagraphPicture = function (body_i, pic_width, pic_height, pic_caption) {
+
+      body_index = $scope.paragraph.select;
+      caption = this.caption;
+
+      // Clear messages
+      $scope.success = $scope.error = null;
+
+      // Start upload
+      $scope.uploader.uploadAll();
+    };
+
+    // Cancel the upload process
+    $scope.cancelUpload = function () {
+      $scope.uploader.clearQueue();
+      // $scope.imageURL = $scope.missions[1].body[1].image[0].src;
+    };
+
+
+    //Delete photo from paragraph
+    $scope.deleteParagraphPicture = function (missions_index, mission, body_index) {
+      var deletePhoto = new DeletePhoto();
+
+      deletePhoto.$update({
+        missionsId: mission._id,
+        bodyIndex: body_index
+      }, function (res) {
+        for (var i = 0; i < $scope.missions.length; i++) {
+          if ($scope.missions[i]._id === res._id) {
+            $scope.missions[i].body[body_index] = res.body[body_index];
+            break;
+          }
+        }
+      });
+    };
 
   }
 ]);

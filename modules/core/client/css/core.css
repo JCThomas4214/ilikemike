@@ -9,6 +9,7 @@ html, body {
   /*height: 100vh;*/
   padding-top: 80px;
   overflow: auto;
+  overflow-x: hidden; 
 }
 .container {
   width: 80%;
@@ -616,7 +617,9 @@ a:hover .header-profile-image {
   box-shadow: 4px 3px 6px rgba(0,0,0,0.35);
 }
 .platform_container .platform_topic photodisplaywidget {
-  width: 50%;
+  width: auto;
+  height: auto;
+  max-width: 50%;
 }
 .platform_container .platform_topic .image_left {
   float: left;
@@ -632,11 +635,17 @@ a:hover .header-profile-image {
 
 .platform_topic .my-gallery {
   width: 100%;
-  height: auto;
+  height: 100%;
+}
+.platform_topic .my-gallery figure {
+  width: 100%;
 }
 .platform_topic .my-gallery img {
   transition: 0.5s all;
-  width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 300px;
+  max-width: 100%;
   border-radius: 10px;
 
   -moz-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);

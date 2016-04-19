@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('missions')
-  .factory('Missions', ['$resource', '$q',
-    function ($resource, $q) {
+  .factory('Missions', ['$resource',
+    function ($resource) {
       // Missions service logic
       // ...
 
@@ -12,6 +12,24 @@ angular.module('missions')
       }, {
         update: {
           method: 'PUT'
+        }
+      });
+    }
+  ]);
+
+angular.module('missions')
+  .factory('DeletePhoto', ['$resource',
+    function ($resource) {
+      // Missions service logic
+      // ...
+
+      // Public API
+      return $resource('missions/:missionsId/bodies/:bodyIndex', {
+        missionsId: '@_id',
+        bodyIndex: '@_index'
+      }, {
+        update: {
+          method: 'POST'
         }
       });
     }

@@ -54,7 +54,9 @@ exports.update = function (req, res) {
  * Update profile picture
  */
 exports.changeProfilePicture = function (req, res) {
+  console.log(req.user);
   var user = req.user;
+
   var message = null;
   var upload = multer(config.uploads.profileUpload).single('newProfilePicture');
   var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;

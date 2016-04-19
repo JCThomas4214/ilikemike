@@ -10,8 +10,17 @@ module.exports = function(app) {
 
   app.route('/missions/:missionsId')
     .get(missions.read)
-    .put(users.requiresLogin, missions.update)
-    .delete(users.requiresLogin, missions.delete);
+    .put(users.requiresLogin, missions.update);
+
+  app.route('/missions/:missionsId/bodies/:bodyIndex')
+    .post(users.requiresLogin, missions.deleteParagraphPhoto);
+
+  app.route('/missions/:missionsId/bodies/:bodyIndex/width/:picWidth/height/:picHeight/caption/:picCaption')
+    .post(users.requiresLogin, missions.uploadParagraphPhoto);
 
   app.param('missionsId', missions.missionsByID);
+  app.param('bodyIndex', missions.bodyByIndex);
+  app.param('picWidth', missions.pictureWidth);
+  app.param('picHeight', missions.pictureHeight);
+  app.param('picCaption', missions.pictureCaption);
 };

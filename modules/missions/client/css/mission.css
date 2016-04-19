@@ -20,14 +20,118 @@
 	cursor: pointer;
 	text-align: center;
 	background-color: #C30F0F;
-	margin-bottom: 10%;
-}
-.page_information .list-group .my_button p {
-	font-size: 10px;
+	margin-bottom: 10%;	
+	font-size: 15px;
 	color: white;
-	margin: 0;
+}
+.page_information .list-group .my_button:hover {
+	background-color: white;
+	color: #C30F0F;
 }
 
 .page_information .page_view_bottom {
 	margin-bottom: 5%;
+}
+
+.page_information .list-group-item {
+	padding:0;
+	background-color: transparent;
+	border: 0;
+}
+
+.page_information .platform_header {
+  cursor: pointer;
+  position: relative;
+
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 1%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+
+  -moz-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
+  box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
+}
+.page_information .platform_header h1 {
+  display: inline-block;
+  color: #0000A5;
+  margin: 0;
+  font: 400 3vw/1.3 'Oleo Script', Helvetica, sans-serif;
+  text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
+}
+.page_information .platform_topic {
+  background-color: #C30F0F;
+  padding: 0 12px 12px 12px;
+  margin-bottom: 2%;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  -moz-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
+  box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
+}
+.page_information .platform_topic p {
+	position: relative;
+  color: white;
+  text-align: left;
+  margin: 0;
+  padding: 10px 0 0 0;
+  font-size: 1vw;
+  font-family: 'Noto Serif', serif;
+  /*font-weight: bold;*/
+  text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
+}
+.page_information .platform_topic .pic_container {
+	margin: 0;
+	padding: 0;
+}
+.page_information .platform_topic .paraSpan {
+  white-space: pre-line;
+}
+.page_information .platform_topic ol {
+  margin: 0;
+}
+.page_information .platform_topic img {
+  width: auto;
+  height: auto;
+  max-height: 300px;
+  border-radius: 10px;
+
+  -moz-box-shadow: 4px 3px 6px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 4px 3px 6px rgba(0,0,0,0.35);
+  box-shadow: 4px 3px 6px rgba(0,0,0,0.35);
+}
+.page_information .platform_topic .image_left {
+  float: left;
+  margin: 0 14px 10px 0;
+}
+.page_information .platform_topic .image_right {
+  float: right;
+  margin: 0 0 10px 14px;
+}
+.page_information .platform_topic .no_image {
+  margin: 0;
+}
+
+.page_information .platform_topic .my_remove_button {
+	position: absolute;
+	background-color: black;
+	border: 0 solid;
+	color: white;
+	width: 25px;
+	height: 25px;
+	border-radius: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+.page_information .platform_topic .button_left {
+	float: left;
+	left: 10px;
+	top: 18px;
+}
+.page_information .platform_topic .button_right {
+	float: left;
+	right: 10px;
+	top: 18px;
 }
