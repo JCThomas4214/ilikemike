@@ -610,8 +610,6 @@ a:hover .header-profile-image {
   margin: 0;
 }
 .platform_container .platform_topic img {
-  border-radius: 10px;
-
   -moz-box-shadow: 4px 3px 6px rgba(0,0,0,0.35);
   -webkit-box-shadow: 4px 3px 6px rgba(0,0,0,0.35);
   box-shadow: 4px 3px 6px rgba(0,0,0,0.35);
