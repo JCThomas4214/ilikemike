@@ -126,3 +126,11 @@
   min-height: 150px;
   max-height: 150px;
 }
+
+.col-xs-offset-2, .col-xs-offset-2 {
+  margin-left: 0;
+}
+
+.form-group label {
+  color: white;
+}
