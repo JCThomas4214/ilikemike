@@ -1,9 +1,22 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'PublicMissions', 'ngDialog',
-  function ($scope, Authentication, PublicMissions, ngDialog) {
+angular.module('core').controller('HomeController', ['$scope', '$timeout', 'Authentication', 'PublicMissions', 'ngDialog',
+  function ($scope, $timeout, Authentication, PublicMissions, ngDialog) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
+
+    // Start Page
+    $scope.start = function () {
+      $scope.find();
+
+      $timeout(function(){
+        ngDialog.open({ 
+          template: '/modules/core/client/views/dialogFormat.html', 
+          className: 'welcome_dialog',
+          closeByDocument:false
+        });  
+      }, 1000);
+    };
 
     // Find a list of Missions
     $scope.find = function () {

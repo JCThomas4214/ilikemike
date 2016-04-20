@@ -5,21 +5,21 @@ angular.module('missions').run(['Menus',
   function (Menus) {
     // Config logic
     Menus.addMenuItem('topbar', {
-      title: 'Missions',
+      title: 'Customize',
       state: 'missions',
       type: 'dropdown',
       roles: ['admin']
     });
 
     Menus.addSubMenuItem('topbar', 'missions', {
-      title: 'List Missions',
+      title: 'Missions',
       state: 'listMissions',
       roles: ['admin']
     });
 
     Menus.addSubMenuItem('topbar', 'missions', {
-      title: 'Create Mission',
-      state: 'createMission',
+      title: 'Photo Gallery',
+      state: '',
       roles: ['admin']
     });
   }

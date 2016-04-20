@@ -7,8 +7,7 @@ angular.module('missions')
       // ...
 
       // Public API
-      return $resource('api/missions/public', {}, 
-      {
+      return $resource('api/missions/public', {}, {
         update: {
           method: 'GET'
         }
