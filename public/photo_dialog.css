@@ -94,7 +94,7 @@
   max-width: 100%;
   padding: 1em;
   position: relative;
-  width: 60%;
+  width: 70%;
 }
 
 .ngdialog.photo_dialog .ngdialog-close {
@@ -258,12 +258,11 @@
 }
 .photo_content .my-gallery img {
   transition: 0.5s all;
-  width: 100%;
-  object-fit: cover;
+  width: auto;
 
   height: 200px;
   height: 14vw;
-  max-height: 200px;
+  max-height: 150px;
 
   border-radius: 10px;
 
@@ -278,7 +277,7 @@
   display: inline-block;
   vertical-align: top;
   margin: 0 5px 5px 0;
-  width: 24%;
+  width: auto;
 }
 .photo_content .my-gallery figcaption {
   padding: 5px;
@@ -302,12 +301,11 @@
     display: inline-block;
     vertical-align: top;
     margin: 0 5px 5px 0;
-    width: 22%;
   }
   .photo_content .my-gallery img {
     height: 160px;
     height: 25vw;
-    max-height: 160px;
+    max-height: 110px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -315,12 +313,13 @@
     display: inline-block;
     vertical-align: top;
     margin: 0 5px 5px 0;
-    width: 30%;
   }
   .photo_content .my-gallery img {
     height: 180px;
     height: 28vw;
-    max-height: 180px;
+    max-height: 80px;
+    max-width: 60px;
+    object-fit: cover;
   }
   .photo_dialog .dialog_menu_title h1 {
     font: 400 30px/1.3 'Oleo Script', Helvetica, sans-serif;

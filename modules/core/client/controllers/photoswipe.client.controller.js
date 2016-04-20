@@ -32,7 +32,7 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       src: 'modules/core/client/img/photos/mike_baby.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/mike_baby.jpg',
       w: 1280, h: 961,
-      caption: 'The newest menber of the Thomas family'
+      caption: 'The newest menber of the family'
     },{
       src: 'modules/core/client/img/photos/Mike w Author.jpg',
       msrc: 'modules/core/client/img/photos/small_ver/Mike w Author.jpg',
