@@ -81,7 +81,7 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
         header: this.header,
         body: parsePara(this.body),
         position: parsePara(this.position),
-        hidden: this.hidden,
+        hidden: true,
         order: $scope.missions.length + 1
       });
 
@@ -220,7 +220,7 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
 
     // Called before the user selected a new picture file
     $scope.uploader.onBeforeUploadItem = function (item) {
-      item.url = 'missions/' + mission._id + '/bodies/' + body_index + '/width/' + width + '/height/' + height + '/caption/' + caption;
+      item.url = 'api/missions/' + mission._id + '/bodies/' + body_index + '/width/' + width + '/height/' + height + '/caption/' + caption;
     };
 
     // Called after the user selected a new picture file

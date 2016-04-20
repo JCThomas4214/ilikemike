@@ -7,7 +7,7 @@ angular.module('missions')
       // ...
 
       // Public API
-      return $resource('missions/:missionsId', {
+      return $resource('api/missions/:missionsId', {
         missionsId: '@_id'
       }, {
         update: {
@@ -24,7 +24,7 @@ angular.module('missions')
       // ...
 
       // Public API
-      return $resource('missions/:missionsId/bodies/:bodyIndex', {
+      return $resource('api/missions/:missionsId/bodies/:bodyIndex', {
         missionsId: '@_id',
         bodyIndex: '@_index'
       }, {

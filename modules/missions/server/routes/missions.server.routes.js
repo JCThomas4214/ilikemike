@@ -4,18 +4,19 @@ module.exports = function(app) {
   var missions = require('../controllers/missions.server.controller.js');
   var users = require('../../../users/server/controllers/users.server.controller.js');
 
-  app.route('/missions')
-    .get(missions.list)
+  app.route('/api/missions')
+    .get(users.requiresLogin, missions.list)
     .post(users.requiresLogin, missions.create);
 
-  app.route('/missions/:missionsId')
-    .get(missions.read)
+  app.route('/api/missions/:missionsId')
+    .get(users.requiresLogin, missions.read)
+    .delete(users.requiresLogin, missions.delete)
     .put(users.requiresLogin, missions.update);
 
-  app.route('/missions/:missionsId/bodies/:bodyIndex')
+  app.route('/api/missions/:missionsId/bodies/:bodyIndex')
     .post(users.requiresLogin, missions.deleteParagraphPhoto);
 
-  app.route('/missions/:missionsId/bodies/:bodyIndex/width/:picWidth/height/:picHeight/caption/:picCaption')
+  app.route('/api/missions/:missionsId/bodies/:bodyIndex/width/:picWidth/height/:picHeight/caption/:picCaption')
     .post(users.requiresLogin, missions.uploadParagraphPhoto);
 
   app.param('missionsId', missions.missionsByID);
