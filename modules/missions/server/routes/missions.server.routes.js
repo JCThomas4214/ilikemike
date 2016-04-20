@@ -5,7 +5,7 @@ module.exports = function(app) {
   var users = require('../../../users/server/controllers/users.server.controller.js');
 
   app.route('/api/missions')
-    .get(users.requiresLogin, missions.list)
+    .get(missions.list)
     .post(users.requiresLogin, missions.create);
 
   app.route('/api/missions/:missionsId')
