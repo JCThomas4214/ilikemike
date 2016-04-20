@@ -264,7 +264,7 @@
   height: 14vw;
   max-height: 150px;
 
-  border-radius: 10px;
+  /*border-radius: 10px;*/
 
   -moz-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
   -webkit-box-shadow: 6px 4px 10px rgba(0,0,0,0.35);
