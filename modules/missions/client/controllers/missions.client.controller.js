@@ -266,8 +266,11 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
       // Clear upload buttons
       $scope.cancelUpload();
 
+      ngDialog.closeAll();
+
       // Show error message
       $scope.error = response.message;
+      console.log($scope.error);
     };
 
     // Change user profile picture

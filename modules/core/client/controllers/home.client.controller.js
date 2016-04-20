@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Missions', 'ngDialog',
-  function ($scope, Authentication, Missions, ngDialog) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'PublicMissions', 'ngDialog',
+  function ($scope, Authentication, PublicMissions, ngDialog) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
     // Find a list of Missions
     $scope.find = function () {
-      $scope.missions = Missions.query();
+      $scope.missions = PublicMissions.query();
     };
 
     $scope.mmPhotoDialog = function () {

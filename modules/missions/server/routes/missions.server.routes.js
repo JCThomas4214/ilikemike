@@ -4,8 +4,11 @@ module.exports = function(app) {
   var missions = require('../controllers/missions.server.controller.js');
   var users = require('../../../users/server/controllers/users.server.controller.js');
 
+  app.route('/api/missions/public')
+    .get(missions.list);
+
   app.route('/api/missions')
-    .get(missions.list)
+    .get(users.requiresLogin, missions.list)
     .post(users.requiresLogin, missions.create);
 
   app.route('/api/missions/:missionsId')

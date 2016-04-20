@@ -1,6 +1,22 @@
 'use strict';
 
 angular.module('missions')
+  .factory('PublicMissions', ['$resource',
+    function ($resource) {
+      // Missions service logic
+      // ...
+
+      // Public API
+      return $resource('api/missions/public', {}, 
+      {
+        update: {
+          method: 'GET'
+        }
+      });
+    }
+  ]);
+
+angular.module('missions')
   .factory('Missions', ['$resource',
     function ($resource) {
       // Missions service logic
