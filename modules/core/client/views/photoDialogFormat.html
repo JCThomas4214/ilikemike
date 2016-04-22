@@ -1,12 +1,10 @@
-<div class="dialog_menu" ng-controller="DialogCtrl">
+<div class="dialog_menu">
 	<div class="dialog_menu_title">
-		<h1>{{ photoDialogTitle }}</h1>
+		<h1>Photo Gallery</h1>
 	</div>
-	<div class="photo_content" ng-controller="photoCtrl">
-		<photodisplaywidget slides="slides1"></photodisplaywidget>
+	<div class="photo_content" ng-repeat="album in albums | orderBy: 'order'">
+		<h3>{{album.name}}</h3>
+		<photodisplaywidget slides="album.gallery"></photodisplaywidget>
 		<photoswipewidget></photoswipewidget>
 	</div>
-<!-- 	<div class="dialog_exit">
-		<button class="my_dialog_button" ng-click="closeDialog()">Exit</button>
-	</div> -->
 </div>

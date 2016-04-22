@@ -1,0 +1,34 @@
+<section class="page_information" ng-controller="AlbumsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Photo Gallery</h1>
+        <a href="/albums/create">Create an Album</a>
+    </div>
+    <div class="list-group album-list">
+    	<div class="album-list-group" ng-repeat="album in albums | orderBy: 'order'">
+    		<div class="my_button_group">
+	        	<div class="my_button" ng-click="decOrder(album)">&#9650;</div>
+	        	<div class="my_button" ng-click="incOrder(album)">&#9660;</div>
+	        	<div class="my_button" ng-click="openDeleteAlbumQ(album)">del</div>
+                <div class="my_button" ng-click="openPhotoPicker(album)">+</div>
+	       	</div>
+	        <div class="list-group-item">
+                <div class="album_name" ng-click="openAlbumName(album)">
+                    <h1>{{ album.name }}</h1>
+			        <p id="sync-txt" class="sync-txt">{{loading.state}}</p>
+			        <i id="sync-indicator" class="fa fa-circle-o-notch fa-spin sync-indicator" style="color: gray" ng-hide="!loading.running"></i>
+                </div>
+                <div class="album-gallery">
+                	<div class="photo_frame" ng-repeat="photo in album.gallery | orderBy: 'pic_order'">
+                		<img ng-src="{{photo.src}}" ng-click="openPhotoCaption(album, photo)">
+                		<button class="photo_delete_button" ng-click="openDeletePhotoQ(album, photo)">X</button>
+                		<button class="photo_orderdec_button" ng-click="decPhotoOrder(album,photo)">&#9668;</button>
+                		<button class="photo_orderinc_button" ng-click="incPhotoOrder(album,photo)">&#9658;</button>                		
+                	</div>
+                </div>
+	        </div>
+        </div>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!albums.$resolved || albums.length">
+        No albums yet, why don't you <a href="/#!/albums/create">create one</a>?
+    </div>
+</section>

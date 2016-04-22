@@ -1,0 +1,33 @@
+<div class="dialog_menu">
+	<div class="dialog_menu_title">
+		<h1>Photo Upload</h1>
+	</div>
+	<div class="picker_content">
+		<form class="form-horizontal" data-ng-submit="uploadAlbumPicture()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="caption">Caption</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="caption" id="caption" class="form-control" placeholder="Photo Caption" required>
+                    </div>
+                </div>
+                <div class="form-group" ng-hide="progress.state">
+					<!-- <input type="file" nv-file-select uploader="uploader" > -->
+                    <input id="uploadFile" data-ng-model="imageURL" placeholder="Choose File" disabled="disabled" />
+                    <div class="fileUpload btn btn-default">
+                        <span>Choose</span>
+                        <input id="uploadBtn" type="file" class="upload" nv-file-select uploader="uploader" />
+                    </div>
+                </div>
+                <div class="form-group" ng-show="uploader.queue.length" ng-hide="progress.state">
+                    <input type="submit" value="Upload" class="upload-button">
+                </div>
+                <div class="progress" ng-show="progress.state">
+                  <div class="progress-bar progress-bar-striped active" ng-class="progress.class" role="progressbar" ng-style="{'width': progress.position + '%'}">
+                    {{progress.position + '%'}}
+                  </div>
+                </div>
+            </fieldset>
+        </form>
+	</div>
+</div>

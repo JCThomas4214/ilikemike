@@ -33,7 +33,7 @@ angular.module('missions')
   ]);
 
 angular.module('missions')
-  .factory('DeletePhoto', ['$resource',
+  .factory('DeleteParagraphPhoto', ['$resource',
     function ($resource) {
       // Missions service logic
       // ...

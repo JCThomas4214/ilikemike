@@ -11,14 +11,20 @@ module.exports = {
         'public/photo_dialog.css',
         'public/solution_dialog.css',
         'public/quotes_dialog.css', 
-        'public/picker_dialog.css',        
+        'public/picker_dialog.css', 
+        'public/pickerp_dialog.css',   
+        'public/deleteAlbum_dialog.css',   
+        'public/deletePhoto_dialog.css', 
+        'public/photoCaption_dialog.css', 
+        'public/albumName_dialog.css',
         'public/lib/photoswipe/dist/photoswipe.css',
         'public/lib/photoswipe/dist/default-skin/default-skin.css',
         'public/lib/ngToast/dist/ngToast.min.css',   
         '//fonts.googleapis.com/css?family=Great+Vibes',
         '//fonts.googleapis.com/css?family=Oleo+Script',
         '//fonts.googleapis.com/css?family=Noto+Serif',
-        '//fonts.googleapis.com/css?family=Courgette'
+        '//fonts.googleapis.com/css?family=Courgette',
+        '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'
 
       ],
       js: [

@@ -20,6 +20,18 @@ angular.module('missions').config(['$stateProvider',
       state('editMission', {
         url: '/missions/:missionsId/edit',
         templateUrl: 'modules/missions/client/views/edit-mission.client.view.html'
+      }).      
+      state('listAlbums', {
+        url: '/albums',
+        templateUrl: 'modules/missions/client/views/albums.client.view.html'
+      }).
+      state('createAlbum', {
+        url: '/albums/create',
+        templateUrl: 'modules/missions/client/views/create-album.client.view.html'
+      }).
+      state('viewAlbum', {
+        url: '/albums/:albumId',
+        templateUrl: 'modules/missions/client/views/view-album.client.view.html'
       });
   }
 ]);

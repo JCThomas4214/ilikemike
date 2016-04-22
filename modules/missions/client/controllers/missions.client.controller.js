@@ -1,12 +1,11 @@
 'use strict';
 
-angular.module('missions').controller('MissionsController', ['$scope', '$timeout', '$window', '$stateParams', '$location', 'Authentication', 'Missions', 'DeletePhoto', 'FileUploader', 'ngDialog',
-  function ($scope, $timeout, $window, $stateParams, $location, Authentication, Missions, DeletePhoto, FileUploader, ngDialog) {
+angular.module('missions').controller('MissionsController', ['$scope', '$timeout', '$window', '$stateParams', '$location', 'Authentication', 'Missions', 'DeleteParagraphPhoto', 'FileUploader', 'ngDialog',
+  function ($scope, $timeout, $window, $stateParams, $location, Authentication, Missions, DeleteParagraphPhoto, FileUploader, ngDialog) {
 
     var dialog;
     // var imageURL = '';
     var mission = [];
-    var mission_index = 0;
     var body_index = 0;
     var width = 0;
     var height = 0;
@@ -26,12 +25,10 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
       $location.path(loc);
     };
 
-    $scope.openPhotoPicker = function (missionIndex, _mission) {
+    $scope.openPhotoPicker = function (_mission) {
       $scope.mission = _mission;
-      $scope.mission_index = missionIndex;
 
       angular.copy(_mission, mission);
-      mission_index = missionIndex;
 
       var dialog = ngDialog.open({
         template: '/modules/missions/client/views/pickerDialogFormat.html',
@@ -295,7 +292,7 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
 
     //Delete photo from paragraph
     $scope.deleteParagraphPicture = function (missions_index, mission, body_index) {
-      var deletePhoto = new DeletePhoto();
+      var deletePhoto = new DeleteParagraphPhoto();
 
       deletePhoto.$update({
         missionsId: mission._id,

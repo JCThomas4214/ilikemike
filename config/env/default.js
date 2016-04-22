@@ -48,6 +48,18 @@ module.exports = {
       limits: {
         fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
       }
-    } 
+    },
+    galleryUpload: {
+      dest: './modules/core/client/img/photos/gallery/', // small Mission photo upload destination path
+      limits: {
+        fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
+      }
+    },
+    smallGalleryUpload: {
+      dest: './modules/core/client/img/photos/gallery/small_ver/', // small Mission photo upload destination path
+      limits: {
+        fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
+      }
+    }
   }
 };

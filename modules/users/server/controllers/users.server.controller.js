@@ -18,6 +18,11 @@ module.exports = _.extend(
 
 /**
 	Require login routing middleware
+
+    TODO: As of now the normal user can edit things because there is not
+    distinction between user and admin
+
+    THIS MUST CHANGE
 **/
 exports.requiresLogin = function(req, res, next) {
   if (!req.isAuthenticated()) {

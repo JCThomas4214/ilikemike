@@ -13,7 +13,7 @@
     		<div class="my_button_group">
 	        	<div class="my_button" ng-click="decOrder(mission)">&#9650;</div>
 	        	<div class="my_button" ng-click="incOrder(mission)">&#9660;</div>
-                <div class="my_button" ng-click="openPhotoPicker($index, mission)">+</div>
+                <div class="my_button" ng-click="openPhotoPicker(mission)">+</div>
 <!--                 <div class="my_button btn btn-default btn-file" ng-show="uploader.queue.length">
                     <div class="my_button" ng-click="uploadParagraphPicture($index, mission, 0, 466, 640, 'this is a test')"><p>Upload</p></div>
                     <div class="my_button" ng-click="cancelUpload()"><p>Cancel</p></div>
@@ -24,7 +24,6 @@
 	            <p ng-repeat="para in mission.body" ng-bind-html="para.paragraph"></p> -->
                 <div class="platform_header" ng-click="goTo('/missions/' + mission._id)">
                     <h1>{{ mission.header }}</h1>
-                    <button class="my_dialog_button" ng-click="solutionDialog('Mike\'s ' + mission.header + ' Position', mission.position)" ng-style="{ display : !mission.hidden ? 'inline' : 'none' }"> Mike's Position</button>
                 </div>
                 <div class="platform_topic">
                     <p ng-repeat="para in mission.body">
@@ -41,6 +40,6 @@
     <pagination total-items="missions.length" ng-model="currentPage" ng-change="pageChanged()" max-size="pageSize" ng-show="missions.length > pageSize"></pagination>
     <!-- end -->
     <div class="alert alert-warning text-center" data-ng-hide="!missions.$resolved || missions.length">
-        No mission yet, why don't you <a href="/#!/missions/create">create one</a>?
+        No missions yet, why don't you <a href="/#!/missions/create">create one</a>?
     </div>
 </section>

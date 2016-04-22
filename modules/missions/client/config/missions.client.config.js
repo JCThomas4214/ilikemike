@@ -19,7 +19,7 @@ angular.module('missions').run(['Menus',
 
     Menus.addSubMenuItem('topbar', 'missions', {
       title: 'Photo Gallery',
-      state: '',
+      state: 'listAlbums',
       roles: ['admin']
     });
   }

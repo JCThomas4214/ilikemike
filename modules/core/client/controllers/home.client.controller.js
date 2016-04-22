@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', '$timeout', 'Authentication', 'PublicMissions', 'ngDialog',
-  function ($scope, $timeout, Authentication, PublicMissions, ngDialog) {
+angular.module('core').controller('HomeController', ['$scope', '$timeout', 'Authentication', 'PublicMissions', 'PublicAlbums', 'ngDialog',
+  function ($scope, $timeout, Authentication, PublicMissions, PublicAlbums, ngDialog) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
@@ -9,12 +9,12 @@ angular.module('core').controller('HomeController', ['$scope', '$timeout', 'Auth
     $scope.start = function () {
       $scope.find();
 
-      $timeout(function(){
-        ngDialog.open({ 
-          template: '/modules/core/client/views/dialogFormat.html', 
+      $timeout(function () {
+        ngDialog.open({
+          template: '/modules/core/client/views/dialogFormat.html',
           className: 'welcome_dialog',
-          closeByDocument:false
-        });  
+          closeByDocument: false
+        });
       }, 1000);
     };
 
@@ -26,7 +26,14 @@ angular.module('core').controller('HomeController', ['$scope', '$timeout', 'Auth
     $scope.mmPhotoDialog = function () {
       ngDialog.open({
         template: '/modules/core/client/views/photoDialogFormat.html',
-        className: 'photo_dialog'
+        className: 'photo_dialog',
+        controller: ['$scope', 'PublicAlbums',
+          function ($scope, PublicAlbums) {
+
+            $scope.albums = PublicAlbums.query();
+
+          }
+        ]
       });
     };
 

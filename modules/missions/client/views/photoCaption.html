@@ -1,0 +1,19 @@
+<div class="dialog_menu">
+	<div class="dialog_menu_title">
+		<h1>Caption</h1>
+	</div>
+	<div class="picker_content">
+		<form class="form-horizontal" data-ng-submit="updateCaption(_album_photo, _photo)" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <div class="controls">
+                        <input type="text" data-ng-model="_photo.caption" id="caption" class="form-control" placeholder="Caption" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Change" class="caption-button">
+                </div>
+            </fieldset>
+        </form>
+	</div>
+</div>
