@@ -144,12 +144,17 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
         albumDel.$update({
           albumsId: album._id
         }, function (res) {
+          var ind;
           for (var i = 0; i < $scope.albums.length; i++) {
             if ($scope.albums[i]._id === res._id) {
-              $scope.albums.splice(i, 1);
-              break;
+              ind = i;
+            }
+            if ($scope.albums[i].order > album.order && $scope.albums[i]._id !== res._id) {
+              $scope.albums[i].order--;
+              $scope.albums[i].$update();
             }
           }
+          $scope.albums.splice(ind, 1);
           $scope.decLoading();
         });
       } else {
@@ -170,6 +175,10 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     $scope.updateCaption = function (album, photo) {
       $scope.incLoading();
       ngDialog.closeAll();
+
+      if (!photo.caption)
+        photo.caption = '';
+
       album.$update(function (res) {
         $scope.decLoading();
       });
@@ -300,11 +309,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
 
     // Called before the user selected a new picture file
     $scope.uploader.onBeforeUploadItem = function (item) {
-      item.url = 'api/albums/' + $scope.album._id + '/' + width + '/' + height;
-
-      if (caption) {
-        item.url = item.url + '/' + caption;
-      }
+      item.url = 'api/albums/' + $scope.album._id + '/' + width + '/' + height + '/' + caption;
     };
 
     // Called after the user selected a new picture file

@@ -262,9 +262,13 @@
 }
 
 .pickerp_dialog .fileUpload {
-    position: relative;
+     position: relative; 
+    display: inline-block;
     overflow: hidden;
-    margin: 10px;
+    margin-top: -0.6%;
+    padding: 5px;
+    width: 85px;
+    margin-left: 5px;
 }
 .pickerp_dialog .fileUpload input.upload {
     position: absolute;
@@ -276,6 +280,13 @@
     cursor: pointer;
     opacity: 0;
     filter: alpha(opacity=0);
+}
+.pickerp_dialog .file-path {
+    width: 50%;
+    padding: 5px 12px;
+    border: 0 solid;
+    border-radius: 5px;
+    background-color: #fff;
 }
 
 .pickerp_dialog .upload-button {

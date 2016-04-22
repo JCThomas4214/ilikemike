@@ -6,8 +6,8 @@
     <div class="list-group album-list">
     	<div class="album-list-group" ng-repeat="album in albums | orderBy: 'order'">
     		<div class="my_button_group">
-	        	<div class="my_button" ng-click="decOrder(album)">&#9650;</div>
-	        	<div class="my_button" ng-click="incOrder(album)">&#9660;</div>
+	        	<div class="my_button" ng-hide="albums.length < 2" ng-click="decOrder(album)">&#9650;</div>
+	        	<div class="my_button" ng-hide="albums.length < 2" ng-click="incOrder(album)">&#9660;</div>
 	        	<div class="my_button" ng-click="openDeleteAlbumQ(album)">del</div>
                 <div class="my_button" ng-click="openPhotoPicker(album)">+</div>
 	       	</div>

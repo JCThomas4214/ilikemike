@@ -16,12 +16,12 @@
               </div>            
               <div class="form_main">
                 <p>{{mike_sub}}</p>
-                <form name="contactForm" data-ng-submit="cf.sendMail()" role="form">
+                <form name="contactForm" data-ng-submit="cf.sendMail()" role="form" autocomplete="off">
                   <div class="form-group">
-                    <input type="name" data-ng-model="cf.contact_name" class="form-control" id="name" placeholder="Name" autocomplete="off">
+                    <input type="name" data-ng-model="cf.contact_name" class="form-control" id="name" placeholder="Name">
                   </div>
                   <div class="form-group">
-                    <input type="email" data-ng-model="cf.contact_email" class="form-control" id="email" placeholder="Email Address" autocomplete="off">
+                    <input type="email" data-ng-model="cf.contact_email" class="form-control" id="email" placeholder="Email Address">
                   </div>
                   <button type="submit" class="my_button">Subscribe</button>
                 </form>
@@ -190,15 +190,15 @@
           <div class="volunteer_container" data-ng-controller="VolunteerFormController as vf">
             <h1>{{volunteer_header}}</h1>
             <div class="register_to_volunteer">              
-                <form name="volunteerForm" data-ng-submit="vf.sendMail()" role="form">
+                <form name="volunteerForm" data-ng-submit="vf.sendMail()" role="form" autocomplete="off">
                   <div class="form-group">
-                    <input type="name" data-ng-model="vf.contact_name" class="form-control" id="name" placeholder="Name" autocomplete="off">
+                    <input type="name" data-ng-model="vf.contact_name" class="form-control" id="name" placeholder="Name">
                   </div>
                   <div class="form-group">
-                    <input type="email" data-ng-model="vf.contact_email" class="form-control" id="email" placeholder="Email Address" autocomplete="off">
+                    <input type="email" data-ng-model="vf.contact_email" class="form-control" id="email" placeholder="Email Address">
                   </div>
                   <div class="form-group">
-                    <input type="tel" data-ng-model="vf.contact_phone" class="form-control" id="phone" placeholder="Phone Number (Optional)" autocomplete="off">
+                    <input type="tel" data-ng-model="vf.contact_phone" class="form-control" id="phone" placeholder="Phone Number (Optional)">
                   </div>
                   <button type="submit" class="my_button">Sign Up</button>
                 </form>
