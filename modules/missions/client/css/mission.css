@@ -67,7 +67,7 @@
 .page_information .platform_topic {
   background-color: #C30F0F;
   padding: 0 12px 12px 12px;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 
@@ -87,8 +87,16 @@
   text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
 }
 .page_information .platform_topic .pic_container {
+  position: relative;
+  display: block;
 	margin: 0;
 	padding: 0;
+}
+.page_information .platform_topic .pic_container_left {
+   float: left;
+}
+.page_information .platform_topic .pic_container_right {
+  float: right;
 }
 .page_information .platform_topic .paraSpan {
   white-space: pre-line;
@@ -107,11 +115,9 @@
   box-shadow: 4px 3px 6px rgba(0,0,0,0.35);
 }
 .page_information .platform_topic .image_left {
-  float: left;
   margin: 0 14px 10px 0;
 }
 .page_information .platform_topic .image_right {
-  float: right;
   margin: 0 0 10px 14px;
 }
 .page_information .platform_topic .no_image {
@@ -129,15 +135,16 @@
 	text-align: center;
 	cursor: pointer;
 }
+
 .page_information .platform_topic .button_left {
-	float: left;
+	position: absolute;
 	left: 10px;
-	top: 18px;
+	top: 10px;
 }
 .page_information .platform_topic .button_right {
-	float: left;
+  position: absolute;
 	right: 10px;
-	top: 18px;
+	top: 10px;
 }
 
 .page_information .album-gallery {
@@ -191,14 +198,14 @@
   left: 5px;
 }
 
-.page_information .album_name .sync-txt {
+.page_information .album_name .sync-txt, .page_information .platform_header .sync-txt {
   transition: 0.5s all;
   position: absolute;
   font-size: 14px;
   top: 5%;
   right: 1%;
 }
-.page_information .album_name .sync-indicator {
+.page_information .album_name .sync-indicator, .page_information .platform_header .sync-indicator {
   transition: 0.5s all;
   position: absolute;
   font-size: 15px;

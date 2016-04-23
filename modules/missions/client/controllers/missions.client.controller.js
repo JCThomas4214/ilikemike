@@ -17,7 +17,38 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
     $scope.mission = [];
     $scope.mission_index = 0;
     $scope.paragraph = {
-      select: null
+      select: 0
+    };
+
+    $scope.loading = {
+      running: 0,
+      state: 'Synced'
+    };
+
+    $scope.incLoading = function () {
+      $scope.loading.running++;
+      $scope.loading.state = 'Syncing...';
+    };
+
+    $scope.decLoading = function () {
+      $scope.loading.running--;
+      if (!$scope.loading.running)
+        $scope.loading.state = 'Synced';
+    };
+
+    $scope.errorLoading = function (err) {
+      $scope.loading.running--;
+      $scope.loading.state = err;
+      console.log($scope.loading.running);
+      if ($scope.loading.running) {
+        $timeout(function () {
+          $scope.loading.state = 'Syncing...';
+        }, 1500);
+      } else {
+        $timeout(function () {
+          $scope.loading.state = 'Synced';
+        }, 1500);
+      }
     };
 
     //go to page
@@ -26,18 +57,35 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
     };
 
     $scope.openPhotoPicker = function (_mission) {
+      $scope.imageURL = '';
+      $scope.paragraph.select = 0;
       $scope.mission = _mission;
+
+      $scope.progress = {
+        state: false,
+        position: 0,
+        class: ''
+      };
 
       angular.copy(_mission, mission);
 
-      var dialog = ngDialog.open({
+      dialog = ngDialog.open({
         template: '/modules/missions/client/views/pickerDialogFormat.html',
         className: 'picker_dialog',
         scope: $scope
       });
-
       dialog.closePromise.then(function (data) {
         $scope.cancelUpload();
+      });
+    };
+
+    $scope.openDeleteMissionQ = function (_mission) {
+      $scope.mission = _mission;
+
+      dialog = ngDialog.open({
+        template: '/modules/missions/client/views/deleteMission.html',
+        className: 'deleteQ_dialog',
+        scope: $scope
       });
     };
 
@@ -84,7 +132,7 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
 
       // Redirect after save
       mission.$save(function (response) {
-        $location.path('missions/' + response._id);
+        $location.path('missions');
 
         //clear for fields
         $scope.header = '';
@@ -95,14 +143,23 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
 
     // Remove existing Mission
     $scope.remove = function (mission) {
+      ngDialog.close(dialog);
+      $scope.incLoading();
       if (mission) {
-        mission.$remove();
-
-        for (var i in $scope.missions) {
-          if ($scope.missions[i] === mission) {
-            $scope.missions.splice(i, 1);
+        mission.$remove(function (res) {
+          var ind;
+          for (var i in $scope.missions) {
+            if ($scope.missions[i] === mission) {
+              ind = i;
+            }
+            if ($scope.missions[i].order > mission.order && $scope.missions[i] !== mission) {
+              $scope.missions[i].order--;
+              $scope.missions[i].$update();
+            }
           }
-        }
+          $scope.missions.splice(ind, 1);
+          $scope.decLoading();
+        });
       } else {
         $scope.mission.$remove(function () {
           $location.path('missions');
@@ -125,8 +182,10 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
     // Update Mission Order
     var updateOrder = function (record) {
       var mission = record;
-
-      mission.$update();
+      $scope.incLoading();
+      mission.$update(function (res) {
+        $scope.decLoading();
+      });
     };
 
     // Find a list of Missions
@@ -215,6 +274,11 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
       }
     });
 
+    //upload progress
+    $scope.uploader.onProgressAll = function (progress) {
+      $scope.progress.position = progress;
+    };
+
     // Called before the user selected a new picture file
     $scope.uploader.onBeforeUploadItem = function (item) {
       item.url = 'api/missions/' + mission._id + '/bodies/' + body_index + '/width/' + width + '/height/' + height + '/caption/' + caption;
@@ -225,6 +289,7 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
       if ($window.FileReader) {
         var fileReader = new FileReader();
         fileReader.readAsDataURL(fileItem._file);
+        $scope.imageURL = fileItem._file.name;
 
         fileReader.onload = function (fileReaderEvent) {
           $timeout(function () {
@@ -252,10 +317,19 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
           break;
         }
       }
+
+      $timeout(function () {
+        // $scope.progress.position = 100;
+        $scope.progress.class = 'progress-bar-success';
+      });
+      $timeout(function () {
+        ngDialog.close(dialog);
+      }, 1000);
+
+      $scope.decLoading();
+
       // Clear upload buttons
       $scope.cancelUpload();
-
-      ngDialog.closeAll();
     };
 
     // Called after the user has failed to uploaded a new picture
@@ -265,6 +339,8 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
 
       ngDialog.closeAll();
 
+      $scope.errorLoading('Upload Error');
+
       // Show error message
       $scope.error = response.message;
       console.log($scope.error);
@@ -272,12 +348,16 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
 
     // Change user profile picture
     $scope.uploadParagraphPicture = function (body_i, pic_width, pic_height, pic_caption) {
+      $scope.incLoading();
 
       body_index = $scope.paragraph.select;
       caption = this.caption;
 
-      // Clear messages
-      $scope.success = $scope.error = null;
+      $scope.progress.state = true;
+
+      if (this.caption) {
+        caption = this.caption.replace('/', '%2f');
+      }
 
       // Start upload
       $scope.uploader.uploadAll();

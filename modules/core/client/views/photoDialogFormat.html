@@ -2,9 +2,10 @@
 	<div class="dialog_menu_title">
 		<h1>Photo Gallery</h1>
 	</div>
-	<div class="photo_content" ng-repeat="album in albums | orderBy: 'order'" ng-class="{photo_content_last : $last}">
-		<h3>{{album.name}}</h3>
-		<photodisplaywidget slides="album.gallery"></photodisplaywidget>
+	<!-- <div class="photo_content" ng-repeat="album in albums | orderBy: 'order'" ng-class="{photo_content_last : $last}"> -->
+	<div class="photo_content photo_content_last" ng-class="{photo_content_last : $last}">
+		<!-- <h3>{{album.name}}</h3> -->
+		<photodisplaywidget slides="slides1"></photodisplaywidget>
 		<photoswipewidget></photoswipewidget>
 	</div>
 </div>

@@ -128,9 +128,4 @@ angular.module('core').controller('photoCtrl', [ '$scope',
       w: 1485, h: 1203
     }];
 
-    // $scope.environment_pic = [{
-    //   src: '',
-    //   msrc: '',
-    //   w: 0000, h: 0000
-    // }];
   }]);

@@ -13,6 +13,7 @@
     		<div class="my_button_group">
 	        	<div class="my_button" ng-click="decOrder(mission)">&#9650;</div>
 	        	<div class="my_button" ng-click="incOrder(mission)">&#9660;</div>
+                <div class="my_button" ng-click="openDeleteMissionQ(mission)">del</div>
                 <div class="my_button" ng-click="openPhotoPicker(mission)">+</div>
 <!--                 <div class="my_button btn btn-default btn-file" ng-show="uploader.queue.length">
                     <div class="my_button" ng-click="uploadParagraphPicture($index, mission, 0, 466, 640, 'this is a test')"><p>Upload</p></div>
@@ -24,14 +25,17 @@
 	            <p ng-repeat="para in mission.body" ng-bind-html="para.paragraph"></p> -->
                 <div class="platform_header" ng-click="goTo('/missions/' + mission._id)">
                     <h1>{{ mission.header }}</h1>
+                    <p id="sync-txt" class="sync-txt">{{loading.state}}</p>
+                    <i id="sync-indicator" class="fa fa-circle-o-notch fa-spin sync-indicator" style="color: gray" ng-hide="!loading.running"></i>
                 </div>
                 <div class="platform_topic">
                     <p ng-repeat="para in mission.body">
-                    <span class="pic_container">
-                        <img ng-repeat="pic in para.image" ng-src="{{pic.src}}" slides="para.image" ng-style="{ display : !para.hidden_img ? 'inline' : 'none' }" ng-class="{image_left : $parent.$even, image_right : $parent.$odd}">
-                        <button class="my_remove_button" ng-click="deleteParagraphPicture($parent.$index, mission, $index)" ng-style="{ display : !para.hidden_img ? 'inline' : 'none' }" ng-class="{button_left : $even, button_right : $odd}">X</button>
-                    </span>
-                    <span class="paraSpan" style="padding-left:2em" ng-bind-html="para.paragraph"></span></p>
+                        <span ng-repeat="pic in para.image" class="pic_container" ng-class="{pic_container_left : $parent.$even, pic_container_right : $parent.$odd}">
+                            <img ng-src="{{pic.src}}" slides="para.image" ng-show="para.image.length" ng-class="{image_left : $parent.$even, image_right : $parent.$odd}">
+                            <button class="my_remove_button" ng-click="deleteParagraphPicture($parent.$index, mission, $index)" ng-style="{ display : !para.hidden_img ? 'inline' : 'none' }" ng-class="{button_left : $parent.$even, button_right : $parent.$odd}">X</button>
+                        </span>
+                        <span class="paraSpan" style="padding-left:2em" ng-bind-html="para.paragraph"></span>
+                    </p>
                 </div>
 	        </div>
         </div>

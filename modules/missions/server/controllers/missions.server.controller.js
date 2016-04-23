@@ -131,7 +131,14 @@ exports.uploadParagraphPhoto = function (req, res) {
         caption: caption
       };
 
-      mission.body[body_index].image.slice(0);
+      if (mission.body[body_index].image.length) {
+        console.log('There was another photo');
+        var fileArr = [mission.body[body_index].image[0].src];
+        //delete the files from directories
+        del(fileArr);
+        mission.body[body_index].image.splice(0, 1);
+      }
+
       mission.body[body_index].image.push(image_info);
       mission.body[body_index].hidden_img = false;
 

@@ -20,8 +20,8 @@ coverage/
 # ======================
 public/dist/
 uploads
-modules/users/client/img/photos/missions/*
-modules/users/client/img/photos/gallery/*
+modules/core/client/img/photos/missions/*
+modules/core/client/img/photos/gallery/*
 modules/users/client/img/profile/uploads
 config/env/local.js
 config/env/local-*.js

@@ -63,7 +63,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
 
       dialog = ngDialog.open({
         template: '/modules/missions/client/views/pickerPDialogFormat.html',
-        className: 'pickerp_dialog',
+        className: 'picker_dialog',
         scope: $scope
       });
 
@@ -77,7 +77,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
 
       dialog = ngDialog.open({
         template: '/modules/missions/client/views/deleteAlbum.html',
-        className: 'deleteAlbum_dialog',
+        className: 'deleteQ_dialog',
         scope: $scope
       });
     };
@@ -88,7 +88,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
 
       dialog = ngDialog.open({
         template: '/modules/missions/client/views/deletePhoto.html',
-        className: 'deletePhoto_dialog',
+        className: 'deleteQ_dialog',
         scope: $scope
       });
     };
@@ -103,7 +103,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
 
       dialog = ngDialog.open({
         template: '/modules/missions/client/views/photoCaption.html',
-        className: 'photoCaption_dialog',
+        className: 'textQ_dialog',
         scope: $scope
       });
     };
@@ -113,7 +113,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
 
       var dialog = ngDialog.open({
         template: '/modules/missions/client/views/albumName.html',
-        className: 'albumName_dialog',
+        className: 'textQ_dialog',
         scope: $scope
       });
     };

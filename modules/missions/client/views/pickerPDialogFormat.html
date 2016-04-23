@@ -5,7 +5,7 @@
 	<div class="picker_content">
 		<form class="form-horizontal" data-ng-submit="uploadAlbumPicture()" novalidate autocomplete="off">
             <fieldset>
-                <div class="form-group">
+                <div class="form-group" ng-hide="progress.state">
                     <label class="control-label" for="caption">Caption</label>
                     <div class="controls">
                         <input type="text" data-ng-model="caption" id="caption" class="form-control" placeholder="Photo Caption" required>

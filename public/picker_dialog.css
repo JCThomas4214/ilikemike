@@ -94,7 +94,8 @@
   max-width: 100%;
   padding: 1em;
   position: relative;
-  width: 40%;
+  width: 30%;
+  min-width: 450px;
 }
 
 .ngdialog.picker_dialog .ngdialog-close {
@@ -240,26 +241,89 @@
   box-shadow: 6px 4px 10px rgba(0,0,0,0.55);
 }
 .picker_dialog .dialog_menu_title h1 {
-  font: 400 4vw/1.3 'Oleo Script', Helvetica, sans-serif;
+  font: 400 60px/1.3 'Oleo Script', Helvetica, sans-serif;
   margin: 0.5% auto;
 }
 
-.picker_content {
-  text-align: left;
-  background-color: #C30F0F;
-  padding: 1% 7%;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  height: 100%;
-  margin: 1% 0;
-}
-.picker_content label {
+.picker_dialog .picker_content label {
   color: white;
 }
-.picker_content input {
+.picker_dialog .picker_content input {
 
 }
 
+.picker_dialog .fileUpload {
+     position: relative; 
+    display: inline-block;
+    overflow: hidden;
+    margin-top: -0.6%;
+    padding: 5px;
+    width: 85px;
+    margin-left: 5px;
+}
+.picker_dialog .fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.picker_dialog .file-path {
+    width: 50%;
+    padding: 5px 12px;
+    border: 0 solid;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.picker_dialog .upload-button {
+  min-width: 50px;
+  transition: 0.5s all;
+  padding: 5px;
+  background-color: #0000A5;
+  border-radius: 5px;
+  border: 0 solid;
+  color: white;    
+  font: 400 22px/1.3 'Oleo Script', Helvetica, sans-serif;
+
+  -moz-box-shadow: 2px 2px 4px rgba(0,0,0,0.45);
+  -webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.45);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.45);
+
+}
+.picker_dialog .upload-button:hover {
+  background-color: white;
+  color: #0000A5;
+
+  -moz-box-shadow: 4px 4px 4px rgba(0,0,0,0.45);
+  -webkit-box-shadow: 4px 4px 4px rgba(0,0,0,0.45);
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.45);
+}
+
+.picker_dialog .picker_content {
+    text-align: left;
+    background-color: #C30F0F;
+    padding: 0 25px 0 25px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 100%;
+    margin: 5px 0;
+}
+
+.picker_dialog .caption_text {
+  margin-bottom: 0;
+} 
+.picker_dialog .select_para {
+  width: 70%
+} 
+
+.picker_dialog .progress {
+  margin: 12px 0;
+}
 
 @media screen and (max-width: 775px) {
   .ngdialog.picker_dialog .ngdialog-content {
