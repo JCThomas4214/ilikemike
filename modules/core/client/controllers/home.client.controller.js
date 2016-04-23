@@ -27,14 +27,14 @@ angular.module('core').controller('HomeController', ['$scope', '$timeout', 'Auth
       ngDialog.open({
         template: '/modules/core/client/views/photoDialogFormat.html',
         className: 'photo_dialog',
-        // controller: ['$scope', 'PublicAlbums',
-        //   function ($scope, PublicAlbums) {
+        controller: ['$scope', 'PublicAlbums',
+          function ($scope, PublicAlbums) {
 
-        //     $scope.albums = PublicAlbums.query();
+            $scope.albums = PublicAlbums.query();
 
-        //   }
-        // ]
-        controller: 'photoCtrl'
+          }
+        ]
+        // controller: 'photoCtrl'
       });
     };
 

@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('missions').controller('MissionsController', ['$scope', '$timeout', '$window', '$stateParams', '$location', 'Authentication', 'Missions', 'DeleteParagraphPhoto', 'FileUploader', 'ngDialog',
+angular.module('missions').controller('MissionsController', ['$scope', '$timeout', '$window', '$stateParams', '$location', 'Authentication', 'Missions',
+  'DeleteParagraphPhoto', 'FileUploader', 'ngDialog',
   function ($scope, $timeout, $window, $stateParams, $location, Authentication, Missions, DeleteParagraphPhoto, FileUploader, ngDialog) {
 
     var dialog;
@@ -10,6 +11,8 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
     var width = 0;
     var height = 0;
     var caption = '';
+    var src = '';
+    var msrc = '';
     //For create and edit
     $scope.body_str = '';
     $scope.position_str = '';
@@ -295,6 +298,10 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
           $timeout(function () {
             var img = new Image();
             img.src = fileReaderEvent.target.result;
+            src = encodeURIComponent(img.src);
+            // sendBase64ToServer(img.src);
+
+            // console.log(imageDATA);
             // imageURL = fileReaderEvent.target.result;
             width = img.width;
             height = img.height;
@@ -372,6 +379,7 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
 
     //Delete photo from paragraph
     $scope.deleteParagraphPicture = function (missions_index, mission, body_index) {
+      $scope.incLoading();
       var deletePhoto = new DeleteParagraphPhoto();
 
       deletePhoto.$update({
@@ -384,7 +392,31 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
             break;
           }
         }
+        $scope.decLoading();
       });
+    };
+
+
+
+
+
+    var sendBase64ToServer = function (base64) {
+      var httpPost = new XMLHttpRequest(),
+        path = 'api/missions/' + mission._id + '/bodies/' + body_index + '/width/' + width + '/height/' + height + '/caption/' + caption,
+        data = JSON.stringify({
+          image: base64
+        });
+      httpPost.onreadystatechange = function (err) {
+        if (httpPost.readyState === 4 && httpPost.status === 200) {
+          console.log(httpPost.responseText);
+        } else {
+          console.log(err);
+        }
+      };
+      // Set the content type of the request to json since that's what's being sent
+      httpPost.setHeader('Content-Type', 'application/json');
+      httpPost.open("POST", path, true);
+      httpPost.send(data);
     };
 
   }

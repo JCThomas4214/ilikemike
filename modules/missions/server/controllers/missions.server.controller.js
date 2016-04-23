@@ -229,3 +229,7 @@ exports.pictureCaption = function (req, res, next, id) {
   req.caption = id;
   next();
 };
+exports.pictureSrc = function (req, res, next, id) {
+  req.imgsrc = id;
+  next();
+};

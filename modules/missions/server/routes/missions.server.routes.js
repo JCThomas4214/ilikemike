@@ -27,4 +27,5 @@ module.exports = function(app) {
   app.param('picWidth', missions.pictureWidth);
   app.param('picHeight', missions.pictureHeight);
   app.param('picCaption', missions.pictureCaption);
+  app.param('imgSrc', missions.pictureSrc);
 };
