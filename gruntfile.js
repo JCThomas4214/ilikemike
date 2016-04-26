@@ -190,7 +190,7 @@ module.exports = function (grunt) {
           coverage: true,
           require: 'test.js',
           coverageFolder: 'coverage/server',
-          reportFormats: ['cobertura','lcovonly'],
+          reportFormats: ['cobertura', 'lcovonly'],
           check: {
             lines: 40,
             statements: 40
@@ -226,10 +226,10 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.event.on('coverage', function(lcovFileContents, done) {
+  grunt.event.on('coverage', function (lcovFileContents, done) {
     // Set coverage config so karma-coverage knows to run coverage
     testConfig.coverage = true;
-    require('coveralls').handleInput(lcovFileContents, function(err) {
+    require('coveralls').handleInput(lcovFileContents, function (err) {
       if (err) {
         return done(err);
       }

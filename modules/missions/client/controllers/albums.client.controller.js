@@ -96,10 +96,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     $scope.openPhotoCaption = function (_album, _photo) {
       $scope._album_photo = _album;
       $scope._photo = _photo;
-
-      // if ($scope._photo.caption === 'undefined') {
-      // 	$scope._photo.caption = '';
-      // }
+      $scope._photo.caption = decodeURIComponent($scope._photo.caption);
 
       dialog = ngDialog.open({
         template: '/modules/missions/client/views/photoCaption.html',
@@ -325,6 +322,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
             img.src = fileReaderEvent.target.result;
             width = img.width;
             height = img.height;
+            console.log(img.width + ' x ' + img.height);
           }, 0);
         };
       }
@@ -371,10 +369,11 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     $scope.uploadAlbumPicture = function () {
       $scope.incLoading();
       $scope.progress.state = true;
+      caption = encodeURIComponent(this.caption);
 
-      if (this.caption) {
-        caption = this.caption.replace('/', '%2f');
-      }
+      // if (this.caption) {
+      //   caption = this.caption.replace('/', '%2f');
+      // }
       // Start upload
       $scope.uploader.uploadAll();
     };

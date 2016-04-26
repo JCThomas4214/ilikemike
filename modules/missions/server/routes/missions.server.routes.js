@@ -19,7 +19,7 @@ module.exports = function(app) {
   app.route('/api/missions/:missionsId/bodies/:bodyIndex')
     .post(users.requiresLogin, missions.deleteParagraphPhoto);
 
-  app.route('/api/missions/:missionsId/bodies/:bodyIndex/width/:picWidth/height/:picHeight/caption/:picCaption')
+  app.route('/api/missions/:missionsId/:bodyIndex/:picWidth/:picHeight/:picCaption')
     .post(users.requiresLogin, missions.uploadParagraphPhoto);
 
   app.param('missionsId', missions.missionsByID);

@@ -47,6 +47,10 @@ var AlbumSchema = new Schema({
     caption: {
       type: String,
       default: ''
+    },
+    ftpsrc: {
+      type: String,
+      required: 'Image must have a source path'
     }
   }]
 });

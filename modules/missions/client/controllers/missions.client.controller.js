@@ -160,6 +160,7 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
               $scope.missions[i].$update();
             }
           }
+
           $scope.missions.splice(ind, 1);
           $scope.decLoading();
         });
@@ -177,7 +178,7 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
       var mission = $scope.mission;
 
       mission.$update(function () {
-        $location.path('missions/' + mission._id);
+        $location.path('missions');
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
@@ -284,7 +285,7 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
 
     // Called before the user selected a new picture file
     $scope.uploader.onBeforeUploadItem = function (item) {
-      item.url = 'api/missions/' + mission._id + '/bodies/' + body_index + '/width/' + width + '/height/' + height + '/caption/' + caption;
+      item.url = 'api/missions/' + mission._id + '/' + body_index + '/' + width + '/' + height + '/' + caption;
     };
 
     // Called after the user selected a new picture file
@@ -378,7 +379,7 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
 
 
     //Delete photo from paragraph
-    $scope.deleteParagraphPicture = function (missions_index, mission, body_index) {
+    $scope.deleteParagraphPicture = function (mission, body_index) {
       $scope.incLoading();
       var deletePhoto = new DeleteParagraphPhoto();
 
@@ -395,29 +396,5 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
         $scope.decLoading();
       });
     };
-
-
-
-
-
-    var sendBase64ToServer = function (base64) {
-      var httpPost = new XMLHttpRequest(),
-        path = 'api/missions/' + mission._id + '/bodies/' + body_index + '/width/' + width + '/height/' + height + '/caption/' + caption,
-        data = JSON.stringify({
-          image: base64
-        });
-      httpPost.onreadystatechange = function (err) {
-        if (httpPost.readyState === 4 && httpPost.status === 200) {
-          console.log(httpPost.responseText);
-        } else {
-          console.log(err);
-        }
-      };
-      // Set the content type of the request to json since that's what's being sent
-      httpPost.setHeader('Content-Type', 'application/json');
-      httpPost.open("POST", path, true);
-      httpPost.send(data);
-    };
-
   }
 ]);

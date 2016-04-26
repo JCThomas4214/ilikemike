@@ -255,6 +255,7 @@
 }
 
 .deleteQ_dialog .delete-button {
+  outline-width: 0;
   min-width: 50px;
   transition: 0.5s all;
   padding: 5px;

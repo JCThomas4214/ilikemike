@@ -10,8 +10,19 @@ var mongoose = require('mongoose'),
   _ = require('lodash'),
   multer = require('multer'),
   config = require(path.resolve('./config/config')),
-  del = require('del');
+  del = require('del'),
+  JSFtp = require('jsftp'),
+  ftp = new JSFtp({
+    host: config.ftp_server.host,
+    port: config.ftp_server.port,
+    user: config.ftp_server.admin.user,
+    pass: config.ftp_server.admin.pass
+  });
 
+
+var isEmpty = function(obj) {
+  return Object.keys(obj).length === 0;
+};
 
 /**
  * Create a mission
@@ -75,6 +86,14 @@ exports.update = function (req, res) {
 exports.delete = function (req, res) {
   var missions = req.missions;
 
+  for (var i = 0; i < missions.body.length; i++) {
+    if (missions.body[i].image.length) {
+      var ftpURL = missions.body[i].image[0].ftpsrc;
+      ftp.raw.dele(ftpURL);
+      console.log('photo deleted');
+    }
+  }
+
   missions.remove(function (err) {
     if (err) {
       return res.status(400).send({
@@ -123,19 +142,40 @@ exports.uploadParagraphPhoto = function (req, res) {
       });
     } else {
 
+      ftp.put(req.file.destination + req.file.filename, config.uploads.missionUpload.ftpdest + req.file.filename, function (hadError) {
+        if (!hadError)
+          console.log('File transferred successfully!');
+      });
+
+      var imageURL = req.file.destination + req.file.filename;
+      var fileArr = [imageURL];
+      //delete the files from directories
+      del(fileArr);
+
+      if (caption.toString() === 'undefined') {
+        caption = '';
+      }
+
       var image_info = {
-        src: config.uploads.missionUpload.dest + req.file.filename,
-        msrc: config.uploads.missionUpload.dest + req.file.filename,
+        src: config.ftp_server.public.full + config.uploads.missionUpload.ftpdest + req.file.filename,
+        msrc: config.ftp_server.public.full + config.uploads.missionUpload.ftpdest + req.file.filename,
         w: width,
         h: height,
-        caption: caption
+        caption: caption,
+        ftpsrc: config.uploads.missionUpload.ftpdest + req.file.filename
       };
 
       if (mission.body[body_index].image.length) {
         console.log('There was another photo');
-        var fileArr = [mission.body[body_index].image[0].src];
-        //delete the files from directories
-        del(fileArr);
+
+        var ftpURL = mission.body[body_index].image[0].ftpsrc;
+        ftp.raw.dele(ftpURL, function (err, data) {
+          if (err) return console.error(err);
+
+          console.log(data.text); // Show the FTP response text to the user 
+          console.log(data.code); // Show the FTP response code to the user 
+        });
+
         mission.body[body_index].image.splice(0, 1);
       }
 
@@ -164,12 +204,14 @@ exports.deleteParagraphPhoto = function (req, res) {
   var mission = req.missions;
   var body_index = req.bodyindex;
 
-  var imageURL = mission.body[body_index].image[0].src;
-  var sm_imageURL = mission.body[body_index].image[0].msrc;
 
-  var fileArr = [imageURL];
-  //delete the files from directories
-  del(fileArr);
+  var ftpURL = mission.body[body_index].image[0].ftpsrc;
+  ftp.raw.dele(ftpURL, function (err, data) {
+    if (err) return console.error(err);
+
+    console.log(data.text); // Show the FTP response text to the user 
+    console.log(data.code); // Show the FTP response code to the user 
+  });
 
   mission.body[body_index].image.pop();
   mission.body[body_index].hidden_img = true;
@@ -233,3 +275,5 @@ exports.pictureSrc = function (req, res, next, id) {
   req.imgsrc = id;
   next();
 };
+
+

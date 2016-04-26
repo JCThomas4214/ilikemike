@@ -11,6 +11,7 @@ module.exports = {
   host: process.env.HOST || '0.0.0.0',
   db: {
     uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://Pyrance:flight1855@ds011331.mlab.com:11331/ilikemike_prod/mean',
+    // uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://Pyrance:flight1855@ds015928.mongolab.com:15928/ilikemike_dev/mean-dev',
     options: {
       user: 'Pyrance',
       pass: 'flight1855'

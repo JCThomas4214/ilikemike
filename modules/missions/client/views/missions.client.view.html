@@ -23,7 +23,7 @@
 	        <div class="list-group-item"><!-- | limitTo: offset - missions.length | limitTo: pageSize -->
 	            <!-- <h4 class="list-group-item-heading" data-ng-bind="mission.header"></h4>
 	            <p ng-repeat="para in mission.body" ng-bind-html="para.paragraph"></p> -->
-                <div class="platform_header" ng-click="goTo('/missions/' + mission._id)">
+                <div class="platform_header" ng-click="goTo('/missions/' + mission._id + '/edit')">
                     <h1>{{ mission.header }}</h1>
                     <p id="sync-txt" class="sync-txt">{{loading.state}}</p>
                     <i id="sync-indicator" class="fa fa-circle-o-notch fa-spin sync-indicator" style="color: gray" ng-hide="!loading.running"></i>
@@ -32,7 +32,7 @@
                     <p ng-repeat="para in mission.body">
                         <span ng-repeat="pic in para.image" class="pic_container" ng-class="{pic_container_left : $parent.$even, pic_container_right : $parent.$odd}">
                             <img ng-src="{{pic.src}}" slides="para.image" ng-show="para.image.length" ng-class="{image_left : $parent.$even, image_right : $parent.$odd}">
-                            <button class="my_remove_button" ng-click="deleteParagraphPicture($parent.$index, mission, $index)" ng-style="{ display : !para.hidden_img ? 'inline' : 'none' }" ng-class="{button_left : $parent.$even, button_right : $parent.$odd}">X</button>
+                            <button class="my_remove_button" ng-click="deleteParagraphPicture(mission, $parent.$index)" ng-style="{ display : !para.hidden_img ? 'inline' : 'none' }" ng-class="{button_left : $parent.$even, button_right : $parent.$odd}">X</button>
                         </span>
                         <span class="paraSpan" style="padding-left:2em" ng-bind-html="para.paragraph"></span>
                     </p>

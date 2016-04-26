@@ -23,9 +23,6 @@ module.exports = function (app) {
   app.route('/api/albums/:albumsId/:photosIndex')
     .patch(users.requiresLogin, albums.deleteAlbumPhoto);
 
-  app.route('/api/albums/:albumsId/:picWidth/:picHeight')
-    .patch(users.requiresLogin, albums.uploadAlbumPhoto);
-
   app.route('/api/albums/:albumsId/:picWidth/:picHeight/:picCaption')
     .patch(users.requiresLogin, albums.uploadAlbumPhoto);
 

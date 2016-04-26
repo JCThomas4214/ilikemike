@@ -38,28 +38,31 @@ module.exports = {
       }
     },
     missionUpload: {
-      dest: './modules/core/client/img/photos/missions/', // Mission photo upload destination path
-      limits: {
-        fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
-      }
-    },
-    smallMissionUpload: {
-      dest: './modules/core/client/img/photos/missions/small_ver/', // small Mission photo upload destination path
+      dest: './modules/core/client/img/photos/tmp/', // Mission photo upload tmp destination
+      ftpdest: '/www/uploads/missions/',
       limits: {
         fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
       }
     },
     galleryUpload: {
-      dest: './modules/core/client/img/photos/gallery/', // small Mission photo upload destination path
+      dest: './modules/core/client/img/photos/tmp/', // Gallery photo upload tmp destination
+      ftpdest: '/www/uploads/photo-gallery/',
       limits: {
         fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
       }
+    }
+  },
+  ftp_server: {
+    host: '71.47.252.208',
+    port: '21',
+    admin: {
+      user: 'sftpadmin',
+      pass: 'Campaign2016!'
     },
-    smallGalleryUpload: {
-      dest: './modules/core/client/img/photos/gallery/small_ver/', // small Mission photo upload destination path
-      limits: {
-        fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
-      }
+    public: {
+      user: 'sftp_user',
+      pass: 'Campaign',
+      full: 'ftp://sftp_user:Campaign@71.47.252.208:21'
     }
   }
 };
