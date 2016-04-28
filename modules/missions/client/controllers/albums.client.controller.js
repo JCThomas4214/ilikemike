@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('missions').controller('AlbumsController', ['$scope', '$location', '$window', '$timeout', '$stateParams', 'Albums', 'DeleteAlbum', 'DeleteAlbumPhoto', 'FileUploader', 'ngDialog',
-  function ($scope, $location, $window, $timeout, $stateParams, Albums, DeleteAlbum, DeleteAlbumPhoto, FileUploader, ngDialog) {
+  function($scope, $location, $window, $timeout, $stateParams, Albums, DeleteAlbum, DeleteAlbumPhoto, FileUploader, ngDialog) {
     // Controller Logic
 
     var dialog;
@@ -19,37 +19,37 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
 
 
     //go to page
-    $scope.goTo = function (loc) {
+    $scope.goTo = function(loc) {
       $location.path(loc);
     };
 
-    $scope.incLoading = function () {
+    $scope.incLoading = function() {
       $scope.loading.running++;
       $scope.loading.state = 'Syncing...';
     };
 
-    $scope.decLoading = function () {
+    $scope.decLoading = function() {
       $scope.loading.running--;
       if (!$scope.loading.running)
         $scope.loading.state = 'Synced';
     };
 
-    $scope.errorLoading = function (err) {
+    $scope.errorLoading = function(err) {
       $scope.loading.running--;
       $scope.loading.state = err;
       console.log($scope.loading.running);
       if ($scope.loading.running) {
-        $timeout(function () {
+        $timeout(function() {
           $scope.loading.state = 'Syncing...';
         }, 1500);
       } else {
-        $timeout(function () {
+        $timeout(function() {
           $scope.loading.state = 'Synced';
         }, 1500);
       }
     };
 
-    $scope.openPhotoPicker = function (_album) {
+    $scope.openPhotoPicker = function(_album) {
       $scope.imageURL = '';
 
       $scope.progress = {
@@ -67,12 +67,12 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
         scope: $scope
       });
 
-      dialog.closePromise.then(function (data) {
+      dialog.closePromise.then(function(data) {
         $scope.cancelUpload();
       });
     };
 
-    $scope.openDeleteAlbumQ = function (_album) {
+    $scope.openDeleteAlbumQ = function(_album) {
       $scope.del_album = _album;
 
       dialog = ngDialog.open({
@@ -82,7 +82,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
       });
     };
 
-    $scope.openDeletePhotoQ = function (_album, _photo) {
+    $scope.openDeletePhotoQ = function(_album, _photo) {
       $scope.del_album_photo = _album;
       $scope.del_photo = _photo;
 
@@ -93,7 +93,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
       });
     };
 
-    $scope.openPhotoCaption = function (_album, _photo) {
+    $scope.openPhotoCaption = function(_album, _photo) {
       $scope._album_photo = _album;
       $scope._photo = _photo;
       $scope._photo.caption = decodeURIComponent($scope._photo.caption);
@@ -105,7 +105,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
       });
     };
 
-    $scope.openAlbumName = function (_album) {
+    $scope.openAlbumName = function(_album) {
       $scope._album = _album;
 
       var dialog = ngDialog.open({
@@ -116,7 +116,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     // Create new Album
-    $scope.create = function () {
+    $scope.create = function() {
       // Create new Album object
       var album = new Albums({
         name: this.name,
@@ -124,15 +124,15 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
       });
 
       // Redirect after save
-      album.$save(function (response) {
+      album.$save(function(response) {
         $location.path('albums');
-      }, function (errorResponse) {
+      }, function(errorResponse) {
         console.log(errorResponse.data.message);
       });
     };
 
     // Remove existing Album
-    $scope.delete = function (album) {
+    $scope.delete = function(album) {
       $scope.incLoading();
       ngDialog.closeAll();
       var albumDel = new DeleteAlbum();
@@ -140,7 +140,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
       if (album) {
         albumDel.$update({
           albumsId: album._id
-        }, function (res) {
+        }, function(res) {
           var ind;
           for (var i = 0; i < $scope.albums.length; i++) {
             if ($scope.albums[i]._id === res._id) {
@@ -160,37 +160,37 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     // Update album name
-    $scope.updateAlbum = function (album) {
+    $scope.updateAlbum = function(album) {
       $scope.incLoading();
       ngDialog.close(dialog);
-      album.$update(function (res) {
+      album.$update(function(res) {
         $scope.decLoading();
       });
     };
 
     // Update photo caption
-    $scope.updateCaption = function (album, photo) {
+    $scope.updateCaption = function(album, photo) {
       $scope.incLoading();
       ngDialog.closeAll();
 
       if (!photo.caption)
         photo.caption = '';
 
-      album.$update(function (res) {
+      album.$update(function(res) {
         $scope.decLoading();
       });
     };
 
     // Update Mission Order
-    var updateOrder = function (album) {
+    var updateOrder = function(album) {
       $scope.incLoading();
-      album.$update(function (res) {
+      album.$update(function(res) {
         $scope.decLoading();
       });
     };
 
     //increment order for record
-    $scope.incOrder = function (album) {
+    $scope.incOrder = function(album) {
       if (album.order < $scope.albums.length) {
         var currID = album._id;
         album.order = album.order + 1;
@@ -210,7 +210,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     //decrement order for record
-    $scope.decOrder = function (album) {
+    $scope.decOrder = function(album) {
       console.log($scope.loading.running);
       if (album.order > 1) {
         var currID = album._id;
@@ -231,7 +231,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     //increment order for record
-    $scope.incPhotoOrder = function (album, photo) {
+    $scope.incPhotoOrder = function(album, photo) {
       if (photo.pic_order < album.gallery.length) {
         photo.pic_order = photo.pic_order + 1;
         var currOrder = photo.pic_order;
@@ -249,7 +249,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     //increment pic_order for record
-    $scope.decPhotoOrder = function (album, photo) {
+    $scope.decPhotoOrder = function(album, photo) {
       if (photo.pic_order > 1) {
         photo.pic_order = photo.pic_order - 1;
         var currOrder = photo.pic_order;
@@ -267,17 +267,17 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     // Find a list of Albums
-    $scope.find = function () {
+    $scope.find = function() {
       $scope.albums = Albums.query();
     };
 
     // Find existing Mission
-    $scope.findOne = function () {
+    $scope.findOne = function() {
       $scope.album = Albums.get({
         albumsId: $stateParams.albumsId
       });
 
-      $scope.album.$promise.then(function (data) {
+      $scope.album.$promise.then(function(data) {
         $scope.album = data;
 
       });
@@ -293,31 +293,31 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     // Set file uploader image filter
     $scope.uploader.filters.push({
       name: 'imageFilter',
-      fn: function (item, options) {
+      fn: function(item, options) {
         var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
         return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
       }
     });
 
     //upload progress
-    $scope.uploader.onProgressAll = function (progress) {
+    $scope.uploader.onProgressAll = function(progress) {
       $scope.progress.position = progress;
     };
 
     // Called before the user selected a new picture file
-    $scope.uploader.onBeforeUploadItem = function (item) {
+    $scope.uploader.onBeforeUploadItem = function(item) {
       item.url = 'api/albums/' + $scope.album._id + '/' + width + '/' + height + '/' + caption;
     };
 
     // Called after the user selected a new picture file
-    $scope.uploader.onAfterAddingFile = function (fileItem) {
+    $scope.uploader.onAfterAddingFile = function(fileItem) {
       if ($window.FileReader) {
         var fileReader = new FileReader();
         fileReader.readAsDataURL(fileItem._file);
         $scope.imageURL = fileItem._file.name;
 
-        fileReader.onload = function (fileReaderEvent) {
-          $timeout(function () {
+        fileReader.onload = function(fileReaderEvent) {
+          $timeout(function() {
             var img = new Image();
             img.src = fileReaderEvent.target.result;
             width = img.width;
@@ -329,7 +329,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     // Called after the user has successfully uploaded a new picture
-    $scope.uploader.onSuccessItem = function (fileItem, response, status, headers) {
+    $scope.uploader.onSuccessItem = function(fileItem, response, status, headers) {
 
 
       for (var i = 0; i < $scope.albums.length; i++) {
@@ -339,11 +339,11 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
         }
       }
 
-      $timeout(function () {
+      $timeout(function() {
         // $scope.progress.position = 100;
         $scope.progress.class = 'progress-bar-success';
       });
-      $timeout(function () {
+      $timeout(function() {
         ngDialog.closeAll();
       }, 1000);
 
@@ -353,7 +353,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     // Called after the user has failed to uploaded a new picture
-    $scope.uploader.onErrorItem = function (fileItem, response, status, headers) {
+    $scope.uploader.onErrorItem = function(fileItem, response, status, headers) {
       ngDialog.closeAll();
       // Clear upload buttons
       $scope.cancelUpload();
@@ -366,7 +366,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     // Change user profile picture
-    $scope.uploadAlbumPicture = function () {
+    $scope.uploadAlbumPicture = function() {
       $scope.incLoading();
       $scope.progress.state = true;
       caption = encodeURIComponent(this.caption);
@@ -379,13 +379,13 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     // Cancel the upload process
-    $scope.cancelUpload = function () {
+    $scope.cancelUpload = function() {
       $scope.uploader.clearQueue();
     };
 
 
     //Delete photo from paragraph
-    $scope.deleteAlbumPicture = function (album, photo) {
+    $scope.deleteAlbumPicture = function(album, photo) {
       $scope.incLoading();
       ngDialog.closeAll();
       var deletePhoto = new DeleteAlbumPhoto();
@@ -401,7 +401,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
       deletePhoto.$update({
         albumsId: album._id,
         photosIndex: pIndex
-      }, function (res) {
+      }, function(res) {
         console.log(res);
         angular.copy(res, album);
         $scope.decLoading();
