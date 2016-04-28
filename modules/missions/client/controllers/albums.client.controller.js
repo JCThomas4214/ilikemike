@@ -12,6 +12,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     var height;
     var caption = '';
 
+
     $scope.loading = {
       running: 0,
       state: 'Synced'
