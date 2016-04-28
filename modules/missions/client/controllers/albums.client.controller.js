@@ -48,7 +48,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
           $scope.loading.state = 'Synced';
         }, 1500);
       }
-    }
+    };
 
     $scope.openPhotoPicker = function (_album) {
       $scope.imageURL = '';
