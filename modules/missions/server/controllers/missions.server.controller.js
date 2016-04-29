@@ -42,8 +42,6 @@ var deletePhotoFromFTP = function (src) {
   });
 };
 
-//TODO: This is a todo test
-
 /**
  * Create a mission
  */
@@ -144,159 +142,159 @@ exports.list = function (req, res) {
   Mission photo upload
 **/
 exports.uploadParagraphPhoto = function (req, res) {
-    var mission = req.missions;
-    var body_index = req.bodyindex;
-    var width = req.width;
-    var height = req.height;
-    var caption = req.caption;
+  var mission = req.missions;
+  var body_index = req.bodyindex;
+  var width = req.width;
+  var height = req.height;
+  var caption = req.caption;
 
-    var message = null;
-    var storage = multer.diskStorage({
-      destination: function (req, file, cb) {
-        cb(null, config.uploads.missionUpload.dest);
-      },
-      filename: function (req, file, cb) {
-        cb(null, file.originalname);
-      }
-    });
-    var multerUpload = multer({
-      storage: storage
-    });
-    var upload = multerUpload.single('newMissionPicture');
+  var message = null;
+  var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, config.uploads.missionUpload.dest);
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname);
+    }
+  });
+  var multerUpload = multer({
+    storage: storage
+  });
+  var upload = multerUpload.single('newMissionPicture');
 
-    upload(req, res, function (uploadError) {
-        if (uploadError) {
-          return res.status(400).send({
-            message: 'Error occurred while uploading profile picture'
-          });
-        } else {
+  upload(req, res, function (uploadError) {
+    if (uploadError) {
+      return res.status(400).send({
+        message: 'Error occurred while uploading profile picture'
+      });
+    } else {
 
-          lwip.open(req.file.destination + req.file.filename, function (err, image) {
-              image.batch()
-                .scale(0.2)
-                .writeFile(req.file.destination + 'sm_' + req.file.filename, function (err) {
-                  if (err) throw err;
+      lwip.open(req.file.destination + req.file.filename, function (err, image) {
+        image.batch()
+          .scale(0.2)
+          .writeFile(req.file.destination + 'sm_' + req.file.filename, function (err) {
+            if (err) throw err;
 
-                  uploadPhotoToFTP(req.file.destination + req.file.filename, config.uploads.missionUpload.ftpdest + req.file.filename);
-                  uploadPhotoToFTP(req.file.destination + 'sm_' + req.file.filename, config.uploads.missionUpload.ftpdest + 'small_ver/' + req.file.filename);
+            uploadPhotoToFTP(req.file.destination + req.file.filename, config.uploads.missionUpload.ftpdest + req.file.filename);
+            uploadPhotoToFTP(req.file.destination + 'sm_' + req.file.filename, config.uploads.missionUpload.ftpdest + 'small_ver/' + req.file.filename);
 
-                  var imageURL = req.file.destination + '*';
-                  var fileArr = [imageURL];
-                  //delete the files from directories
-                  del(fileArr);
+            var imageURL = req.file.destination + '*';
+            var fileArr = [imageURL];
+            //delete the files from directories
+            del(fileArr);
 
-                  if (caption.toString() === 'undefined') {
-                    caption = '';
-                  }
+            if (caption.toString() === 'undefined') {
+              caption = '';
+            }
 
-                  var image_info = {
-                    src: config.ftp_server.public.full + config.uploads.missionUpload.ftpdest + req.file.filename,
-                    msrc: config.ftp_server.public.full + config.uploads.missionUpload.ftpdest + req.file.filename,
-                    w: width,
-                    h: height,
-                    caption: caption,
-                    ftpsrc: config.uploads.missionUpload.ftpdest + req.file.filename,
-                    mftpsrc: config.uploads.missionUpload.ftpdest + 'small_ver/' + req.file.filename
-                  };
+            var image_info = {
+              src: config.ftp_server.public.full + config.uploads.missionUpload.ftpdest + req.file.filename,
+              msrc: config.ftp_server.public.full + config.uploads.missionUpload.ftpdest + req.file.filename,
+              w: width,
+              h: height,
+              caption: caption,
+              ftpsrc: config.uploads.missionUpload.ftpdest + req.file.filename,
+              mftpsrc: config.uploads.missionUpload.ftpdest + 'small_ver/' + req.file.filename
+            };
 
-                  if (mission.body[body_index].image.length) {
-                    console.log('There was another photo');
+            if (mission.body[body_index].image.length) {
+              console.log('There was another photo');
 
-                    deletePhotoFromFTP(mission.body[body_index].image[0].ftpsrc);
-                    deletePhotoFromFTP(mission.body[body_index].image[0].mftpsrc);
+              deletePhotoFromFTP(mission.body[body_index].image[0].ftpsrc);
+              deletePhotoFromFTP(mission.body[body_index].image[0].mftpsrc);
 
-                    mission.body[body_index].image.splice(0, 1);
-                  }
+              mission.body[body_index].image.splice(0, 1);
+            }
 
-                  mission.body[body_index].image.push(image_info);
-                  mission.body[body_index].hidden_img = false;
+            mission.body[body_index].image.push(image_info);
+            mission.body[body_index].hidden_img = false;
 
-                  req.missions = mission;
-                  mission.save(function (saveError) {
-                    if (saveError) {
-                      return res.status(400).send({
-                        message: errorHandler.getErrorMessage(saveError)
-                      });
-                    } else {
-                      res.json(mission);
-                    }
-                  });
+            req.missions = mission;
+            mission.save(function (saveError) {
+              if (saveError) {
+                return res.status(400).send({
+                  message: errorHandler.getErrorMessage(saveError)
                 });
+              } else {
+                res.json(mission);
+              }
             });
-          }
-        });
-    };
-
-    /**
-      Mission photo delete
-    **/
-    exports.deleteParagraphPhoto = function (req, res) {
-      console.log('inside the deleteParagraphPhoto server func');
-      var mission = req.missions;
-      var body_index = req.bodyindex;
-
-      deletePhotoFromFTP(mission.body[body_index].image[0].ftpsrc);
-      deletePhotoFromFTP(mission.body[body_index].image[0].mftpsrc);
-
-      mission.body[body_index].image.pop();
-      mission.body[body_index].hidden_img = true;
-
-      mission.save(function (saveError) {
-        if (saveError) {
-          console.log('there was an error in uploadparagraphphoto update: ' + errorHandler.getErrorMessage(saveError));
-          return res.status(400).send({
-            message: errorHandler.getErrorMessage(saveError)
           });
-        } else {
-          res.json(mission);
-        }
       });
-    };
+    }
+  });
+};
 
+/**
+  Mission photo delete
+**/
+exports.deleteParagraphPhoto = function (req, res) {
+  console.log('inside the deleteParagraphPhoto server func');
+  var mission = req.missions;
+  var body_index = req.bodyindex;
 
-    /**
-    	Missions middleware
-    **/
-    exports.missionsByID = function (req, res, next, id) {
-      if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).send({
-          message: 'Mission is invalid'
-        });
-      }
+  deletePhotoFromFTP(mission.body[body_index].image[0].ftpsrc);
+  deletePhotoFromFTP(mission.body[body_index].image[0].mftpsrc);
 
-      Missions.findById(id).exec(function (err, missions) {
-        if (err) return next(err);
-        if (!missions) {
-          return res.status(404).send({
-            message: 'Mission not found'
-          });
-        }
-        req.missions = missions;
-        next();
+  mission.body[body_index].image.pop();
+  mission.body[body_index].hidden_img = true;
+
+  mission.save(function (saveError) {
+    if (saveError) {
+      console.log('there was an error in uploadparagraphphoto update: ' + errorHandler.getErrorMessage(saveError));
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(saveError)
       });
-    };
-    exports.bodyByIndex = function (req, res, next, id) {
-      if (id >= req.missions.body.length) {
-        return res.status(400).send({
-          message: 'Body index is invalid'
-        });
-      }
-      req.bodyindex = id;
-      next();
-    };
-    exports.pictureWidth = function (req, res, next, id) {
-      req.width = id;
-      next();
-    };
-    exports.pictureHeight = function (req, res, next, id) {
-      req.height = id;
-      next();
-    };
-    exports.pictureCaption = function (req, res, next, id) {
-      req.caption = id;
-      next();
-    };
-    exports.pictureSrc = function (req, res, next, id) {
-      req.imgsrc = id;
-      next();
-    };
+    } else {
+      res.json(mission);
+    }
+  });
+};
+
+
+/**
+	Missions middleware
+**/
+exports.missionsByID = function (req, res, next, id) {
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      message: 'Mission is invalid'
+    });
+  }
+
+  Missions.findById(id).exec(function (err, missions) {
+    if (err) return next(err);
+    if (!missions) {
+      return res.status(404).send({
+        message: 'Mission not found'
+      });
+    }
+    req.missions = missions;
+    next();
+  });
+};
+exports.bodyByIndex = function (req, res, next, id) {
+  if (id >= req.missions.body.length) {
+    return res.status(400).send({
+      message: 'Body index is invalid'
+    });
+  }
+  req.bodyindex = id;
+  next();
+};
+exports.pictureWidth = function (req, res, next, id) {
+  req.width = id;
+  next();
+};
+exports.pictureHeight = function (req, res, next, id) {
+  req.height = id;
+  next();
+};
+exports.pictureCaption = function (req, res, next, id) {
+  req.caption = id;
+  next();
+};
+exports.pictureSrc = function (req, res, next, id) {
+  req.imgsrc = id;
+  next();
+};

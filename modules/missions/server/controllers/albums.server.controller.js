@@ -38,9 +38,7 @@ var deletePhotoFromFTP = function (src) {
 
   ftp.raw.dele(src, function (err, data) {
     if (err) return console.error(err);
-
     console.log(data.text); // Show the FTP response text to the user
-    console.log(data.code); // Show the FTP response code to the user
   });
 };
 
