@@ -63,7 +63,7 @@ angular.module('missions')
         photosIndex: '@_photo_id'
       }, {
         update: {
-          method: 'PATCH'
+          method: 'POST'
         }
       });
     }

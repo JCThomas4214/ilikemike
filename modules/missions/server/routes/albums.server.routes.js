@@ -4,7 +4,7 @@ module.exports = function (app) {
   var albums = require('../controllers/albums.server.controller.js');
   var users = require('../../../users/server/controllers/users.server.controller.js');
 
-  // Routing logic  
+  // Routing logic
   app.route('/api/albums/public')
     .get(albums.list);
 
@@ -21,10 +21,10 @@ module.exports = function (app) {
     .delete(users.requiresLogin, albums.deleteAlbum);
 
   app.route('/api/albums/:albumsId/:photosIndex')
-    .patch(users.requiresLogin, albums.deleteAlbumPhoto);
+    .post(users.requiresLogin, albums.deleteAlbumPhoto);
 
   app.route('/api/albums/:albumsId/:picWidth/:picHeight/:picCaption')
-    .patch(users.requiresLogin, albums.uploadAlbumPhoto);
+    .post(users.requiresLogin, albums.uploadAlbumPhoto);
 
   app.param('albumsId', albums.albumByID);
   app.param('photosIndex', albums.photoByID);

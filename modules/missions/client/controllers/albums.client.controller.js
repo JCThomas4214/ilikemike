@@ -288,7 +288,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     // Create file uploader instance
     $scope.uploader = new FileUploader({
       alias: 'newAlbumPicture',
-      method: 'PATCH'
+      method: 'POST'
     });
 
     // Set file uploader image filter

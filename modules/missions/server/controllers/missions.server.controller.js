@@ -178,10 +178,10 @@ exports.uploadParagraphPhoto = function (req, res) {
             uploadPhotoToFTP(req.file.destination + req.file.filename, config.uploads.missionUpload.ftpdest + req.file.filename);
             uploadPhotoToFTP(req.file.destination + 'sm_' + req.file.filename, config.uploads.missionUpload.ftpdest + 'small_ver/' + req.file.filename);
 
-            var imageURL = req.file.destination + '*';
-            var fileArr = [imageURL];
-            //delete the files from directories
-            del(fileArr);
+            // var imageURL = req.file.destination + '*';
+            // var fileArr = [imageURL];
+            // //delete the files from directories
+            // del(fileArr);
 
             if (caption.toString() === 'undefined') {
               caption = '';
