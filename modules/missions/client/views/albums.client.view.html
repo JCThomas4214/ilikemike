@@ -19,10 +19,10 @@
                 </div>
                 <div class="album-gallery">
                 	<div class="photo_frame" ng-repeat="photo in album.gallery | orderBy: 'pic_order'">
-                		<img ng-src="{{photo.src}}" ng-click="openPhotoCaption(album, photo)">
+                		<img ng-src="{{photo.msrc}}" ng-click="openPhotoCaption(album, photo)">
                 		<button class="photo_delete_button" ng-click="openDeletePhotoQ(album, photo)">X</button>
                 		<button class="photo_orderdec_button" ng-click="decPhotoOrder(album,photo)">&#9668;</button>
-                		<button class="photo_orderinc_button" ng-click="incPhotoOrder(album,photo)">&#9658;</button>                		
+                		<button class="photo_orderinc_button" ng-click="incPhotoOrder(album,photo)">&#9658;</button>
                 	</div>
                 </div>
 	        </div>

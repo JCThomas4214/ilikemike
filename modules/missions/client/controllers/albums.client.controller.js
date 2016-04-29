@@ -372,9 +372,6 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
       $scope.progress.state = true;
       caption = encodeURIComponent(this.caption);
 
-      // if (this.caption) {
-      //   caption = this.caption.replace('/', '%2f');
-      // }
       // Start upload
       $scope.uploader.uploadAll();
     };

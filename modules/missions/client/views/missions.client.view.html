@@ -31,7 +31,7 @@
                 <div class="platform_topic">
                     <p ng-repeat="para in mission.body">
                         <span ng-repeat="pic in para.image" class="pic_container" ng-class="{pic_container_left : $parent.$even, pic_container_right : $parent.$odd}">
-                            <img ng-src="{{pic.src}}" slides="para.image" ng-show="para.image.length" ng-class="{image_left : $parent.$even, image_right : $parent.$odd}">
+                            <img ng-src="{{pic.msrc}}" slides="para.image" ng-show="para.image.length" ng-class="{image_left : $parent.$even, image_right : $parent.$odd}">
                             <button class="my_remove_button" ng-click="deleteParagraphPicture(mission, $parent.$index)" ng-style="{ display : !para.hidden_img ? 'inline' : 'none' }" ng-class="{button_left : $parent.$even, button_right : $parent.$odd}">X</button>
                         </span>
                         <span class="paraSpan" style="padding-left:2em" ng-bind-html="para.paragraph"></span>

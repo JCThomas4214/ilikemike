@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
  * Album Schema
  */
 var AlbumSchema = new Schema({
-  // Album model fields   
+  // Album model fields
   created: {
     type: Date,
     default: Date.now
@@ -49,6 +49,10 @@ var AlbumSchema = new Schema({
       default: ''
     },
     ftpsrc: {
+      type: String,
+      required: 'Image must have a source path'
+    },
+    mftpsrc: {
       type: String,
       required: 'Image must have a source path'
     }

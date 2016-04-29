@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
  * Missions Schema
  */
 var MissionsSchema = new Schema({
-  // Missions model fields   
+  // Missions model fields
   created: {
     type: Date,
     default: Date.now
@@ -50,6 +50,10 @@ var MissionsSchema = new Schema({
         default: ''
       },
       ftpsrc: {
+        type: String,
+        required: 'Image must have a source path'
+      },
+      mftpsrc: {
         type: String,
         required: 'Image must have a source path'
       }

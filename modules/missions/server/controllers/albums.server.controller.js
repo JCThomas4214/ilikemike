@@ -12,9 +12,37 @@ var mongoose = require('mongoose'),
   config = require(path.resolve('./config/config')),
   del = require('del'),
   JSFtp = require('jsftp'),
-  im = require('imagemagick');
+  lwip = require('lwip');
 
+var uploadPhotoToFTP = function (src, dest) {
+  var ftp = new JSFtp({
+    host: config.ftp_server.host,
+    port: config.ftp_server.port,
+    user: config.ftp_server.admin.user,
+    pass: config.ftp_server.admin.pass
+  });
 
+  ftp.put(src, dest, function (hadError) {
+    if (!hadError)
+      console.log('File transferred successfully!');
+  });
+};
+
+var deletePhotoFromFTP = function (src) {
+  var ftp = new JSFtp({
+    host: config.ftp_server.host,
+    port: config.ftp_server.port,
+    user: config.ftp_server.admin.user,
+    pass: config.ftp_server.admin.pass
+  });
+
+  ftp.raw.dele(src, function (err, data) {
+    if (err) return console.error(err);
+
+    console.log(data.text); // Show the FTP response text to the user
+    console.log(data.code); // Show the FTP response code to the user
+  });
+};
 
 /**
  * Create a Album
@@ -111,14 +139,10 @@ exports.list = function (req, res) {
 exports.deleteAlbum = function (req, res) {
   var album = req.album;
 
-  var fileArr = [];
-
   for (var i = 0; i < album.gallery.length; i++) {
-    fileArr.push(album.gallery[i].src);
-    // fileArr.push(album.gallery[i].msrc);
+    deletePhotoFromFTP(album.gallery[i].ftpsrc);
+    deletePhotoFromFTP(album.gallery[i].mftpsrc);
   }
-  //delete the files from directories
-  del(fileArr);
 
   album.remove(function (saveError) {
     if (saveError) {
@@ -139,16 +163,20 @@ exports.uploadAlbumPhoto = function (req, res) {
   var width = req.width;
   var height = req.height;
   var caption = req.caption;
-  var ftp = new JSFtp({
-    host: config.ftp_server.host,
-    port: config.ftp_server.port,
-    user: config.ftp_server.admin.user,
-    pass: config.ftp_server.admin.pass
-  });
 
   var message = null;
-  var upload = multer(config.uploads.galleryUpload).single('newAlbumPicture');
-  var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
+  var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, config.uploads.galleryUpload.dest);
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname);
+    }
+  });
+  var multerUpload = multer({
+    storage: storage
+  });
+  var upload = multerUpload.single('newAlbumPicture');
 
 
   upload(req, res, function (uploadError) {
@@ -158,53 +186,49 @@ exports.uploadAlbumPhoto = function (req, res) {
       });
     } else {
 
-      // im.resize({
-      //   srcPath: req.file.destination + req.file.filename,
-      //   dstPath: req.file.destination + '/small_ver/' + req.file.filename,
-      //   height: 400
-      // }, function (err, stdout, stderr) {
-      //   if (err) throw err;
-      //   console.log('resized ' + req.file.filename);
-      // });
+      lwip.open(req.file.destination + req.file.filename, function (err, image) {
+        image.batch()
+          .scale(0.2)
+          .writeFile(req.file.destination + 'sm_' + req.file.filename, function (err) {
+            if (err) throw err;
 
-      console.log(req.file);
+            uploadPhotoToFTP(req.file.destination + req.file.filename, config.uploads.galleryUpload.ftpdest + req.file.filename);
+            uploadPhotoToFTP(req.file.destination + 'sm_' + req.file.filename, config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename);
 
-      // ftp.put(req.file.destination + req.file.filename, config.uploads.galleryUpload.ftpdest + req.file.filename, function (hadError) {
-      //   if (!hadError)
-      //     console.log('File transferred successfully!');
-      // });
+            var imageURL = req.file.destination + '*';
+            var fileArr = [imageURL];
+            //delete the files from directories
+            del(fileArr);
 
-      var imageURL = req.file.destination + req.file.filename;
-      var fileArr = [imageURL];
-      //delete the files from directories
-      del(fileArr);
+            if (caption.toString() === 'undefined') {
+              caption = '';
+            }
 
-      if (caption.toString() === 'undefined') {
-        caption = '';
-      }
+            var image_info = {
+              pic_order: album.gallery.length + 1,
+              src: config.ftp_server.public.full + config.uploads.galleryUpload.ftpdest + req.file.filename,
+              msrc: config.ftp_server.public.full + config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename,
+              w: width,
+              h: height,
+              caption: caption,
+              ftpsrc: config.uploads.galleryUpload.ftpdest + req.file.filename,
+              mftpsrc: config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename
+            };
 
-      var image_info = {
-        pic_order: album.gallery.length + 1,
-        src: config.ftp_server.public.full + config.uploads.galleryUpload.ftpdest + req.file.filename,
-        msrc: config.ftp_server.public.full + config.uploads.galleryUpload.ftpdest + req.file.filename,
-        w: width,
-        h: height,
-        caption: caption,
-        ftpsrc: config.uploads.galleryUpload.ftpdest + req.file.filename
-      };
+            album.gallery.push(image_info);
 
-      album.gallery.push(image_info);
-
-      req.album = album;
-      // album.save(function (saveError) {
-      //   if (saveError) {
-      //     return res.status(400).send({
-      //       message: errorHandler.getErrorMessage(saveError)
-      //     });
-      //   } else {
-      //     res.json(album);
-      //   }
-      // });
+            req.album = album;
+            album.save(function (saveError) {
+              if (saveError) {
+                return res.status(400).send({
+                  message: errorHandler.getErrorMessage(saveError)
+                });
+              } else {
+                res.json(album);
+              }
+            });
+          });
+      });
     }
   });
 };
@@ -216,21 +240,9 @@ exports.deleteAlbumPhoto = function (req, res) {
   var album = req.album;
   var photo_index = req.photoIndex;
   var photo_order = album.gallery[photo_index].pic_order;
-  var ftp = new JSFtp({
-    host: config.ftp_server.host,
-    port: config.ftp_server.port,
-    user: config.ftp_server.admin.user,
-    pass: config.ftp_server.admin.pass
-  });
 
-  var ftpURL = album.gallery[photo_index].ftpsrc;
-  ftp.raw.dele(ftpURL, function (err, data) {
-    if (err) return console.error(err);
-
-    console.log(data.text); // Show the FTP response text to the user
-    console.log(data.code); // Show the FTP response code to the user
-  });
-
+  deletePhotoFromFTP(album.gallery[photo_index].ftpsrc);
+  deletePhotoFromFTP(album.gallery[photo_index].mftpsrc);
 
   album.gallery.splice(photo_index, 1);
 
