@@ -38,5 +38,9 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         ignoreState: true
       }
     });
+    // .state('oauth', {
+    //   url: '/oauth?code=:oauthcode',
+    //   templateUrl: 'modules/core/client/views/oauth.html'
+    // });
   }
 ]);

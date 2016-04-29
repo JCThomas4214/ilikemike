@@ -1,5 +1,7 @@
 'use strict';
 
+var http = require('http');
+var request = require('request');
 var validator = require('validator');
 var nodemailer = require('nodemailer');
 var generator = require('xoauth2').createXOAuth2Generator({
@@ -8,9 +10,100 @@ var generator = require('xoauth2').createXOAuth2Generator({
   clientSecret: '4VTManev5OXkLGyg_yPRgk_M',
   refreshToken: '1/4ddjdt4h43zb74nrxFy1K3sZL0yk_80t3wgpKa_yFsbBactUREZofsF9C7PrpE-j'
 });
+
+//
+//  Google OAuth2.0 with google contacts
+//
+var google = require('googleapis');
+var urlshortener = google.urlshortener('v1');
+var OAuth2 = google.auth.OAuth2;
+
+var CLIENT_ID = '446944948375-v68mcs3mmv22760ph9bkloculunp59mi.apps.googleusercontent.com';
+var CLIENT_SECRET = '4VTManev5OXkLGyg_yPRgk_M';
+var REDIRECT_URL = 'https://developers.google.com/oauthplayground';
+
+var AUTH_CODE = '4/uDZ7z_GJiYZaxrRGkyfeC4PZ62BD0Ma0yOwgRMeFm0c';
+
+var news_letter_group_id = '774b7e270dd38630';
+var volenteer_group_id = '8301b858babcf44';
+
+var oauth2Client = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+
+// generate a url that asks permissions for Google+ and Google Calendar scopes
+var scopes = [
+  'https://www.google.com/m8/feeds/'
+];
+// Get authentication URL for AUTH_CODE to access tokens
+var url = oauth2Client.generateAuthUrl({
+  access_type: 'offline', // 'online' (default) or 'offline' (gets refresh_token)
+  scope: scopes // If you only need one scope you can pass it as string
+});
+// console.log(url);
+
+var options = {
+  host: url,
+  path: '/oauth'
+};
+
+var callback = function (response) {
+  var body = '';
+
+  response.on('data', function (d) {
+    body += d;
+  });
+  response.on('end', function () {
+    var parsed = JSON.parse(body);
+    console.log(parsed);
+  });
+
+};
+
+request(url, function (error, response, body) {
+  if (!error && response.statusCode === 200) {
+    // console.log(response); // Show the HTML for the Google homepage.
+  }
+});
+
+
+// var req = request.get(url);
+//
+// console.log(req.httpModule);
+var oauth = function (auth_code) {
+  oauth2Client.getToken(auth_code, function (err, tokens) {
+    // Now tokens contains an access_token and an optional refresh_token. Save them.
+    if (!err) {
+      oauth2Client.setCredentials(tokens);
+      console.log(tokens);
+    }
+    // console.log(err);
+  });
+};
+
+
+// var contact = JSON.stringify({
+//   name: {
+//     fullName: 'test test'
+//   },
+//   email: 'thisIsATest@gmail.com'
+// });
+
+// http.post('https://www.google.com/m8/feeds/contacts/mikeforflasenate@gmail.com/full', {
+//   data: contact,
+//   header: {
+//     Authorization:
+//   }
+// });
+
+// var contacts = google.drive({ version: 'v3', auth: oauth2Client });
+
+//
+//  END of Google Contacts API
+//
+
+
 // listen for token updates
 // you probably want to store these to a db
-generator.on('token', function(token){
+generator.on('token', function (token) {
   console.log('New token for %s: %s', token.user, token.accessToken);
 });
 // login
@@ -22,6 +115,15 @@ var transporter = nodemailer.createTransport(({
     xoauth2: generator
   }
 }));
+
+exports.googleOAuth = function (req, res) {
+  console.log('Inside the oauth');
+  console.log('Inside the oauth');
+  console.log('Inside the oauth');
+  console.log('Inside the oauth');
+  console.log('Inside the oauth');
+  console.log('Inside the oauth');
+};
 
 /**
  * Render the main application page
@@ -154,4 +256,12 @@ exports.volunteer_sendMail = function (req, res) {
 
   res.json(data);
 
+};
+
+
+exports.oauthCode = function (req, res, next, id) {
+
+  oauth(id);
+  req.code = id;
+  next();
 };

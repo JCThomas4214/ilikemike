@@ -11,7 +11,8 @@ var mongoose = require('mongoose'),
   multer = require('multer'),
   config = require(path.resolve('./config/config')),
   del = require('del'),
-  JSFtp = require('jsftp');
+  JSFtp = require('jsftp'),
+  im = require('imagemagick');
 
 
 
@@ -157,10 +158,21 @@ exports.uploadAlbumPhoto = function (req, res) {
       });
     } else {
 
-      ftp.put(req.file.destination + req.file.filename, config.uploads.galleryUpload.ftpdest + req.file.filename, function (hadError) {
-        if (!hadError)
-          console.log('File transferred successfully!');
-      });
+      // im.resize({
+      //   srcPath: req.file.destination + req.file.filename,
+      //   dstPath: req.file.destination + '/small_ver/' + req.file.filename,
+      //   height: 400
+      // }, function (err, stdout, stderr) {
+      //   if (err) throw err;
+      //   console.log('resized ' + req.file.filename);
+      // });
+
+      console.log(req.file);
+
+      // ftp.put(req.file.destination + req.file.filename, config.uploads.galleryUpload.ftpdest + req.file.filename, function (hadError) {
+      //   if (!hadError)
+      //     console.log('File transferred successfully!');
+      // });
 
       var imageURL = req.file.destination + req.file.filename;
       var fileArr = [imageURL];
@@ -184,15 +196,15 @@ exports.uploadAlbumPhoto = function (req, res) {
       album.gallery.push(image_info);
 
       req.album = album;
-      album.save(function (saveError) {
-        if (saveError) {
-          return res.status(400).send({
-            message: errorHandler.getErrorMessage(saveError)
-          });
-        } else {
-          res.json(album);
-        }
-      });
+      // album.save(function (saveError) {
+      //   if (saveError) {
+      //     return res.status(400).send({
+      //       message: errorHandler.getErrorMessage(saveError)
+      //     });
+      //   } else {
+      //     res.json(album);
+      //   }
+      // });
     }
   });
 };
@@ -215,8 +227,8 @@ exports.deleteAlbumPhoto = function (req, res) {
   ftp.raw.dele(ftpURL, function (err, data) {
     if (err) return console.error(err);
 
-    console.log(data.text); // Show the FTP response text to the user 
-    console.log(data.code); // Show the FTP response code to the user 
+    console.log(data.text); // Show the FTP response text to the user
+    console.log(data.code); // Show the FTP response code to the user
   });
 
 
