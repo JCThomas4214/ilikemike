@@ -54,13 +54,13 @@ module.exports = {
   },
   ftp_server: {
     host: '71.47.252.208',
-    port: '2793',
+    port: '21',
     admin: {
       user: 'sftpadmin',
       pass: 'Campaign2016!'
     },
     public: {
-      full: 'ftp://71.47.252.208:2793'
+      full: 'ftp://71.47.252.208'
     }
   }
 };
