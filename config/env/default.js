@@ -60,9 +60,7 @@ module.exports = {
       pass: 'Campaign2016!'
     },
     public: {
-      user: 'sftp_user',
-      pass: 'Campaign',
-      full: 'ftp://sftp_user:Campaign@71.47.252.208:2793'
+      full: 'ftp://71.47.252.208:2793'
     }
   }
 };
