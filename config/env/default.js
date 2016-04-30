@@ -62,5 +62,8 @@ module.exports = {
     public: {
       full: 'ftp://71.47.252.208'
     }
+  },
+  dropboxAPI: {
+    access_token: 'HkqQF1z-TFAAAAAAAAAAZmGDirwwJrTBxYGxjXvjrhrvOXqbRizZJpjX7oVha7ub'
   }
 };
