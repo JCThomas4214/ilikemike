@@ -27,6 +27,8 @@ var uploadPhotoToFTP = function (src, dest) {
       var fileArr = [src];
       del(fileArr);
       console.log('File transferred successfully!');
+    } else {
+      console.log(hadError);
     }
   });
 };
