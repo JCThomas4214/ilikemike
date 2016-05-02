@@ -1,8 +1,8 @@
 <div id="container" class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" ng-repeat="slide in slides | orderBy: 'pic_order'">
         <a ng-href="{{slide.src}}" itemprop="contentUrl" data-size="{{slide.w}}x{{slide.h}}">
-            <img ng-src="{{slide.msrc}}" itemprop="thumbnail" alt="Image description"/>
+            <img ng-src="{{slide.src}}" itemprop="thumbnail" alt="Image description"/>
         </a>
-        <figcaption itemprop="caption description">{{slide.caption}}</figcaption>                                                    
+        <figcaption itemprop="caption description">{{slide.caption}}</figcaption>
     </figure>
 </div>

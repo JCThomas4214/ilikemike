@@ -80,9 +80,12 @@ module.exports.initMiddleware = function (app) {
 
   // Request body parsing middleware should be above methodOverride
   app.use(bodyParser.urlencoded({
+    limit: '10mb',
     extended: true
   }));
-  app.use(bodyParser.json());
+  app.use(bodyParser.json({
+    limit: '10mb'
+  }));
   app.use(methodOverride());
 
   // Add the cookie parser and flash middleware
@@ -98,6 +101,7 @@ module.exports.initMiddleware = function (app) {
   //       return next();
   //   });
   // }
+
 };
 
 /**
@@ -238,7 +242,7 @@ module.exports.init = function (db) {
 
   // Initialize Express view engine
   this.initViewEngine(app);
-  
+
   // Initialize Helmet security headers
   this.initHelmetHeaders(app);
 

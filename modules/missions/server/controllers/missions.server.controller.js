@@ -12,8 +12,8 @@ var mongoose = require('mongoose'),
   multer = require('multer'),
   config = require(path.resolve('./config/config')),
   del = require('del'),
-  JSFtp = require('jsftp'),
-  lwip = require('lwip');
+  JSFtp = require('jsftp');
+  // lwip = require('lwip');
 
 var uploadPhotoToFTP = function (src, dest) {
   var ftp = new JSFtp({
@@ -173,53 +173,53 @@ exports.uploadParagraphPhoto = function (req, res) {
       });
     } else {
 
-      lwip.open(req.file.destination + req.file.filename, function (err, image) {
-        image.batch()
-          .scale(0.2)
-          .writeFile(req.file.destination + 'sm_' + req.file.filename, function (err) {
-            if (err) throw err;
-
-            uploadPhotoToFTP(req.file.destination + req.file.filename, config.uploads.missionUpload.ftpdest + req.file.filename);
-            uploadPhotoToFTP(req.file.destination + 'sm_' + req.file.filename, config.uploads.missionUpload.ftpdest + 'small_ver/' + req.file.filename);
-
-            if (caption.toString() === 'undefined') {
-              caption = '';
-            }
-
-            var image_info = {
-              src: config.ftp_server.public.full + config.uploads.missionUpload.ftpdest + req.file.filename,
-              msrc: config.ftp_server.public.full + config.uploads.missionUpload.ftpdest + req.file.filename,
-              w: width,
-              h: height,
-              caption: caption,
-              ftpsrc: config.uploads.missionUpload.ftpdest + req.file.filename,
-              mftpsrc: config.uploads.missionUpload.ftpdest + 'small_ver/' + req.file.filename
-            };
-
-            if (mission.body[body_index].image.length) {
-              console.log('There was another photo');
-
-              deletePhotoFromFTP(mission.body[body_index].image[0].ftpsrc);
-              deletePhotoFromFTP(mission.body[body_index].image[0].mftpsrc);
-
-              mission.body[body_index].image.splice(0, 1);
-            }
-
-            mission.body[body_index].image.push(image_info);
-            mission.body[body_index].hidden_img = false;
-
-            req.missions = mission;
-            mission.save(function (saveError) {
-              if (saveError) {
-                return res.status(400).send({
-                  message: errorHandler.getErrorMessage(saveError)
-                });
-              } else {
-                res.json(mission);
-              }
-            });
-          });
-      });
+      // lwip.open(req.file.destination + req.file.filename, function (err, image) {
+      //   image.batch()
+      //     .scale(0.2)
+      //     .writeFile(req.file.destination + 'sm_' + req.file.filename, function (err) {
+      //       if (err) throw err;
+      //
+      //       uploadPhotoToFTP(req.file.destination + req.file.filename, config.uploads.missionUpload.ftpdest + req.file.filename);
+      //       uploadPhotoToFTP(req.file.destination + 'sm_' + req.file.filename, config.uploads.missionUpload.ftpdest + 'small_ver/' + req.file.filename);
+      //
+      //       if (caption.toString() === 'undefined') {
+      //         caption = '';
+      //       }
+      //
+      //       var image_info = {
+      //         src: config.ftp_server.public.full + config.uploads.missionUpload.ftpdest + req.file.filename,
+      //         msrc: config.ftp_server.public.full + config.uploads.missionUpload.ftpdest + req.file.filename,
+      //         w: width,
+      //         h: height,
+      //         caption: caption,
+      //         ftpsrc: config.uploads.missionUpload.ftpdest + req.file.filename,
+      //         mftpsrc: config.uploads.missionUpload.ftpdest + 'small_ver/' + req.file.filename
+      //       };
+      //
+      //       if (mission.body[body_index].image.length) {
+      //         console.log('There was another photo');
+      //
+      //         deletePhotoFromFTP(mission.body[body_index].image[0].ftpsrc);
+      //         deletePhotoFromFTP(mission.body[body_index].image[0].mftpsrc);
+      //
+      //         mission.body[body_index].image.splice(0, 1);
+      //       }
+      //
+      //       mission.body[body_index].image.push(image_info);
+      //       mission.body[body_index].hidden_img = false;
+      //
+      //       req.missions = mission;
+      //       mission.save(function (saveError) {
+      //         if (saveError) {
+      //           return res.status(400).send({
+      //             message: errorHandler.getErrorMessage(saveError)
+      //           });
+      //         } else {
+      //           res.json(mission);
+      //         }
+      //       });
+      //     });
+      // });
     }
   });
 };

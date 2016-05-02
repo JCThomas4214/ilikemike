@@ -11,8 +11,8 @@ var mongoose = require('mongoose'),
   multer = require('multer'),
   config = require(path.resolve('./config/config')),
   del = require('del'),
-  JSFtp = require('jsftp'),
-  lwip = require('lwip');
+  JSFtp = require('jsftp');
+  // lwip = require('lwip');
 
 var uploadPhotoToFTP = function (src, dest) {
   var ftp = new JSFtp({
@@ -158,6 +158,53 @@ exports.deleteAlbum = function (req, res) {
   });
 };
 
+
+// Store photo record into Mongo
+exports.storePhotoRecord = function (req, res) {
+  console.log('We are in the photo store api');
+
+  var album = req.album;
+  // var width = req.body.width;
+  // var height = req.body.height;
+  // var caption = req.body.caption;
+  // var imageLink = req.body.imageLink;
+  // var imageURL = req.body.imageURL;
+
+  // var image_info = {
+  //   pic_order: album.gallery.length + 1,
+  //   src: imageLink,
+  //   msrc: imageLink,
+  //   w: width,
+  //   h: height,
+  //   caption: caption,
+  //   ftpsrc: imageURL,
+  //   mftpsrc: imageURL
+  // };
+
+  console.log(album);
+
+  // album.gallery.push(image_info);
+  //
+  // req.album = album;
+  // album.save(function (saveError) {
+  //   if (saveError) {
+  //     return res.status(400).send({
+  //       message: errorHandler.getErrorMessage(saveError)
+  //     });
+  //   } else {
+  //     res.json(album);
+  //   }
+  // });
+  res.json({
+    done: 'yes'
+  });
+};
+
+
+
+
+
+
 /**
   Album photo upload
 **/
@@ -181,6 +228,8 @@ exports.uploadAlbumPhoto = function (req, res) {
   });
   var upload = multerUpload.single('newAlbumPicture');
 
+  console.log(upload.data);
+
 
   upload(req, res, function (uploadError) {
     if (uploadError) {
@@ -189,44 +238,44 @@ exports.uploadAlbumPhoto = function (req, res) {
       });
     } else {
 
-      lwip.open(req.file.destination + req.file.filename, function (err, image) {
-        image.batch()
-          .scale(0.2)
-          .writeFile(req.file.destination + 'sm_' + req.file.filename, function (err) {
-            if (err) throw err;
-
-            uploadPhotoToFTP(req.file.destination + req.file.filename, config.uploads.galleryUpload.ftpdest + req.file.filename);
-            uploadPhotoToFTP(req.file.destination + 'sm_' + req.file.filename, config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename);
-
-            if (caption.toString() === 'undefined') {
-              caption = '';
-            }
-
-            var image_info = {
-              pic_order: album.gallery.length + 1,
-              src: config.ftp_server.public.full + config.uploads.galleryUpload.ftpdest + req.file.filename,
-              msrc: config.ftp_server.public.full + config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename,
-              w: width,
-              h: height,
-              caption: caption,
-              ftpsrc: config.uploads.galleryUpload.ftpdest + req.file.filename,
-              mftpsrc: config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename
-            };
-
-            album.gallery.push(image_info);
-
-            req.album = album;
-            album.save(function (saveError) {
-              if (saveError) {
-                return res.status(400).send({
-                  message: errorHandler.getErrorMessage(saveError)
-                });
-              } else {
-                res.json(album);
-              }
-            });
-          });
-      });
+      // lwip.open(req.file.destination + req.file.filename, function (err, image) {
+      //   image.batch()
+      //     .scale(0.2)
+      //     .writeFile(req.file.destination + 'sm_' + req.file.filename, function (err) {
+      //       if (err) throw err;
+      //
+      //       uploadPhotoToFTP(req.file.destination + req.file.filename, config.uploads.galleryUpload.ftpdest + req.file.filename);
+      //       uploadPhotoToFTP(req.file.destination + 'sm_' + req.file.filename, config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename);
+      //
+      //       if (caption.toString() === 'undefined') {
+      //         caption = '';
+      //       }
+      //
+      //       var image_info = {
+      //         pic_order: album.gallery.length + 1,
+      //         src: config.ftp_server.public.full + config.uploads.galleryUpload.ftpdest + req.file.filename,
+      //         msrc: config.ftp_server.public.full + config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename,
+      //         w: width,
+      //         h: height,
+      //         caption: caption,
+      //         ftpsrc: config.uploads.galleryUpload.ftpdest + req.file.filename,
+      //         mftpsrc: config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename
+      //       };
+      //
+      //       album.gallery.push(image_info);
+      //
+      //       req.album = album;
+      //       album.save(function (saveError) {
+      //         if (saveError) {
+      //           return res.status(400).send({
+      //             message: errorHandler.getErrorMessage(saveError)
+      //           });
+      //         } else {
+      //           res.json(album);
+      //         }
+      //       });
+      //     });
+      // });
     }
   });
 };
@@ -265,6 +314,24 @@ exports.deleteAlbumPhoto = function (req, res) {
 /**
 	Albums middleware
 **/
+exports.findAlbum = function (req, res, next) {
+  if (!mongoose.Types.ObjectId.isValid(req.body.albumsId)) {
+    return res.status(400).send({
+      message: 'Album is invalid'
+    });
+  }
+
+  Album.findById(req.body.albumsId).exec(function (err, album) {
+    if (err) return next(err);
+    if (!album) {
+      return res.status(404).send({
+        message: 'Album not found'
+      });
+    }
+    req.album = album;
+    next();
+  });
+};
 exports.albumByID = function (req, res, next, id) {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({

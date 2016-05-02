@@ -35,6 +35,22 @@ angular.module('missions')
   ]);
 
 angular.module('missions')
+  .factory('StoreRecord', ['$resource',
+
+    function ($resource) {
+      // Albums service logic
+      // ...
+
+      // Public API
+      return $resource('api/albums/store', {}, {
+        record: {
+          method: 'POST'
+        }
+      });
+    }
+  ]);
+
+angular.module('missions')
   .factory('DeleteAlbum', ['$resource',
     function ($resource) {
       // Missions service logic

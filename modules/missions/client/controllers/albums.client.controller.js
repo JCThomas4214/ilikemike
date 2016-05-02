@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('missions').controller('AlbumsController', ['$scope', '$location', '$window', '$timeout', '$stateParams', 'Albums', 'DeleteAlbum', 'DeleteAlbumPhoto', 'FileUploader', 'ngDialog',
-  function ($scope, $location, $window, $timeout, $stateParams, Albums, DeleteAlbum, DeleteAlbumPhoto, FileUploader, ngDialog) {
+angular.module('missions').controller('AlbumsController', ['$scope', '$location', '$window', '$timeout', '$stateParams', 'Albums', 'StoreRecord',
+  'DeleteAlbum', 'DeleteAlbumPhoto', 'Dropboxapi', 'FileUploader', 'ngDialog',
+  function ($scope, $location, $window, $timeout, $stateParams, Albums, StoreRecord, DeleteAlbum, DeleteAlbumPhoto, Dropboxapi, FileUploader, ngDialog) {
     // Controller Logic
 
     var dialog;
@@ -51,7 +52,16 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     $scope.openPhotoPicker = function (_album) {
-      $scope.imageURL = '';
+      $scope.newImage = {
+        image: '',
+        imageName: '',
+        imageURL: 'uploads/photo-gallery/',
+        caption: '',
+        width: 0,
+        height: 0,
+        imageLink: ''
+      };
+
 
       $scope.progress = {
         state: false,
@@ -68,9 +78,9 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
         scope: $scope
       });
 
-      dialog.closePromise.then(function (data) {
-        $scope.cancelUpload();
-      });
+      // dialog.closePromise.then(function (data) {
+      //   $scope.cancelUpload();
+      // });
     };
 
     $scope.openDeleteAlbumQ = function (_album) {
@@ -270,6 +280,7 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     // Find a list of Albums
     $scope.find = function () {
       $scope.albums = Albums.query();
+      // Dropboxapi.oauth();
     };
 
     // Find existing Mission
@@ -368,12 +379,28 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
 
     // Change user profile picture
     $scope.uploadAlbumPicture = function () {
-      $scope.incLoading();
-      $scope.progress.state = true;
-      caption = encodeURIComponent(this.caption);
+      // $scope.incLoading();
+      // $scope.progress.state = true;
+      // caption = encodeURIComponent(this.caption);
 
       // Start upload
-      $scope.uploader.uploadAll();
+      // $scope.uploader.upload();
+
+
+
+      var store = new StoreRecord();
+
+      var dbresource = Dropboxapi.save($scope.newImage);
+
+      dbresource.$promise.then(function (data) {
+        dbresource.albumsId = $scope.album._id;
+        console.log(dbresource);
+        StoreRecord.record(dbresource, function (res) {
+          console.log(res);
+        });
+      });
+
+
     };
 
     // Cancel the upload process
