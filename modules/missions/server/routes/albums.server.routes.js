@@ -12,8 +12,8 @@ module.exports = function (app) {
     .get(users.requiresLogin, albums.list)
     .post(users.requiresLogin, albums.create);
 
-  app.route('/api/albums/store')
-    .post(users.requiresLogin, albums.findAlbum, albums.storePhotoRecord);
+  app.route('/api/albums/:albumsId/:picWidth/:picHeight/:picCaption/:picUrl/:picLink')
+    .put(users.requiresLogin, albums.storePhotoRecord);
 
   app.route('/api/albums/:albumsId')
     .get(users.requiresLogin, albums.read)
@@ -34,4 +34,6 @@ module.exports = function (app) {
   app.param('picWidth', albums.pictureWidth);
   app.param('picHeight', albums.pictureHeight);
   app.param('picCaption', albums.pictureCaption);
+  app.param('picUrl', albums.pictureUrl);
+  app.param('picLink', albums.pictureLink);
 };

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('missions').controller('AlbumsController', ['$scope', '$location', '$window', '$timeout', '$stateParams', 'Albums', 'StoreRecord',
-  'DeleteAlbum', 'DeleteAlbumPhoto', 'Dropboxapi', 'FileUploader', 'ngDialog',
-  function ($scope, $location, $window, $timeout, $stateParams, Albums, StoreRecord, DeleteAlbum, DeleteAlbumPhoto, Dropboxapi, FileUploader, ngDialog) {
+  'DeleteAlbum', 'DeleteAlbumPhoto', 'Dropboxapi', 'DropboxHostapi', 'FileUploader', 'ngDialog',
+  function ($scope, $location, $window, $timeout, $stateParams, Albums, StoreRecord, DeleteAlbum, DeleteAlbumPhoto, Dropboxapi, DropboxHostapi, FileUploader, ngDialog) {
     // Controller Logic
 
     var dialog;
@@ -390,12 +390,8 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
 
       var store = new StoreRecord();
 
-      var dbresource = Dropboxapi.save($scope.newImage);
-
-      dbresource.$promise.then(function (data) {
-        dbresource.albumsId = $scope.album._id;
-        console.log(dbresource);
-        StoreRecord.record(dbresource, function (res) {
+      Dropboxapi.save($scope.newImage, function (res) {
+        DropboxHostapi.share(res, function (res) {
           console.log(res);
         });
       });

@@ -7,22 +7,22 @@ var path = require('path'),
   mongoose = require('mongoose'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash'),
-  request = require('request');
+  request = require('request'),
+  dbox = require('dbox');
 
-var dbox = require('dbox');
-
-var createDbClient = function () {
-  var dboxapp = dbox.app({
+var createDboxClient = function () {
+  var app = dbox.app({
     'app_key': '3kmzi6rj4ujdhfe',
     'app_secret': '2pr0jb3i7n6rpsp'
   });
-  var dboxclient = dboxapp.client({
+  return app.client({
     oauth_token_secret: 'd67hmv8yrnk6y7u',
     oauth_token: 'hdvlf7jv8q0cjvw7',
     uid: '555930359'
   });
-  return dboxclient;
 };
+
+
 
 /**
  * Create a Drop box api
@@ -81,9 +81,8 @@ exports.authorization = function (req, res) {
 };
 
 exports.uploadToDropbox = function (req, res) {
-  console.log('We are in the uploadToDropBox api');
 
-  var dboxclient = createDbClient();
+  var dboxclient = createDboxClient();
 
   var imageResponce = {
     imageLink: '',
@@ -102,17 +101,31 @@ exports.uploadToDropbox = function (req, res) {
   // console.log(u);
 
   dboxclient.put(imagePath, buffer, function (status, reply) {
-    console.log(reply);
     // Create a shared link, get the actual link, amnipulate, and store to mongo
     dboxclient.shares(imagePath, function (status, reply) {
-      request(reply.url, function (e, response) {
-        var dblink = response.request.uri.href;
-        // replace https://www.dropbox.com with https://dl.dropboxusercontent.com
-        imageResponce.imageLink = dblink.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
-        console.log(imageResponce.imageLink);
-        // send back to store into mongo
-        res.json(imageResponce);
-      });
+      imageResponce.imageLink = reply.url;
+      res.json(imageResponce);
+    });
+  });
+};
+
+var requestHostLink = function (url) {
+  request(url, function (err, response) {
+    var dblink = response.request.uri.href;
+    // replace https://www.dropbox.com with https://dl.dropboxusercontent.com
+    var link = dblink.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
+    // send back to store into mongo
+    return link;
+  });
+};
+
+exports.createPhotoHost = function (req, res) {
+  console.log('We are in the createPhotoHost api');
+  var link = requestHostLink(req.body.imageLink);
+  // Find a way to wait for link to have a value
+  link.addListener('success', function(value) {
+    res.json({
+      imageLink: link
     });
   });
 };

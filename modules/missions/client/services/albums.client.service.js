@@ -42,9 +42,16 @@ angular.module('missions')
       // ...
 
       // Public API
-      return $resource('api/albums/store', {}, {
+      return $resource('/api/albums/:albumsId/:picWidth/:picHeight/:picCaption/:picUrl/:picLink', {
+        albumsId: '@_id',
+        picWidth: '@width',
+        picHeight: '@height',
+        picCaption: '@caption',
+        picUrl: '@url',
+        picLink : '@link'
+      }, {
         record: {
-          method: 'POST'
+          method: 'PUT'
         }
       });
     }

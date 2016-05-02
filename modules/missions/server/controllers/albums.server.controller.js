@@ -163,7 +163,7 @@ exports.deleteAlbum = function (req, res) {
 exports.storePhotoRecord = function (req, res) {
   console.log('We are in the photo store api');
 
-  var album = req.album;
+  // var album = req.album;
   // var width = req.body.width;
   // var height = req.body.height;
   // var caption = req.body.caption;
@@ -181,7 +181,7 @@ exports.storePhotoRecord = function (req, res) {
   //   mftpsrc: imageURL
   // };
 
-  console.log(album);
+  // console.log(album);
 
   // album.gallery.push(image_info);
   //
@@ -196,7 +196,7 @@ exports.storePhotoRecord = function (req, res) {
   //   }
   // });
   res.json({
-    done: 'yes'
+    status: 'GOOD'
   });
 };
 
@@ -364,5 +364,13 @@ exports.pictureHeight = function (req, res, next, id) {
 };
 exports.pictureCaption = function (req, res, next, id) {
   req.caption = id;
+  next();
+};
+exports.pictureUrl = function (req, res, next, id) {
+  req.picurl = id;
+  next();
+};
+exports.pictureLink = function (req, res, next, id) {
+  req.piclink = id;
   next();
 };
