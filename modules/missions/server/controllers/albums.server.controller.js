@@ -163,40 +163,37 @@ exports.deleteAlbum = function (req, res) {
 exports.storePhotoRecord = function (req, res) {
   console.log('We are in the photo store api');
 
-  // var album = req.album;
-  // var width = req.body.width;
-  // var height = req.body.height;
-  // var caption = req.body.caption;
-  // var imageLink = req.body.imageLink;
-  // var imageURL = req.body.imageURL;
+  var album = req.album;
+  var width = req.body.width;
+  var height = req.body.height;
+  var caption = req.body.caption;
+  var imageLink = req.body.imageLink;
+  var imageURL = req.body.imageURL;
 
-  // var image_info = {
-  //   pic_order: album.gallery.length + 1,
-  //   src: imageLink,
-  //   msrc: imageLink,
-  //   w: width,
-  //   h: height,
-  //   caption: caption,
-  //   ftpsrc: imageURL,
-  //   mftpsrc: imageURL
-  // };
+  var image_info = {
+    pic_order: album.gallery.length + 1,
+    src: imageLink,
+    msrc: imageLink,
+    w: width,
+    h: height,
+    caption: caption,
+    ftpsrc: imageURL,
+    mftpsrc: imageURL
+  };
 
-  // console.log(album);
+  console.log(image_info);
 
-  // album.gallery.push(image_info);
-  //
-  // req.album = album;
-  // album.save(function (saveError) {
-  //   if (saveError) {
-  //     return res.status(400).send({
-  //       message: errorHandler.getErrorMessage(saveError)
-  //     });
-  //   } else {
-  //     res.json(album);
-  //   }
-  // });
-  res.json({
-    status: 'GOOD'
+  album.gallery.push(image_info);
+
+  req.album = album;
+  album.save(function (saveError) {
+    if (saveError) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(saveError)
+      });
+    } else {
+      res.json(album);
+    }
   });
 };
 

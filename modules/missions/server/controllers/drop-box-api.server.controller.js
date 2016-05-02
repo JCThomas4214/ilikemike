@@ -110,22 +110,27 @@ exports.uploadToDropbox = function (req, res) {
 };
 
 var requestHostLink = function (url) {
-  request(url, function (err, response) {
-    var dblink = response.request.uri.href;
-    // replace https://www.dropbox.com with https://dl.dropboxusercontent.com
-    var link = dblink.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
-    // send back to store into mongo
-    return link;
-  });
+
 };
 
 exports.createPhotoHost = function (req, res) {
   console.log('We are in the createPhotoHost api');
-  var link = requestHostLink(req.body.imageLink);
-  // Find a way to wait for link to have a value
-  link.addListener('success', function(value) {
-    res.json({
-      imageLink: link
+
+  var imageResponce = {
+    width: req.body.width,
+    height: req.body.height,
+    imageURL: req.body.imageURL,
+    caption: req.body.caption,
+    albumsId: ''
+  };
+
+  request
+    .get(req.body.imageLink)
+    .on('response', function (response) {
+      var dblink = response.request.uri.href;
+      // replace https://www.dropbox.com with https://dl.dropboxusercontent.com
+      imageResponce.imageLink = dblink.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
+      // send back to store into mongo
+      res.json(imageResponce);
     });
-  });
 };

@@ -12,8 +12,8 @@ module.exports = function (app) {
     .get(users.requiresLogin, albums.list)
     .post(users.requiresLogin, albums.create);
 
-  app.route('/api/albums/:albumsId/:picWidth/:picHeight/:picCaption/:picUrl/:picLink')
-    .put(users.requiresLogin, albums.storePhotoRecord);
+  app.route('/api/albums/store')
+    .post(users.requiresLogin, albums.findAlbum, albums.storePhotoRecord);
 
   app.route('/api/albums/:albumsId')
     .get(users.requiresLogin, albums.read)
