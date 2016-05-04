@@ -10,6 +10,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
     // If user is signed in then redirect back home
     if ($scope.authentication.user) {
+      // This is what I need to change to redirect the user to a user page
       $location.path('/');
     }
 

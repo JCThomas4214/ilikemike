@@ -161,7 +161,7 @@ exports.deleteAlbum = function (req, res) {
 
 // Store photo record into Mongo
 exports.storePhotoRecord = function (req, res) {
-  console.log('We are in the photo store api');
+  // console.log('We are in the photo store api');
 
   var album = req.album;
   var width = req.body.width;
@@ -181,7 +181,7 @@ exports.storePhotoRecord = function (req, res) {
     mftpsrc: imageURL
   };
 
-  console.log(image_info);
+  // console.log(image_info);
 
   album.gallery.push(image_info);
 

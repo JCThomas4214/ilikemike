@@ -391,13 +391,13 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
       var store = new StoreRecord();
 
       Dropboxapi.save($scope.newImage, function (res) {
-        DropboxHostapi.share(res, function (res) {
-          console.log(res);
-          res.albumsId = $scope.album._id;
-          StoreRecord.store(res, function (res) {
-            console.log(res);
-          });
-        });
+        // DropboxHostapi.share(res, function (res) {
+        //   console.log(res);
+        //   // res.albumsId = $scope.album._id;
+        //   // StoreRecord.store(res, function (res) {
+        //   //   console.log(res);
+        //   // });
+        // });
       });
 
 
