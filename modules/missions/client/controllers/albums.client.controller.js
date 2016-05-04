@@ -302,109 +302,36 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
     };
 
     // Photo Upload Process
-    // Create file uploader instance
-    $scope.uploader = new FileUploader({
-      alias: 'newAlbumPicture',
-      method: 'POST'
-    });
-
-    // Set file uploader image filter
-    $scope.uploader.filters.push({
-      name: 'imageFilter',
-      fn: function (item, options) {
-        var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
-        return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
-      }
-    });
-
-    //upload progress
-    $scope.uploader.onProgressAll = function (progress) {
-      $scope.progress.position = progress;
-    };
-
-    // Called before the user selected a new picture file
-    $scope.uploader.onBeforeUploadItem = function (item) {
-      item.url = 'api/albums/' + $scope.album._id + '/' + width + '/' + height + '/' + caption;
-    };
-
-    // Called after the user selected a new picture file
-    $scope.uploader.onAfterAddingFile = function (fileItem) {
-      if ($window.FileReader) {
-        var fileReader = new FileReader();
-        fileReader.readAsDataURL(fileItem._file);
-        $scope.imageURL = fileItem._file.name;
-
-        fileReader.onload = function (fileReaderEvent) {
-          $timeout(function () {
-            var img = new Image();
-            img.src = fileReaderEvent.target.result;
-            width = img.width;
-            height = img.height;
-            console.log(img.width + ' x ' + img.height);
-          }, 0);
-        };
-      }
-    };
-
-    // Called after the user has successfully uploaded a new picture
-    $scope.uploader.onSuccessItem = function (fileItem, response, status, headers) {
-
-
-      for (var i = 0; i < $scope.albums.length; i++) {
-        if ($scope.albums[i]._id === response._id) {
-          angular.copy(response, $scope.albums[i]);
-          break;
-        }
-      }
-
-      $timeout(function () {
-        // $scope.progress.position = 100;
-        $scope.progress.class = 'progress-bar-success';
-      });
-      $timeout(function () {
-        ngDialog.closeAll();
-      }, 1000);
-
-      $scope.decLoading();
-      // Clear upload buttons
-      $scope.cancelUpload();
-    };
-
-    // Called after the user has failed to uploaded a new picture
-    $scope.uploader.onErrorItem = function (fileItem, response, status, headers) {
-      ngDialog.closeAll();
-      // Clear upload buttons
-      $scope.cancelUpload();
-
-      $scope.errorLoading('Upload Error');
-
-      // Show error message
-      $scope.error = response.message;
-      console.log($scope.error);
-    };
-
-    // Change user profile picture
     $scope.uploadAlbumPicture = function () {
-      // $scope.incLoading();
-      // $scope.progress.state = true;
-      // caption = encodeURIComponent(this.caption);
+      $scope.incLoading();
+      $scope.progress.state = true;
 
       // Start upload
-      // $scope.uploader.upload();
-
       if (!active && $scope.newImage.imageName) {
         active = true;
+        $scope.progress.position = 20;
         Dropboxapi.save($scope.newImage, function (res) {
+          $scope.progress.position = 60;
           DropboxHostapi.share(res, function (res) {
+            $scope.progress.position = 80;
             console.log(res);
             res.albumsId = $scope.album._id;
             StoreRecord.store(res, function (res) {
-              ngDialog.close(dialog);
+
+              $timeout(function () {
+                $scope.progress.position = 100;
+                $scope.progress.class = 'progress-bar-success';
+              });
+              $timeout(function () {
+                ngDialog.closeAll();
+              }, 1000);
+
               console.log(res);
               for (var i = 0; i < $scope.albums.length; i++) {
                 if ($scope.albums[i]._id === res._id) $scope.albums[i] = res;
               }
               active = false;
+              $scope.decLoading();
             });
           });
         });
