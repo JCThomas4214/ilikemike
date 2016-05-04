@@ -9,7 +9,7 @@ html, body {
   /*height: 100vh;*/
   padding-top: 80px;
   overflow: auto;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 .container {
   width: 80%;
@@ -36,7 +36,7 @@ html, body {
     -webkit-transform: rotate(-15deg);
     transform: rotate(-15deg);
 }
-.donation_button:hover {  
+.donation_button:hover {
   -o-transform: rotate(0);
   -moz-transform: rotate(0);
   -ms-transform: rotate(0);
@@ -50,7 +50,7 @@ html, body {
   top: 9%;
   right: 18%;
 }
-.donation_button2:hover {  
+.donation_button2:hover {
   opacity: 1 !important;
 
   -o-transform: rotate(15deg);
@@ -66,7 +66,7 @@ html, body {
   top: 9%;
   left: 18%;
 }
-.donation_button3:hover {  
+.donation_button3:hover {
   opacity: 1 !important;
 
   -o-transform: rotate(-15deg);
@@ -128,7 +128,7 @@ _:-ms-lang(x), .my-gallery img {
   max-height: none;
   object-fit: auto;
 }
-  
+
 .section_footer{
   margin: 0 -25%;
 }
@@ -218,7 +218,7 @@ a:hover .header-profile-image {
 .title_container .heading2 {
   text-align: center;
   margin-top: 1vw !important;
-  margin_bottom: 1vw !important; 
+  margin_bottom: 1vw !important;
 
   font: 400 4vw/1.3 'Oleo Script', Helvetica, sans-serif;
   font-weight: bold;
@@ -253,9 +253,9 @@ a:hover .header-profile-image {
   margin: 0 !important;
   color: #0000A5 !important;
   padding: 10px;
-  border-bottom-left-radius: 10px; 
+  border-bottom-left-radius: 10px;
 
-  font: 400 4vw/1.3 'Oleo Script', Helvetica, sans-serif; 
+  font: 400 4vw/1.3 'Oleo Script', Helvetica, sans-serif;
   font-weight: bold;
   text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
 }
@@ -280,7 +280,7 @@ a:hover .header-profile-image {
   box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
 }
 .form_main {
-  background-color: #C30F0F; 
+  background-color: #C30F0F;
   padding: 10px 15px 15px 15px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -320,7 +320,7 @@ a:hover .header-profile-image {
   outline-width: 0;
 }
 .toast_box {
-  margin: 0;  
+  margin: 0;
   font: 400 25px/1.3 'Oleo Script', Helvetica, sans-serif;
 }
 
@@ -340,7 +340,7 @@ a:hover .header-profile-image {
   margin: 0 !important;
   background-color: #C30F0F;
   font: 400 6vw/0.8 'Great Vibes', Helvetica, sans-serif;
-  color: white;  
+  color: white;
   text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
 
   border-top-left-radius: 15px;
@@ -391,7 +391,7 @@ a:hover .header-profile-image {
 }
 
 .mission_photo {
-  display: inline-block;    
+  display: inline-block;
   margin: 0 0 0 3%;
   vertical-align: top;
   background-color: transparent;
@@ -408,7 +408,7 @@ a:hover .header-profile-image {
   padding-left: 12%;
   padding-right: 12%;
 }
-.content_section_about .col_left { 
+.content_section_about .col_left {
   width: 48%;
   display:inline-block;
   vertical-align: top;
@@ -452,7 +452,7 @@ a:hover .header-profile-image {
 .vid_header {
   padding: 5px;
   background-color: white;
-  border-top-right-radius: 10px !important;  
+  border-top-right-radius: 10px !important;
   border-top-left-radius: 10px !important;
 
   margin-bottom: 1%;
@@ -461,7 +461,7 @@ a:hover .header-profile-image {
   -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
   box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
 }
-.vid_main {  
+.vid_main {
   background-color: #C30F0F;
   margin-bottom: 3%;
   padding: 10px;
@@ -503,7 +503,7 @@ a:hover .header-profile-image {
   display: inline-block;
   margin-left: 1%;
 }
-.outter_container {  
+.outter_container {
   display:inline-block;
   width: 100% !important;
   width: auto;
@@ -745,7 +745,7 @@ a:hover .header-profile-image {
   font: 400 30px/1.3 'Oleo Script', Helvetica, sans-serif;
   text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
   border-top-right-radius: 10px;
-  border-top-left-radius: 10px; 
+  border-top-left-radius: 10px;
 
   -moz-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
   -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
@@ -758,11 +758,11 @@ a:hover .header-profile-image {
   text-align: center;
   color:white;
   margin: 0;
-  font-family: 'Courgette', cursive; 
+  font-family: 'Courgette', cursive;
   font-size: 30px;
   text-shadow: 4px 2px 2px rgba(0,0,0,0.25);
   border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px; 
+  border-bottom-left-radius: 10px;
 
   -moz-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
   -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
@@ -795,7 +795,7 @@ a:hover .header-profile-image {
   vertical-align: top;
   width: 32%
 }
-.volunteer_info .col_left .col_info h1, 
+.volunteer_info .col_left .col_info h1,
 .volunteer_info .col_middle .col_info h1,
 .volunteer_info .col_right .col_info h1 {
   margin: 0 0 1% 0;
@@ -859,7 +859,6 @@ a:hover .header-profile-image {
 .donation_exp .donation_balloon {
   display: inline-block;
   vertical-align: top;
-  background-image: url('/modules/core/client/img/backgrounds/donation_balloon.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
@@ -885,7 +884,7 @@ a:hover .header-profile-image {
   width: 28%;
 }
 .donation_exp .donate_image img {
-  width: 100%;  
+  width: 100%;
   transition: 0.5s all;
 }
 .donation_exp .donate_image img:hover {
@@ -912,9 +911,9 @@ a:hover .header-profile-image {
   font: 400 3vw/1.3 'Oleo Script', Helvetica, sans-serif;
   font-weight: bold;
   text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
-  
+
   border-top-right-radius: 10px;
-  border-top-left-radius: 10px; 
+  border-top-left-radius: 10px;
 
   -moz-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
   -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
@@ -925,7 +924,7 @@ a:hover .header-profile-image {
   background-color: #C30F0F;
 
   border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px; 
+  border-bottom-left-radius: 10px;
 
   -moz-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
   -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
@@ -963,7 +962,7 @@ a:hover .header-profile-image {
   -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
   box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
   font: 400 4vw/1.3 'Oleo Script', Helvetica, sans-serif;
-  font-weight: bold;  
+  font-weight: bold;
   text-shadow: 4px 4px 2px rgba(0,0,0,0.25);
 
   margin: 0 0 4% 0;
@@ -994,7 +993,7 @@ a:hover .header-profile-image {
   transition: 0.5s all;
   cursor: pointer;
   color:white;
-  margin: 1% 0 0 0; 
+  margin: 1% 0 0 0;
   padding: 20px;
   background-color: #C30F0F;
   font: 400 2vw/1.3 'Oleo Script', Helvetica, sans-serif;
@@ -1012,7 +1011,7 @@ a:hover .header-profile-image {
 
 .register_to_vote .bottom {
   border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px; 
+  border-bottom-right-radius: 10px;
 }
 .fb-page {
   -moz-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
@@ -1022,14 +1021,14 @@ a:hover .header-profile-image {
 .twitter_acc {
   margin-top: 3%;
 }
-.twitter_acc iframe {  
+.twitter_acc iframe {
   -moz-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
   -webkit-box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
   box-shadow: 6px 6px 10px rgba(0,0,0,0.35);
 }
 
 .footer_top {
-  position: relative; 
+  position: relative;
   height: 75%;
   padding: 20px;
   background-color: #0000A5;
@@ -1094,7 +1093,7 @@ a:hover .header-profile-image {
 /*responsive mobile*/
 @media screen and (max-width: 775px) {
   .content {
-    padding-top: 49px; 
+    padding-top: 49px;
   }
   .container {
     width: 100%;
@@ -1161,7 +1160,7 @@ a:hover .header-profile-image {
     width: 100%;
   }
   .mail_form h3 {
-    font: 400 35px/1.3 'Oleo Script', Helvetica, sans-serif; 
+    font: 400 35px/1.3 'Oleo Script', Helvetica, sans-serif;
   }
   .mail_form p {
     font-size: 20px;
@@ -1192,7 +1191,7 @@ a:hover .header-profile-image {
   .donation_button2 {
     width: 16% !important;
     top: 4%;
-    right: 18%; 
+    right: 18%;
   }
   .donation_button3 {
     width: 16% !important;
@@ -1215,7 +1214,7 @@ a:hover .header-profile-image {
     box-shadow: 0 0 20px #888;*/
   }
 
-  .headshot {    
+  .headshot {
     display: block;
     margin: 0 auto;
     width: 200px !important;
@@ -1299,7 +1298,7 @@ a:hover .header-profile-image {
   .mission_section .heading3 {
     padding: 5% 8% 3% 8%;
     font: 400 65px/0.8 'Great Vibes', Helvetica, sans-serif;
-  }  
+  }
 
   .content_sec {
     background-color: white;
@@ -1461,7 +1460,7 @@ a:hover .header-profile-image {
     font: 400 12px/1.3 'Oleo Script', Helvetica, sans-serif;
   }
 
-  .section_four {  
+  .section_four {
     margin: -9% -10% 0 -10%;
     padding: 15% 0 0 0;
   }
@@ -1501,7 +1500,7 @@ a:hover .header-profile-image {
     display: block;
     width: 100%;
   }
-  .volunteer_info .col_left .col_info h1, 
+  .volunteer_info .col_left .col_info h1,
   .volunteer_info .col_middle .col_info h1,
   .volunteer_info .col_right .col_info h1 {
     padding: 1% 5%;
@@ -1512,7 +1511,7 @@ a:hover .header-profile-image {
   .volunteer_info .col_right .col_info .info_container {
     height: auto;
     padding: 2% 7%;
-    margin: 0 0 4% 0; 
+    margin: 0 0 4% 0;
   }
   .volunteer_info .col_left .col_info p,
   .volunteer_info .col_middle .col_info p,
@@ -1566,7 +1565,7 @@ a:hover .header-profile-image {
   .register_to_vote p {
     font: 400 20px/1.3 'Oleo Script', Helvetica, sans-serif;
   }
-  .twitter_acc {  
+  .twitter_acc {
     padding: 0 3%;
   }
   .social_container .col_right {
@@ -1611,7 +1610,7 @@ a:hover .header-profile-image {
   .mission_section .heading3 {
     padding: 6% 8% 3% 8%;
     font: 400 55px/0.8 'Great Vibes', Helvetica, sans-serif;
-  }  
+  }
 
   .title_sec .heading2 {
       padding: 2% 6% 0 6%;
@@ -1627,7 +1626,7 @@ a:hover .header-profile-image {
   .donation_button2 {
     width: 26% !important;
     top: 5%;
-    left: 16%; 
+    left: 16%;
   }
   .donation_button3 {
     display:none;
@@ -1708,4 +1707,3 @@ a:hover .header-profile-image {
     margin-right: 15%;
   }
 }
-
