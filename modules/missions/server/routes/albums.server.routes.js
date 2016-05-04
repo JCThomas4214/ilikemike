@@ -17,7 +17,7 @@ module.exports = function (app) {
 
   app.route('/api/albums/:albumsId')
     .get(users.requiresLogin, albums.read)
-    .patch(users.requiresLogin, albums.update)
+    .post(users.requiresLogin, albums.update)
     .delete(users.requiresLogin, albums.delete);
 
   app.route('/api/albums/:albumsId/delete')

@@ -6,7 +6,8 @@
 var mongoose = require('mongoose'),
   path = require('path'),
   _ = require('lodash'),
-  errorHandler = require('../../../core/server/controllers/errors.server.controller'),
+  errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
+  dropboxapi = require(path.resolve('./modules/missions/server/controllers/drop-box-api.server.controller')),
   Album = mongoose.model('Album'),
   multer = require('multer'),
   config = require(path.resolve('./config/config')),
@@ -143,8 +144,9 @@ exports.deleteAlbum = function (req, res) {
   var album = req.album;
 
   for (var i = 0; i < album.gallery.length; i++) {
-    deletePhotoFromFTP(album.gallery[i].ftpsrc);
-    deletePhotoFromFTP(album.gallery[i].mftpsrc);
+    // deletePhotoFromFTP(album.gallery[i].ftpsrc);
+    // deletePhotoFromFTP(album.gallery[i].mftpsrc);
+    dropboxapi.removeImageFromDropBox(album.gallery[i].ftpsrc);
   }
 
   album.remove(function (saveError) {
@@ -285,8 +287,8 @@ exports.deleteAlbumPhoto = function (req, res) {
   var photo_index = req.photoIndex;
   var photo_order = album.gallery[photo_index].pic_order;
 
-  deletePhotoFromFTP(album.gallery[photo_index].ftpsrc);
-  deletePhotoFromFTP(album.gallery[photo_index].mftpsrc);
+  // deletePhotoFromFTP(album.gallery[photo_index].ftpsrc);
+  // deletePhotoFromFTP(album.gallery[photo_index].mftpsrc);
 
   album.gallery.splice(photo_index, 1);
 

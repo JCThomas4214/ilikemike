@@ -10,4 +10,7 @@ module.exports = function (app) {
   app.route('/api/dropboxapi/host')
     .post(users.requiresLogin, dropboxapi.createPhotoHost);
 
+  app.route('/api/dropboxapi/delete')
+    .post(users.requiresLogin, dropboxapi.deleteDropBoxPhoto);
+
 };

@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('missions').controller('AlbumsController', ['$scope', '$location', '$window', '$timeout', '$stateParams', 'Albums', 'StoreRecord',
-  'DeleteAlbum', 'DeleteAlbumPhoto', 'Dropboxapi', 'DropboxHostapi', 'FileUploader', 'ngDialog',
-  function ($scope, $location, $window, $timeout, $stateParams, Albums, StoreRecord, DeleteAlbum, DeleteAlbumPhoto, Dropboxapi, DropboxHostapi, FileUploader, ngDialog) {
+  'DeleteAlbum', 'DeleteAlbumPhoto', 'Dropboxapi', 'DropboxHostapi', 'DropboxDeleteapi', 'FileUploader', 'ngDialog',
+  function ($scope, $location, $window, $timeout, $stateParams, Albums, StoreRecord, DeleteAlbum, DeleteAlbumPhoto, Dropboxapi, DropboxHostapi,
+    DropboxDeleteapi, FileUploader, ngDialog) {
     // Controller Logic
 
+    var active = false;
     var dialog;
     $scope.album = [];
     var album = [];
@@ -128,18 +130,22 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
 
     // Create new Album
     $scope.create = function () {
-      // Create new Album object
-      var album = new Albums({
-        name: this.name,
-        order: $scope.albums.length + 1
-      });
+      if (!active) {
+        active = true;
+        // Create new Album object
+        var album = new Albums({
+          name: this.name,
+          order: $scope.albums.length + 1
+        });
 
-      // Redirect after save
-      album.$save(function (response) {
-        $location.path('albums');
-      }, function (errorResponse) {
-        console.log(errorResponse.data.message);
-      });
+        // Redirect after save
+        album.$save(function (response) {
+          active = false;
+          $location.path('albums');
+        }, function (errorResponse) {
+          console.log(errorResponse.data.message);
+        });
+      }
     };
 
     // Remove existing Album
@@ -386,20 +392,23 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
       // Start upload
       // $scope.uploader.upload();
 
-
-
-      var store = new StoreRecord();
-
-      Dropboxapi.save($scope.newImage, function (res) {
-        // DropboxHostapi.share(res, function (res) {
-        //   console.log(res);
-        //   // res.albumsId = $scope.album._id;
-        //   // StoreRecord.store(res, function (res) {
-        //   //   console.log(res);
-        //   // });
-        // });
-      });
-
+      if (!active && $scope.newImage.imageName) {
+        active = true;
+        Dropboxapi.save($scope.newImage, function (res) {
+          DropboxHostapi.share(res, function (res) {
+            console.log(res);
+            res.albumsId = $scope.album._id;
+            StoreRecord.store(res, function (res) {
+              ngDialog.close(dialog);
+              console.log(res);
+              for (var i = 0; i < $scope.albums.length; i++) {
+                if ($scope.albums[i]._id === res._id) $scope.albums[i] = res;
+              }
+              active = false;
+            });
+          });
+        });
+      }
 
     };
 
@@ -411,26 +420,37 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
 
     //Delete photo from paragraph
     $scope.deleteAlbumPicture = function (album, photo) {
-      $scope.incLoading();
-      ngDialog.closeAll();
-      var deletePhoto = new DeleteAlbumPhoto();
-      var pIndex;
+      if (!active) {
+        $scope.incLoading();
+        ngDialog.closeAll();
+        var deletePhoto = new DeleteAlbumPhoto();
+        var pIndex;
 
-      for (var i = 0; i < album.gallery.length; i++) {
-        if (album.gallery[i]._id === photo._id) {
-          pIndex = i;
-          break;
+        for (var i = 0; i < album.gallery.length; i++) {
+          if (album.gallery[i]._id === photo._id) {
+            pIndex = i;
+            break;
+          }
         }
-      }
 
-      deletePhoto.$update({
-        albumsId: album._id,
-        photosIndex: pIndex
-      }, function (res) {
-        console.log(res);
-        angular.copy(res, album);
-        $scope.decLoading();
-      });
+        var image_info = {
+          photo_path: photo.ftpsrc
+        };
+
+        DropboxDeleteapi.delete(image_info, function (res) {
+          console.log(res);
+          deletePhoto.$update({
+            albumsId: album._id,
+            photosIndex: pIndex
+          }, function (res) {
+            console.log(res);
+            angular.copy(res, album);
+            $scope.decLoading();
+            active = false;
+          });
+        });
+
+      }
     };
   }
 ]);

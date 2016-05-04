@@ -10,7 +10,7 @@ var path = require('path'),
   request = require('request'),
   rp = require('request-promise'),
   qs = require('querystring'),
-  dbox = require('dbox'),
+  // dbox = require('./modules/missions/server/assets/dbox/lib/dbox.js'),
   appKandS = {
     app_key: '3kmzi6rj4ujdhfe',
     app_secret: '2pr0jb3i7n6rpsp'
@@ -20,20 +20,8 @@ var path = require('path'),
     oauth_token: 'hdvlf7jv8q0cjvw7',
     uid: '555930359'
   },
-  dbroot = 'sandbox',
+  dbroot = 'auto',
   dbscope = '';
-
-// var createDboxClient = function () {
-//   var app = dbox.app({
-//     app_key: '3kmzi6rj4ujdhfe',
-//     app_secret: '2pr0jb3i7n6rpsp'
-//   });
-//   return app.client({
-//     oauth_token_secret: 'd67hmv8yrnk6y7u',
-//     oauth_token: 'hdvlf7jv8q0cjvw7',
-//     uid: '555930359'
-//   });
-// };
 
 var encode = function (data) {
   return encodeURIComponent(data || '').
@@ -47,7 +35,7 @@ var encode = function (data) {
 var parseJSON = function (str) {
 
   var scopePath = path.join('/', dbscope);
-  var rx = new RegExp('^' + scopePath, 'i');
+  var rx = new RegExp('^' + scopePath + '/', 'i');
   var obj;
 
   try {
@@ -137,6 +125,7 @@ var signer = function () {
   var nonce = timestamp + Math.floor(Math.random() * 100000000);
 
   var options = {
+    oauth_token: oauthInfo.oauth_token,
     oauth_consumer_key: appKandS.app_key,
     oauth_signature: signature,
     oauth_timestamp: timestamp,
@@ -158,6 +147,21 @@ var sign = function (token, args) {
   }
 
   return signature;
+};
+
+var getOAuth2Token = function (args) {
+  var signature = sign(oauthInfo, args);
+
+  var createdUrl = createUrl({
+    hostname: 'api.dropboxapi.com',
+    action: 'oauth2/token_from_oauth1',
+    query: signature
+  });
+
+  var new_args = {
+    method: 'POST',
+    url: createdUrl
+  };
 };
 
 var putIntoDropBox = function (path, body, args, cb) {
@@ -186,38 +190,75 @@ var putIntoDropBox = function (path, body, args, cb) {
   // do not send empty body
   if (body.length > 0) new_args.body = body;
 
-  // return;
-
-  return rp(new_args)
-    .then(function (body) {
-      console.log(body);
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-
-  // return request(new_args, function (e, r, b) {
-  //   console.log(parseJSON(b));
-  //   console.log(e);
-  //   // Create a shared link, get the actual link, amnipulate, and store to mongo
-  //   // dboxclient.shares(imagePath, function (status, reply) {
-  //   //   imageResponce.imageLink = reply.url;
-  //   //   res.json(imageResponce);
-  //   // });
-  //   // cb(e ? null : r.statusCode, e ? null : parseJSON(b));
-  // });
-};
-
-var simpleRequest = function() {
-  var options = {
-    url: 'https://api.dropboxapi.com/1/oauth2/token'
-  };
-
-  request(options, function (err, response) {
-    console.log(response);
+  return request(new_args, function (e, r, b) {
+    cb(e ? null : r.statusCode, e ? null : parseJSON(b));
   });
 };
 
+var dropBoxHostLink = function (path, args, cb) {
+  if (!cb) {
+    cb = args;
+    args = null;
+  }
+
+  var signature = sign(oauthInfo, args);
+
+  var createdUrl = createUrl({
+    hostname: 'api.dropbox.com',
+    action: 'shares',
+    path: path
+  });
+
+  var body = qs.stringify(signature);
+
+  var new_args = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded',
+      'content-length': body.length
+    },
+    url: createdUrl,
+    body: body
+  };
+
+  return request(new_args, function (e, r, b) {
+    cb(e ? null : r.statusCode, e ? null : parseJSON(b));
+  });
+};
+
+exports.removeImageFromDropBox = function (path, args, cb) {
+  if (!cb) {
+    cb = args;
+    args = null;
+  }
+
+  var signature = sign(oauthInfo, args);
+
+  signature.root = dbroot;
+  signature.path = path;
+
+  var createdUrl = createUrl({
+    hostname: 'api.dropboxapi.com',
+    action: 'fileops/delete'
+  });
+
+  var body = qs.stringify(signature);
+
+  var new_args = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded',
+      'content-length': body.length
+    },
+    url: createdUrl,
+    body: body
+  };
+
+  return request(new_args, function (e, r, b) {
+    if (cb)
+      cb(e ? null : r.statusCode, e ? null : parseJSON(b));
+  });
+};
 
 
 /**
@@ -296,12 +337,15 @@ exports.uploadToDropbox = function (req, res) {
 
   // console.log(u);
 
-  // putIntoDropBox(imagePath, buffer);
-  simpleRequest();
-
-  res.json({
-    status: 'DONE'
+  putIntoDropBox(imagePath, buffer, function (status, reply) {
+    // Create a shared link, get the actual link, amnipulate, and store to mongo
+    dropBoxHostLink(imagePath, function (status, reply) {
+      imageResponce.imageLink = reply.url;
+      res.json(imageResponce);
+    });
   });
+  // simpleRequest();
+
 };
 
 var requestHostLink = function (url) {
@@ -309,7 +353,6 @@ var requestHostLink = function (url) {
 };
 
 exports.createPhotoHost = function (req, res) {
-  console.log('We are in the createPhotoHost api');
 
   var imageResponce = {
     width: req.body.width,
@@ -328,4 +371,14 @@ exports.createPhotoHost = function (req, res) {
       // send back to store into mongo
       res.json(imageResponce);
     });
+};
+
+exports.deleteDropBoxPhoto = function (req, res) {
+  var imagePath = req.body.photo_path;
+
+  exports.removeImageFromDropBox(imagePath, function (status, reply) {
+    res.json({
+      deleted: imagePath
+    });
+  });
 };

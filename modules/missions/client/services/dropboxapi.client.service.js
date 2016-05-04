@@ -31,3 +31,19 @@ angular.module('missions')
       });
     }
   ]);
+
+angular.module('missions')
+  .factory('DropboxDeleteapi', ['$resource',
+
+    function ($resource) {
+      // Dropboxapi service logic
+      // ...
+
+      // Public API
+      return $resource('api/dropboxapi/delete', {}, {
+        delete: {
+          method: 'POST'
+        }
+      });
+    }
+  ]);

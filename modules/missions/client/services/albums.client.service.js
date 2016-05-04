@@ -28,7 +28,7 @@ angular.module('missions')
         albumsId: '@_id'
       }, {
         update: {
-          method: 'PATCH'
+          method: 'POST'
         }
       });
     }
