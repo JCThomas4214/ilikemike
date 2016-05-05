@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(app) {
+module.exports = function (app) {
   var missions = require('../controllers/missions.server.controller.js');
   var users = require('../../../users/server/controllers/users.server.controller.js');
 
@@ -10,6 +10,9 @@ module.exports = function(app) {
   app.route('/api/missions')
     .get(users.requiresLogin, missions.list)
     .post(users.requiresLogin, missions.create);
+
+  app.route('/api/missions/store')
+    .post(users.requiresLogin, missions.findMission, missions.storePhotoRecord);
 
   app.route('/api/missions/:missionsId')
     .get(users.requiresLogin, missions.read)

@@ -8,7 +8,7 @@
                 <div class="form-group caption_text" ng-hide="progress.state">
                     <label class="control-label" for="caption">Caption</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="caption" id="caption" class="form-control" placeholder="Photo Caption" required>
+                        <input type="text" data-ng-model="newImage.caption" id="caption" class="form-control" placeholder="Photo Caption" required>
                     </div>
                 </div>
                 <div class="form-group select_para" ng-hide="progress.state">
@@ -18,10 +18,10 @@
                     </select>
                 </div>
                 <div class="form-group" ng-hide="progress.state">
-                    <input id="uploadFile" data-ng-model="imageURL" class="file-path" placeholder="Choose File" disabled="disabled" />
+                    <input id="uploadFile" data-ng-model="newImage.imageName" class="file-path" placeholder="Choose File" disabled="disabled" />
                     <div class="fileUpload btn btn-default">
                         <span>Browse</span>
-                        <input id="uploadBtn" type="file" class="upload" nv-file-select uploader="uploader" />
+                        <input id="uploadBtn" type="file" class="upload" fileread="newImage" />
                     </div>
                 </div>
                 <div class="form-group" ng-hide="progress.state">

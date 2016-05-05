@@ -1,19 +1,14 @@
 'use strict';
 
-angular.module('missions').controller('AlbumsController', ['$scope', '$location', '$window', '$timeout', '$stateParams', 'Albums', 'StoreRecord',
+angular.module('missions').controller('AlbumsController', ['$scope', '$location', '$window', '$timeout', '$stateParams', 'Albums', 'StoreAlbumRecord',
   'DeleteAlbum', 'DeleteAlbumPhoto', 'Dropboxapi', 'DropboxHostapi', 'DropboxDeleteapi', 'FileUploader', 'ngDialog',
-  function ($scope, $location, $window, $timeout, $stateParams, Albums, StoreRecord, DeleteAlbum, DeleteAlbumPhoto, Dropboxapi, DropboxHostapi,
+  function ($scope, $location, $window, $timeout, $stateParams, Albums, StoreAlbumRecord, DeleteAlbum, DeleteAlbumPhoto, Dropboxapi, DropboxHostapi,
     DropboxDeleteapi, FileUploader, ngDialog) {
     // Controller Logic
 
     var active = false;
     var dialog;
     $scope.album = [];
-    var album = [];
-    var photo;
-    var width;
-    var height;
-    var caption = '';
 
 
     $scope.loading = {
@@ -71,7 +66,6 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
         class: ''
       };
 
-      angular.copy(_album, album);
       angular.copy(_album, $scope.album);
 
       dialog = ngDialog.open({
@@ -79,10 +73,6 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
         className: 'picker_dialog',
         scope: $scope
       });
-
-      // dialog.closePromise.then(function (data) {
-      //   $scope.cancelUpload();
-      // });
     };
 
     $scope.openDeleteAlbumQ = function (_album) {
@@ -316,14 +306,14 @@ angular.module('missions').controller('AlbumsController', ['$scope', '$location'
             $scope.progress.position = 80;
             console.log(res);
             res.albumsId = $scope.album._id;
-            StoreRecord.store(res, function (res) {
+            StoreAlbumRecord.store(res, function (res) {
 
               $timeout(function () {
                 $scope.progress.position = 100;
                 $scope.progress.class = 'progress-bar-success';
               });
               $timeout(function () {
-                ngDialog.closeAll();
+                ngDialog.close(dialog);
               }, 1000);
 
               console.log(res);

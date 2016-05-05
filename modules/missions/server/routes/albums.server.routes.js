@@ -26,8 +26,8 @@ module.exports = function (app) {
   app.route('/api/albums/:albumsId/:photosIndex')
     .post(users.requiresLogin, albums.deleteAlbumPhoto);
 
-  app.route('/api/albums/:albumsId/:picWidth/:picHeight/:picCaption')
-    .post(users.requiresLogin, albums.uploadAlbumPhoto);
+  // app.route('/api/albums/:albumsId/:picWidth/:picHeight/:picCaption')
+  //   .post(users.requiresLogin, albums.uploadAlbumPhoto);
 
   app.param('albumsId', albums.albumByID);
   app.param('photosIndex', albums.photoByID);

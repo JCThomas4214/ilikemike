@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('missions').controller('MissionsController', ['$scope', '$timeout', '$window', '$stateParams', '$location', 'Authentication', 'Missions',
-  'DeleteParagraphPhoto', 'FileUploader', 'ngDialog',
-  function ($scope, $timeout, $window, $stateParams, $location, Authentication, Missions, DeleteParagraphPhoto, FileUploader, ngDialog) {
+  'StoreMissionRecord', 'DeleteParagraphPhoto', 'Dropboxapi', 'DropboxHostapi', 'DropboxDeleteapi', 'FileUploader', 'ngDialog',
+  function ($scope, $timeout, $window, $stateParams, $location, Authentication, Missions, StoreMissionRecord, DeleteParagraphPhoto, Dropboxapi, DropboxHostapi,
+    DropboxDeleteapi, FileUploader, ngDialog) {
 
+    var active = false;
     var dialog;
     // var imageURL = '';
     var mission = [];
@@ -60,7 +62,16 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
     };
 
     $scope.openPhotoPicker = function (_mission) {
-      $scope.imageURL = '';
+      $scope.newImage = {
+        image: '',
+        imageName: '',
+        imageURL: 'uploads/missions/',
+        caption: '',
+        width: 0,
+        height: 0,
+        imageLink: ''
+      };
+
       $scope.paragraph.select = 0;
       $scope.mission = _mission;
 
@@ -76,9 +87,6 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
         template: '/modules/missions/client/views/pickerDialogFormat.html',
         className: 'picker_dialog',
         scope: $scope
-      });
-      dialog.closePromise.then(function (data) {
-        $scope.cancelUpload();
       });
     };
 
@@ -355,20 +363,46 @@ angular.module('missions').controller('MissionsController', ['$scope', '$timeout
     };
 
     // Change user profile picture
-    $scope.uploadParagraphPicture = function (body_i, pic_width, pic_height, pic_caption) {
+    $scope.uploadParagraphPicture = function () {
+
       $scope.incLoading();
-
-      body_index = $scope.paragraph.select;
-      caption = this.caption;
-
       $scope.progress.state = true;
 
-      if (this.caption) {
-        caption = this.caption.replace('/', '%2f');
-      }
+      // Start Upload
+      if (!active && $scope.newImage.imageName) {
+        active = true;
+        $scope.progress.position = 20;
+        Dropboxapi.save($scope.newImage, function (res) {
+          $scope.progress.position = 60;
+          // console.log(res);
+          DropboxHostapi.share(res, function (res) {
+            $scope.progress.position = 80;
+            res.missionId = $scope.mission._id;
+            res.paragraph = $scope.paragraph.select;
+            // console.log(res);
+            StoreMissionRecord.store(res, function (res) {
+              console.log(res);
 
-      // Start upload
-      $scope.uploader.uploadAll();
+              $timeout(function () {
+                $scope.progress.position = 100;
+                $scope.progress.class = 'progress-bar-success';
+              });
+              $timeout(function () {
+                ngDialog.close(dialog);
+              }, 1000);
+
+              for (var i = 0; i < $scope.missions.length; i++) {
+                if ($scope.missions[i]._id === res._id) {
+                  $scope.missions[i].body[body_index] = res.body[body_index];
+                  break;
+                }
+              }
+              $scope.decLoading();
+              active = false;
+            });
+          });
+        });
+      }
     };
 
     // Cancel the upload process

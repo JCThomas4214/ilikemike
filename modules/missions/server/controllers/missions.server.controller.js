@@ -7,13 +7,14 @@
 var mongoose = require('mongoose'),
   path = require('path'),
   errorHandler = require('../../../core/server/controllers/errors.server.controller'),
+  dropboxapi = require(path.resolve('./modules/missions/server/controllers/drop-box-api.server.controller')),
   Missions = mongoose.model('Missions'),
   _ = require('lodash'),
   multer = require('multer'),
   config = require(path.resolve('./config/config')),
   del = require('del'),
   JSFtp = require('jsftp');
-  // lwip = require('lwip');
+// lwip = require('lwip');
 
 var uploadPhotoToFTP = function (src, dest) {
   var ftp = new JSFtp({
@@ -225,6 +226,54 @@ exports.uploadParagraphPhoto = function (req, res) {
 };
 
 /**
+  Mission photo upload
+**/
+exports.storePhotoRecord = function (req, res) {
+  var mission = req.missions;
+  var width = req.body.width;
+  var height = req.body.height;
+  var caption = req.body.caption;
+  var imageLink = req.body.imageLink;
+  var imageURL = req.body.imageURL;
+  var paragraph = req.body.paragraph;
+
+  var image_info = {
+    src: imageLink,
+    msrc: imageLink,
+    w: width,
+    h: height,
+    caption: caption,
+    ftpsrc: imageURL,
+    mftpsrc: imageURL
+  };
+
+  // console.log(mission);
+
+  if (mission.body[paragraph].image.length) {
+    console.log('There was another photo');
+
+    // Delete photo from Dropbox
+    dropboxapi.removeImageFromDropBox(mission.body[paragraph].image[0].ftpsrc);
+
+    mission.body[paragraph].image.splice(0, 1);
+  }
+
+  mission.body[paragraph].image.push(image_info);
+  mission.body[paragraph].hidden_img = false;
+
+  req.missions = mission;
+  mission.save(function (saveError) {
+    if (saveError) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(saveError)
+      });
+    } else {
+      res.json(mission);
+    }
+  });
+};
+
+/**
   Mission photo delete
 **/
 exports.deleteParagraphPhoto = function (req, res) {
@@ -232,8 +281,8 @@ exports.deleteParagraphPhoto = function (req, res) {
   var mission = req.missions;
   var body_index = req.bodyindex;
 
-  deletePhotoFromFTP(mission.body[body_index].image[0].ftpsrc);
-  deletePhotoFromFTP(mission.body[body_index].image[0].mftpsrc);
+  // Delete photo from Dropbox
+  dropboxapi.removeImageFromDropBox(mission.body[body_index].image[0].ftpsrc);
 
   mission.body[body_index].image.pop();
   mission.body[body_index].hidden_img = true;
@@ -254,6 +303,24 @@ exports.deleteParagraphPhoto = function (req, res) {
 /**
 	Missions middleware
 **/
+exports.findMission = function (req, res, next) {
+  if (!mongoose.Types.ObjectId.isValid(req.body.missionId)) {
+    return res.status(400).send({
+      message: 'Mission is invalid'
+    });
+  }
+
+  Missions.findById(req.body.missionId).exec(function (err, missions) {
+    if (err) return next(err);
+    if (!missions) {
+      return res.status(404).send({
+        message: 'Mission not found'
+      });
+    }
+    req.missions = missions;
+    next();
+  });
+};
 exports.missionsByID = function (req, res, next, id) {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({

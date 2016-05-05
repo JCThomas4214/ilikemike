@@ -199,86 +199,6 @@ exports.storePhotoRecord = function (req, res) {
   });
 };
 
-
-
-
-
-
-/**
-  Album photo upload
-**/
-exports.uploadAlbumPhoto = function (req, res) {
-  var album = req.album;
-  var width = req.width;
-  var height = req.height;
-  var caption = req.caption;
-
-  var message = null;
-  var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, config.uploads.galleryUpload.dest);
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.originalname);
-    }
-  });
-  var multerUpload = multer({
-    storage: storage
-  });
-  var upload = multerUpload.single('newAlbumPicture');
-
-  console.log(upload.data);
-
-
-  upload(req, res, function (uploadError) {
-    if (uploadError) {
-      return res.status(400).send({
-        message: 'Error occurred while uploading profile picture'
-      });
-    } else {
-
-      // lwip.open(req.file.destination + req.file.filename, function (err, image) {
-      //   image.batch()
-      //     .scale(0.2)
-      //     .writeFile(req.file.destination + 'sm_' + req.file.filename, function (err) {
-      //       if (err) throw err;
-      //
-      //       uploadPhotoToFTP(req.file.destination + req.file.filename, config.uploads.galleryUpload.ftpdest + req.file.filename);
-      //       uploadPhotoToFTP(req.file.destination + 'sm_' + req.file.filename, config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename);
-      //
-      //       if (caption.toString() === 'undefined') {
-      //         caption = '';
-      //       }
-      //
-      //       var image_info = {
-      //         pic_order: album.gallery.length + 1,
-      //         src: config.ftp_server.public.full + config.uploads.galleryUpload.ftpdest + req.file.filename,
-      //         msrc: config.ftp_server.public.full + config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename,
-      //         w: width,
-      //         h: height,
-      //         caption: caption,
-      //         ftpsrc: config.uploads.galleryUpload.ftpdest + req.file.filename,
-      //         mftpsrc: config.uploads.galleryUpload.ftpdest + 'small_ver/' + req.file.filename
-      //       };
-      //
-      //       album.gallery.push(image_info);
-      //
-      //       req.album = album;
-      //       album.save(function (saveError) {
-      //         if (saveError) {
-      //           return res.status(400).send({
-      //             message: errorHandler.getErrorMessage(saveError)
-      //           });
-      //         } else {
-      //           res.json(album);
-      //         }
-      //       });
-      //     });
-      // });
-    }
-  });
-};
-
 /**
   Album photo delete
 **/
@@ -289,6 +209,7 @@ exports.deleteAlbumPhoto = function (req, res) {
 
   // deletePhotoFromFTP(album.gallery[photo_index].ftpsrc);
   // deletePhotoFromFTP(album.gallery[photo_index].mftpsrc);
+  dropboxapi.removeImageFromDropBox(album.gallery[photo_index].ftpsrc);
 
   album.gallery.splice(photo_index, 1);
 

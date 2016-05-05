@@ -35,7 +35,7 @@ angular.module('missions')
   ]);
 
 angular.module('missions')
-  .factory('StoreRecord', ['$resource',
+  .factory('StoreAlbumRecord', ['$resource',
 
     function ($resource) {
       // Albums service logic
